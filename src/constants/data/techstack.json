@@ -1,0 +1,365 @@
+{
+  "technology_pages": {
+    "landing_page": {
+      "page_id": "technology_stack_landing",
+      "page_name": "Technology Stack Landing",
+      "hero": {
+        "title": "Technology Stack",
+        "subtitle": "Science platforms behind product performance",
+        "headline": "Three specialized platforms. One integrated biological innovation system.",
+        "body": "BioDesk presents Kriya as a technology-led agricultural biology company. Our platform stack is designed to discover, build, protect, deliver, and activate biological performance across microbial and botanical systems. Wynn powers microbial science and process development. Karyo powers delivery and protection of microbial and botanical actives. Microvate powers precision activation for microbial systems that are designed to become functionally ready only at the point of use."
+      },
+      "intro_section": {
+        "title": "How the stack works",
+        "body": "Each platform in the Kriya technology stack has a distinct role. Wynn is the upstream microbial science engine. Karyo is the active delivery and protection engine. Microvate is the biological readiness engine. Together, they create a clear innovation architecture for next-generation crop input systems."
+      },
+      "platform_cards": [
+        {
+          "name": "Wynn™",
+          "category": "Microbial Systems Platform",
+          "tagline": "A microbial platform built for scale, stability, and agronomic relevance",
+          "short_description": "Wynn discovers, optimizes, scales, stabilizes, and validates microbial systems for agricultural use.",
+          "role_statement": "Wynn serves as Kriya's upstream microbial science and process platform.",
+          "cta_label": "Explore Wynn"
+        },
+        {
+          "name": "Karyo™",
+          "category": "Delivery and Protection Platform",
+          "tagline": "A delivery and protection platform for microbial and botanical actives",
+          "short_description": "Karyo protects, encapsulates, combines, and translates sensitive actives into stable agricultural delivery systems.",
+          "role_statement": "Karyo serves as Kriya's cross-platform active delivery engine.",
+          "cta_label": "Explore Karyo"
+        },
+        {
+          "name": "Microvate™",
+          "category": "Precision Activation Platform",
+          "tagline": "Precision activation for next-generation biological systems",
+          "short_description": "Microvate enables microbial systems to remain protected during storage and become functionally ready only at the point of use.",
+          "role_statement": "Microvate serves as Kriya's biological readiness engine.",
+          "cta_label": "Explore Microvate"
+        }
+      ],
+      "relationship_section": {
+        "title": "Role of each platform",
+        "items": [
+          {
+            "platform": "Wynn™",
+            "scope": "Microbial only",
+            "definition": "Discovers and builds microbial systems through intelligence, analytics, process engineering, stabilization, and validation."
+          },
+          {
+            "platform": "Karyo™",
+            "scope": "Microbial and botanical",
+            "definition": "Protects, encapsulates, combines, and delivers one or more actives through structured agricultural delivery systems."
+          },
+          {
+            "platform": "Microvate™",
+            "scope": "Microbial only",
+            "definition": "Controls the transition from protected storage state to functional biological readiness through point-of-use activation."
+          }
+        ]
+      },
+      "closing_section": {
+        "title": "Why it matters",
+        "body": "The technology stack helps explain not only what Kriya products are, but how their performance is engineered. It gives BioDesk a platform-level story that is scientific, credible, and highly relevant for distributors, agronomists, and regulatory audiences."
+      }
+    },
+    "wynn_page": {
+      "page_id": "technology_wynn",
+      "page_name": "Wynn",
+      "hero": {
+        "title": "Wynn™",
+        "subtitle": "Microbial Performance Engine",
+        "headline": "A microbial platform built for scale, stability, and agronomic relevance",
+        "body": "Wynn is Kriya's microbial systems platform for discovery, bioactivity analytics, bioprocess engineering, recovery, stability, and validation. It is designed to convert microbial potential into stable, scalable, and field-relevant biological performance."
+      },
+      "overview_section": {
+        "title": "Platform Overview",
+        "body": "Wynn is the upstream microbial science and process platform in the Kriya stack. It focuses exclusively on microbial systems and is responsible for identifying promising organisms, understanding their functional value, developing process logic for reproducible scale, preserving post-production integrity, and validating agronomic relevance. Wynn does not own final delivery architecture or point-of-use activation. Its role is to build the microbial system before it moves into delivery or activation technologies."
+      },
+      "core_positioning_section": {
+        "title": "Core Positioning",
+        "body": "Wynn is built around a clear principle: microbial value must be retained from discovery through validation. The platform is designed not only to produce microorganisms, but to preserve scientific relevance, functional potential, and field-facing credibility across the development pathway."
+      },
+      "six_pillars_section": {
+        "title": "Six-Pillar Architecture",
+        "pillars": [
+          {
+            "title": "Microbial Intelligence",
+            "body": "Isolation, screening, selection, and characterization of microorganisms with agricultural relevance."
+          },
+          {
+            "title": "Bioactivity Analytics",
+            "body": "Functional assessment of microbial behavior, biological traits, and useful activity signals that guide downstream development."
+          },
+          {
+            "title": "Bioprocess Engineering",
+            "body": "Media design, growth optimization, process tuning, and scalable production logic for reproducible microbial development."
+          },
+          {
+            "title": "Biomass & Metabolite Recovery",
+            "body": "Recovery and handling of useful microbial biomass and biological fractions after production."
+          },
+          {
+            "title": "Stability Science",
+            "body": "Preservation of viability, biological integrity, and storage resilience after production."
+          },
+          {
+            "title": "Validation & Translation",
+            "body": "Greenhouse and field-linked evaluation that connects laboratory output to agronomic performance."
+          }
+        ]
+      },
+      "what_makes_it_different_section": {
+        "title": "What makes Wynn different",
+        "points": [
+          {
+            "title": "Performance-led, not output-led",
+            "body": "Wynn is designed around microbial performance retention, not just microbial production."
+          },
+          {
+            "title": "Function plus organism",
+            "body": "The platform evaluates not only the microorganism itself, but also the biological behavior associated with it."
+          },
+          {
+            "title": "Process as a scientific asset",
+            "body": "Wynn treats media, growth conditions, and scale-up design as core performance variables."
+          },
+          {
+            "title": "Stability before delivery",
+            "body": "Wynn preserves microbial integrity before systems move into Karyo or Microvate."
+          },
+          {
+            "title": "Field-linked validation",
+            "body": "Wynn is anchored in agronomic relevance through structured greenhouse and field translation."
+          }
+        ]
+      },
+      "scope_section": {
+        "title": "Role in the stack",
+        "owns": [
+          "Microbial discovery",
+          "Strain intelligence",
+          "Bioactivity analytics",
+          "Bioprocess engineering",
+          "Scale-up logic",
+          "Biomass and metabolite recovery",
+          "Stability science",
+          "Field validation"
+        ],
+        "does_not_own": [
+          "Final formulation design",
+          "Encapsulation and delivery architecture",
+          "Point-of-use activation systems"
+        ]
+      },
+      "future_potential_section": {
+        "title": "Future Potential",
+        "body": "The potential of Wynn lies in becoming Kriya's microbial performance engine across the portfolio. It can support stronger microbial platform identity, faster translation of candidates into validated systems, clearer differentiation from generic manufacturers, and future expansion into crop-specific microbial pipelines and partner-facing development programs."
+      },
+      "closing_section": {
+        "title": "Why Wynn matters",
+        "body": "Wynn gives Kriya a clear scientific foundation for microbial innovation. It helps explain how microbial systems are discovered, developed, stabilized, and validated before they become part of larger delivery or activation architectures."
+      }
+    },
+    "karyo_page": {
+      "page_id": "technology_karyo",
+      "page_name": "Karyo",
+      "hero": {
+        "title": "Karyo™",
+        "subtitle": "Active Delivery Engine",
+        "headline": "A delivery and protection platform for microbial and botanical actives",
+        "body": "Karyo is Kriya's cross-platform active delivery and protection system. It is designed to stabilize, encapsulate, combine, and translate one or more microbial and/or botanical actives into robust agricultural delivery systems."
+      },
+      "overview_section": {
+        "title": "Platform Overview",
+        "body": "Karyo is the delivery and protection layer of the Kriya stack. Unlike Wynn and Microvate, Karyo is not restricted to microbial systems. It is built for both microbial and botanical actives and can support encapsulated single-actives, multi-actives, and hybrid combinations within structured agricultural delivery systems. Karyo focuses on how sensitive actives are protected, combined, and translated into usable field-facing product architectures."
+      },
+      "core_positioning_section": {
+        "title": "Core Positioning",
+        "body": "Karyo is built on a simple principle: active performance depends on delivery architecture. The value of an active is determined not only by what it is, but by how it is protected, combined, and delivered under real agricultural conditions."
+      },
+      "six_pillars_section": {
+        "title": "Six-Pillar Architecture",
+        "pillars": [
+          {
+            "title": "Active Protection",
+            "body": "Protection of sensitive actives from degradation during storage, transport, and handling."
+          },
+          {
+            "title": "Encapsulation & Matrix Design",
+            "body": "Development of protective layers, structured matrices, and carrier systems around individual or combined actives."
+          },
+          {
+            "title": "Multi-Active Integration",
+            "body": "Co-delivery of one or more microbial and/or botanical actives within a unified system."
+          },
+          {
+            "title": "Delivery Architecture",
+            "body": "Control of how actives are dispersed, suspended, solubilized, or released during application."
+          },
+          {
+            "title": "Format Flexibility",
+            "body": "Translation of delivery systems into practical agricultural formats across different use cases."
+          },
+          {
+            "title": "Stability & Application Compatibility",
+            "body": "Improvement of shelf life, water compatibility, tank behavior, and field usability."
+          }
+        ]
+      },
+      "what_makes_it_different_section": {
+        "title": "What makes Karyo different",
+        "points": [
+          {
+            "title": "Cross-platform by design",
+            "body": "Karyo is built for both microbial and botanical actives, unlike Wynn and Microvate which are restricted to microbial systems."
+          },
+          {
+            "title": "Protection-first architecture",
+            "body": "Karyo is not just about formulation. It is about protecting sensitive actives before and during application."
+          },
+          {
+            "title": "Supports multi-active systems",
+            "body": "Karyo can support microbial plus microbial, botanical plus botanical, and microbial plus botanical combinations."
+          },
+          {
+            "title": "Bridges biology and delivery",
+            "body": "Karyo translates biological and botanical actives into structured agricultural systems that are stable and usable."
+          },
+          {
+            "title": "Built for commercial adaptability",
+            "body": "Karyo supports multiple delivery formats and helps create product architectures suited for real market conditions."
+          }
+        ]
+      },
+      "scope_section": {
+        "title": "Role in the stack",
+        "owns": [
+          "Encapsulation systems",
+          "Active protection",
+          "Multi-active combination logic",
+          "Microbial plus botanical co-delivery",
+          "Carrier and matrix design",
+          "Delivery architecture",
+          "Format flexibility",
+          "Shelf-life and application compatibility"
+        ],
+        "does_not_own": [
+          "Microbial discovery",
+          "Strain selection",
+          "Fermentation process engineering",
+          "Upstream microbial stabilization science",
+          "Point-of-use readiness triggering"
+        ]
+      },
+      "future_potential_section": {
+        "title": "Future Potential",
+        "body": "The potential of Karyo lies in becoming Kriya's cross-platform active delivery engine. It can support encapsulated multi-actives, hybrid microbial-botanical systems, modular format platforms, and a unifying delivery layer across the wider Kriya portfolio."
+      },
+      "closing_section": {
+        "title": "Why Karyo matters",
+        "body": "Karyo helps explain how sensitive actives are protected, combined, and translated into stable agricultural delivery systems. It gives BioDesk a strong platform story around usability, protection, and field-facing product architecture."
+      }
+    },
+    "microvate_page": {
+      "page_id": "technology_microvate",
+      "page_name": "Microvate",
+      "hero": {
+        "title": "Microvate™",
+        "subtitle": "Biological Readiness Engine",
+        "headline": "Precision activation for next-generation biological systems",
+        "body": "Microvate is Kriya's precision activation platform for microbial systems that are designed to remain protected during storage and become functionally ready only at the point of use. It separates storage stability from biological readiness through a controlled activation architecture."
+      },
+      "overview_section": {
+        "title": "Platform Overview",
+        "body": "Microvate is the biological readiness layer of the Kriya stack and is restricted to microbial systems. It is built around a dual-component logic in which the microbial active remains protected during storage while an activation-support system remains separate until needed. Microvate does not focus on microbial discovery and does not replace Karyo's broader delivery role. Its function is to control when and how the microbial system becomes ready."
+      },
+      "core_positioning_section": {
+        "title": "Core Positioning",
+        "body": "Microvate is built on a powerful principle: stability and activation should not be forced to happen in the same state. By separating protected storage from activation readiness, the platform creates a more controlled transition from biological preservation to biological performance."
+      },
+      "six_pillars_section": {
+        "title": "Six-Pillar Architecture",
+        "pillars": [
+          {
+            "title": "Separated Stability Architecture",
+            "body": "The microbial active and the activation-support system are kept separate to reduce storage-phase compromise."
+          },
+          {
+            "title": "Protected Storage Logic",
+            "body": "The microbial component remains in a protected state during storage and transport."
+          },
+          {
+            "title": "Point-of-Use Activation",
+            "body": "Activation is triggered only when the system is prepared for application."
+          },
+          {
+            "title": "Readiness Control",
+            "body": "The platform controls the transition from protected state to functionally ready state."
+          },
+          {
+            "title": "Engineered Synergy",
+            "body": "The system supports purposeful interaction between the microbial component and the activation-support component."
+          },
+          {
+            "title": "Application-Phase Performance",
+            "body": "The platform is designed to improve field-relevant expression during the use phase."
+          }
+        ]
+      },
+      "what_makes_it_different_section": {
+        "title": "What makes Microvate different",
+        "points": [
+          {
+            "title": "Separates storage logic from activation logic",
+            "body": "Microvate distinguishes between stable storage state and active use state rather than forcing both into one condition."
+          },
+          {
+            "title": "Treats activation as a designed event",
+            "body": "Activation is controlled and intentional, not passive or assumed."
+          },
+          {
+            "title": "Reduces storage-phase compromise",
+            "body": "The separated architecture can reduce premature interaction during warehousing and transport."
+          },
+          {
+            "title": "Creates a platform for engineered interaction",
+            "body": "Microvate allows the microbial system and activation-support logic to interact only when needed."
+          },
+          {
+            "title": "Builds premium product differentiation",
+            "body": "Microvate is not just a two-part system. It is a readiness architecture for advanced microbial products."
+          }
+        ]
+      },
+      "scope_section": {
+        "title": "Role in the stack",
+        "owns": [
+          "Separated storage architecture",
+          "Just-in-time activation",
+          "Controlled point-of-use mixing",
+          "Readiness triggering",
+          "Activation-support logic",
+          "Engineered synergy",
+          "Application-phase performance architecture"
+        ],
+        "does_not_own": [
+          "Microbial discovery",
+          "Strain selection",
+          "Fermentation process design",
+          "Generic formulation design",
+          "Broad multi-format delivery architecture"
+        ]
+      },
+      "future_potential_section": {
+        "title": "Future Potential",
+        "body": "The potential of Microvate lies in redefining how microbial products transition from storage stability to functional performance. It can support activation-led biological systems, premium dual-component microbial products, controlled readiness architectures, and a differentiated future category within microbial agriculture."
+      },
+      "closing_section": {
+        "title": "Why Microvate matters",
+        "body": "Microvate gives Kriya a differentiated story around biological readiness. It helps explain how microbial systems can remain protected during storage and become deliberately active only when performance is needed."
+      }
+    }
+  }
+}

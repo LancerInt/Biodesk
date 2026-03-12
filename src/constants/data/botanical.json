@@ -1,0 +1,1141 @@
+[
+  {
+    "product_identity": {
+      "brand_name": "Ecoza Max",
+      "active_ingredient": "Azadirachtin",
+      "concentration": "3%",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Ecoza Max is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "key_product_highlights": [
+      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
+      "Disrupts immature development across multiple insect stages",
+      "Useful in IPM rotations for sucking and chewing pest complexes",
+      "Best performance is obtained with early application and thorough coverage"
+    ],
+    "mechanism_of_action": {
+      "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early infestation or preventive canopy spray",
+        "dose_per_acre": "250-300 mL/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray with thorough canopy coverage"
+      },
+      {
+        "crop_stage": "Moderate pest pressure",
+        "dose_per_acre": "300-400 mL/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray targeting the undersides of leaves"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of nymphs or early larval stages",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Use the lower dose as a preventive treatment and the upper dose under rising pest pressure."
+      },
+      {
+        "application_timing": "During active flush or continuous pest emergence",
+        "frequency": "2-3 sequential sprays",
+        "recommendation": "Maintain full coverage of tender foliage and the lower leaf surface for better suppression."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 3% azadirachtin.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Sucking pests are causing curling, chlorosis, and honeydew deposition.",
+        "solution": "Apply early to deter feeding and suppress immature development before populations peak."
+      },
+      {
+        "problem": "Repeated infestations are occurring after short-residual contact sprays.",
+        "solution": "Use sequential applications to interrupt molting and reduce oviposition across overlapping generations."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "High-strength azadirachtin EC positioned for lower-dose foliar programs where strong active loading and quick emulsification are preferred."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Ecoza Ace",
+      "active_ingredient": "Azadirachtin",
+      "concentration": "1.2%",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Ecoza Ace is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "key_product_highlights": [
+      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
+      "Disrupts immature development across multiple insect stages",
+      "Useful in IPM rotations for sucking and chewing pest complexes",
+      "Best performance is obtained with early application and thorough coverage"
+    ],
+    "mechanism_of_action": {
+      "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early infestation or preventive canopy spray",
+        "dose_per_acre": "500-750 mL/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray with uniform canopy coverage"
+      },
+      {
+        "crop_stage": "Moderate pest pressure",
+        "dose_per_acre": "750-1000 mL/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray focusing on new growth and the lower leaf surface"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of nymphs or early larval stages",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Use the lower dose as a preventive treatment and the upper dose under rising pest pressure."
+      },
+      {
+        "application_timing": "During active flush or continuous pest emergence",
+        "frequency": "2-3 sequential sprays",
+        "recommendation": "Maintain full coverage of tender foliage and the lower leaf surface for better suppression."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 1.2% azadirachtin.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Sucking pests are causing curling, chlorosis, and honeydew deposition.",
+        "solution": "Apply early to deter feeding and suppress immature development before populations peak."
+      },
+      {
+        "problem": "Repeated infestations are occurring after short-residual contact sprays.",
+        "solution": "Use sequential applications to interrupt molting and reduce oviposition across overlapping generations."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Mid-strength azadirachtin EC positioned for routine IPM rotation and preventive botanical pest management in vegetables, fruits, and field crops."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Ecoza Pro",
+      "active_ingredient": "Azadirachtin",
+      "concentration": "0.3%",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Ecoza Pro is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "key_product_highlights": [
+      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
+      "Disrupts immature development across multiple insect stages",
+      "Useful in IPM rotations for sucking and chewing pest complexes",
+      "Best performance is obtained with early application and thorough coverage"
+    ],
+    "mechanism_of_action": {
+      "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Preventive or early infestation spray",
+        "dose_per_acre": "1.0-1.5 L/acre",
+        "water_volume": "150-220 L",
+        "application_method": "Foliar spray with full plant coverage"
+      },
+      {
+        "crop_stage": "Sustained pest activity",
+        "dose_per_acre": "1.5-2.0 L/acre",
+        "water_volume": "180-250 L",
+        "application_method": "Foliar spray repeated across the active flush period"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of nymphs or early larval stages",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Use the lower dose as a preventive treatment and the upper dose under rising pest pressure."
+      },
+      {
+        "application_timing": "During active flush or continuous pest emergence",
+        "frequency": "2-3 sequential sprays",
+        "recommendation": "Maintain full coverage of tender foliage and the lower leaf surface for better suppression."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 0.3% azadirachtin.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Sucking pests are causing curling, chlorosis, and honeydew deposition.",
+        "solution": "Apply early to deter feeding and suppress immature development before populations peak."
+      },
+      {
+        "problem": "Repeated infestations are occurring after short-residual contact sprays.",
+        "solution": "Use sequential applications to interrupt molting and reduce oviposition across overlapping generations."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Lower-load azadirachtin EC suited to frequent preventive spray schedules and programs that require wider dilution flexibility."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Ecoza Rix",
+      "active_ingredient": "Azadirachtin",
+      "concentration": "1.2%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Ecoza Rix is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "key_product_highlights": [
+      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
+      "Disrupts immature development across multiple insect stages",
+      "Useful in IPM rotations for sucking and chewing pest complexes",
+      "Best performance is obtained with early application and thorough coverage"
+    ],
+    "mechanism_of_action": {
+      "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early infestation or preventive spray",
+        "dose_per_acre": "400-600 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray after preparing a smooth suspension"
+      },
+      {
+        "crop_stage": "Moderate pest pressure",
+        "dose_per_acre": "600-800 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with constant agitation in the spray tank"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of nymphs or early larval stages",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Use the lower dose as a preventive treatment and the upper dose under rising pest pressure."
+      },
+      {
+        "application_timing": "During active flush or continuous pest emergence",
+        "frequency": "2-3 sequential sprays",
+        "recommendation": "Maintain full coverage of tender foliage and the lower leaf surface for better suppression."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 1.2% azadirachtin.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Sucking pests are causing curling, chlorosis, and honeydew deposition.",
+        "solution": "Apply early to deter feeding and suppress immature development before populations peak."
+      },
+      {
+        "problem": "Repeated infestations are occurring after short-residual contact sprays.",
+        "solution": "Use sequential applications to interrupt molting and reduce oviposition across overlapping generations."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Azadirachtin WP positioned for users who prefer a dry formulation while retaining neem-derived insect growth regulatory activity."
+  },
+  {
+    "product_identity": {
+      "brand_name": "MargoShine",
+      "active_ingredient": "Neem Oil",
+      "concentration": "70%",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "MargoShine is a neem oil-based botanical pesticide intended for soft-bodied pests, eggs, and early larval stages. It combines contact smothering with neem limonoid activity and performs best where thorough spray coverage can be achieved.",
+    "key_product_highlights": [
+      "Provides contact activity plus neem-derived antifeedant effects",
+      "Useful on eggs, nymphs, and soft-bodied adults",
+      "Supports IPM programs with multi-site botanical action",
+      "Coverage-dependent performance makes spray quality critical"
+    ],
+    "mechanism_of_action": {
+      "description": "Neem oil coats insect and egg surfaces, disrupting spiracular respiration and cuticular integrity, while associated neem limonoids act as feeding deterrents and mild insect growth regulators. Exposure interferes with endocrine control of molting, lowers feeding intensity, and suppresses oviposition and egg hatch in treated populations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Egg, nymph, and soft-bodied pest stage",
+        "dose_per_acre": "500-750 mL/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray with complete surface wetting"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "750-1000 mL/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray targeting hidden colonies and lower leaf surfaces"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first detection of eggs, nymphs, or small larvae",
+        "frequency": "Repeat every 5-7 days",
+        "recommendation": "Apply during morning or late afternoon to improve spreading and reduce heat stress on the crop."
+      },
+      {
+        "application_timing": "During persistent soft-bodied pest pressure",
+        "frequency": "2-4 sprays as needed",
+        "recommendation": "Reapply after heavy wash-off and maintain coverage on the lower leaf surface."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Neem oil standardized to 70% total oil phase.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Soft-bodied pests and eggs are escaping contact from conventional sprays.",
+        "solution": "Use neem oil with high coverage to coat colonies, suppress hatch, and reduce feeding."
+      },
+      {
+        "problem": "Pest pressure rebounds quickly in humid crop canopies.",
+        "solution": "Repeat short-interval applications to suppress successive egg and nymphal flushes."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "High-load neem oil EC positioned for strong contact coverage, ovicidal support, and limonoid-mediated feeding suppression."
+  },
+  {
+    "product_identity": {
+      "brand_name": "MargoRix",
+      "active_ingredient": "Neem Oil",
+      "concentration": "35%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "MargoRix is a neem oil-based botanical pesticide intended for soft-bodied pests, eggs, and early larval stages. It combines contact smothering with neem limonoid activity and performs best where thorough spray coverage can be achieved.",
+    "key_product_highlights": [
+      "Provides contact activity plus neem-derived antifeedant effects",
+      "Useful on eggs, nymphs, and soft-bodied adults",
+      "Supports IPM programs with multi-site botanical action",
+      "Coverage-dependent performance makes spray quality critical"
+    ],
+    "mechanism_of_action": {
+      "description": "Neem oil coats insect and egg surfaces, disrupting spiracular respiration and cuticular integrity, while associated neem limonoids act as feeding deterrents and mild insect growth regulators. Exposure interferes with endocrine control of molting, lowers feeding intensity, and suppresses oviposition and egg hatch in treated populations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Egg, nymph, and soft-bodied pest stage",
+        "dose_per_acre": "750-1000 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray after preparing a uniform suspension"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "1.0-1.25 kg/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with tank agitation maintained throughout application"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first detection of eggs, nymphs, or small larvae",
+        "frequency": "Repeat every 5-7 days",
+        "recommendation": "Apply during morning or late afternoon to improve spreading and reduce heat stress on the crop."
+      },
+      {
+        "application_timing": "During persistent soft-bodied pest pressure",
+        "frequency": "2-4 sprays as needed",
+        "recommendation": "Reapply after heavy wash-off and maintain coverage on the lower leaf surface."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Neem oil standardized to 35% total oil phase.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Soft-bodied pests and eggs are escaping contact from conventional sprays.",
+        "solution": "Use neem oil with high coverage to coat colonies, suppress hatch, and reduce feeding."
+      },
+      {
+        "problem": "Pest pressure rebounds quickly in humid crop canopies.",
+        "solution": "Repeat short-interval applications to suppress successive egg and nymphal flushes."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Neem oil WP positioned where a dry botanical formulation is preferred for contact smothering and neem limonoid activity."
+  },
+  {
+    "product_identity": {
+      "brand_name": "K-Guard",
+      "active_ingredient": "Karanjin",
+      "concentration": "2%",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "K-Guard is a karanjin-based botanical pesticide derived from Pongamia seed actives for early control of sucking and chewing pests. It is suited to IPM programs that require a plant-derived antifeedant and population-suppressive spray option.",
+    "key_product_highlights": [
+      "Pongamia-derived botanical with contact and antifeedant properties",
+      "Reduces larval feeding and slows pest population build-up",
+      "Useful in early infestation windows before severe crop injury",
+      "Appropriate for rotation with other natural-origin pest management tools"
+    ],
+    "mechanism_of_action": {
+      "description": "Karanjin acts as a feeding deterrent and contact-active botanical toxicant. It interferes with digestive physiology and insect hormonal regulation in immature stages, reduces larval growth and feeding, and suppresses adult fecundity and oviposition, thereby slowing population build-up."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early sucking or chewing pest infestation",
+        "dose_per_acre": "400-600 mL/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray with full canopy coverage"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "600-800 mL/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray focusing on tender plant parts"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At the onset of pest colonization",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Use preventively or at low pest density for better population suppression."
+      },
+      {
+        "application_timing": "During continuous pest emergence",
+        "frequency": "2-3 sprays in sequence",
+        "recommendation": "Ensure coverage of new flush and actively feeding zones of the canopy."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 2% karanjin.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Chewing and sucking pests are establishing in new crop flush.",
+        "solution": "Apply early to deter feeding and reduce settlement on tender foliage."
+      },
+      {
+        "problem": "Low-level infestations are expanding between crop scouting intervals.",
+        "solution": "Use repeat applications to suppress oviposition and immature development over time."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Karanjin EC positioned for early intervention where a pongamia-derived antifeedant and contact botanical is required."
+  },
+  {
+    "product_identity": {
+      "brand_name": "K-Rix",
+      "active_ingredient": "Karanjin",
+      "concentration": "5%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "K-Rix is a karanjin-based botanical pesticide derived from Pongamia seed actives for early control of sucking and chewing pests. It is suited to IPM programs that require a plant-derived antifeedant and population-suppressive spray option.",
+    "key_product_highlights": [
+      "Pongamia-derived botanical with contact and antifeedant properties",
+      "Reduces larval feeding and slows pest population build-up",
+      "Useful in early infestation windows before severe crop injury",
+      "Appropriate for rotation with other natural-origin pest management tools"
+    ],
+    "mechanism_of_action": {
+      "description": "Karanjin acts as a feeding deterrent and contact-active botanical toxicant. It interferes with digestive physiology and insect hormonal regulation in immature stages, reduces larval growth and feeding, and suppresses adult fecundity and oviposition, thereby slowing population build-up."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early sucking or chewing pest infestation",
+        "dose_per_acre": "300-500 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray after preparing a uniform suspension"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "500-700 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with continuous agitation"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At the onset of pest colonization",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Use preventively or at low pest density for better population suppression."
+      },
+      {
+        "application_timing": "During continuous pest emergence",
+        "frequency": "2-3 sprays in sequence",
+        "recommendation": "Ensure coverage of new flush and actively feeding zones of the canopy."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 5% karanjin.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Chewing and sucking pests are establishing in new crop flush.",
+        "solution": "Apply early to deter feeding and reduce settlement on tender foliage."
+      },
+      {
+        "problem": "Low-level infestations are expanding between crop scouting intervals.",
+        "solution": "Use repeat applications to suppress oviposition and immature development over time."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Karanjin WP positioned as a dry botanical option for preventive and early-curative pest suppression."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Spindura Plus",
+      "active_ingredient": "Spinosad",
+      "concentration": "25.2%",
+      "formulation_type": "SC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Spindura Plus is a natural-origin insecticidal formulation based on spinosad for control of thrips and lepidopteran larvae. It is best positioned for early larval stages, rapid feeding cessation, and rotation-based resistance management programs.",
+    "key_product_highlights": [
+      "High intrinsic activity against thrips and leaf-feeding larvae",
+      "Rapid feeding cessation after exposure reduces fresh crop injury",
+      "Useful in rotation programs because of a distinct neuroactive mode of action",
+      "Most effective when directed at small larvae and early infestation build-up"
+    ],
+    "mechanism_of_action": {
+      "description": "Spinosad acts primarily on insect nicotinic acetylcholine receptors and secondarily on GABA-gated chloride channels, causing neuromuscular hyperexcitation, paralysis, and death. Treated larvae rapidly cease feeding, population growth is curtailed, and surviving adults often show reduced oviposition and lower egg viability."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early larval or thrips infestation",
+        "dose_per_acre": "60-80 mL/acre",
+        "water_volume": "120-150 L",
+        "application_method": "Foliar spray with fine droplet coverage"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "80-100 mL/acre",
+        "water_volume": "150-180 L",
+        "application_method": "Foliar spray targeting feeding sites and concealed plant parts"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of small larvae or thrips hotspots",
+        "frequency": "Repeat every 7-10 days if needed",
+        "recommendation": "Target early stages for better intake and reduced crop damage."
+      },
+      {
+        "application_timing": "During continuous egg hatch or larval emergence",
+        "frequency": "Limit sequential use within rotation programs",
+        "recommendation": "Alternate with other compatible modes of action to manage resistance selection."
+      }
+    ],
+    "targets": [
+      "thrips",
+      "caterpillars",
+      "leaf miners",
+      "fruit borers",
+      "armyworms"
+    ],
+    "strain_or_active_strength": "Standardized to 25.2% spinosad.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Larvae are causing fresh feeding holes and rapid canopy loss.",
+        "solution": "Apply at early larval stages to induce quick feeding cessation and suppress further injury."
+      },
+      {
+        "problem": "Thrips pressure persists despite contact-only sprays.",
+        "solution": "Use directed applications on feeding sites and rotate with other tools in the spray program."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "High-load SC positioned for low-dose foliar use against larvae and thrips in high-value crop programs."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Spindura Rix",
+      "active_ingredient": "Spinosad",
+      "concentration": "12%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Spindura Rix is a natural-origin insecticidal formulation based on spinosad for control of thrips and lepidopteran larvae. It is best positioned for early larval stages, rapid feeding cessation, and rotation-based resistance management programs.",
+    "key_product_highlights": [
+      "High intrinsic activity against thrips and leaf-feeding larvae",
+      "Rapid feeding cessation after exposure reduces fresh crop injury",
+      "Useful in rotation programs because of a distinct neuroactive mode of action",
+      "Most effective when directed at small larvae and early infestation build-up"
+    ],
+    "mechanism_of_action": {
+      "description": "Spinosad acts primarily on insect nicotinic acetylcholine receptors and secondarily on GABA-gated chloride channels, causing neuromuscular hyperexcitation, paralysis, and death. Treated larvae rapidly cease feeding, population growth is curtailed, and surviving adults often show reduced oviposition and lower egg viability."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early larval or thrips infestation",
+        "dose_per_acre": "100-125 g/acre",
+        "water_volume": "120-150 L",
+        "application_method": "Foliar spray after preparing a smooth suspension"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "125-150 g/acre",
+        "water_volume": "150-180 L",
+        "application_method": "Foliar spray with constant tank agitation"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of small larvae or thrips hotspots",
+        "frequency": "Repeat every 7-10 days if needed",
+        "recommendation": "Target early stages for better intake and reduced crop damage."
+      },
+      {
+        "application_timing": "During continuous egg hatch or larval emergence",
+        "frequency": "Limit sequential use within rotation programs",
+        "recommendation": "Alternate with other compatible modes of action to manage resistance selection."
+      }
+    ],
+    "targets": [
+      "thrips",
+      "caterpillars",
+      "leaf miners",
+      "fruit borers",
+      "armyworms"
+    ],
+    "strain_or_active_strength": "Standardized to 12% spinosad.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Larvae are causing fresh feeding holes and rapid canopy loss.",
+        "solution": "Apply at early larval stages to induce quick feeding cessation and suppress further injury."
+      },
+      {
+        "problem": "Thrips pressure persists despite contact-only sprays.",
+        "solution": "Use directed applications on feeding sites and rotate with other tools in the spray program."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Spinosad WP positioned where a dry formulation is preferred for larval knockdown and feeding cessation."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Spindura Pro",
+      "active_ingredient": "Spinosad",
+      "concentration": "2.5%",
+      "formulation_type": "SC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Spindura Pro is a natural-origin insecticidal formulation based on spinosad for control of thrips and lepidopteran larvae. It is best positioned for early larval stages, rapid feeding cessation, and rotation-based resistance management programs.",
+    "key_product_highlights": [
+      "High intrinsic activity against thrips and leaf-feeding larvae",
+      "Rapid feeding cessation after exposure reduces fresh crop injury",
+      "Useful in rotation programs because of a distinct neuroactive mode of action",
+      "Most effective when directed at small larvae and early infestation build-up"
+    ],
+    "mechanism_of_action": {
+      "description": "Spinosad acts primarily on insect nicotinic acetylcholine receptors and secondarily on GABA-gated chloride channels, causing neuromuscular hyperexcitation, paralysis, and death. Treated larvae rapidly cease feeding, population growth is curtailed, and surviving adults often show reduced oviposition and lower egg viability."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early larval or thrips infestation",
+        "dose_per_acre": "400-500 mL/acre",
+        "water_volume": "120-150 L",
+        "application_method": "Foliar spray with full canopy penetration"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "500-600 mL/acre",
+        "water_volume": "150-180 L",
+        "application_method": "Foliar spray covering feeding zones and lower surfaces"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of small larvae or thrips hotspots",
+        "frequency": "Repeat every 7-10 days if needed",
+        "recommendation": "Target early stages for better intake and reduced crop damage."
+      },
+      {
+        "application_timing": "During continuous egg hatch or larval emergence",
+        "frequency": "Limit sequential use within rotation programs",
+        "recommendation": "Alternate with other compatible modes of action to manage resistance selection."
+      }
+    ],
+    "targets": [
+      "thrips",
+      "caterpillars",
+      "leaf miners",
+      "fruit borers",
+      "armyworms"
+    ],
+    "strain_or_active_strength": "Standardized to 2.5% spinosad.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Larvae are causing fresh feeding holes and rapid canopy loss.",
+        "solution": "Apply at early larval stages to induce quick feeding cessation and suppress further injury."
+      },
+      {
+        "problem": "Thrips pressure persists despite contact-only sprays.",
+        "solution": "Use directed applications on feeding sites and rotate with other tools in the spray program."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Lower-load SC positioned for routine natural-origin spray programs requiring flexible dilution and broad coverage."
+  },
+  {
+    "product_identity": {
+      "brand_name": "MargoSpin",
+      "active_ingredient": "Neem Oil 70% + Spinosad 0.8%",
+      "concentration": "Combined",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "MargoSpin combines neem oil and spinosad in a single botanical-origin foliar spray for mixed sucking and chewing pest pressure. It provides broad biological relevance where both repellency/growth suppression and rapid feeding cessation are required.",
+    "key_product_highlights": [
+      "Combines neem-based deterrence with spinosad-driven rapid feeding stoppage",
+      "Useful where sucking pests and early larvae occur together",
+      "Supports integrated programs by combining contact, behavioral, and physiological effects",
+      "Coverage and timely application remain critical for consistent field performance"
+    ],
+    "mechanism_of_action": {
+      "description": "The neem oil fraction contributes contact smothering, feeding deterrence, and endocrine disruption that interferes with molting and oviposition, while spinosad acts on nicotinic acetylcholine receptors to induce rapid neuromuscular dysfunction. Together, the formulation suppresses feeding, development, reproduction, and overall pest survival across mixed infestations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early mixed infestation of sucking pests and larvae",
+        "dose_per_acre": "400-600 mL/acre",
+        "water_volume": "150-180 L",
+        "application_method": "Foliar spray with complete canopy coverage"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "600-750 mL/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray targeting both lower leaf surfaces and feeding zones"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first mixed infestation of nymphs, thrips, or small larvae",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Use early before canopy infestation becomes dense or concealed."
+      },
+      {
+        "application_timing": "During overlapping pest generations",
+        "frequency": "2-3 sprays as needed",
+        "recommendation": "Maintain uniform spray coverage to capture both mobile and sessile target stages."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Combined actives: neem oil 70% plus spinosad 0.8%.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "The crop has simultaneous sucking pest pressure and larval feeding injury.",
+        "solution": "Use the combination to obtain both repellency/growth suppression and rapid feeding cessation in a single program step."
+      },
+      {
+        "problem": "Pest recovery occurs between single-mode botanical sprays.",
+        "solution": "Repeat on a 7-10 day interval to suppress overlapping generations and new hatch."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Combination botanical positioned for mixed pest complexes where a single foliar intervention must cover both sap feeders and early chewing larvae."
+  },
+  {
+    "product_identity": {
+      "brand_name": "WeedX",
+      "active_ingredient": "Spinosadc Fatty Acid Blend",
+      "concentration": "78%",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "WeedX is a fatty-acid-based botanical contact pesticide intended for exposed soft-bodied pests and eggs. Performance depends strongly on direct spray contact and is best in early infestations with good canopy access.",
+    "key_product_highlights": [
+      "Contact-active fatty acid blend for exposed pest stages",
+      "Disrupts cuticular integrity and quickly reduces mobility and feeding",
+      "Useful where residue-sensitive, short-persistence sprays are preferred",
+      "Requires thorough spray wetting because activity is primarily contact-based"
+    ],
+    "mechanism_of_action": {
+      "description": "Contact-active fatty acids solubilize cuticular lipids and disrupt cell membranes, causing leakage, desiccation, and rapid loss of mobility in exposed pests. Feeding stops soon after contact, egg viability is reduced on treated surfaces, and repeated coverage suppresses population establishment and reproduction."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Soft-bodied pest or egg stage",
+        "dose_per_acre": "750-1000 mL/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar contact spray with complete wetting"
+      },
+      {
+        "crop_stage": "Active colony build-up",
+        "dose_per_acre": "1.0-1.5 L/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray directed at exposed colonies and lower surfaces"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first appearance of exposed colonies",
+        "frequency": "Repeat every 4-7 days as required",
+        "recommendation": "Reapply promptly because residual persistence is short and new contact is needed for control."
+      },
+      {
+        "application_timing": "During rapid colony expansion",
+        "frequency": "2-4 applications",
+        "recommendation": "Target exposed insects directly and avoid use under high heat on sensitive foliage."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "mealybugs",
+      "mites"
+    ],
+    "strain_or_active_strength": "Standardized to 78% fatty acid blend.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Soft-bodied pests are building quickly on exposed leaf surfaces.",
+        "solution": "Use as a high-contact spray to disrupt cuticle integrity and quickly stop feeding."
+      },
+      {
+        "problem": "Egg and crawler stages continue to repopulate the crop.",
+        "solution": "Repeat short-interval sprays to contact fresh hatch and newly established colonies."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Fatty-acid contact botanical positioned for exposed soft-bodied pest stages where fast knockdown and short persistence are acceptable."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Admira Adyme",
+      "active_ingredient": "Thyme Oil",
+      "concentration": "18%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Admira Adyme is a thyme oil-based botanical pesticide for suppression of soft-bodied pests and early larval stages. It is suited to coverage-dependent foliar use where volatile phenolic actives can provide contact, repellent, and behavioral disruption.",
+    "key_product_highlights": [
+      "Thyme phenolics provide contact, repellent, and behavioral effects",
+      "Useful on early pest establishment and exposed colonies",
+      "Supports natural-origin spray programs and rotational use",
+      "Best applied under cooler conditions to preserve volatile actives"
+    ],
+    "mechanism_of_action": {
+      "description": "Thyme oil constituents such as thymol and related phenolics disrupt cell membranes and alter neurophysiological signaling in exposed insects. The treatment acts as a feeding deterrent, interferes with immature development and oviposition, and suppresses pest establishment on treated foliage."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early infestation or preventive canopy spray",
+        "dose_per_acre": "400-600 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray after preparing a uniform suspension"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "600-800 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with attention to lower leaf surfaces and hidden colonies"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first colonization of foliage or flowers",
+        "frequency": "Repeat every 5-7 days",
+        "recommendation": "Spray during cooler periods to reduce loss of volatile actives and improve crop safety."
+      },
+      {
+        "application_timing": "During sustained low to moderate pest pressure",
+        "frequency": "2-4 sprays as required",
+        "recommendation": "Maintain close spray intervals because persistence is shorter than conventional residual insecticides."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 18% Thyme Oil.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Exposed sucking pests are settling on fresh crop growth.",
+        "solution": "Apply early to repel feeding, disrupt colony establishment, and reduce oviposition."
+      },
+      {
+        "problem": "Volatile-sensitive botanical performance is inconsistent under hot conditions.",
+        "solution": "Spray during cooler periods and maintain good coverage of new flush."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Thyme oil WP positioned as a volatile botanical for early-stage pest deterrence and contact suppression."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Admira Admon",
+      "active_ingredient": "Cinnamon Oil",
+      "concentration": "11%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Admira Admon is a cinnamon oil-based botanical foliar pesticide designed for early intervention against sucking pests and tender larval stages. It combines volatile contact activity with repellent and oviposition-suppressive effects.",
+    "key_product_highlights": [
+      "Cinnamaldehyde-rich botanical with strong volatile contact character",
+      "Reduces pest feeding and settlement on treated surfaces",
+      "Appropriate for rotation within natural-origin programs",
+      "Field performance improves when applications are well timed and well covered"
+    ],
+    "mechanism_of_action": {
+      "description": "Cinnamon oil constituents, especially cinnamaldehyde-rich fractions, disrupt membrane integrity and respiratory metabolism in exposed insects. The treatment deters feeding, disturbs developmental physiology in immature stages, and suppresses oviposition and egg viability on treated crop surfaces."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early infestation or preventive canopy spray",
+        "dose_per_acre": "400-600 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray after preparing a uniform suspension"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "600-800 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with attention to lower leaf surfaces and hidden colonies"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first colonization of foliage or flowers",
+        "frequency": "Repeat every 5-7 days",
+        "recommendation": "Spray during cooler periods to reduce loss of volatile actives and improve crop safety."
+      },
+      {
+        "application_timing": "During sustained low to moderate pest pressure",
+        "frequency": "2-4 sprays as required",
+        "recommendation": "Maintain close spray intervals because persistence is shorter than conventional residual insecticides."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 11% Cinnamon Oil.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Soft-bodied pests are colonizing young foliage and floral structures.",
+        "solution": "Use directed foliar sprays to reduce settlement, feeding, and egg laying."
+      },
+      {
+        "problem": "Early larval pressure persists under low to moderate infestation levels.",
+        "solution": "Repeat short-interval sprays to sustain contact and reproductive suppression."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Cinnamon oil WP positioned for early canopy intervention where repellent and contact botanical action is required."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Admira Adrlic",
+      "active_ingredient": "Garlic Oil",
+      "concentration": "8%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Admira Adrlic is a garlic oil-based botanical pesticide for repellent and contact management of sucking pests and early larvae. It is particularly relevant where a strong volatile barrier effect is desired on actively growing crop canopies.",
+    "key_product_highlights": [
+      "Organosulfur volatiles provide strong repellent and contact activity",
+      "Helps reduce pest settlement on tender crop growth",
+      "Useful in preventive and early-curative botanical programs",
+      "Works best with repeated coverage during active infestation windows"
+    ],
+    "mechanism_of_action": {
+      "description": "Garlic oil organosulfur compounds act as feeding deterrents and volatile repellents while also disturbing respiratory and membrane-associated processes in exposed insects. This reduces feeding intensity, impairs immature development, and suppresses adult settling and oviposition on treated surfaces."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early infestation or preventive canopy spray",
+        "dose_per_acre": "400-600 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray after preparing a uniform suspension"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "600-800 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with attention to lower leaf surfaces and hidden colonies"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first colonization of foliage or flowers",
+        "frequency": "Repeat every 5-7 days",
+        "recommendation": "Spray during cooler periods to reduce loss of volatile actives and improve crop safety."
+      },
+      {
+        "application_timing": "During sustained low to moderate pest pressure",
+        "frequency": "2-4 sprays as required",
+        "recommendation": "Maintain close spray intervals because persistence is shorter than conventional residual insecticides."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 8% Garlic Oil.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Repeated pest settling is occurring on fresh flush after irrigation or pruning.",
+        "solution": "Use garlic oil to create a repellent canopy barrier and reduce feeding initiation."
+      },
+      {
+        "problem": "Low-level sucking pest pressure persists despite sanitation and scouting.",
+        "solution": "Apply repeated botanical sprays to disrupt settlement and reproduction."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Garlic oil WP positioned for repellent canopy protection and early-stage suppression in botanical spray programs."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Admira Adove",
+      "active_ingredient": "Clove Oil",
+      "concentration": "12%",
+      "formulation_type": "WP",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Admira Adove is a clove oil-based botanical foliar pesticide for management of soft-bodied pests and exposed larval stages. It is suited to natural-origin spray programs where eugenol-rich volatile activity can provide rapid behavioral and contact effects.",
+    "key_product_highlights": [
+      "Eugenol-rich botanical with contact and repellent activity",
+      "Rapidly reduces feeding and mobility of exposed pests",
+      "Useful for early canopy protection and botanical rotation",
+      "Performance depends on direct contact and complete coverage"
+    ],
+    "mechanism_of_action": {
+      "description": "Clove oil constituents dominated by eugenol disrupt membrane function and neurophysiological signaling in exposed insects. The treatment acts as a feeding deterrent, interferes with immature development and oviposition, and reduces pest survival on treated plant surfaces."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early infestation or preventive canopy spray",
+        "dose_per_acre": "400-600 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray after preparing a uniform suspension"
+      },
+      {
+        "crop_stage": "Moderate infestation",
+        "dose_per_acre": "600-800 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with attention to lower leaf surfaces and hidden colonies"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At first colonization of foliage or flowers",
+        "frequency": "Repeat every 5-7 days",
+        "recommendation": "Spray during cooler periods to reduce loss of volatile actives and improve crop safety."
+      },
+      {
+        "application_timing": "During sustained low to moderate pest pressure",
+        "frequency": "2-4 sprays as required",
+        "recommendation": "Maintain close spray intervals because persistence is shorter than conventional residual insecticides."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "caterpillars",
+      "leaf miners"
+    ],
+    "strain_or_active_strength": "Standardized to 12% Clove Oil.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Exposed pests are feeding actively on tender leaves and floral parts.",
+        "solution": "Use directed sprays for rapid contact effect and reduced feeding pressure."
+      },
+      {
+        "problem": "Botanical sprays are losing persistence under repeated pest immigration.",
+        "solution": "Reapply at short intervals to maintain repellency and reproductive suppression."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
+    "technical_positioning_summary": "Clove oil WP positioned for contact and behavioral suppression of exposed pest stages in botanical programs."
+  }
+]

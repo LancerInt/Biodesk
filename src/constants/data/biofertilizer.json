@@ -1,0 +1,538 @@
+[
+  {
+    "product_identity": {
+      "brand_name": "IGreen NPK",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen NPK is a broad-spectrum microbial consortium biofertilizer designed to improve nitrogen, phosphorus, and potassium availability in the rhizosphere. It is suited to integrated nutrient programs where fertilizer-use efficiency and soil biological activity need reinforcement.",
+    "key_product_highlights": [
+      "Multi-functional consortium for N fixation and P/K mobilization",
+      "Improves rhizosphere nutrient cycling and root-zone activity",
+      "Supports better fertilizer-use efficiency across major nutrients",
+      "Useful as a basal and early vegetative biofertility input"
+    ],
+    "mechanism_of_action": {
+      "description": "The microbial consortium colonizes the rhizosphere and root surface, fixes atmospheric nitrogen through associative N-fixing members, solubilizes bound phosphorus and mobilizes native potassium pools, and drives microbial nutrient cycling in the soil. This combined activity improves nutrient availability, root uptake efficiency, and overall crop nutrition."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "nitrogen availability",
+      "phosphorus availability",
+      "potassium mobilization",
+      "fertilizer-use efficiency",
+      "rhizosphere activity"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "Applied fertilizer is not translating into uniform crop nutrition.",
+        "solution": "Use the consortium to improve nutrient conversion, cycling, and root-zone uptake efficiency."
+      },
+      {
+        "problem": "Soil biological activity is low and nutrient release is slow.",
+        "solution": "Apply early to stimulate rhizosphere colonization and multi-nutrient mobilization."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Broad-spectrum consortium positioned as a base biological nutrient-efficiency input where N, P, and K response must be improved together."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen SHIELD",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen SHIELD is a rhizosphere-conditioning microbial consortium biofertilizer intended to stabilize nutrient capture under stressed or biologically weak soil conditions. It is positioned where root-zone activity, nutrient retention, and early crop establishment require reinforcement.",
+    "key_product_highlights": [
+      "Rhizosphere-conditioning consortium for biologically weak soils",
+      "Supports nutrient solubilization, nitrogen contribution, and root-zone activity",
+      "Improves biological buffering around the active root system",
+      "Useful in transplant, basal, and stress-prone soil programs"
+    ],
+    "mechanism_of_action": {
+      "description": "The consortium colonizes the rhizosphere, contributes associative nitrogen fixation, solubilizes native and applied nutrient pools, and sustains microbial nutrient cycling around feeder roots. By maintaining an active microbial zone near roots, it improves nutrient capture efficiency and stabilizes crop nutrition under stress-prone soil conditions."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "root-zone biological activity",
+      "nutrient capture efficiency",
+      "transplant establishment",
+      "soil biological buffering",
+      "stress-conditioned nutrition"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "Soil biological activity is weak and transplanted crops establish slowly.",
+        "solution": "Apply the consortium early to condition the rhizosphere and improve nutrient capture around roots."
+      },
+      {
+        "problem": "Nutrient efficiency drops under stress-prone or repeatedly disturbed soils.",
+        "solution": "Use follow-up applications to sustain microbial cycling and root-zone nutrient buffering."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Rhizosphere-conditioning consortium positioned for stressed soils, transplant establishment, and stabilization of biological nutrient capture."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen N",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen N is a nitrogen-oriented microbial consortium biofertilizer intended to improve biological nitrogen supply and crop uptake efficiency. It is suited to systems where nitrogen-use efficiency and vegetative response need support beyond mineral fertilization alone.",
+    "key_product_highlights": [
+      "Nitrogen-focused consortium with associative biological N contribution",
+      "Improves rhizosphere activity and plant access to available nitrogen",
+      "Supports greener canopy development and vegetative vigor",
+      "Useful where N loss or poor N efficiency is common"
+    ],
+    "mechanism_of_action": {
+      "description": "The consortium colonizes the rhizosphere and root surface, fixes atmospheric nitrogen through associative diazotrophic members, and supports microbial nutrient cycling that improves nitrogen conversion and uptake. Supportive nutrient solubilization in the root zone further enhances the efficiency of applied fertilizer nitrogen."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "nitrogen availability",
+      "vegetative vigor",
+      "canopy greenness",
+      "nitrogen-use efficiency",
+      "rhizosphere colonization"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "The crop shows pale canopy color and weak vegetative response despite fertilization.",
+        "solution": "Use the nitrogen-focused consortium to improve biological N contribution and root uptake efficiency."
+      },
+      {
+        "problem": "Nitrogen losses reduce the return from applied fertilizers.",
+        "solution": "Apply early and repeat if needed to strengthen rhizosphere cycling and nitrogen availability."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Nitrogen-oriented consortium positioned to improve biological N supply, canopy vigor, and total nitrogen-use efficiency."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen P",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen P is a phosphorus-oriented microbial consortium biofertilizer for improving phosphate solubilization and crop access to fixed soil P. It is best suited to soils where phosphorus is present but poorly available to roots.",
+    "key_product_highlights": [
+      "Phosphorus-focused consortium for release of fixed soil phosphate",
+      "Improves root-zone P availability and fertilizer efficiency",
+      "Supports early root growth and energy-demanding crop stages",
+      "Useful in calcareous or P-fixing soils"
+    ],
+    "mechanism_of_action": {
+      "description": "The consortium colonizes the rhizosphere and solubilizes insoluble phosphorus through organic acid production and allied microbial nutrient cycling processes. Supportive associative nitrogen fixation and root-zone colonization improve total nutrient capture, while released phosphate becomes more available for root uptake."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "phosphorus availability",
+      "root development",
+      "early crop establishment",
+      "fertilizer P efficiency",
+      "rhizosphere nutrient cycling"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "Soil tests indicate phosphorus reserves but crop response remains weak.",
+        "solution": "Apply the consortium to convert fixed phosphate into more plant-available forms."
+      },
+      {
+        "problem": "Root growth is slow in P-fixing or calcareous soils.",
+        "solution": "Use as a basal and early vegetative input to improve rhizosphere P availability."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Phosphorus-solubilizing consortium positioned for low-P efficiency soils and stronger root establishment."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen K",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen K is a potassium-oriented microbial consortium biofertilizer designed to mobilize non-exchangeable K from soil minerals and improve crop K uptake. It is relevant where potassium response is limited by poor mineral weathering or low nutrient-use efficiency.",
+    "key_product_highlights": [
+      "Potassium-mobilizing consortium for release of native soil K",
+      "Supports enzyme function, turgor balance, and crop quality",
+      "Improves K-use efficiency alongside overall rhizosphere activity",
+      "Useful in soils with high total K but low available K"
+    ],
+    "mechanism_of_action": {
+      "description": "The consortium colonizes the rhizosphere, mobilizes potassium from mineral fractions through organic acid and chelation-mediated processes, and supports microbial nutrient cycling around roots. Supportive nitrogen-fixing and nutrient-solubilizing members improve total nutrient capture while increasing access to plant-available potassium."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "potassium availability",
+      "turgor regulation",
+      "quality development",
+      "nutrient-use efficiency",
+      "rhizosphere mineral weathering"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "The crop shows weak K response despite moderate soil potassium reserves.",
+        "solution": "Use the consortium to mobilize mineral-bound K and improve root access."
+      },
+      {
+        "problem": "Fruit, tuber, or grain quality traits are constrained by poor K efficiency.",
+        "solution": "Apply as a root-zone biofertility input to improve potassium cycling and uptake."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Potassium-mobilizing consortium positioned for soils where native K is present but poorly available to crops."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen Zn",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen Zn is a zinc-oriented microbial consortium biofertilizer for improving Zn solubilization and root access to micronutrient pools in soil. It is suited to Zn-deficient or high-pH soils where micronutrient availability is restricted.",
+    "key_product_highlights": [
+      "Zinc-solubilizing consortium for improved micronutrient availability",
+      "Supports enzyme systems, auxin-linked growth, and chlorophyll function",
+      "Improves zinc-use efficiency under alkaline or deficient conditions",
+      "Useful in nursery, basal, and early crop establishment programs"
+    ],
+    "mechanism_of_action": {
+      "description": "The consortium colonizes the rhizosphere and solubilizes zinc-bearing compounds through acidification, chelation, and active microbial nutrient cycling. Supportive nitrogen-fixing and nutrient-mobilizing members maintain root-zone activity, resulting in improved zinc availability and more efficient plant uptake."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "zinc availability",
+      "micronutrient efficiency",
+      "early growth",
+      "chlorosis correction support",
+      "rhizosphere micronutrient cycling"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "The crop shows zinc-related chlorosis or weak early growth in high-pH soils.",
+        "solution": "Apply the consortium to improve Zn solubilization and root uptake."
+      },
+      {
+        "problem": "Micronutrient applications are giving inconsistent response.",
+        "solution": "Use a root-zone microbial program to improve Zn availability and retention near feeder roots."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Zinc-solubilizing consortium positioned for high-pH or Zn-deficient soils where root access to micronutrients is limited."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen S",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen S is a sulfur-oriented microbial consortium biofertilizer intended to improve sulfur oxidation, mobilization, and uptake in the root zone. It is relevant where sulfur nutrition limits protein formation and efficient nitrogen utilization.",
+    "key_product_highlights": [
+      "Sulfur-mobilizing consortium for improved sulfate availability",
+      "Supports amino acid formation and efficient nitrogen metabolism",
+      "Improves sulfur-use efficiency in low-availability soils",
+      "Useful where leaching or low organic matter limits S supply"
+    ],
+    "mechanism_of_action": {
+      "description": "The consortium colonizes the rhizosphere and promotes sulfur oxidation or mobilization into plant-available sulfate forms while sustaining active microbial nutrient cycling around roots. Supportive nitrogen-fixing and nutrient-solubilizing members improve the overall efficiency of nutrient capture and utilization in the crop."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "sulfur availability",
+      "protein synthesis support",
+      "nitrogen metabolism efficiency",
+      "micronutrient interaction support",
+      "rhizosphere nutrient cycling"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "Crops show poor response to nitrogen where sulfur supply is inadequate.",
+        "solution": "Apply the sulfur-oriented consortium to improve sulfate generation and root uptake."
+      },
+      {
+        "problem": "Low organic matter soils provide inconsistent sulfur release.",
+        "solution": "Use the consortium as a root-zone biological input to stabilize sulfur cycling."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Sulfur-mobilizing consortium positioned where sulfate generation and sulfur-use efficiency are limiting crop performance."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen Si",
+      "active_ingredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen Si is a silicon-oriented microbial consortium biofertilizer for mobilizing plant-available silicon from silicate minerals in the soil. It is suited to programs that aim to improve structural resilience and nutrient-use efficiency through better Si uptake.",
+    "key_product_highlights": [
+      "Silicate-mobilizing consortium for improved plant-available silicon",
+      "Supports stronger cell wall function and abiotic stress buffering",
+      "Enhances rhizosphere mineral weathering and nutrient cycling",
+      "Useful in stress-prone systems where Si nutrition is beneficial"
+    ],
+    "mechanism_of_action": {
+      "description": "The consortium colonizes the rhizosphere and mobilizes soluble silicon from silicate-bearing minerals through microbial weathering, acidification, and nutrient cycling processes. Supportive nitrogen-fixing and nutrient-solubilizing activity improves root-zone function, allowing better access to silicon and associated nutrients."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [
+      "silicon availability",
+      "structural resilience",
+      "abiotic stress buffering",
+      "rhizosphere mineral weathering",
+      "nutrient-use efficiency"
+    ],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "Plants are under recurrent abiotic stress and need stronger structural resilience.",
+        "solution": "Use the consortium to improve root access to plant-available silicon in the soil."
+      },
+      {
+        "problem": "Silicate-rich soils are not translating into consistent crop benefit.",
+        "solution": "Apply as a microbial weathering input to mobilize soluble Si near feeder roots."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Silicate-mobilizing consortium positioned for stress-prone systems where improved silicon availability can strengthen crop resilience."
+  }
+]

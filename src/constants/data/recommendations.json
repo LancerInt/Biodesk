@@ -1,0 +1,569 @@
+{
+  "masters": {
+    "crops": [
+      { "id": "crop-rice", "name": "Rice", "icon": "grain" },
+      { "id": "crop-cotton", "name": "Cotton", "icon": "flower" },
+      { "id": "crop-tomato", "name": "Tomato", "icon": "food-apple" },
+      { "id": "crop-wheat", "name": "Wheat", "icon": "barley" },
+      { "id": "crop-grapes", "name": "Grapes", "icon": "fruit-grapes" },
+      { "id": "crop-citrus", "name": "Citrus", "icon": "fruit-citrus" },
+      { "id": "crop-tea", "name": "Tea", "icon": "leaf" },
+      { "id": "crop-sugarcane", "name": "Sugarcane", "icon": "bamboo" },
+      { "id": "crop-potato", "name": "Potato", "icon": "food-variant" },
+      { "id": "crop-soybean", "name": "Soybean", "icon": "seed" },
+      { "id": "crop-mango", "name": "Mango", "icon": "food-apple-outline" },
+      { "id": "crop-banana", "name": "Banana", "icon": "fruit-pineapple" }
+    ],
+    "pests": [
+      { "id": "pest-stem-borer", "name": "Stem Borer", "icon": "bug" },
+      { "id": "pest-whitefly", "name": "Whitefly", "icon": "bug" },
+      { "id": "pest-aphids", "name": "Aphids", "icon": "bug" },
+      { "id": "pest-thrips", "name": "Thrips", "icon": "bug" },
+      { "id": "pest-fruit-borer", "name": "Fruit Borer", "icon": "bug" },
+      { "id": "pest-bollworm", "name": "Bollworm", "icon": "bug" },
+      { "id": "pest-bph", "name": "Brown Plant Hopper", "icon": "bug" },
+      { "id": "pest-mite", "name": "Red Spider Mite", "icon": "bug" },
+      { "id": "pest-nematode", "name": "Root Knot Nematode", "icon": "bug" },
+      { "id": "pest-spodoptera", "name": "Spodoptera", "icon": "bug" },
+      { "id": "pest-mealybug", "name": "Mealybug", "icon": "bug" },
+      { "id": "pest-white-grub", "name": "White Grub", "icon": "bug" }
+    ],
+    "diseases": [
+      { "id": "dis-blast", "name": "Blast", "icon": "virus" },
+      { "id": "dis-sheath-blight", "name": "Sheath Blight", "icon": "virus" },
+      { "id": "dis-root-rot", "name": "Root Rot", "icon": "virus" },
+      { "id": "dis-powdery-mildew", "name": "Powdery Mildew", "icon": "virus" },
+      { "id": "dis-downy-mildew", "name": "Downy Mildew", "icon": "virus" },
+      { "id": "dis-fusarium-wilt", "name": "Fusarium Wilt", "icon": "virus" },
+      { "id": "dis-late-blight", "name": "Late Blight", "icon": "virus" },
+      { "id": "dis-anthracnose", "name": "Anthracnose", "icon": "virus" },
+      { "id": "dis-rust", "name": "Rust", "icon": "virus" },
+      { "id": "dis-damping-off", "name": "Damping Off", "icon": "virus" }
+    ],
+    "nutrientDeficiencies": [
+      { "id": "ndef-zinc", "name": "Zinc Deficiency", "icon": "flask-empty" },
+      { "id": "ndef-nitrogen", "name": "Nitrogen Deficiency", "icon": "flask-empty" },
+      { "id": "ndef-phosphorus", "name": "Phosphorus Deficiency", "icon": "flask-empty" },
+      { "id": "ndef-potassium", "name": "Potassium Deficiency", "icon": "flask-empty" },
+      { "id": "ndef-iron", "name": "Iron Deficiency", "icon": "flask-empty" },
+      { "id": "ndef-general", "name": "General Micronutrient Deficiency", "icon": "flask-empty" }
+    ],
+    "growthStages": [
+      { "id": "stage-seedling", "name": "Seedling", "icon": "sprout" },
+      { "id": "stage-vegetative", "name": "Vegetative", "icon": "leaf" },
+      { "id": "stage-tillering", "name": "Tillering", "icon": "grass" },
+      { "id": "stage-flowering", "name": "Flowering", "icon": "flower" },
+      { "id": "stage-fruiting", "name": "Fruiting", "icon": "food-apple" },
+      { "id": "stage-maturity", "name": "Maturity", "icon": "barley" },
+      { "id": "stage-nursery", "name": "Nursery", "icon": "pot" },
+      { "id": "stage-transplanting", "name": "Transplanting", "icon": "shovel" }
+    ],
+    "weeds": [
+      { "id": "weed-broadleaf", "name": "Broadleaf Weeds", "icon": "grass" },
+      { "id": "weed-grassy", "name": "Grassy Weeds", "icon": "grass" },
+      { "id": "weed-sedge", "name": "Sedges", "icon": "grass" },
+      { "id": "weed-parasitic", "name": "Parasitic Weeds", "icon": "grass" }
+    ],
+    "abioticStresses": [
+      { "id": "abiotic-drought", "name": "Drought Stress", "icon": "weather-sunny-alert" },
+      { "id": "abiotic-salinity", "name": "Salinity Stress", "icon": "water-alert" },
+      { "id": "abiotic-heat", "name": "Heat Stress", "icon": "thermometer-high" },
+      { "id": "abiotic-transplant-shock", "name": "Transplant Shock", "icon": "alert-circle" },
+      { "id": "abiotic-waterlogging", "name": "Waterlogging Stress", "icon": "water" }
+    ],
+    "categories": [
+      { "id": "cat-botanical", "name": "Botanical Pesticide", "icon": "leaf", "color": "#4CAF50" },
+      { "id": "cat-microbial", "name": "Microbial Pesticide", "icon": "bacteria", "color": "#2196F3" },
+      { "id": "cat-biostimulant", "name": "Biostimulant", "icon": "sprout", "color": "#FF9800" },
+      { "id": "cat-biofertilizer", "name": "Biofertilizer", "icon": "grain", "color": "#9C27B0" }
+    ]
+  },
+
+  "products": [
+    {
+      "id": "prod-ecoza-max",
+      "brandName": "Ecoza Max",
+      "activeIngredient": "Azadirachtin",
+      "concentration": "3%",
+      "formulationType": "EC",
+      "categoryId": "cat-botanical",
+      "description": "Broad-spectrum botanical insecticide with antifeedant, repellent, and IGR properties for sucking and chewing pest management."
+    },
+    {
+      "id": "prod-spindura-plus",
+      "brandName": "Spindura Plus",
+      "activeIngredient": "Spinosad",
+      "concentration": "25.2%",
+      "formulationType": "SC",
+      "categoryId": "cat-botanical",
+      "description": "Naturally derived insecticide with contact and ingestion activity against lepidopteran pests and thrips."
+    },
+    {
+      "id": "prod-mycova",
+      "brandName": "Mycova",
+      "activeIngredient": "Beauveria bassiana",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulationType": "WP",
+      "categoryId": "cat-microbial",
+      "description": "Entomopathogenic fungal biocontrol agent for management of sucking pests, borers, and white grubs."
+    },
+    {
+      "id": "prod-biota-v",
+      "brandName": "Biota-V",
+      "activeIngredient": "Trichoderma viride",
+      "concentration": "1 × 10⁸ CFU/g",
+      "formulationType": "WP",
+      "categoryId": "cat-microbial",
+      "description": "Soil-applied biocontrol fungus for suppression of soil-borne diseases including root rot, wilt, and damping off."
+    },
+    {
+      "id": "prod-blooma",
+      "brandName": "Blooma",
+      "activeIngredient": "Seaweed Extract",
+      "concentration": "32%",
+      "formulationType": "SC",
+      "categoryId": "cat-biostimulant",
+      "description": "Plant growth enhancer derived from seaweed that improves stress tolerance, root development, and overall crop vigor."
+    },
+    {
+      "id": "prod-envicta",
+      "brandName": "Envicta",
+      "activeIngredient": "Humic + Fulvic + Amino Complex",
+      "concentration": ">30%",
+      "formulationType": "SC",
+      "categoryId": "cat-biostimulant",
+      "description": "Multi-component biostimulant that enhances nutrient uptake, soil biology, and plant resilience against abiotic stress."
+    },
+    {
+      "id": "prod-igreen-zn",
+      "brandName": "IGreen Zn",
+      "activeIngredient": "Microbial consortium",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulationType": "WP",
+      "categoryId": "cat-biofertilizer",
+      "description": "Zinc-solubilizing microbial biofertilizer that improves zinc availability and uptake in zinc-deficient soils."
+    }
+  ],
+
+  "packages": [
+    {
+      "id": "pkg-rice-borer-mgmt",
+      "name": "Rice Borer Management Pack",
+      "objective": "Integrated management of stem borers in rice through biological control and plant strengthening",
+      "packageType": "pest-management",
+      "productRoles": [
+        { "productId": "prod-spindura-plus", "role": "Primary pest control", "sequence": 1 },
+        { "productId": "prod-mycova", "role": "Biological reinforcement", "sequence": 2 },
+        { "productId": "prod-blooma", "role": "Plant recovery and vigor", "sequence": 3 }
+      ],
+      "dosageNote": "Apply Spindura Plus at 2 ml/L as foliar spray at first sign of dead hearts. Follow with Mycova at 2.5 g/L for residual biological control. Support with Blooma at 2 ml/L for crop recovery.",
+      "stageRelevance": ["stage-tillering", "stage-vegetative"],
+      "seasonalRelevance": ["Kharif", "Rabi"],
+      "regionRelevance": ["South India", "East India", "North India"],
+      "complianceNote": "All components are approved for use in organic and integrated pest management programs."
+    },
+    {
+      "id": "pkg-rice-blast-shield",
+      "name": "Rice Blast Shield Pack",
+      "objective": "Preventive and curative management of blast disease in rice using biological agents",
+      "packageType": "disease-management",
+      "productRoles": [
+        { "productId": "prod-biota-v", "role": "Soil-applied disease suppression", "sequence": 1 },
+        { "productId": "prod-mycova", "role": "Foliar biocontrol support", "sequence": 2 },
+        { "productId": "prod-envicta", "role": "Plant strengthening and recovery", "sequence": 3 }
+      ],
+      "dosageNote": "Apply Biota-V at 2.5 g/L as soil drench before transplanting. Spray Mycova at 2.5 g/L at first symptom appearance. Support with Envicta at 2 ml/L for enhanced plant defense.",
+      "stageRelevance": ["stage-tillering", "stage-vegetative", "stage-seedling"],
+      "seasonalRelevance": ["Kharif"],
+      "regionRelevance": ["South India", "East India"],
+      "complianceNote": "Suitable for organic cultivation and IPM programs. No pre-harvest interval required."
+    },
+    {
+      "id": "pkg-rice-zinc-nutrition",
+      "name": "Rice Zinc Nutrition Pack",
+      "objective": "Correction and prevention of zinc deficiency in rice through microbial and biostimulant support",
+      "packageType": "nutrition",
+      "productRoles": [
+        { "productId": "prod-igreen-zn", "role": "Zinc solubilization and availability", "sequence": 1 },
+        { "productId": "prod-envicta", "role": "Nutrient uptake enhancement", "sequence": 2 },
+        { "productId": "prod-blooma", "role": "Root development and stress tolerance", "sequence": 3 }
+      ],
+      "dosageNote": "Apply IGreen Zn at 2.5 g/L as soil application at transplanting. Follow with Envicta at 2 ml/L and Blooma at 2 ml/L as foliar sprays at tillering.",
+      "stageRelevance": ["stage-transplanting", "stage-tillering", "stage-vegetative"],
+      "seasonalRelevance": ["Kharif", "Rabi"],
+      "regionRelevance": ["South India", "East India", "North India", "Central India"],
+      "complianceNote": "All components are biological. Safe for organic production systems."
+    },
+    {
+      "id": "pkg-cotton-whitefly-mgmt",
+      "name": "Cotton Whitefly Management Pack",
+      "objective": "Integrated biological management of whitefly in cotton during vegetative growth",
+      "packageType": "pest-management",
+      "productRoles": [
+        { "productId": "prod-ecoza-max", "role": "Primary antifeedant and repellent action", "sequence": 1 },
+        { "productId": "prod-mycova", "role": "Entomopathogenic biocontrol", "sequence": 2 },
+        { "productId": "prod-blooma", "role": "Plant vigor and stress recovery", "sequence": 3 }
+      ],
+      "dosageNote": "Spray Ecoza Max at 2-3 ml/L at first sighting of whitefly. Follow with Mycova at 2.5 g/L after 7 days for sustained biological control. Apply Blooma at 2 ml/L to restore crop vigor.",
+      "stageRelevance": ["stage-vegetative", "stage-flowering"],
+      "seasonalRelevance": ["Kharif"],
+      "regionRelevance": ["Central India", "South India", "North India"],
+      "complianceNote": "Compatible with IPM programs. No harmful residues on lint or seed."
+    },
+    {
+      "id": "pkg-soil-health-foundation",
+      "name": "Soil Health Foundation Pack",
+      "objective": "Establish healthy soil biology and improve nutrient availability at planting",
+      "packageType": "soil-health",
+      "productRoles": [
+        { "productId": "prod-biota-v", "role": "Soil disease suppression and root zone protection", "sequence": 1 },
+        { "productId": "prod-igreen-zn", "role": "Micronutrient solubilization", "sequence": 2 },
+        { "productId": "prod-envicta", "role": "Soil organic matter and microbial activity enhancement", "sequence": 3 }
+      ],
+      "dosageNote": "Mix Biota-V at 2.5 g/L and IGreen Zn at 2.5 g/L for soil application at planting. Follow with Envicta at 2 ml/L as drench after 15 days.",
+      "stageRelevance": ["stage-seedling", "stage-nursery", "stage-transplanting"],
+      "seasonalRelevance": ["Kharif", "Rabi", "Zaid"],
+      "regionRelevance": ["South India", "East India", "North India", "Central India", "West India"],
+      "complianceNote": "All biological inputs. Suitable for organic certification programs."
+    },
+    {
+      "id": "pkg-abiotic-stress-shield",
+      "name": "Abiotic Stress Shield Pack",
+      "objective": "Improve crop resilience against drought, heat, and transplant shock through biostimulant support",
+      "packageType": "stress-management",
+      "productRoles": [
+        { "productId": "prod-blooma", "role": "Stress tolerance and hormonal balance", "sequence": 1 },
+        { "productId": "prod-envicta", "role": "Root development and nutrient mobilization", "sequence": 2 }
+      ],
+      "dosageNote": "Apply Blooma at 2-3 ml/L as preventive foliar spray before anticipated stress. Follow with Envicta at 2 ml/L to enhance root recovery and nutrient access.",
+      "stageRelevance": ["stage-seedling", "stage-vegetative", "stage-transplanting", "stage-flowering"],
+      "seasonalRelevance": ["Kharif", "Rabi", "Zaid"],
+      "regionRelevance": ["South India", "Central India", "North India", "West India"],
+      "complianceNote": "Plant-based biostimulants with no chemical residue concerns."
+    }
+  ],
+
+  "recommendations": [
+    {
+      "id": "rec-001",
+      "matchCriteria": {
+        "cropIds": ["crop-rice"],
+        "pestIds": ["pest-stem-borer"],
+        "growthStageIds": ["stage-tillering"],
+        "season": "Kharif",
+        "region": "South India"
+      },
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg-rice-borer-mgmt",
+      "recommendationReason": "Complete biological borer management combining Spinosad-based control, entomopathogenic reinforcement, and crop recovery support — ideal for Kharif rice during tillering.",
+      "dosageNote": "Apply Spindura Plus at 2 ml/L at dead heart stage. Follow with Mycova at 2.5 g/L. Support with Blooma at 2 ml/L.",
+      "stageRelevance": "Tillering to panicle initiation",
+      "seasonalRelevance": "Kharif (monsoon-season rice)",
+      "regionRelevance": "Recommended for South and East India rice belts",
+      "complianceNote": "All components approved for organic and IPM use.",
+      "crossSell": ["prod-envicta"],
+      "upSell": ["pkg-soil-health-foundation"]
+    },
+    {
+      "id": "rec-002",
+      "matchCriteria": {
+        "cropIds": ["crop-rice"],
+        "pestIds": ["pest-stem-borer"]
+      },
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod-spindura-plus",
+      "recommendationReason": "Spinosad-based botanical insecticide with proven efficacy against rice stem borers through contact and ingestion activity.",
+      "dosageNote": "2 ml/L foliar spray at first sign of dead hearts. Repeat after 10-14 days if infestation persists.",
+      "stageRelevance": "Tillering to booting",
+      "seasonalRelevance": "All rice-growing seasons",
+      "regionRelevance": "All rice-growing regions",
+      "complianceNote": "Approved for organic rice production.",
+      "crossSell": ["prod-mycova", "prod-blooma"],
+      "upSell": ["pkg-rice-borer-mgmt"]
+    },
+    {
+      "id": "rec-003",
+      "matchCriteria": {
+        "cropIds": ["crop-rice"],
+        "diseaseIds": ["dis-blast"]
+      },
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg-rice-blast-shield",
+      "recommendationReason": "Integrated biological blast management using Trichoderma for soil-level suppression, Beauveria for foliar support, and biostimulant-based plant strengthening.",
+      "dosageNote": "Biota-V at 2.5 g/L soil drench. Mycova at 2.5 g/L foliar. Envicta at 2 ml/L for defense enhancement.",
+      "stageRelevance": "Seedling through tillering",
+      "seasonalRelevance": "Kharif (high humidity periods)",
+      "regionRelevance": "South India and East India blast-prone zones",
+      "complianceNote": "No PHI required. Safe for organic programs.",
+      "crossSell": ["prod-blooma"],
+      "upSell": []
+    },
+    {
+      "id": "rec-004",
+      "matchCriteria": {
+        "cropIds": ["crop-rice"],
+        "diseaseIds": ["dis-blast"]
+      },
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod-biota-v",
+      "recommendationReason": "Trichoderma viride provides competitive colonization of the root zone and suppresses Magnaporthe oryzae through mycoparasitism and induced systemic resistance.",
+      "dosageNote": "2.5 g/L as soil drench before transplanting or at early tillering.",
+      "stageRelevance": "Nursery to tillering",
+      "seasonalRelevance": "All seasons — preventive use recommended",
+      "regionRelevance": "All rice-growing regions",
+      "complianceNote": "Biological agent. No residue concerns.",
+      "crossSell": ["prod-envicta"],
+      "upSell": ["pkg-rice-blast-shield"]
+    },
+    {
+      "id": "rec-005",
+      "matchCriteria": {
+        "cropIds": ["crop-rice"],
+        "nutrientDeficiencyIds": ["ndef-zinc"]
+      },
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg-rice-zinc-nutrition",
+      "recommendationReason": "Targeted zinc nutrition program using zinc-solubilizing microbes, humic-fulvic uptake enhancement, and seaweed-based root stimulation to correct zinc deficiency.",
+      "dosageNote": "IGreen Zn at 2.5 g/L soil application. Envicta at 2 ml/L and Blooma at 2 ml/L as foliar support.",
+      "stageRelevance": "Transplanting through tillering",
+      "seasonalRelevance": "Kharif and Rabi",
+      "regionRelevance": "Zinc-deficient soils across all rice belts",
+      "complianceNote": "All biological inputs. Suitable for organic certification.",
+      "crossSell": [],
+      "upSell": ["pkg-soil-health-foundation"]
+    },
+    {
+      "id": "rec-006",
+      "matchCriteria": {
+        "cropIds": ["crop-rice"],
+        "nutrientDeficiencyIds": ["ndef-zinc"]
+      },
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod-igreen-zn",
+      "recommendationReason": "Zinc-solubilizing microbial consortium that converts insoluble soil zinc into plant-available forms, addressing deficiency at the root zone level.",
+      "dosageNote": "2.5 g/L as soil application at transplanting. Can be mixed with organic matter for basal application.",
+      "stageRelevance": "Transplanting to early vegetative",
+      "seasonalRelevance": "All seasons",
+      "regionRelevance": "Alkaline and zinc-deficient soils",
+      "complianceNote": "Microbial biofertilizer. Safe for organic systems.",
+      "crossSell": ["prod-envicta", "prod-blooma"],
+      "upSell": ["pkg-rice-zinc-nutrition"]
+    },
+    {
+      "id": "rec-007",
+      "matchCriteria": {
+        "cropIds": ["crop-cotton"],
+        "pestIds": ["pest-whitefly"],
+        "growthStageIds": ["stage-vegetative"]
+      },
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg-cotton-whitefly-mgmt",
+      "recommendationReason": "Integrated whitefly management combining neem-based antifeedant action, entomopathogenic fungal control, and biostimulant-based crop recovery for vegetative cotton.",
+      "dosageNote": "Ecoza Max at 2-3 ml/L first spray. Mycova at 2.5 g/L after 7 days. Blooma at 2 ml/L for vigor.",
+      "stageRelevance": "Vegetative to early flowering",
+      "seasonalRelevance": "Kharif",
+      "regionRelevance": "Central India and South India cotton zones",
+      "complianceNote": "IPM-compatible. No harmful residues on cotton lint.",
+      "crossSell": ["prod-envicta"],
+      "upSell": ["pkg-soil-health-foundation"]
+    },
+    {
+      "id": "rec-008",
+      "matchCriteria": {
+        "cropIds": ["crop-cotton"],
+        "pestIds": ["pest-whitefly"]
+      },
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod-ecoza-max",
+      "recommendationReason": "Azadirachtin-based botanical insecticide with strong antifeedant and insect growth regulator properties effective against whitefly nymphs and adults.",
+      "dosageNote": "2-3 ml/L foliar spray. Repeat every 7-10 days during active infestation.",
+      "stageRelevance": "All vegetative and reproductive stages",
+      "seasonalRelevance": "Kharif and late Kharif",
+      "regionRelevance": "All cotton-growing regions",
+      "complianceNote": "Botanical pesticide. Approved for organic cotton programs.",
+      "crossSell": ["prod-mycova"],
+      "upSell": ["pkg-cotton-whitefly-mgmt"]
+    },
+    {
+      "id": "rec-009",
+      "matchCriteria": {
+        "abioticStressIds": ["abiotic-drought", "abiotic-heat", "abiotic-transplant-shock"]
+      },
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg-abiotic-stress-shield",
+      "recommendationReason": "Biostimulant-based stress management combining seaweed extract for hormonal balance and humic-fulvic complex for root resilience and nutrient mobilization.",
+      "dosageNote": "Blooma at 2-3 ml/L preventive spray. Envicta at 2 ml/L for root and nutrient support.",
+      "stageRelevance": "All growth stages — especially critical at transplanting and flowering",
+      "seasonalRelevance": "All seasons — especially important during dry spells",
+      "regionRelevance": "Drought-prone and semi-arid regions",
+      "complianceNote": "Plant-based biostimulants. No chemical residue concerns.",
+      "crossSell": ["prod-igreen-zn"],
+      "upSell": []
+    },
+    {
+      "id": "rec-010",
+      "matchCriteria": {
+        "abioticStressIds": ["abiotic-drought", "abiotic-heat"]
+      },
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod-blooma",
+      "recommendationReason": "Seaweed-based biostimulant that enhances drought and heat tolerance through natural cytokinin and betaine content, supporting osmotic adjustment and cell protection.",
+      "dosageNote": "2-3 ml/L foliar spray. Apply 3-5 days before anticipated stress event for best results.",
+      "stageRelevance": "All growth stages",
+      "seasonalRelevance": "Summer and dry spells across seasons",
+      "regionRelevance": "All regions — priority in rain-fed agriculture",
+      "complianceNote": "Seaweed-based. Safe for organic systems.",
+      "crossSell": ["prod-envicta"],
+      "upSell": ["pkg-abiotic-stress-shield"]
+    },
+    {
+      "id": "rec-011",
+      "matchCriteria": {
+        "cropIds": ["crop-tomato", "crop-potato", "crop-grapes", "crop-mango"],
+        "diseaseIds": ["dis-root-rot", "dis-fusarium-wilt", "dis-damping-off"]
+      },
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod-biota-v",
+      "recommendationReason": "Trichoderma viride is the primary biological agent for soil-borne disease suppression across horticultural crops. It provides competitive root zone colonization and induced plant defense.",
+      "dosageNote": "2.5 g/L as soil drench at planting or transplanting. Repeat at 30-day intervals for sustained protection.",
+      "stageRelevance": "Nursery through vegetative growth",
+      "seasonalRelevance": "All seasons — critical during humid conditions",
+      "regionRelevance": "All horticultural regions",
+      "complianceNote": "Biological fungal agent. No chemical residue.",
+      "crossSell": ["prod-envicta", "prod-blooma"],
+      "upSell": ["pkg-soil-health-foundation"]
+    },
+    {
+      "id": "rec-012",
+      "matchCriteria": {
+        "categoryIds": ["cat-biostimulant"]
+      },
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod-blooma",
+      "recommendationReason": "Premium seaweed-based biostimulant that enhances overall crop performance through improved root development, stress tolerance, and nutrient efficiency.",
+      "dosageNote": "2 ml/L foliar spray at key growth stages. Compatible with most spray programs.",
+      "stageRelevance": "All growth stages — especially vegetative and flowering",
+      "seasonalRelevance": "All seasons",
+      "regionRelevance": "All regions",
+      "complianceNote": "Natural seaweed extract. Certified for organic use.",
+      "crossSell": ["prod-envicta"],
+      "upSell": ["pkg-abiotic-stress-shield"]
+    },
+    {
+      "id": "rec-013",
+      "matchCriteria": {
+        "categoryIds": ["cat-biostimulant"]
+      },
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod-envicta",
+      "recommendationReason": "Multi-component biostimulant combining humic acid, fulvic acid, and amino acids to enhance soil biology, nutrient uptake, and plant resilience.",
+      "dosageNote": "2 ml/L foliar or soil application. Best results with repeated applications at 15-day intervals.",
+      "stageRelevance": "All growth stages",
+      "seasonalRelevance": "All seasons",
+      "regionRelevance": "All regions — priority in degraded or low-organic-matter soils",
+      "complianceNote": "Organic-compatible biostimulant.",
+      "crossSell": ["prod-blooma"],
+      "upSell": ["pkg-soil-health-foundation"]
+    },
+    {
+      "id": "rec-014",
+      "matchCriteria": {
+        "categoryIds": ["cat-biofertilizer"]
+      },
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod-igreen-zn",
+      "recommendationReason": "Microbial consortium-based biofertilizer that solubilizes zinc and improves micronutrient availability in the root zone, supporting healthier crop growth.",
+      "dosageNote": "2.5 g/L soil application at planting. Can be combined with organic manure for enhanced efficacy.",
+      "stageRelevance": "Planting to early vegetative",
+      "seasonalRelevance": "All seasons",
+      "regionRelevance": "All regions — especially zinc-deficient soils",
+      "complianceNote": "Microbial biofertilizer suitable for organic farming.",
+      "crossSell": ["prod-envicta", "prod-biota-v"],
+      "upSell": ["pkg-soil-health-foundation"]
+    },
+    {
+      "id": "rec-015",
+      "matchCriteria": {
+        "cropIds": ["crop-rice"],
+        "diseaseIds": ["dis-sheath-blight"]
+      },
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod-biota-v",
+      "recommendationReason": "Trichoderma viride provides effective biocontrol against Rhizoctonia solani through direct mycoparasitism and competitive root zone colonization in rice.",
+      "dosageNote": "2.5 g/L soil drench at transplanting. Foliar spray at 2.5 g/L at booting if symptoms appear.",
+      "stageRelevance": "Transplanting through booting",
+      "seasonalRelevance": "Kharif — high humidity periods",
+      "regionRelevance": "East India and South India lowland rice areas",
+      "complianceNote": "Biological agent. No pre-harvest interval.",
+      "crossSell": ["prod-envicta"],
+      "upSell": ["pkg-rice-blast-shield"]
+    },
+    {
+      "id": "rec-016",
+      "matchCriteria": {
+        "cropIds": ["crop-tomato", "crop-cotton", "crop-grapes"],
+        "pestIds": ["pest-thrips", "pest-mealybug", "pest-aphids", "pest-mite"]
+      },
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod-ecoza-max",
+      "recommendationReason": "Azadirachtin-based broad-spectrum botanical insecticide effective against multiple sucking pest species through antifeedant, repellent, and growth-disrupting modes of action.",
+      "dosageNote": "2-3 ml/L foliar spray. Apply in the evening for best results. Repeat every 7-10 days.",
+      "stageRelevance": "All growth stages",
+      "seasonalRelevance": "All seasons — peak demand during warm humid weather",
+      "regionRelevance": "All crop-growing regions",
+      "complianceNote": "Botanical pesticide. Approved for organic and IPM.",
+      "crossSell": ["prod-mycova", "prod-blooma"],
+      "upSell": []
+    },
+    {
+      "id": "rec-017",
+      "matchCriteria": {
+        "pestIds": ["pest-spodoptera", "pest-fruit-borer", "pest-bollworm"]
+      },
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod-spindura-plus",
+      "recommendationReason": "Spinosad-based natural insecticide with strong contact and ingestion activity against lepidopteran caterpillar pests including Spodoptera, bollworms, and fruit borers.",
+      "dosageNote": "2 ml/L foliar spray targeting early larval instars. Repeat after 10-14 days if needed.",
+      "stageRelevance": "Vegetative through fruiting stages",
+      "seasonalRelevance": "All seasons — critical during pest peak periods",
+      "regionRelevance": "All regions",
+      "complianceNote": "Naturally derived insecticide. Approved for organic use.",
+      "crossSell": ["prod-ecoza-max"],
+      "upSell": []
+    },
+    {
+      "id": "rec-018",
+      "matchCriteria": {
+        "growthStageIds": ["stage-seedling", "stage-nursery"]
+      },
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg-soil-health-foundation",
+      "recommendationReason": "Foundation soil health program to establish healthy root zones at planting — combines disease suppression, zinc solubilization, and organic matter enhancement.",
+      "dosageNote": "Biota-V + IGreen Zn at 2.5 g/L each as soil mix. Envicta at 2 ml/L as drench at 15 days.",
+      "stageRelevance": "Seedling, nursery, and transplanting stages",
+      "seasonalRelevance": "All planting seasons",
+      "regionRelevance": "All regions — priority in degraded soils",
+      "complianceNote": "All biological. Organic-certification compatible.",
+      "crossSell": ["prod-blooma"],
+      "upSell": []
+    }
+  ]
+}

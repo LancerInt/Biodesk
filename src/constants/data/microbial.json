@@ -1,0 +1,605 @@
+[
+  {
+    "product_identity": {
+      "brand_name": "Mycova",
+      "active_ingredient": "Beauveria bassiana",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Mycova is a Beauveria bassiana wettable powder containing viable conidia for biological control of canopy-dwelling insect pests. It performs best under humid conditions and at early infestation stages where spore adhesion and germination are favored.",
+    "key_product_highlights": [
+      "Entomopathogenic fungus for biological control of foliar insect pests",
+      "Penetrates the insect cuticle after spore germination",
+      "Compatible with IPM programs when microbial viability is protected",
+      "Field efficacy improves with humidity, coverage, and early use"
+    ],
+    "mechanism_of_action": {
+      "description": "Beauveria bassiana conidia adhere to the insect cuticle, germinate, and penetrate through enzymatic degradation using proteases, chitinases, and lipases. The fungus colonizes the hemocoel, produces insecticidal secondary metabolites, and suppresses the pest through mycosis followed by external sporulation."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "At first detection of soft-bodied pests or early larvae",
+        "dose_per_acre": "500-750 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray during cooler, humid periods"
+      },
+      {
+        "crop_stage": "Moderate infestation under favorable humidity",
+        "dose_per_acre": "750-1000 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with full canopy and lower-surface coverage"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At early infestation under high relative humidity",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Apply in the evening or early morning to improve spore survival and infection."
+      },
+      {
+        "application_timing": "During continuous pest emergence",
+        "frequency": "2-3 sequential applications",
+        "recommendation": "Avoid long spray intervals when new generations are hatching."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "mealybugs",
+      "caterpillars"
+    ],
+    "strain_or_active_strength": "Viable conidial load: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Soft-bodied pests are increasing but chemical residue management is a concern.",
+        "solution": "Use Beauveria under humid conditions to establish infection and biologically suppress the pest complex."
+      },
+      {
+        "problem": "Early larval stages continue to recover between sprays.",
+        "solution": "Apply sequentially at short intervals to expose newly emerged stages to viable conidia."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "WP entomopathogenic fungus positioned for early biological suppression of foliar pest complexes where humidity supports infection."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Rexora",
+      "active_ingredient": "Metarhizium anisopliae",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Rexora is a Metarhizium anisopliae wettable powder for biological suppression of soil-associated and foliar insect pests. It is especially relevant where cuticle-infecting fungal control is needed against persistent field populations.",
+    "key_product_highlights": [
+      "Entomopathogenic fungus active against several soil and foliage insect pests",
+      "Infects through spore adhesion, germination, and cuticle penetration",
+      "Useful in biological programs targeting persistent field populations",
+      "Performs best when moisture supports conidial survival and infection"
+    ],
+    "mechanism_of_action": {
+      "description": "Metarhizium anisopliae conidia colonize the insect cuticle, germinate, and penetrate by enzymatic degradation involving proteases, chitinases, and lipases. The fungus proliferates inside the host, produces toxic secondary metabolites, and suppresses insect survival through systemic fungal colonization and mycosis."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Early foliar infestation or soil pest detection",
+        "dose_per_acre": "500-750 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray or root-zone drench depending on target pest ecology"
+      },
+      {
+        "crop_stage": "Established soil or canopy pest pressure",
+        "dose_per_acre": "1.0-1.5 kg/acre",
+        "water_volume": "200-250 L",
+        "application_method": "Soil drench, drip application, or heavy-volume foliar spray"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At initial pest establishment when humidity is favorable",
+        "frequency": "Repeat every 10-14 days",
+        "recommendation": "Use the higher dose for persistent soil insect pressure or dense crop canopies."
+      },
+      {
+        "application_timing": "During continuous emergence of target stages",
+        "frequency": "2-3 applications",
+        "recommendation": "Apply to moist soil or humid canopies to improve conidial infection efficiency."
+      }
+    ],
+    "targets": [
+      "white grubs",
+      "termites",
+      "thrips",
+      "caterpillars",
+      "beetle larvae"
+    ],
+    "strain_or_active_strength": "Viable conidial load: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Persistent field populations of soil or canopy insects are difficult to suppress biologically.",
+        "solution": "Use Metarhizium where moisture allows conidial establishment and repeated infection cycles."
+      },
+      {
+        "problem": "Soil insect pressure is reducing stand and root vigor.",
+        "solution": "Direct the product to the root zone or soil surface to target insect stages near the rhizosphere."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "Metarhizium WP positioned for biological management of persistent insect populations, particularly where soil-associated stages are important."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Biota-V",
+      "active_ingredient": "Trichoderma viride",
+      "concentration": "1 × 10⁸ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Biota-V is a Trichoderma viride wettable powder for biological suppression of soil-borne fungal pathogens in the rhizosphere. It is used in nursery, basal, and root-zone programs to improve root health and reduce early disease pressure.",
+    "key_product_highlights": [
+      "Fast-growing rhizosphere fungus with mycoparasitic activity",
+      "Produces cell-wall-degrading enzymes against fungal pathogens",
+      "Improves root-zone microbial balance and establishment",
+      "Best positioned as a preventive soil and nursery input"
+    ],
+    "mechanism_of_action": {
+      "description": "Trichoderma colonizes the rhizosphere and root surface, competes aggressively for space and nutrients, and parasitizes pathogenic fungi through enzymatic degradation involving chitinases, glucanases, and proteases. It also produces antifungal secondary metabolites and can trigger host defense priming, thereby suppressing soil-borne pathogens and improving root health."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or transplant establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, root-zone drench, or drip delivery"
+      },
+      {
+        "crop_stage": "Nursery or early root-zone correction",
+        "dose_per_acre": "500-1000 g/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench around seedlings or transplant rows"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One preventive application",
+        "recommendation": "Introduce the product before pathogen pressure becomes severe."
+      },
+      {
+        "application_timing": "During early crop establishment or after disease-conducive conditions",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to the root zone when soils remain wet and disease pressure persists."
+      }
+    ],
+    "targets": [
+      "Fusarium wilt complex",
+      "Pythium damping-off",
+      "Rhizoctonia root rot",
+      "Sclerotium collar rot",
+      "seedling blight"
+    ],
+    "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Damping-off and root rot pathogens are reducing plant stand and early vigor.",
+        "solution": "Apply preventively to colonize the rhizosphere and suppress pathogen establishment."
+      },
+      {
+        "problem": "Root-zone disease pressure increases after irrigation or prolonged wet soil.",
+        "solution": "Reinforce the root zone with a drench or drip application to sustain microbial antagonism."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "T. viride WP positioned as a preventive soil biocontrol input for nursery protection, basal application, and early root-zone disease suppression."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Biota-H",
+      "active_ingredient": "Trichoderma harzianum",
+      "concentration": "1 × 10⁸ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Biota-H is a Trichoderma harzianum wettable powder for preventive management of soil-borne pathogens and root-zone stress. It is suited to basal and drench programs where strong rhizosphere colonization and mycoparasitic activity are required.",
+    "key_product_highlights": [
+      "Rhizosphere-competent Trichoderma strain for root-zone protection",
+      "Suppresses pathogens through mycoparasitism and metabolite production",
+      "Promotes a healthier root environment and better establishment",
+      "Most effective when introduced before severe disease development"
+    ],
+    "mechanism_of_action": {
+      "description": "Trichoderma colonizes the rhizosphere and root surface, competes aggressively for space and nutrients, and parasitizes pathogenic fungi through enzymatic degradation involving chitinases, glucanases, and proteases. It also produces antifungal secondary metabolites and can trigger host defense priming, thereby suppressing soil-borne pathogens and improving root health."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or transplant establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, root-zone drench, or drip delivery"
+      },
+      {
+        "crop_stage": "Nursery or early root-zone correction",
+        "dose_per_acre": "500-1000 g/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench around seedlings or transplant rows"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One preventive application",
+        "recommendation": "Introduce the product before pathogen pressure becomes severe."
+      },
+      {
+        "application_timing": "During early crop establishment or after disease-conducive conditions",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to the root zone when soils remain wet and disease pressure persists."
+      }
+    ],
+    "targets": [
+      "Fusarium wilt complex",
+      "Pythium damping-off",
+      "Rhizoctonia root rot",
+      "Sclerotium collar rot",
+      "seedling blight"
+    ],
+    "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Damping-off and root rot pathogens are reducing plant stand and early vigor.",
+        "solution": "Apply preventively to colonize the rhizosphere and suppress pathogen establishment."
+      },
+      {
+        "problem": "Root-zone disease pressure increases after irrigation or prolonged wet soil.",
+        "solution": "Reinforce the root zone with a drench or drip application to sustain microbial antagonism."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "T. harzianum WP positioned for preventive rhizosphere occupation and sustained suppression of soil-borne disease complexes."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Neuvita",
+      "active_ingredient": "Pseudomonas fluorescens",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Neuvita is a Pseudomonas fluorescens wettable powder for rhizosphere-based suppression of soil-borne pathogens and nursery disease pressure. It is used to establish beneficial root-zone colonization and improve biological buffering around the root system.",
+    "key_product_highlights": [
+      "Beneficial rhizobacterium with strong root-zone colonization ability",
+      "Produces siderophores, antibiotics, and lytic enzymes",
+      "Improves root-zone microbial balance and disease suppression",
+      "Useful in nursery, transplant, and soil-drench programs"
+    ],
+    "mechanism_of_action": {
+      "description": "Pseudomonas fluorescens colonizes the rhizosphere and root surface, competes for iron through siderophore production, and suppresses pathogens via antibiotics, lytic enzymes, and other secondary metabolites. This microbial occupation also primes plant defense responses and reduces the activity of root-zone pathogens."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or transplant stage",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow application, or root-zone drench"
+      },
+      {
+        "crop_stage": "Nursery or early crop establishment",
+        "dose_per_acre": "500-750 g/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench around seedlings or transplant lines"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or root-zone preparation",
+        "frequency": "One preventive application",
+        "recommendation": "Apply before the root zone becomes pathogen dominated."
+      },
+      {
+        "application_timing": "During extended wet conditions or recurring nursery disease",
+        "frequency": "Repeat after 20-30 days if needed",
+        "recommendation": "Reinforce colonization where irrigation or stress favors pathogen resurgence."
+      }
+    ],
+    "targets": [
+      "Fusarium wilt complex",
+      "Pythium damping-off",
+      "Rhizoctonia root rot",
+      "root rot complex",
+      "nursery disease pressure"
+    ],
+    "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Soil-borne pathogens are reducing root establishment and early stand.",
+        "solution": "Apply to establish a competitive rhizosphere that suppresses pathogen development."
+      },
+      {
+        "problem": "Nursery disease pressure remains high under repeated wetting cycles.",
+        "solution": "Use a follow-up drench to sustain beneficial colonization around the young root system."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "P. fluorescens WP positioned for nursery, transplant, and rhizosphere health programs where preventive biological root-zone suppression is required."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Seira",
+      "active_ingredient": "Verticillium lecanii",
+      "concentration": "1 × 10⁸ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Seira is a Verticillium lecanii wettable powder for biological control of soft-bodied sucking pests in crop canopies. It performs best when applied early under humid conditions that support spore germination on the insect cuticle.",
+    "key_product_highlights": [
+      "Entomopathogenic fungus specialized for soft-bodied sucking pests",
+      "Penetrates the host through spore germination and cuticle infection",
+      "Useful in biological canopy management under humid conditions",
+      "Best results occur with early application and good lower-leaf coverage"
+    ],
+    "mechanism_of_action": {
+      "description": "Verticillium lecanii conidia adhere to the insect cuticle, germinate, and penetrate by enzymatic degradation involving chitinases, proteases, and lipases. The fungus colonizes the host internally, produces suppressive metabolites, and ultimately kills the insect before sporulating externally under favorable humidity."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "At first appearance of sucking pest colonies",
+        "dose_per_acre": "500-750 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray under humid, cooler conditions"
+      },
+      {
+        "crop_stage": "Moderate canopy infestation",
+        "dose_per_acre": "750-1000 g/acre",
+        "water_volume": "180-220 L",
+        "application_method": "Foliar spray with complete coverage of colony sites"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At early infestation with adequate humidity",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Apply in the evening or early morning to improve infection success."
+      },
+      {
+        "application_timing": "During repeated pest emergence",
+        "frequency": "2-3 applications",
+        "recommendation": "Avoid long intervals where new colonies can establish between sprays."
+      }
+    ],
+    "targets": [
+      "aphids",
+      "whiteflies",
+      "thrips",
+      "mealybugs",
+      "scale crawlers"
+    ],
+    "strain_or_active_strength": "Viable conidial load: 1 × 10⁸ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Whiteflies and aphids continue to colonize the lower canopy.",
+        "solution": "Use humid-period applications to improve spore germination and biological infection."
+      },
+      {
+        "problem": "Soft-bodied pests recover after single microbial sprays.",
+        "solution": "Repeat at short intervals to expose fresh colonies and newly emerged stages."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "V. lecanii WP positioned for biological suppression of sucking pest colonies in humid canopy environments."
+  },
+  {
+    "product_identity": {
+      "brand_name": "EnCilo",
+      "active_ingredient": "Verticillium chlamydosporium",
+      "concentration": "1 × 10⁸ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "EnCilo is a Verticillium chlamydosporium wettable powder for biological suppression of plant-parasitic nematodes in the root zone. It is suited to basal and drip-based programs where egg parasitism and rhizosphere persistence are required.",
+    "key_product_highlights": [
+      "Nematophagous fungus for root-zone nematode suppression",
+      "Parasitizes eggs and reduces hatching in the soil profile",
+      "Establishes around roots and in the rhizosphere",
+      "Best positioned preventively or at low to moderate nematode pressure"
+    ],
+    "mechanism_of_action": {
+      "description": "Verticillium chlamydosporium colonizes the rhizosphere and parasitizes nematode eggs, females, and related survival structures through enzymatic degradation using proteases and chitinases. This microbial colonization reduces egg viability and juvenile emergence, lowering nematode pressure in the root zone over time."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application before or at planting",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or root-zone drip application"
+      },
+      {
+        "crop_stage": "Established crop under nematode pressure",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Root-zone drench around the active feeder root zone"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At basal preparation or transplanting",
+        "frequency": "One preventive application",
+        "recommendation": "Apply before nematode multiplication peaks to improve egg parasitism."
+      },
+      {
+        "application_timing": "Under continuous nematode pressure",
+        "frequency": "Repeat after 25-30 days if required",
+        "recommendation": "Direct the application to moist root zones where egg masses are concentrated."
+      }
+    ],
+    "targets": [
+      "root-knot nematodes",
+      "cyst nematodes",
+      "reniform nematodes",
+      "nematode egg masses",
+      "juvenile nematode populations"
+    ],
+    "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Root-knot symptoms and egg mass carryover are reducing root function.",
+        "solution": "Apply preventively to parasitize eggs and lower juvenile emergence in the rhizosphere."
+      },
+      {
+        "problem": "Nematode populations rebound after a single soil intervention.",
+        "solution": "Use a follow-up root-zone application to sustain fungal presence near active roots."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "Nematophagous fungal WP positioned for preventive management of root-zone nematodes where egg parasitism is agronomically important."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Subtilix",
+      "active_ingredient": "Bacillus subtilis",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Subtilix is a Bacillus subtilis wettable powder for biological suppression of foliar and root-zone pathogens. It is suited to preventive disease programs that require rapid microbial colonization and metabolite-based antagonism.",
+    "key_product_highlights": [
+      "Beneficial Bacillus with strong colonization of the phyllosphere and rhizosphere",
+      "Produces lipopeptides and enzymes that suppress pathogens",
+      "Useful in preventive disease management and root-zone stabilization",
+      "Can be applied as foliar spray or root-zone drench"
+    ],
+    "mechanism_of_action": {
+      "description": "Bacillus subtilis colonizes plant surfaces and the rhizosphere, forms biofilms, and suppresses pathogens through lipopeptide antibiotics, lytic enzymes, and competitive exclusion. It also stimulates host defense responses, reducing establishment of both foliar and soil-borne disease organisms."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Preventive foliar disease program",
+        "dose_per_acre": "500-750 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray with uniform canopy coverage"
+      },
+      {
+        "crop_stage": "Root-zone disease risk or transplant stage",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Root-zone drench or drip delivery"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "Before visible disease escalation",
+        "frequency": "Repeat every 7-10 days for foliar use",
+        "recommendation": "Use preventively because biological suppression is strongest before infection becomes severe."
+      },
+      {
+        "application_timing": "At transplanting or under root-zone stress",
+        "frequency": "Repeat after 15-20 days if needed",
+        "recommendation": "Reinforce the root zone where repeated irrigation favors pathogen recurrence."
+      }
+    ],
+    "targets": [
+      "Alternaria leaf spot",
+      "powdery mildew",
+      "bacterial leaf spot",
+      "damping-off complex",
+      "Fusarium root stress"
+    ],
+    "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Foliar disease pressure is recurring under a preventive crop program.",
+        "solution": "Apply B. subtilis before visible escalation to maintain surface colonization and antagonism."
+      },
+      {
+        "problem": "Root-zone disease symptoms appear after transplanting or prolonged wet soil.",
+        "solution": "Use a drench to establish beneficial Bacillus populations around feeder roots."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "B. subtilis WP positioned for preventive foliar and root-zone disease management where rapid surface colonization and metabolite production are needed."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Elixora",
+      "active_ingredient": "Bacillus amyloliquefaciens",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Elixora is a Bacillus amyloliquefaciens wettable powder for preventive suppression of foliar and root-zone pathogens. It is suited to integrated biological disease programs that rely on lipopeptide-producing Bacillus strains.",
+    "key_product_highlights": [
+      "Lipopeptide-producing Bacillus for broad biological disease suppression",
+      "Colonizes roots and aerial surfaces and competes with pathogens",
+      "Produces surfactin, iturin, fengycin-type antagonistic metabolites",
+      "Useful in rotation or preventive biological crop programs"
+    ],
+    "mechanism_of_action": {
+      "description": "Bacillus amyloliquefaciens colonizes the rhizosphere and phyllosphere and suppresses pathogens through biofilm formation, competitive exclusion, and release of antifungal and antibacterial secondary metabolites such as iturin-, fengycin-, and surfactin-like lipopeptides. This reduces pathogen establishment and can prime plant defense responses."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Preventive foliar disease management",
+        "dose_per_acre": "500-750 g/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Foliar spray with even canopy deposition"
+      },
+      {
+        "crop_stage": "Root-zone support or transplant stage",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Root-zone drench, furrow, or drip application"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "Before disease pressure escalates",
+        "frequency": "Repeat every 7-10 days for foliar programs",
+        "recommendation": "Use preventively to maximize antagonistic colonization and metabolite production."
+      },
+      {
+        "application_timing": "At transplanting or under repeated root-zone stress",
+        "frequency": "Repeat after 15-20 days if required",
+        "recommendation": "Maintain root-zone application where irrigation and soil stress favor pathogen resurgence."
+      }
+    ],
+    "targets": [
+      "anthracnose pressure",
+      "damping-off complex",
+      "root rot complex",
+      "bacterial speck or spot pressure",
+      "Fusarium-associated stress"
+    ],
+    "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "A broad disease complex is developing across foliage and the root zone.",
+        "solution": "Use B. amyloliquefaciens as a preventive biological input to occupy plant surfaces and suppress pathogen establishment."
+      },
+      {
+        "problem": "Disease pressure rebounds after a single biological application.",
+        "solution": "Reapply on a regular interval to maintain active Bacillus populations and metabolite production."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "B. amyloliquefaciens WP positioned for preventive, broad-spectrum biological disease management where metabolite-producing Bacillus strains are preferred."
+  }
+]

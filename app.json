@@ -1,4 +1,42 @@
 {
-  "name": "BioDesk",
-  "displayName": "BioDesk"
+  "expo": {
+    "name": "BioDesk",
+    "slug": "biodesk",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1B5E20"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1B5E20"
+      },
+      "package": "com.kriyabiosys.biodesk",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ]
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kriyabiosys.biodesk"
+    },
+    "plugins": [
+      "expo-sqlite",
+      "expo-audio"
+    ],
+    "newArchEnabled": false,
+    "extra": {
+      "eas": {
+        "projectId": "93e6717b-f744-48cd-8cca-d9f8d31c47d9"
+      }
+    }
+  }
 }
