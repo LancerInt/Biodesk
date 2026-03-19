@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, useWindowDimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import ImageViewer from '../components/common/ImageViewer';
 import theme from '../constants/theme';
-
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+import { getHeroDetailImage, getPillarImage, getProcessImage, getImageAspectRatio, titleFromFilename } from '../constants/technologyImages';
 
 // Process flow labels for each platform (derived from JSON pillar order)
 const PROCESS_FLOWS = {
@@ -14,21 +14,51 @@ const PROCESS_FLOWS = {
 };
 
 const TechnologyDetailScreen = ({ route, navigation }) => {
+  const { width: winW, height: winH } = useWindowDimensions();
+  const isTablet = winW >= 768;
+
   const { tech } = route.params;
   const processFlow = PROCESS_FLOWS[tech.id] || [];
+  const heroImage = getHeroDetailImage(tech.id);
+  const pillarImage = getPillarImage(tech.id);
+  const processImage = getProcessImage(tech.id);
+  const imageTitle = titleFromFilename(tech.id);
 
-  // ─── Hero Banner ──────────────────────────────────────────
+  const [zoomImage, setZoomImage] = useState(null);
+
+  // Compute image heights: fill width, respect aspect ratio, cap at 45% screen height
+  const heroAspect = getImageAspectRatio('heroDetail', tech.id);
+  const pillarAspect = getImageAspectRatio('pillar');
+  const processAspect = getImageAspectRatio('process');
+  const maxImgH = winH * 0.5;
+  const pillarH = Math.min(winW / pillarAspect, maxImgH);
+  const processH = Math.min(winW / processAspect, maxImgH);
+
+  // ─── Hero Section ─────────────────────────────────────────
   const renderHero = () => (
     <View>
-      <View style={[styles.heroBanner, { backgroundColor: tech.color }]}>
-        {/* Image placeholder: hero visual */}
-        <View style={styles.heroImagePlaceholder}
-          accessibilityLabel={`${tech.name} hero visual`}>
-          <Icon name={tech.icon} size={56} color="rgba(255,255,255,0.9)" />
-          <Text style={styles.heroPlaceholderLabel}>{tech.id}-hero-visual.jpg</Text>
+      {/* Image banner or colored fallback */}
+      {heroImage ? (
+        <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(heroImage)}>
+          <View style={[styles.heroImageBanner, { aspectRatio: heroAspect }]}>
+            <Image
+              source={heroImage}
+              style={styles.responsiveImage}
+              resizeMode="cover"
+            />
+          </View>
+        </TouchableOpacity>
+      ) : (
+        <View style={[styles.heroFallbackBanner, { backgroundColor: tech.color }]}>
+          <View style={styles.heroIconCircle}>
+            <Icon name={tech.icon} size={isTablet ? 48 : 40} color="rgba(255,255,255,0.95)" />
+          </View>
         </View>
-        <Text style={styles.heroTitle}>{tech.name}</Text>
-        <Text style={styles.heroSubtitle}>{tech.tagline}</Text>
+      )}
+      {/* Title + tagline below the image */}
+      <View style={styles.heroTextBlock}>
+        <Text style={[styles.heroTitle, { color: tech.color }]}>{tech.name}</Text>
+        <Text style={styles.heroTagline}>{tech.tagline}</Text>
       </View>
     </View>
   );
@@ -37,14 +67,15 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
   const renderOverview = () => (
     <View style={styles.section}>
       <Text style={styles.bodyText}>{tech.description}</Text>
-      {tech.overview && (
+      {tech.overview ? (
         <View style={styles.overviewCard}>
-          <View style={styles.overviewIconWrap}>
+          <View style={styles.overviewAccent} />
+          <View style={styles.overviewBody}>
             <Icon name="information-outline" size={18} color={tech.color} />
+            <Text style={styles.overviewText}>{tech.overview}</Text>
           </View>
-          <Text style={styles.overviewText}>{tech.overview}</Text>
         </View>
-      )}
+      ) : null}
     </View>
   );
 
@@ -54,9 +85,12 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     return (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Core Positioning</Text>
-        <View style={[styles.positioningCard, { borderLeftColor: tech.color }]}>
-          <Icon name="bullseye-arrow" size={22} color={tech.color} style={styles.positioningIcon} />
-          <Text style={styles.positioningText}>{tech.corePositioning}</Text>
+        <View style={styles.positioningCard}>
+          <View style={[styles.positioningAccent, { backgroundColor: tech.color }]} />
+          <View style={styles.positioningBody}>
+            <Icon name="bullseye-arrow" size={22} color={tech.color} />
+            <Text style={styles.positioningText}>{tech.corePositioning}</Text>
+          </View>
         </View>
       </View>
     );
@@ -66,20 +100,25 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
   const renderPillars = () => (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Six-Pillar Architecture</Text>
-      {/* Image placeholder: six-pillar diagram */}
-      <View style={[styles.diagramPlaceholder, { borderColor: tech.color + '40' }]}
-        accessibilityLabel={`${tech.name} six-pillar architecture diagram`}>
-        <Icon name="view-grid-outline" size={28} color={tech.color} />
-        <Text style={styles.placeholderLabel}>{tech.id}-six-pillar-diagram.jpg</Text>
-      </View>
+      {pillarImage ? (
+        <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(pillarImage)}>
+          <View style={[styles.sectionImageWrap, { height: pillarH }]}>
+            <Image
+              source={pillarImage}
+              style={styles.responsiveImage}
+              resizeMode="contain"
+            />
+          </View>
+        </TouchableOpacity>
+      ) : null}
       <View style={styles.pillarGrid}>
         {tech.features.map((f, i) => (
           <View key={i} style={styles.pillarCard}>
-            <View style={[styles.pillarIconWrap, { backgroundColor: tech.color + '12' }]}>
+            <View style={[styles.pillarIconWrap, { backgroundColor: tech.color + '0C' }]}>
               <Icon name={f.icon || 'star'} size={22} color={tech.color} />
             </View>
             <View style={styles.pillarContent}>
-              <Text style={styles.pillarNumber}>{String(i + 1).padStart(2, '0')}</Text>
+              <Text style={[styles.pillarNumber, { color: tech.color }]}>{String(i + 1).padStart(2, '0')}</Text>
               <Text style={styles.pillarTitle}>{f.title}</Text>
               <Text style={styles.pillarDesc}>{f.description}</Text>
             </View>
@@ -95,31 +134,37 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     return (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>How {tech.name} Works</Text>
-        {/* Image placeholder: process visual */}
-        <View style={[styles.diagramPlaceholder, { borderColor: tech.color + '40' }]}
-          accessibilityLabel={`${tech.name} process flow diagram`}>
-          <Icon name="arrow-right-bold-outline" size={28} color={tech.color} />
-          <Text style={styles.placeholderLabel}>{tech.id}-how-it-works.jpg</Text>
-        </View>
-        <View style={styles.flowContainer}>
-          {processFlow.map((step, i) => (
-            <View key={i} style={styles.flowStepWrap}>
-              <View style={[styles.flowStep, { backgroundColor: tech.color }]}>
-                <Text style={styles.flowStepNum}>{i + 1}</Text>
-              </View>
-              <Text style={[styles.flowStepLabel, { color: tech.color }]}>{step}</Text>
-              {i < processFlow.length - 1 && (
-                <View style={styles.flowArrow}>
-                  <Icon name="chevron-right" size={16} color={tech.color + '80'} />
-                </View>
-              )}
+        {processImage ? (
+          <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(processImage)}>
+            <View style={[styles.sectionImageWrap, { height: processH }]}>
+              <Image
+                source={processImage}
+                style={styles.responsiveImage}
+                resizeMode="contain"
+              />
             </View>
-          ))}
+          </TouchableOpacity>
+        ) : null}
+        <View style={styles.flowCard}>
+          <View style={styles.flowContainer}>
+            {processFlow.map((step, i) => (
+              <View key={i} style={styles.flowStepWrap}>
+                <View style={[styles.flowStep, { backgroundColor: tech.color }]}>
+                  <Text style={styles.flowStepNum}>{i + 1}</Text>
+                </View>
+                <Text style={[styles.flowStepLabel, { color: tech.color }]}>{step}</Text>
+                {i < processFlow.length - 1 ? (
+                  <View style={styles.flowArrow}>
+                    <Icon name="chevron-right" size={16} color={tech.color + '60'} />
+                  </View>
+                ) : null}
+              </View>
+            ))}
+          </View>
+          <Text style={styles.flowCaption}>
+            Each step corresponds to a pillar in the {tech.name} architecture above.
+          </Text>
         </View>
-        {/* Link steps back to pillar detail */}
-        <Text style={styles.flowCaption}>
-          Each step corresponds to a pillar in the {tech.name} architecture above.
-        </Text>
       </View>
     );
   };
@@ -153,7 +198,9 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
           {/* Owns */}
           <View style={styles.scopeBlock}>
             <View style={styles.scopeHeaderRow}>
-              <Icon name="check-circle" size={18} color={theme.colors.primary} />
+              <View style={[styles.scopeIconWrap, { backgroundColor: '#E8F5E9' }]}>
+                <Icon name="check-circle" size={16} color={theme.colors.primary} />
+              </View>
               <Text style={styles.scopeHeaderText}>Owns</Text>
             </View>
             {tech.scope.owns.map((item, i) => (
@@ -167,7 +214,9 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
           {/* Does Not Own */}
           <View style={styles.scopeBlock}>
             <View style={styles.scopeHeaderRow}>
-              <Icon name="close-circle-outline" size={18} color={theme.colors.textLight} />
+              <View style={[styles.scopeIconWrap, { backgroundColor: '#F5F5F5' }]}>
+                <Icon name="close-circle-outline" size={16} color={theme.colors.textLight} />
+              </View>
               <Text style={[styles.scopeHeaderText, { color: theme.colors.textLight }]}>Does Not Own</Text>
             </View>
             {tech.scope.does_not_own.map((item, i) => (
@@ -188,15 +237,12 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     return (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Future Potential</Text>
-        {/* Image placeholder: future roadmap */}
-        <View style={[styles.diagramPlaceholder, { borderColor: tech.color + '40' }]}
-          accessibilityLabel={`${tech.name} future roadmap visual`}>
-          <Icon name="road-variant" size={28} color={tech.color} />
-          <Text style={styles.placeholderLabel}>{tech.id}-future-roadmap.jpg</Text>
-        </View>
-        <View style={[styles.futureCard, { borderLeftColor: tech.color }]}>
-          <Icon name="rocket-launch-outline" size={20} color={tech.color} style={styles.futureIcon} />
-          <Text style={styles.futureText}>{tech.futurePotential}</Text>
+        <View style={styles.futureCard}>
+          <View style={[styles.futureAccent, { backgroundColor: tech.color }]} />
+          <View style={styles.futureBody}>
+            <Icon name="rocket-launch-outline" size={20} color={tech.color} />
+            <Text style={styles.futureText}>{tech.futurePotential}</Text>
+          </View>
         </View>
       </View>
     );
@@ -241,78 +287,127 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
         {renderClosing()}
         {renderBackToStack()}
       </ScrollView>
+      <ImageViewer
+        visible={!!zoomImage}
+        imageSource={zoomImage}
+        onClose={() => setZoomImage(null)}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.colors.background },
-  scrollContent: { paddingBottom: 32 },
+  scrollContent: { paddingBottom: 40 },
+
+  // ─── Responsive image (fills container, preserves ratio) ────
+  responsiveImage: {
+    width: '100%',
+    height: '100%',
+  },
 
   // ─── Hero ─────────────────────────────────────────────────
-  heroBanner: {
-    paddingVertical: 32,
-    paddingHorizontal: 24,
+  heroImageBanner: {
+    width: '100%',
+    backgroundColor: '#F8F8F8',
     alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 5,
   },
-  heroImagePlaceholder: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+  heroFallbackBanner: {
+    width: '100%',
+    height: 140,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 24,
+  },
+  heroIconCircle: {
+    width: 76,
+    height: 76,
+    borderRadius: 38,
     backgroundColor: 'rgba(255,255,255,0.15)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 16,
   },
-  heroPlaceholderLabel: {
-    fontSize: 8,
-    color: 'rgba(255,255,255,0.5)',
-    marginTop: 4,
+  heroTextBlock: {
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    paddingBottom: 4,
+    alignItems: 'center',
   },
   heroTitle: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: '800',
-    color: '#FFF',
     textAlign: 'center',
+    letterSpacing: -0.3,
   },
-  heroSubtitle: {
-    color: 'rgba(255,255,255,0.92)',
-    fontSize: 15,
+  heroTagline: {
+    fontSize: 14,
     fontWeight: '500',
-    marginTop: 10,
+    color: theme.colors.textSecondary,
+    marginTop: 6,
     textAlign: 'center',
-    lineHeight: 22,
-    paddingHorizontal: 8,
+    lineHeight: 21,
+    letterSpacing: 0.1,
+  },
+
+  // ─── Section Image (pillar & process images) ───────────────
+  sectionImageWrap: {
+    width: '100%',
+    backgroundColor: '#FFF',
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    marginBottom: 16,
+    ...theme.shadows.md,
   },
 
   // ─── Section ──────────────────────────────────────────────
   section: {
-    padding: 16,
+    padding: 20,
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.text,
-    marginBottom: 14,
+    color: theme.colors.textLight,
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+    marginBottom: 16,
   },
   bodyText: {
     fontSize: 15,
     color: theme.colors.textSecondary,
-    lineHeight: 23,
+    lineHeight: 24,
     marginBottom: 16,
+    letterSpacing: 0.1,
   },
 
   // ─── Overview ─────────────────────────────────────────────
   overviewCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 16,
+    borderRadius: 16,
+    overflow: 'hidden',
     ...theme.shadows.sm,
   },
-  overviewIconWrap: {
-    marginBottom: 8,
+  overviewAccent: {
+    height: 2,
+    backgroundColor: theme.colors.primary + '30',
+  },
+  overviewBody: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    padding: 18,
   },
   overviewText: {
+    flex: 1,
     fontSize: 14,
     color: theme.colors.textSecondary,
     lineHeight: 22,
@@ -321,16 +416,19 @@ const styles = StyleSheet.create({
   // ─── Core Positioning ─────────────────────────────────────
   positioningCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 16,
-    borderLeftWidth: 4,
+    borderRadius: 16,
+    overflow: 'hidden',
+    ...theme.shadows.md,
+  },
+  positioningAccent: {
+    height: 3,
+    width: '100%',
+  },
+  positioningBody: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 12,
-    ...theme.shadows.sm,
-  },
-  positioningIcon: {
-    marginTop: 2,
+    padding: 20,
   },
   positioningText: {
     flex: 1,
@@ -341,38 +439,21 @@ const styles = StyleSheet.create({
   },
 
   // ─── Pillar Grid ──────────────────────────────────────────
-  diagramPlaceholder: {
-    width: '100%',
-    height: 100,
-    borderRadius: 12,
-    backgroundColor: '#FAFAFA',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    marginBottom: 16,
-  },
-  placeholderLabel: {
-    fontSize: 10,
-    color: theme.colors.textLight,
-    marginTop: 6,
-    fontStyle: 'italic',
-  },
   pillarGrid: {
-    gap: 10,
+    gap: 12,
   },
   pillarCard: {
     flexDirection: 'row',
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 14,
-    gap: 12,
+    borderRadius: 16,
+    padding: 16,
+    gap: 14,
     ...theme.shadows.sm,
   },
   pillarIconWrap: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -381,72 +462,74 @@ const styles = StyleSheet.create({
   },
   pillarNumber: {
     fontSize: 11,
-    fontWeight: '700',
-    color: theme.colors.textLight,
+    fontWeight: '800',
     letterSpacing: 1,
-    marginBottom: 2,
+    marginBottom: 3,
   },
   pillarTitle: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '700',
     color: theme.colors.text,
   },
   pillarDesc: {
     fontSize: 13,
     color: theme.colors.textSecondary,
-    marginTop: 3,
-    lineHeight: 19,
+    marginTop: 4,
+    lineHeight: 20,
   },
 
   // ─── Process Flow ─────────────────────────────────────────
+  flowCard: {
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    padding: 20,
+    ...theme.shadows.sm,
+  },
   flowContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 16,
     gap: 4,
-    ...theme.shadows.sm,
   },
   flowStepWrap: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 4,
+    marginBottom: 6,
   },
   flowStep: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
   },
   flowStepNum: {
     color: '#FFF',
     fontWeight: '800',
-    fontSize: 12,
+    fontSize: 13,
   },
   flowStepLabel: {
     fontSize: 12,
     fontWeight: '700',
-    marginLeft: 4,
+    marginLeft: 5,
   },
   flowArrow: {
-    marginHorizontal: 2,
+    marginHorizontal: 3,
   },
   flowCaption: {
     fontSize: 12,
     color: theme.colors.textLight,
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 14,
     fontStyle: 'italic',
+    lineHeight: 18,
   },
 
   // ─── Differentiators ──────────────────────────────────────
   diffCard: {
     flexDirection: 'row',
     backgroundColor: '#FFF',
-    borderRadius: 12,
+    borderRadius: 14,
     marginBottom: 10,
     overflow: 'hidden',
     ...theme.shadows.sm,
@@ -456,7 +539,7 @@ const styles = StyleSheet.create({
   },
   diffContent: {
     flex: 1,
-    padding: 14,
+    padding: 16,
   },
   diffTitle: {
     fontSize: 15,
@@ -473,18 +556,25 @@ const styles = StyleSheet.create({
   // ─── Scope ────────────────────────────────────────────────
   scopeCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 16,
-    ...theme.shadows.sm,
+    borderRadius: 16,
+    padding: 20,
+    ...theme.shadows.md,
   },
   scopeBlock: {
-    gap: 6,
+    gap: 8,
   },
   scopeHeaderRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    marginBottom: 6,
+    gap: 10,
+    marginBottom: 4,
+  },
+  scopeIconWrap: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   scopeHeaderText: {
     fontSize: 14,
@@ -495,39 +585,42 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 10,
-    paddingLeft: 6,
+    paddingLeft: 8,
   },
   scopeDot: {
     width: 6,
     height: 6,
     borderRadius: 3,
-    marginTop: 6,
+    marginTop: 7,
   },
   scopeItemText: {
     flex: 1,
     fontSize: 13,
     color: theme.colors.text,
-    lineHeight: 19,
+    lineHeight: 20,
   },
   scopeDivider: {
     height: 1,
     backgroundColor: theme.colors.divider,
-    marginVertical: 14,
+    marginVertical: 16,
   },
 
   // ─── Future Potential ─────────────────────────────────────
   futureCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 16,
-    borderLeftWidth: 4,
+    borderRadius: 16,
+    overflow: 'hidden',
+    ...theme.shadows.md,
+  },
+  futureAccent: {
+    height: 3,
+    width: '100%',
+  },
+  futureBody: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 12,
-    ...theme.shadows.sm,
-  },
-  futureIcon: {
-    marginTop: 2,
+    padding: 20,
   },
   futureText: {
     flex: 1,
@@ -538,26 +631,28 @@ const styles = StyleSheet.create({
 
   // ─── Closing ──────────────────────────────────────────────
   closingSection: {
-    padding: 16,
+    padding: 20,
   },
   closingCard: {
-    borderRadius: 16,
-    padding: 24,
+    borderRadius: 20,
+    padding: 28,
     alignItems: 'center',
-    ...theme.shadows.md,
+    ...theme.shadows.lg,
   },
   closingTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '800',
     color: '#FFF',
-    marginBottom: 10,
+    marginBottom: 12,
     textAlign: 'center',
+    letterSpacing: -0.2,
   },
   closingBody: {
     fontSize: 14,
     color: 'rgba(255,255,255,0.9)',
     lineHeight: 22,
     textAlign: 'center',
+    letterSpacing: 0.1,
   },
 
   // ─── Back to Stack ────────────────────────────────────────
@@ -566,16 +661,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    paddingVertical: 14,
-    marginHorizontal: 16,
+    paddingVertical: 15,
+    marginHorizontal: 20,
     marginTop: 8,
     backgroundColor: '#FFF',
-    borderRadius: 12,
+    borderRadius: 14,
+    borderWidth: 1.5,
+    borderColor: theme.colors.primary + '30',
     ...theme.shadows.sm,
   },
   backToStackText: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '700',
     color: theme.colors.primary,
   },
 });

@@ -1,23 +1,13 @@
 import React, { useState } from 'react';
 import {
   View, Text, TouchableOpacity, StyleSheet, Alert, Image,
-  TextInput, ActivityIndicator, ScrollView,
+  TextInput, ActivityIndicator, ScrollView, Platform,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system/legacy';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import theme from '../../constants/theme';
-
-/**
- * Safely import ML Kit Text Recognition.
- * Falls back to manual entry if not available (e.g., Expo Go).
- */
-let TextRecognition = null;
-try {
-  TextRecognition = require('@react-native-ml-kit/text-recognition').default;
-} catch {
-  // Not available — will use manual entry fallback
-}
+import { isOCRAvailable, recognizeTextFromImage } from '../../utils/ocrService';
 
 // ═══════════════════════════════════════════════════════════════
 //  TEMPLATE-BASED BUSINESS CARD PARSER
@@ -287,13 +277,14 @@ const parseBusinessCard = (rawText) => {
 // ═══════════════════════════════════════════════════════════════
 //  VISITING CARD SCANNER COMPONENT
 // ═══════════════════════════════════════════════════════════════
-const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, onAutoFill }) => {
+const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, onAutoFill, tempMode, navigation }) => {
   const [processing, setProcessing] = useState(false);
   const [previewCard, setPreviewCard] = useState(null);
   const [editFields, setEditFields] = useState(null);
 
   const ensureDir = async () => {
-    const dir = `${FileSystem.documentDirectory}leads/visiting_cards/${leadId}/`;
+    const baseDir = tempMode ? FileSystem.cacheDirectory : FileSystem.documentDirectory;
+    const dir = `${baseDir}leads/visiting_cards/${leadId}/`;
     const dirInfo = await FileSystem.getInfoAsync(dir);
     if (!dirInfo.exists) {
       await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
@@ -344,9 +335,9 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
       let extracted = {};
       let rawText = '';
 
-      if (TextRecognition) {
+      if (isOCRAvailable()) {
         try {
-          const ocrResult = await TextRecognition.recognize(destPath);
+          const ocrResult = await recognizeTextFromImage(destPath);
           rawText = ocrResult.text || '';
           extracted = parseBusinessCard(rawText);
         } catch (ocrErr) {
@@ -460,11 +451,11 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
           <Image source={{ uri: previewCard.imagePath }} style={styles.previewImage} resizeMode="contain" />
 
           {/* Manual entry notice when OCR is unavailable or returned nothing */}
-          {(!TextRecognition || !editFields.rawText) && (
+          {(!isOCRAvailable() || !editFields.rawText) && (
             <View style={styles.manualNotice}>
               <Icon name="pencil-box-outline" size={18} color="#F57C00" />
               <Text style={styles.manualNoticeText}>
-                {!TextRecognition
+                {!isOCRAvailable()
                   ? 'OCR is not available in Expo Go. Please type the details from the card image above into the fields below, then tap "Save & Auto-Fill".'
                   : 'OCR could not detect text from this image. Please enter the details manually below.'
                 }
@@ -484,13 +475,13 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
           ) : null}
 
           {/* Editable fields */}
-          <ExtractField label="Person Name" icon="account" value={editFields.extractedName} onChange={v => setField('extractedName', v)} placeholder="e.g. S. Ganesh" />
-          <ExtractField label="Company" icon="office-building" value={editFields.extractedCompany} onChange={v => setField('extractedCompany', v)} placeholder="e.g. SS Biochem India Pvt. Ltd." />
-          <ExtractField label="Job Title" icon="badge-account" value={editFields.extractedJobTitle} onChange={v => setField('extractedJobTitle', v)} placeholder="e.g. Marketing Manager" />
-          <ExtractField label="Phone" icon="phone" value={editFields.extractedPhone} onChange={v => setField('extractedPhone', v)} keyboardType="phone-pad" placeholder="e.g. +91 73976 67074" />
-          <ExtractField label="Email" icon="email" value={editFields.extractedEmail} onChange={v => setField('extractedEmail', v)} keyboardType="email-address" placeholder="e.g. ganesh@ssbiochem.com" />
-          <ExtractField label="Website" icon="web" value={editFields.extractedWebsite} onChange={v => setField('extractedWebsite', v)} placeholder="e.g. www.ssbiochem.com" />
-          <ExtractField label="Address" icon="map-marker" value={editFields.extractedAddress} onChange={v => setField('extractedAddress', v)} multiline placeholder="e.g. 472/3, SS Tower, Salem" />
+          <ExtractField label="Person Name" icon="account" value={editFields.extractedName} onChange={v => setField('extractedName', v)} />
+          <ExtractField label="Company" icon="office-building" value={editFields.extractedCompany} onChange={v => setField('extractedCompany', v)} />
+          <ExtractField label="Job Title" icon="badge-account" value={editFields.extractedJobTitle} onChange={v => setField('extractedJobTitle', v)} />
+          <ExtractField label="Phone" icon="phone" value={editFields.extractedPhone} onChange={v => setField('extractedPhone', v)} keyboardType="phone-pad" />
+          <ExtractField label="Email" icon="email" value={editFields.extractedEmail} onChange={v => setField('extractedEmail', v)} keyboardType="email-address" />
+          <ExtractField label="Website" icon="web" value={editFields.extractedWebsite} onChange={v => setField('extractedWebsite', v)} />
+          <ExtractField label="Address" icon="map-marker" value={editFields.extractedAddress} onChange={v => setField('extractedAddress', v)} multiline />
 
           {/* Action buttons */}
           <View style={styles.previewActions}>
@@ -532,6 +523,40 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
         </TouchableOpacity>
       </View>
 
+      {/* Live Scan Button */}
+      {navigation && isOCRAvailable() && (
+        <TouchableOpacity
+          style={styles.liveScanBtn}
+          onPress={() => {
+            navigation.navigate('LiveScanner', {
+              title: 'Scan Visiting Card',
+              onTextRecognized: (text) => {
+                const extracted = parseBusinessCard(text);
+                const cardData = {
+                  imagePath: '',
+                  leadId,
+                  rawText: text,
+                  extractedName: extracted.name || '',
+                  extractedCompany: extracted.company || '',
+                  extractedJobTitle: extracted.jobTitle || '',
+                  extractedPhone: extracted.phone || '',
+                  extractedEmail: extracted.email || '',
+                  extractedWebsite: extracted.website || '',
+                  extractedAddress: extracted.address || '',
+                };
+                setPreviewCard(cardData);
+                setEditFields({ ...cardData });
+              },
+            });
+          }}
+          disabled={processing}
+          activeOpacity={0.7}>
+          <Icon name="text-recognition" size={20} color="#FFF" />
+          <Text style={styles.liveScanBtnText}>Live Scan</Text>
+          <Text style={styles.liveScanBtnHint}>Real-time OCR</Text>
+        </TouchableOpacity>
+      )}
+
       {/* Processing indicator */}
       {processing && (
         <View style={styles.processingWrap}>
@@ -543,12 +568,12 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
       {/* OCR status */}
       <View style={styles.ocrStatusRow}>
         <Icon
-          name={TextRecognition ? 'check-circle' : 'alert-circle-outline'}
+          name={isOCRAvailable() ? 'check-circle' : 'alert-circle-outline'}
           size={14}
-          color={TextRecognition ? '#2E7D32' : '#F57C00'}
+          color={isOCRAvailable() ? '#2E7D32' : '#F57C00'}
         />
-        <Text style={[styles.ocrStatusText, { color: TextRecognition ? '#2E7D32' : '#F57C00' }]}>
-          {TextRecognition ? 'OCR enabled (on-device)' : 'Manual entry mode (dev build required for OCR)'}
+        <Text style={[styles.ocrStatusText, { color: isOCRAvailable() ? '#2E7D32' : '#F57C00' }]}>
+          {isOCRAvailable() ? 'OCR enabled (on-device)' : 'Manual entry mode (dev build required for OCR)'}
         </Text>
       </View>
 
@@ -618,7 +643,7 @@ const ExtractField = ({ label, icon, value, onChange, keyboardType, multiline, p
       style={[styles.extractInput, multiline && { minHeight: 60, textAlignVertical: 'top' }]}
       value={value}
       onChangeText={onChange}
-      placeholder={placeholder || `Enter ${label.toLowerCase()}`}
+      placeholder={placeholder || label}
       placeholderTextColor={theme.colors.textLight}
       keyboardType={keyboardType || 'default'}
       multiline={multiline}
@@ -646,6 +671,20 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
   },
   captureBtnText: { fontSize: 14, fontWeight: '600', color: theme.colors.primary },
+
+  // Live Scan
+  liveScanBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.colors.primary,
+    paddingVertical: 12,
+    borderRadius: 12,
+    marginBottom: 10,
+    gap: 8,
+  },
+  liveScanBtnText: { fontSize: 14, fontWeight: '700', color: '#FFF' },
+  liveScanBtnHint: { fontSize: 11, color: 'rgba(255,255,255,0.7)', marginLeft: 2 },
 
   // Processing
   processingWrap: {

@@ -1,0 +1,14 @@
+.git
+.expo
+.idea
+.vscode
+*.keystore
+!debug.keystore
+coverage/
+__tests__/
+
+# Exclude Windows-specific build caches (contain hardcoded Windows paths that break Linux EAS builds)
+android/.gradle/
+android/app/.cxx/
+android/app/build/
+android/build/

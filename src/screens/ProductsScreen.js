@@ -2,69 +2,49 @@ import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
-  FlatList,
+  ScrollView,
   TouchableOpacity,
   StyleSheet,
   SectionList,
+  Dimensions,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { Image } from 'expo-image';
 import Header from '../components/common/Header';
 import SearchBar from '../components/common/SearchBar';
 import theme from '../constants/theme';
 import {
-  PRODUCTS,
-  CATEGORIES,
-  CATEGORY_INFO,
-  getProductsByCategory,
-  getStandaloneProducts,
-  getPortfolioFamiliesByCategory,
-  PORTFOLIO_FAMILIES,
+  EXCEL_CATEGORIES,
+  EXCEL_CATEGORY_INFO,
+  getProductsByExcelCategory,
+  groupProductsByExcelCategory,
 } from '../constants/productData';
-import { getCategoryColor, getFormulationColor } from '../utils/helpers';
+import { getFormulationColor } from '../utils/helpers';
+import { getHeroImage } from '../constants/productImages';
+
+const { width: screenWidth } = Dimensions.get('window');
+const isTablet = screenWidth >= 768;
+
+// ═══════════════════════════════════════════════════════════════
+// PRODUCTS SCREEN
+// Category-based listing from Excel "List of Products"
+// ═══════════════════════════════════════════════════════════════
 
 const ProductsScreen = ({ navigation }) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { families, standalones } = useMemo(() => {
-    let filteredFamilies = getPortfolioFamiliesByCategory(activeCategory);
-    let filteredStandalones = getStandaloneProducts(activeCategory);
+  // ─── Filtered + grouped data ─────────────────────────────────
+  const sections = useMemo(() => {
+    let products = getProductsByExcelCategory(activeCategory);
 
+    // Apply search filter
     if (searchQuery.length >= 2) {
       const q = searchQuery.toLowerCase();
-
-      // Filter families: match on family name, tagline, activeIngredient,
-      // or any variant product name
-      const matchedFamilyIds = new Set();
-      filteredFamilies = filteredFamilies.filter(f => {
-        const directMatch =
-          f.name.toLowerCase().includes(q) ||
-          f.tagline.toLowerCase().includes(q) ||
-          f.activeIngredient.toLowerCase().includes(q);
-        if (directMatch) {
-          matchedFamilyIds.add(f.id);
-          return true;
-        }
-        // Check if any variant product name matches
-        const variantMatch = f.variantIds.some(vid => {
-          const p = PRODUCTS.find(pr => pr.id === vid);
-          return p && (
-            p.name.toLowerCase().includes(q) ||
-            p.activeIngredient.toLowerCase().includes(q) ||
-            p.targetCrops.some(c => c.toLowerCase().includes(q))
-          );
-        });
-        if (variantMatch) {
-          matchedFamilyIds.add(f.id);
-          return true;
-        }
-        return false;
-      });
-
-      // Filter standalones
-      filteredStandalones = filteredStandalones.filter(p =>
+      products = products.filter(p =>
         p.name.toLowerCase().includes(q) ||
         p.activeIngredient.toLowerCase().includes(q) ||
+        p.subcategory.toLowerCase().includes(q) ||
         p.targetCrops.some(c => c.toLowerCase().includes(q)) ||
         (p.targets && p.targets.some(t =>
           (typeof t === 'string' ? t : '').toLowerCase().includes(q)
@@ -72,171 +52,137 @@ const ProductsScreen = ({ navigation }) => {
       );
     }
 
-    return { families: filteredFamilies, standalones: filteredStandalones };
+    // Group by Excel category (preserves grouping even with search)
+    return groupProductsByExcelCategory(products);
   }, [activeCategory, searchQuery]);
 
-  const totalCount = families.length + standalones.length;
+  const totalCount = sections.reduce((sum, s) => sum + s.data.length, 0);
 
-  const renderCategoryTab = ({ item }) => {
+  // ─── Filter chips ────────────────────────────────────────────
+  const renderCategoryChip = (item) => {
     const isActive = activeCategory === item;
+    const info = EXCEL_CATEGORY_INFO[item];
+    const chipColor = info?.color || theme.colors.primary;
     return (
       <TouchableOpacity
-        style={[styles.catTab, isActive && styles.catTabActive]}
+        key={item}
+        style={[styles.chip, isActive && { backgroundColor: chipColor, borderColor: chipColor }]}
         onPress={() => setActiveCategory(item)}
         activeOpacity={0.7}>
-        <Text style={[styles.catTabText, isActive && styles.catTabTextActive]}>
+        {isActive && info?.icon ? (
+          <Icon name={info.icon} size={14} color="#FFF" style={{ marginRight: 5 }} />
+        ) : null}
+        <Text style={[styles.chipText, isActive && styles.chipTextActive]}>
           {item}
         </Text>
       </TouchableOpacity>
     );
   };
 
-  const renderFamilyCard = ({ item }) => {
-    const variantCount = item.variantIds.length;
+  // ─── Section header ──────────────────────────────────────────
+  const renderSectionHeader = ({ section }) => {
+    if (section.data.length === 0) return null;
+    const catColor = section.color;
+    return (
+      <View style={styles.sectionHeader}>
+        <View style={[styles.sectionIconCircle, { backgroundColor: catColor + '14' }]}>
+          <Icon name={section.icon} size={16} color={catColor} />
+        </View>
+        <Text style={[styles.sectionTitle, { color: catColor }]}>{section.title}</Text>
+        <View style={[styles.sectionCount, { backgroundColor: catColor + '14' }]}>
+          <Text style={[styles.sectionCountText, { color: catColor }]}>
+            {section.data.length}
+          </Text>
+        </View>
+      </View>
+    );
+  };
+
+  // ─── Product card ────────────────────────────────────────────
+  const renderProductCard = ({ item, section }) => {
+    const catColor = section.color;
+    const formColor = getFormulationColor(item.formulation);
+    const heroImg = getHeroImage(item.name);
     return (
       <TouchableOpacity
-        style={[styles.familyCard, { borderLeftColor: item.color }]}
-        activeOpacity={0.7}
-        onPress={() => navigation.navigate('PortfolioDetail', { family: item })}>
-        <View style={styles.familyCardContent}>
-          <View style={[styles.familyIconCircle, { backgroundColor: item.color + '15' }]}>
-            <Icon name={item.icon} size={26} color={item.color} />
-          </View>
-          <View style={styles.familyInfo}>
-            <Text style={styles.familyName}>{item.name}</Text>
-            <Text style={styles.familyTagline} numberOfLines={1}>
-              {item.tagline}
+        style={styles.card}
+        activeOpacity={0.6}
+        onPress={() => navigation.navigate('ProductDetail', { product: item })}>
+        {/* Left accent bar */}
+        <View style={[styles.cardAccent, { backgroundColor: catColor }]} />
+
+        <View style={styles.cardBody}>
+          {/* Product image or fallback icon */}
+          {heroImg ? (
+            <View style={styles.cardImageWrap}>
+              <Image source={heroImg} style={styles.cardImage} contentFit="contain" transition={150} />
+            </View>
+          ) : (
+            <View style={[styles.cardIcon, { backgroundColor: catColor + '10' }]}>
+              <Icon name={section.icon} size={22} color={catColor} />
+            </View>
+          )}
+
+          {/* Info */}
+          <View style={styles.cardInfo}>
+            <Text style={styles.cardName} numberOfLines={1}>{item.name}</Text>
+            <Text style={styles.cardIngredient} numberOfLines={1}>
+              {item.activeIngredient}
             </Text>
-            <View style={styles.familyMeta}>
-              <View style={[styles.variantBadge, { backgroundColor: item.color + '18' }]}>
-                <Text style={[styles.variantBadgeText, { color: item.color }]}>
-                  {variantCount} variant{variantCount !== 1 ? 's' : ''}
-                </Text>
-              </View>
-              <Text style={styles.familyIngredient} numberOfLines={1}>
-                {item.activeIngredient}
-              </Text>
+            <View style={styles.cardBadges}>
+              {item.formulation && (
+                <View style={[styles.badge, { backgroundColor: formColor + '14' }]}>
+                  <Text style={[styles.badgeText, { color: formColor }]}>
+                    {item.formulation}
+                  </Text>
+                </View>
+              )}
+              {item.concentration && (
+                <View style={[styles.badge, { backgroundColor: '#F5F5F5' }]}>
+                  <Text style={[styles.badgeText, { color: '#616161' }]}>
+                    {item.concentration}
+                  </Text>
+                </View>
+              )}
             </View>
           </View>
-          <Icon name="chevron-right" size={22} color={theme.colors.textLight} />
+
+          {/* Arrow */}
+          <Icon name="chevron-right" size={20} color="#BDBDBD" />
         </View>
       </TouchableOpacity>
     );
-  };
-
-  const renderStandaloneCard = ({ item }) => (
-    <TouchableOpacity
-      style={styles.productCard}
-      activeOpacity={0.7}
-      onPress={() => navigation.navigate('ProductDetail', { product: item })}>
-      <View style={styles.productLeft}>
-        <View style={[styles.productIcon, { backgroundColor: getCategoryColor(item.subcategory) + '15' }]}>
-          <Icon name="leaf" size={24} color={getCategoryColor(item.subcategory)} />
-        </View>
-      </View>
-      <View style={styles.productInfo}>
-        <Text style={styles.productName}>{item.name}</Text>
-        <Text style={styles.productIngredient} numberOfLines={1}>
-          {item.activeIngredient}
-        </Text>
-        <View style={styles.productBadges}>
-          <View style={[styles.badge, { backgroundColor: getCategoryColor(item.subcategory) + '18' }]}>
-            <Text style={[styles.badgeText, { color: getCategoryColor(item.subcategory) }]}>
-              {item.subcategory}
-            </Text>
-          </View>
-          <View style={[styles.badge, { backgroundColor: getFormulationColor(item.formulation) + '18' }]}>
-            <Text style={[styles.badgeText, { color: getFormulationColor(item.formulation) }]}>
-              {item.formulation}
-            </Text>
-          </View>
-          {item.concentration && (
-            <View style={[styles.badge, { backgroundColor: '#F5F5F5' }]}>
-              <Text style={[styles.badgeText, { color: '#616161' }]}>
-                {item.concentration}
-              </Text>
-            </View>
-          )}
-        </View>
-      </View>
-      <Icon name="chevron-right" size={22} color={theme.colors.textLight} />
-    </TouchableOpacity>
-  );
-
-  const renderSectionHeader = ({ section }) => {
-    if (section.data.length === 0) return null;
-    return (
-      <View style={styles.sectionHeader}>
-        <Icon name={section.icon} size={18} color={theme.colors.primary} />
-        <Text style={styles.sectionTitle}>{section.title}</Text>
-        <View style={styles.sectionCountBadge}>
-          <Text style={styles.sectionCountText}>{section.data.length}</Text>
-        </View>
-      </View>
-    );
-  };
-
-  const sections = useMemo(() => {
-    const result = [];
-    if (families.length > 0) {
-      result.push({
-        title: 'Product Families',
-        icon: 'package-variant',
-        data: families,
-        type: 'family',
-      });
-    }
-    if (standalones.length > 0) {
-      result.push({
-        title: 'Individual Products',
-        icon: 'leaf',
-        data: standalones,
-        type: 'standalone',
-      });
-    }
-    return result;
-  }, [families, standalones]);
-
-  const renderItem = ({ item, section }) => {
-    if (section.type === 'family') {
-      return renderFamilyCard({ item });
-    }
-    return renderStandaloneCard({ item });
   };
 
   return (
     <View style={styles.container}>
       <Header
         title="Products"
-        subtitle={`${totalCount} item${totalCount !== 1 ? 's' : ''}`}
+        subtitle={`${totalCount} product${totalCount !== 1 ? 's' : ''}`}
         onBack={() => navigation.goBack()}
       />
 
-      <View style={styles.searchWrap}>
+      {/* Search + Filter */}
+      <View style={styles.filterSection}>
         <SearchBar
           value={searchQuery}
           onChangeText={setSearchQuery}
           placeholder="Search products, ingredients, crops..."
           onClear={() => setSearchQuery('')}
         />
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.chipBar}>
+          {EXCEL_CATEGORIES.map(cat => renderCategoryChip(cat))}
+        </ScrollView>
       </View>
-
-      {/* Category Filter Tabs */}
-      <FlatList
-        data={CATEGORIES}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={renderCategoryTab}
-        keyExtractor={item => item}
-        contentContainerStyle={styles.catList}
-        style={styles.catListWrap}
-      />
 
       {/* Product Sections */}
       <SectionList
         sections={sections}
-        keyExtractor={(item, index) => item.id || `item-${index}`}
-        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        renderItem={renderProductCard}
         renderSectionHeader={renderSectionHeader}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
@@ -244,10 +190,8 @@ const ProductsScreen = ({ navigation }) => {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="magnify-close" size={48} color={theme.colors.textLight} />
-            <Text style={styles.emptyText}>No products found</Text>
-            <Text style={styles.emptySubtext}>
-              Try a different search or category
-            </Text>
+            <Text style={styles.emptyTitle}>No products found</Text>
+            <Text style={styles.emptySub}>Try a different search or category</Text>
           </View>
         }
       />
@@ -255,198 +199,173 @@ const ProductsScreen = ({ navigation }) => {
   );
 };
 
+// ═══════════════════════════════════════════════════════════════
+// STYLES — Premium Notion/Linear inspired
+// ═══════════════════════════════════════════════════════════════
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
-  },
-  searchWrap: {
-    paddingHorizontal: 16,
-    paddingTop: 12,
+    backgroundColor: '#F7F8FA',
   },
 
-  // Category Tabs
-  catListWrap: {
-    maxHeight: 56,
+  // ─── Filter Section ────────────────────────────────────────
+  filterSection: {
+    backgroundColor: '#FFF',
+    paddingBottom: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: '#EEEEEE',
   },
-  catList: {
+  chipBar: {
     paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingTop: 4,
+    paddingBottom: 12,
+    gap: 8,
   },
-  catTab: {
-    paddingHorizontal: 18,
-    paddingVertical: 8,
+  chip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: isTablet ? 18 : 14,
+    paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: '#FFF',
-    marginRight: 8,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderWidth: 1.5,
+    borderColor: '#E0E0E0',
   },
-  catTabActive: {
-    backgroundColor: theme.colors.primary,
-    borderColor: theme.colors.primary,
-  },
-  catTabText: {
+  chipText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: '#757575',
   },
-  catTabTextActive: {
+  chipTextActive: {
     color: '#FFF',
+    fontWeight: '700',
   },
 
-  // Section Headers
+  // ─── Section Headers ───────────────────────────────────────
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 16,
+    paddingTop: 22,
     paddingBottom: 10,
-    paddingHorizontal: 2,
+    paddingHorizontal: 4,
+  },
+  sectionIconCircle: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   sectionTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.text,
-    marginLeft: 8,
+    fontSize: 13,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+    marginLeft: 10,
     flex: 1,
   },
-  sectionCountBadge: {
-    backgroundColor: theme.colors.primary + '15',
+  sectionCount: {
     paddingHorizontal: 10,
-    paddingVertical: 2,
+    paddingVertical: 3,
     borderRadius: 12,
   },
   sectionCountText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.primary,
   },
 
-  // Section List
+  // ─── Product List ──────────────────────────────────────────
   list: {
     paddingHorizontal: 16,
-    paddingBottom: 24,
+    paddingBottom: 32,
   },
 
-  // Portfolio Family Cards
-  familyCard: {
+  // ─── Product Card ──────────────────────────────────────────
+  card: {
     backgroundColor: '#FFF',
-    borderRadius: 12,
+    borderRadius: 14,
     marginBottom: 10,
-    borderLeftWidth: 4,
     overflow: 'hidden',
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#F0F0F0',
     ...theme.shadows.sm,
   },
-  familyCardContent: {
+  cardAccent: {
+    width: 3.5,
+  },
+  cardBody: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 14,
+    paddingVertical: 14,
+    paddingLeft: 12,
+    paddingRight: 14,
   },
-  familyIconCircle: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
+  cardImageWrap: {
+    width: 56,
+    height: 72,
+    marginRight: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cardImage: {
+    width: '100%',
+    height: '100%',
+  },
+  cardIcon: {
+    width: 56,
+    height: 56,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 12,
   },
-  familyInfo: {
+  cardInfo: {
     flex: 1,
   },
-  familyName: {
-    fontSize: 17,
+  cardName: {
+    fontSize: isTablet ? 17 : 15.5,
     fontWeight: '700',
-    color: theme.colors.text,
+    color: '#1B1B1B',
+    letterSpacing: -0.2,
   },
-  familyTagline: {
+  cardIngredient: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: '#757575',
     marginTop: 2,
+    lineHeight: 18,
   },
-  familyMeta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 6,
-    gap: 8,
-  },
-  variantBadge: {
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 10,
-  },
-  variantBadgeText: {
-    fontSize: 11,
-    fontWeight: '700',
-  },
-  familyIngredient: {
-    fontSize: 11,
-    color: theme.colors.textLight,
-    flex: 1,
-  },
-
-  // Standalone Product Cards
-  productCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 10,
-    ...theme.shadows.sm,
-  },
-  productLeft: {
-    marginRight: 12,
-  },
-  productIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  productInfo: {
-    flex: 1,
-  },
-  productName: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.text,
-  },
-  productIngredient: {
-    fontSize: 13,
-    color: theme.colors.textSecondary,
-    marginTop: 2,
-  },
-  productBadges: {
+  cardBadges: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginTop: 6,
-    gap: 4,
+    gap: 6,
   },
   badge: {
     paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 10,
+    paddingVertical: 2.5,
+    borderRadius: 6,
   },
   badgeText: {
-    fontSize: 10,
-    fontWeight: '600',
+    fontSize: 10.5,
+    fontWeight: '700',
+    letterSpacing: 0.3,
   },
 
-  // Empty State
+  // ─── Empty State ───────────────────────────────────────────
   empty: {
     alignItems: 'center',
     paddingTop: 60,
   },
-  emptyText: {
+  emptyTitle: {
     fontSize: 16,
     fontWeight: '600',
     color: theme.colors.textLight,
     marginTop: 12,
   },
-  emptySubtext: {
+  emptySub: {
     fontSize: 13,
     color: theme.colors.textLight,
     marginTop: 4,

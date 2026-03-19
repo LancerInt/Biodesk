@@ -1,17 +1,27 @@
-import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, useWindowDimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import ImageViewer from '../components/common/ImageViewer';
 import theme from '../constants/theme';
-import { TECHNOLOGIES, getTechnologyById } from '../constants/technologyData';
+import { getTechnologyById } from '../constants/technologyData';
+import { getTopTechnologyImage, getImageAspectRatio } from '../constants/technologyImages';
 
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const stackDiagramImage = require('../assets/images/TeckStack/roleofeachplatform.png');
+const topTechImage = getTopTechnologyImage();
 
-const PLATFORM_IDS = ['wynn', 'karyo', 'microvate'];
+const PLATFORM_IDS = ['wynn', 'microvate', 'karyo'];
 
 const TechnologyScreen = ({ navigation }) => {
+  const { width: winW, height: winH } = useWindowDimensions();
+  const isTablet = winW >= 768;
+
   const integrated = getTechnologyById('integrated');
   const platforms = PLATFORM_IDS.map(id => getTechnologyById(id));
+  const [zoomImage, setZoomImage] = useState(null);
+
+  // Known aspect ratios (width/height) from actual image dimensions
+  const topImageAspect = getImageAspectRatio('top');  // 1.5
 
   const navigateToDetail = (tech) => {
     navigation.navigate('TechnologyDetail', { tech });
@@ -20,12 +30,16 @@ const TechnologyScreen = ({ navigation }) => {
   // ─── Hero Section ─────────────────────────────────────────
   const renderHero = () => (
     <View style={styles.heroSection}>
-      {/* Image placeholder: /assets/technology/mobile/stack-hero-integrated-tech.jpg */}
-      <View style={styles.heroImagePlaceholder} accessibilityLabel="Integrated technology stack hero visual">
-        <Icon name="link-variant" size={48} color={integrated.color} />
-        <Text style={styles.placeholderLabel}>stack-hero-integrated-tech.jpg</Text>
-      </View>
-      <Text style={styles.heroHeadline}>{integrated.tagline}</Text>
+      <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(topTechImage)}>
+        <View style={[styles.heroImageWrap, { aspectRatio: topImageAspect }]}>
+          <Image
+            source={topTechImage}
+            style={styles.responsiveImage}
+            resizeMode="contain"
+          />
+        </View>
+      </TouchableOpacity>
+      <Text style={[styles.heroHeadline, { fontSize: isTablet ? 26 : 22 }]}>{integrated.tagline}</Text>
       <Text style={styles.heroSubtitle}>{integrated.description}</Text>
     </View>
   );
@@ -33,18 +47,21 @@ const TechnologyScreen = ({ navigation }) => {
   // ─── Stack Overview ───────────────────────────────────────
   const renderIntro = () => (
     <View style={styles.introCard}>
-      <View style={styles.introIconWrap}>
-        <Icon name="information-outline" size={20} color={theme.colors.primary} />
+      <View style={styles.introAccent} />
+      <View style={styles.introBody}>
+        <View style={styles.introIconRow}>
+          <Icon name="information-outline" size={18} color={theme.colors.primary} />
+          <Text style={styles.introTitle}>{integrated.introSection.title}</Text>
+        </View>
+        <Text style={styles.introText}>{integrated.introSection.body}</Text>
       </View>
-      <Text style={styles.introTitle}>{integrated.introSection.title}</Text>
-      <Text style={styles.introBody}>{integrated.introSection.body}</Text>
     </View>
   );
 
-  // ─── Platform Cards ───────────────────────────────────────
+  // ─── Platform Cards (no images — color accent only) ──────
   const renderPlatformCards = () => (
     <View style={styles.platformSection}>
-      <Text style={styles.sectionTitle}>Explore the Stack</Text>
+      <Text style={[styles.sectionTitle, { fontSize: isTablet ? 14 : 13, marginBottom: isTablet ? 20 : 16 }]}>Explore the Stack</Text>
       {platforms.map((tech) => {
         const card = (integrated.platformCards || []).find(c =>
           c.name.replace('™', '').toLowerCase() === tech.id
@@ -52,47 +69,40 @@ const TechnologyScreen = ({ navigation }) => {
         return (
           <TouchableOpacity
             key={tech.id}
-            style={[styles.platformCard, { borderLeftColor: tech.color }]}
+            style={[styles.platformCard, { marginBottom: isTablet ? 24 : 20 }]}
             activeOpacity={0.7}
             onPress={() => navigateToDetail(tech)}>
-            {/* Image placeholder for each platform card */}
-            <View style={[styles.cardImagePlaceholder, { backgroundColor: tech.color + '08' }]}
-              accessibilityLabel={`${tech.name} card visual`}>
-              <Icon name={tech.icon} size={36} color={tech.color} />
-              <Text style={styles.cardPlaceholderLabel}>
-                {tech.id}-card-visual.jpg
-              </Text>
-            </View>
-            <View style={styles.cardContent}>
+            <View style={[styles.cardAccent, { backgroundColor: tech.color }]} />
+            <View style={[styles.cardContent, { padding: isTablet ? 24 : 20 }]}>
               <View style={styles.cardHeader}>
-                <View style={[styles.cardIconCircle, { backgroundColor: tech.color + '15' }]}>
+                <View style={[styles.cardIconCircle, { backgroundColor: tech.color + '12' }]}>
                   <Icon name={tech.icon} size={24} color={tech.color} />
                 </View>
                 <View style={styles.cardHeaderText}>
-                  <Text style={styles.cardName}>{tech.name}</Text>
-                  {card && (
+                  <Text style={[styles.cardName, { fontSize: isTablet ? 22 : 20 }]}>{tech.name}</Text>
+                  {card ? (
                     <Text style={[styles.cardCategory, { color: tech.color }]}>{card.category}</Text>
-                  )}
+                  ) : null}
                 </View>
                 <Icon name="chevron-right" size={22} color={theme.colors.textLight} />
               </View>
-              {card && (
-                <Text style={styles.cardDescription} numberOfLines={3}>
+              {card ? (
+                <Text style={[styles.cardDescription, { fontSize: isTablet ? 15 : 14, lineHeight: isTablet ? 26 : 23 }]} numberOfLines={3}>
                   {card.short_description}
                 </Text>
-              )}
-              {card && (
-                <View style={styles.cardRoleWrap}>
+              ) : null}
+              {card ? (
+                <View style={[styles.cardRoleWrap, { borderColor: tech.color + '20', padding: isTablet ? 16 : 14 }]}>
                   <Icon name="target" size={14} color={tech.color} />
-                  <Text style={[styles.cardRole, { color: tech.color }]} numberOfLines={2}>
+                  <Text style={[styles.cardRole, { color: tech.color, fontSize: isTablet ? 14 : 13, lineHeight: isTablet ? 22 : 20 }]} numberOfLines={2}>
                     {card.role_statement}
                   </Text>
                 </View>
-              )}
+              ) : null}
               <View style={styles.featuresRow}>
                 {tech.features.slice(0, 3).map((f, i) => (
-                  <View key={i} style={[styles.featureChip, { backgroundColor: tech.color + '10' }]}>
-                    <Text style={[styles.featureChipText, { color: tech.color }]} numberOfLines={1}>
+                  <View key={i} style={[styles.featureChip, { backgroundColor: tech.color + '0A', borderColor: tech.color + '20', paddingHorizontal: isTablet ? 16 : 12, paddingVertical: isTablet ? 7 : 5 }]}>
+                    <Text style={[styles.featureChipText, { color: tech.color, fontSize: isTablet ? 13 : 11 }]} numberOfLines={1}>
                       {f.title}
                     </Text>
                   </View>
@@ -110,51 +120,34 @@ const TechnologyScreen = ({ navigation }) => {
     <View style={styles.comparisonSection}>
       <Text style={styles.sectionTitle}>Role of Each Platform</Text>
 
-      {/* Image placeholder: comparison diagram */}
-      <View style={styles.comparisonImagePlaceholder}
-        accessibilityLabel="Technology stack relationship diagram">
-        <Icon name="sitemap" size={32} color={theme.colors.primary} />
-        <Text style={styles.placeholderLabel}>stack-relationship-diagram.jpg</Text>
-      </View>
-
-      {/* Comparison cards */}
-      {integrated.flow.map((item, i) => (
-        <View key={i} style={[styles.comparisonCard, { borderLeftColor: item.color }]}>
-          <View style={styles.comparisonHeader}>
-            <View style={[styles.comparisonIconCircle, { backgroundColor: item.color + '15' }]}>
-              <Icon name={item.icon} size={22} color={item.color} />
-            </View>
-            <View style={styles.comparisonHeaderText}>
-              <Text style={styles.comparisonName}>{item.title}</Text>
-              <View style={[styles.scopeBadge, { backgroundColor: item.color + '15' }]}>
-                <Text style={[styles.scopeText, { color: item.color }]}>{item.platform}</Text>
-              </View>
-            </View>
-          </View>
-          <Text style={styles.comparisonDesc}>{item.description}</Text>
+      {/* Stack relationship diagram */}
+      <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(stackDiagramImage)}>
+        <View style={[styles.diagramCard, { aspectRatio: 1476 / 984 }]}>
+          <Image
+            source={stackDiagramImage}
+            style={styles.responsiveImage}
+            resizeMode="contain"
+          />
         </View>
-      ))}
+      </TouchableOpacity>
 
-      {/* Advanced Comparison Link */}
+      {/* Advanced Comparison Link — Apple-style outlined */}
       <TouchableOpacity
         style={styles.advancedCompareBtn}
         activeOpacity={0.7}
         onPress={() => navigation.navigate('TechnologyComparison')}>
-        <Icon name="table-column" size={20} color="#FFF" />
+        <Icon name="table-column" size={20} color={theme.colors.primary} />
         <Text style={styles.advancedCompareBtnText}>Advanced Platform Comparison</Text>
-        <Icon name="chevron-right" size={20} color="#FFF" />
+        <Icon name="chevron-right" size={18} color={theme.colors.primary} />
       </TouchableOpacity>
 
-      {/* Comparison matrix */}
+      {/* Scope Comparison matrix */}
       <View style={styles.matrixCard}>
-        <Text style={styles.matrixTitle}>Scope Comparison</Text>
-        {/* Image placeholder: comparison board */}
-        <View style={styles.matrixImagePlaceholder}
-          accessibilityLabel="Platform scope comparison board">
-          <Icon name="table" size={24} color={theme.colors.textLight} />
-          <Text style={styles.placeholderLabel}>stack-comparison-board.jpg</Text>
+        <View style={styles.matrixTitleRow}>
+          <Icon name="view-list-outline" size={18} color={theme.colors.text} />
+          <Text style={styles.matrixTitle}>Scope Comparison</Text>
         </View>
-        <View style={styles.matrixRow}>
+        <View style={styles.matrixHeaderRow}>
           <View style={styles.matrixHeaderCell}>
             <Text style={styles.matrixHeaderText}>Platform</Text>
           </View>
@@ -179,16 +172,19 @@ const TechnologyScreen = ({ navigation }) => {
 
   // ─── Closing Section ──────────────────────────────────────
   const renderClosing = () => (
-    <View style={styles.closingSection}>
-      <Text style={styles.closingTitle}>{integrated.closing.title}</Text>
-      <Text style={styles.closingBody}>{integrated.closing.body}</Text>
-      <View style={styles.advantagesList}>
-        {integrated.advantages.map((a, i) => (
-          <View key={i} style={styles.advantageRow}>
-            <Icon name="check-circle" size={18} color={theme.colors.primary} />
-            <Text style={styles.advantageText}>{a}</Text>
-          </View>
-        ))}
+    <View style={styles.closingCard}>
+      <View style={styles.closingAccent} />
+      <View style={styles.closingBody}>
+        <Text style={styles.closingTitle}>{integrated.closing.title}</Text>
+        <Text style={styles.closingText}>{integrated.closing.body}</Text>
+        <View style={styles.advantagesList}>
+          {integrated.advantages.map((a, i) => (
+            <View key={i} style={styles.advantageRow}>
+              <Icon name="check-circle" size={18} color={theme.colors.primary} />
+              <Text style={styles.advantageText}>{a}</Text>
+            </View>
+          ))}
+        </View>
       </View>
     </View>
   );
@@ -207,124 +203,131 @@ const TechnologyScreen = ({ navigation }) => {
         {renderComparison()}
         {renderClosing()}
       </ScrollView>
+      <ImageViewer
+        visible={!!zoomImage}
+        imageSource={zoomImage}
+        onClose={() => setZoomImage(null)}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.colors.background },
-  content: { paddingBottom: 32 },
+  content: { paddingBottom: 40 },
+
+  // ─── Responsive image (fills container, preserves ratio) ────
+  responsiveImage: {
+    width: '100%',
+    height: '100%',
+  },
 
   // ─── Hero ─────────────────────────────────────────────────
   heroSection: {
-    padding: 20,
-    paddingTop: 8,
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    alignItems: 'center',
   },
-  heroImagePlaceholder: {
+  heroImageWrap: {
     width: '100%',
-    height: 180,
+    marginBottom: 20,
     borderRadius: 16,
-    backgroundColor: '#E8F5E9',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#C8E6C9',
-    borderStyle: 'dashed',
-    marginBottom: 20,
-  },
-  placeholderLabel: {
-    fontSize: 10,
-    color: theme.colors.textLight,
-    marginTop: 6,
-    fontStyle: 'italic',
+    overflow: 'hidden',
+    backgroundColor: '#FFF',
+    ...theme.shadows.sm,
   },
   heroHeadline: {
-    fontSize: 22,
     fontWeight: '800',
     color: theme.colors.text,
     lineHeight: 30,
+    textAlign: 'center',
+    letterSpacing: -0.3,
     marginBottom: 12,
   },
   heroSubtitle: {
     fontSize: 15,
     color: theme.colors.textSecondary,
-    lineHeight: 23,
+    lineHeight: 24,
+    textAlign: 'center',
+    letterSpacing: 0.1,
+    marginBottom: 8,
   },
 
   // ─── Intro Card ───────────────────────────────────────────
   introCard: {
     backgroundColor: '#FFF',
-    marginHorizontal: 16,
-    borderRadius: 14,
-    padding: 18,
+    marginHorizontal: 20,
+    borderRadius: 16,
+    overflow: 'hidden',
     marginBottom: 8,
-    ...theme.shadows.sm,
+    ...theme.shadows.md,
   },
-  introIconWrap: {
+  introAccent: {
+    height: 3,
+    backgroundColor: theme.colors.primary,
+  },
+  introBody: {
+    padding: 20,
+  },
+  introIconRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
     marginBottom: 10,
   },
   introTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '700',
     color: theme.colors.text,
-    marginBottom: 8,
   },
-  introBody: {
+  introText: {
     fontSize: 14,
     color: theme.colors.textSecondary,
     lineHeight: 22,
+    letterSpacing: 0.1,
   },
 
   // ─── Section Title ────────────────────────────────────────
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.text,
-    marginBottom: 14,
-    paddingHorizontal: 4,
+    color: theme.colors.textLight,
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+    marginBottom: 16,
   },
 
   // ─── Platform Cards ───────────────────────────────────────
   platformSection: {
-    padding: 16,
+    padding: 20,
   },
   platformCard: {
     backgroundColor: '#FFF',
-    borderRadius: 16,
-    marginBottom: 16,
-    borderLeftWidth: 4,
+    borderRadius: 18,
     overflow: 'hidden',
     ...theme.shadows.md,
   },
-  cardImagePlaceholder: {
+  cardAccent: {
+    height: 3,
     width: '100%',
-    height: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: theme.colors.divider,
-  },
-  cardPlaceholderLabel: {
-    fontSize: 9,
-    color: theme.colors.textLight,
-    marginTop: 4,
-    fontStyle: 'italic',
   },
   cardContent: {
-    padding: 16,
+    padding: 20,
   },
   cardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   cardIconCircle: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12,
+    marginRight: 14,
   },
   cardHeaderText: {
     flex: 1,
@@ -333,6 +336,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '800',
     color: theme.colors.text,
+    letterSpacing: -0.2,
   },
   cardCategory: {
     fontSize: 12,
@@ -342,33 +346,36 @@ const styles = StyleSheet.create({
   cardDescription: {
     fontSize: 14,
     color: theme.colors.textSecondary,
-    lineHeight: 21,
-    marginBottom: 10,
+    lineHeight: 23,
+    marginBottom: 16,
+    letterSpacing: 0.15,
   },
   cardRoleWrap: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    gap: 8,
-    backgroundColor: '#F8F9FA',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 12,
+    gap: 10,
+    backgroundColor: '#F5F9F6',
+    borderRadius: 12,
+    borderWidth: 1,
+    padding: 14,
+    marginBottom: 16,
   },
   cardRole: {
     flex: 1,
     fontSize: 13,
     fontWeight: '600',
-    lineHeight: 19,
+    lineHeight: 20,
   },
   featuresRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 6,
+    gap: 8,
   },
   featureChip: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 20,
+    borderWidth: 1,
   },
   featureChipText: {
     fontSize: 11,
@@ -377,82 +384,37 @@ const styles = StyleSheet.create({
 
   // ─── Comparison Section ───────────────────────────────────
   comparisonSection: {
-    padding: 16,
+    padding: 20,
   },
-  comparisonImagePlaceholder: {
-    width: '100%',
-    height: 120,
-    borderRadius: 12,
-    backgroundColor: '#F1F8E9',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#DCEDC8',
-    borderStyle: 'dashed',
-    marginBottom: 16,
-  },
-  comparisonCard: {
+  diagramCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 16,
-    marginBottom: 12,
-    borderLeftWidth: 4,
-    ...theme.shadows.sm,
-  },
-  comparisonHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  comparisonIconCircle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12,
-  },
-  comparisonHeaderText: {
-    flex: 1,
-  },
-  comparisonName: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.text,
-  },
-  scopeBadge: {
-    alignSelf: 'flex-start',
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-    borderRadius: 10,
-    marginTop: 4,
-  },
-  scopeText: {
-    fontSize: 11,
-    fontWeight: '700',
-  },
-  comparisonDesc: {
-    fontSize: 13,
-    color: theme.colors.textSecondary,
-    lineHeight: 20,
+    overflow: 'hidden',
+    marginBottom: 16,
+    ...theme.shadows.md,
   },
 
-  // ─── Advanced Compare Button ─────────────────────────────
+  // ─── Advanced Compare Button — Apple-style outlined ──────
   advancedCompareBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.primary,
-    paddingVertical: 14,
-    borderRadius: 12,
-    gap: 8,
+    backgroundColor: '#FFF',
+    borderWidth: 2,
+    borderColor: theme.colors.primary,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 14,
+    gap: 10,
     marginBottom: 16,
-    ...theme.shadows.md,
+    ...theme.shadows.sm,
   },
   advancedCompareBtnText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFF',
+    color: theme.colors.primary,
     flex: 1,
     textAlign: 'center',
   },
@@ -460,57 +422,58 @@ const styles = StyleSheet.create({
   // ─── Comparison Matrix ────────────────────────────────────
   matrixCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 16,
-    marginTop: 4,
-    ...theme.shadows.sm,
+    borderRadius: 16,
+    overflow: 'hidden',
+    ...theme.shadows.md,
+  },
+  matrixTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.divider,
   },
   matrixTitle: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '700',
     color: theme.colors.text,
-    marginBottom: 10,
+    letterSpacing: 0.3,
   },
-  matrixImagePlaceholder: {
-    width: '100%',
-    height: 80,
-    borderRadius: 10,
+  matrixHeaderRow: {
+    flexDirection: 'row',
+    paddingVertical: 10,
+    paddingHorizontal: 18,
     backgroundColor: '#FAFAFA',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderStyle: 'dashed',
-    marginBottom: 12,
+    borderBottomWidth: 0.5,
+    borderBottomColor: theme.colors.divider,
+  },
+  matrixHeaderCell: {
+    flex: 1,
+  },
+  matrixHeaderText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: theme.colors.textLight,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
   matrixRow: {
     flexDirection: 'row',
-    paddingVertical: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 18,
     borderBottomWidth: 0.5,
     borderBottomColor: theme.colors.divider,
   },
   matrixRowAlt: {
     backgroundColor: '#FAFAFA',
-    borderRadius: 6,
-  },
-  matrixHeaderCell: {
-    flex: 1,
-    paddingVertical: 8,
-    paddingHorizontal: 4,
-  },
-  matrixHeaderText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: theme.colors.textLight,
-    textTransform: 'uppercase',
-    letterSpacing: 0.8,
   },
   matrixCell: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    paddingHorizontal: 4,
   },
   matrixDot: {
     width: 8,
@@ -526,30 +489,40 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500',
     color: theme.colors.textSecondary,
+    lineHeight: 19,
   },
 
   // ─── Closing Section ──────────────────────────────────────
-  closingSection: {
-    margin: 16,
+  closingCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 20,
-    ...theme.shadows.md,
+    marginHorizontal: 20,
+    borderRadius: 18,
+    overflow: 'hidden',
+    ...theme.shadows.lg,
+  },
+  closingAccent: {
+    height: 3,
+    backgroundColor: theme.colors.primary,
+  },
+  closingBody: {
+    padding: 24,
   },
   closingTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '800',
     color: theme.colors.text,
     marginBottom: 10,
+    letterSpacing: -0.2,
   },
-  closingBody: {
+  closingText: {
     fontSize: 14,
     color: theme.colors.textSecondary,
     lineHeight: 22,
-    marginBottom: 16,
+    marginBottom: 20,
+    letterSpacing: 0.1,
   },
   advantagesList: {
-    gap: 8,
+    gap: 10,
   },
   advantageRow: {
     flexDirection: 'row',

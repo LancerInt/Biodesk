@@ -12,7 +12,7 @@ import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 
 const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 
-const ImageViewer = ({visible, imageUri, onClose}) => {
+const ImageViewer = React.memo(({visible, imageUri, imageSource, onClose}) => {
   const [scale, setScale] = useState(1);
   const baseScale = useRef(1);
   const lastDistance = useRef(0);
@@ -103,9 +103,9 @@ const ImageViewer = ({visible, imageUri, onClose}) => {
 
         <View style={styles.imageContainer} {...panResponder.panHandlers}>
           <TouchableOpacity activeOpacity={1} onPress={handleTap}>
-            {imageUri ? (
+            {(imageUri || imageSource) ? (
               <Image
-                source={{uri: imageUri}}
+                source={imageSource || {uri: imageUri}}
                 style={[
                   styles.image,
                   {transform: [{scale}]},
@@ -118,7 +118,7 @@ const ImageViewer = ({visible, imageUri, onClose}) => {
       </View>
     </Modal>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

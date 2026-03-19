@@ -4,7 +4,7 @@ import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import {
-  getCrops, getGrowthStages, getCategories,
+  getCrops, getGrowthStages, getCategories, getAbioticStresses,
   getBrowseSections, getProblemSections,
   matchRecommendations, searchAll,
 } from '../utils/recommendationEngine';
@@ -35,6 +35,7 @@ const SolutionsScreen = ({ navigation }) => {
   const problemSections = useMemo(() => getProblemSections(), []);
   const crops = useMemo(() => getCrops(), []);
   const growthStages = useMemo(() => getGrowthStages(), []);
+  const abioticStresses = useMemo(() => getAbioticStresses(), []);
   const categories = useMemo(() => getCategories(), []);
 
   // ─── Search ──────────────────────────────────────────────────
@@ -173,6 +174,7 @@ const SolutionsScreen = ({ navigation }) => {
       case 'crop': return renderItemGrid(crops, 'cropIds', 'sprout');
       case 'problem': return renderProblemBrowse();
       case 'growthStage': return renderItemGrid(growthStages, 'growthStageIds', 'flower');
+      case 'stress': return renderItemGrid(abioticStresses, 'abioticStressIds', 'weather-sunny-alert');
       case 'category': return renderCategoryList();
       default: return null;
     }
@@ -356,9 +358,9 @@ const SolutionsScreen = ({ navigation }) => {
 
         {/* Detail Rows */}
         {rec.dosage && <DetailRow icon="eyedropper" label="Dosage" value={rec.dosage} />}
-        {rec.applicationStage && <DetailRow icon="calendar-clock" label="Stage" value={rec.applicationStage} />}
-        {rec.season && <DetailRow icon="weather-sunny" label="Season" value={rec.season} />}
-        {rec.region && <DetailRow icon="map-marker" label="Region" value={rec.region} />}
+        {rec.applicationStage && <DetailRow icon="calendar-clock" label="Stage" value={Array.isArray(rec.applicationStage) ? rec.applicationStage.join(', ') : rec.applicationStage} />}
+        {rec.season && <DetailRow icon="weather-sunny" label="Season" value={Array.isArray(rec.season) ? rec.season.join(', ') : rec.season} />}
+        {rec.region && <DetailRow icon="map-marker" label="Region" value={Array.isArray(rec.region) ? rec.region.join(', ') : rec.region} />}
         {rec.compliance && <DetailRow icon="shield-check" label="Compliance" value={rec.compliance} />}
 
         {/* Cross-Sell */}

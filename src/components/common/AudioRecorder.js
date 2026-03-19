@@ -5,29 +5,46 @@ import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import theme from '../../constants/theme';
 
 /**
- * Safely import expo-audio — may crash in Expo Go if native modules
- * aren't linked. We lazy-load to prevent top-level crashes.
+ * Safely import expo-audio (recording) and expo-av (playback).
+ * Both are lazy-loaded to prevent top-level crashes when native
+ * modules aren't linked (e.g. stale prebuild or Expo Go).
+ *
+ * Recording → expo-audio useAudioRecorder (requires dev build)
+ * Playback  → expo-av Audio.Sound (works after native rebuild)
  */
 let useAudioRecorderHook = null;
 let AudioModuleRef = null;
-let AudioPlayerClass = null;
 let audioAvailable = false;
 
 try {
   const expoAudio = require('expo-audio');
   useAudioRecorderHook = expoAudio.useAudioRecorder;
   AudioModuleRef = expoAudio.AudioModule;
-  AudioPlayerClass = expoAudio.AudioPlayer;
   audioAvailable = typeof useAudioRecorderHook === 'function';
 } catch {
   // expo-audio not available
+}
+
+let AVAudio = null;
+try {
+  AVAudio = require('expo-av').Audio;
+} catch {
+  // expo-av not available
 }
 
 // ═══════════════════════════════════════════════════════════════
 // Inner component — uses the useAudioRecorder hook.
 // Only rendered when expo-audio is available.
 // ═══════════════════════════════════════════════════════════════
-const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], onRecordingComplete, onRecordingDelete }, ref) => {
+// Stable options object — prevents useReleasingSharedObject from recreating the recorder
+const RECORDER_OPTIONS = {
+  extension: '.m4a',
+  sampleRate: 44100,
+  numberOfChannels: 1,
+  bitRate: 128000,
+};
+
+const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], onRecordingComplete, onRecordingDelete, tempMode }, ref) => {
   const [isRecording, setIsRecording] = useState(false);
   const [recordingDuration, setRecordingDuration] = useState(0);
   const [playingId, setPlayingId] = useState(null);
@@ -35,11 +52,12 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
 
   const timerRef = useRef(null);
   const durationRef = useRef(0);
-  const audioRecorder = useAudioRecorderHook({
-    extension: '.m4a',
-    sampleRate: 44100,
-    numberOfChannels: 1,
-    bitRate: 128000,
+  const finishedUriRef = useRef(null); // Captures URI from status callback
+  const audioRecorder = useAudioRecorderHook(RECORDER_OPTIONS, (status) => {
+    // Fired when recording finishes — capture the URL as a reliable backup
+    if (status.isFinished && status.url) {
+      finishedUriRef.current = status.url;
+    }
   });
   const playerRef = useRef(null);
 
@@ -48,10 +66,8 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
       if (playerRef.current) {
-        try {
-          if (playerRef.current._pollId) clearInterval(playerRef.current._pollId);
-          playerRef.current.release();
-        } catch {}
+        try { playerRef.current.stopAsync(); } catch {}
+        try { playerRef.current.unloadAsync(); } catch {}
       }
     };
   }, []);
@@ -60,7 +76,8 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
   useEffect(() => { durationRef.current = recordingDuration; }, [recordingDuration]);
 
   const ensureDir = async () => {
-    const dir = `${FileSystem.documentDirectory}${parentType}s/audio/${parentId}/`;
+    const baseDir = tempMode ? FileSystem.cacheDirectory : FileSystem.documentDirectory;
+    const dir = `${baseDir}${parentType}s/audio/${parentId}/`;
     const dirInfo = await FileSystem.getInfoAsync(dir);
     if (!dirInfo.exists) {
       await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
@@ -72,8 +89,22 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
   const saveRecording = useCallback(async () => {
     if (timerRef.current) clearInterval(timerRef.current);
     try {
+      finishedUriRef.current = null;
       await audioRecorder.stop();
-      const sourceUri = audioRecorder.uri;
+
+      // Try multiple URI sources: direct property, status callback, getStatus()
+      let sourceUri = audioRecorder.uri || finishedUriRef.current;
+      if (!sourceUri) {
+        try {
+          const recStatus = audioRecorder.getStatus();
+          sourceUri = recStatus?.url || null;
+        } catch {}
+      }
+      // Brief wait if URI still not available (callback may fire async)
+      if (!sourceUri) {
+        await new Promise(r => setTimeout(r, 300));
+        sourceUri = audioRecorder.uri || finishedUriRef.current;
+      }
       if (!sourceUri) {
         Alert.alert('Error', 'No recording data found. Please try recording again.');
         setIsRecording(false);
@@ -126,6 +157,10 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
         Alert.alert('Permission Required', 'Microphone permission is needed to record audio.');
         return;
       }
+      // CRITICAL: Prepare the recorder before starting — sets up output file & codec.
+      // Without this, record() silently fails and stop() yields a null URI.
+      await audioRecorder.prepareToRecordAsync();
+      finishedUriRef.current = null;
       audioRecorder.record();
       setIsRecording(true);
       setRecordingDuration(0);
@@ -146,44 +181,47 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
   const discardRecording = async () => {
     if (timerRef.current) clearInterval(timerRef.current);
     try { await audioRecorder.stop(); } catch {}
+    finishedUriRef.current = null;
     setIsRecording(false);
     setRecordingDuration(0);
   };
 
-  // ─── Playback Controls ───────────────────────────────
+  // ─── Playback Controls (expo-av Audio.Sound) ────────
   const playRecording = async (recording) => {
     try {
       await stopPlayback();
-      if (!AudioPlayerClass) {
-        Alert.alert('Error', 'Audio playback not available.');
+      if (!AVAudio) {
+        Alert.alert('Audio Unavailable', 'Audio playback requires a native rebuild.\n\nRun: npx expo prebuild && npx expo run:android');
         return;
       }
       // Verify file exists before attempting playback
+      if (!recording.filePath) {
+        Alert.alert('Error', 'Audio file path is missing.');
+        return;
+      }
       const fileInfo = await FileSystem.getInfoAsync(recording.filePath);
       if (!fileInfo.exists) {
         Alert.alert('File Not Found', 'The audio file no longer exists at:\n' + recording.filePath);
         return;
       }
-      // expo-audio AudioPlayer requires a source URI string (file:// path)
-      const player = new AudioPlayerClass({ uri: recording.filePath });
-      playerRef.current = player;
-      setPlayingId(recording.id);
-      player.play();
-      const pollId = setInterval(() => {
-        try {
-          if (player.playing) {
-            const dur = player.duration || 1;
-            setPlaybackProgress(player.currentTime / dur);
-          } else if (!player.playing && player.currentTime > 0) {
-            clearInterval(pollId);
+      const { sound } = await AVAudio.Sound.createAsync(
+        { uri: recording.filePath },
+        { shouldPlay: true, progressUpdateIntervalMillis: 250 },
+        (status) => {
+          if (!status.isLoaded) return;
+          const dur = (status.durationMillis || 1) / 1000;
+          const cur = (status.positionMillis || 0) / 1000;
+          setPlaybackProgress(dur > 0 ? cur / dur : 0);
+          if (status.didJustFinish) {
             setPlayingId(null);
             setPlaybackProgress(0);
-            try { player.release(); } catch {}
+            sound.unloadAsync().catch(() => {});
             playerRef.current = null;
           }
-        } catch { clearInterval(pollId); }
-      }, 250);
-      player._pollId = pollId;
+        }
+      );
+      playerRef.current = sound;
+      setPlayingId(recording.id);
     } catch (err) {
       Alert.alert('Playback Error', 'Failed to play recording: ' + (err.message || 'Unknown error'));
     }
@@ -191,10 +229,8 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
 
   const stopPlayback = async () => {
     if (playerRef.current) {
-      try {
-        if (playerRef.current._pollId) clearInterval(playerRef.current._pollId);
-        playerRef.current.release();
-      } catch {}
+      try { await playerRef.current.stopAsync(); } catch {}
+      try { await playerRef.current.unloadAsync(); } catch {}
       playerRef.current = null;
     }
     setPlayingId(null);

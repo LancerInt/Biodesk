@@ -1,0 +1,1818 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-03-13",
+  "packageTemplates": [
+    {
+      "id": "pkg_seedling_vigor",
+      "name": "Seedling Vigor Package",
+      "objective": "Support early crop establishment and vigor",
+      "packageType": "Preventive",
+      "productRoles": [
+        { "productId": "prod_blooma", "role": "Vigor support" },
+        { "productId": "prod_envicta", "role": "Root and stress support" }
+      ],
+      "dosageNote": "Use as per approved label and crop stage advisory.",
+      "stageRelevance": ["Seedling", "Vegetative"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate crop-use and dose before production deployment."
+    },
+    {
+      "id": "pkg_insect_pressure_botanical",
+      "name": "Botanical Insect Pressure Package",
+      "objective": "General package for chewing and sucking pest pressure",
+      "packageType": "Curative",
+      "productRoles": [
+        { "productId": "prod_ecoza_max", "role": "Primary botanical base" },
+        { "productId": "prod_spindura_plus", "role": "Larval and caterpillar management" },
+        { "productId": "prod_envicta", "role": "Stress recovery support" }
+      ],
+      "dosageNote": "Dose to be finalized crop-wise and pest-wise.",
+      "stageRelevance": ["Vegetative", "Flowering", "Fruiting"],
+      "seasonalRelevance": ["Kharif", "Rabi", "Summer"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Do not publish as a label recommendation without agronomy approval."
+    },
+    {
+      "id": "pkg_whitefly_complex",
+      "name": "Whitefly and Sucking Pest Package",
+      "objective": "Management package for whitefly, aphids, jassids and thrips pressure",
+      "packageType": "Curative",
+      "productRoles": [
+        { "productId": "prod_margoshine", "role": "Botanical support" },
+        { "productId": "prod_mycova", "role": "Microbial insect management" },
+        { "productId": "prod_seira", "role": "Soft-bodied insect support" },
+        { "productId": "prod_blooma", "role": "Crop recovery support" }
+      ],
+      "dosageNote": "Finalize dose crop-wise before production use.",
+      "stageRelevance": ["Vegetative", "Flowering", "Fruiting"],
+      "seasonalRelevance": ["Kharif", "Rabi"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Requires agronomy validation."
+    },
+    {
+      "id": "pkg_caterpillar_complex",
+      "name": "Caterpillar and Borer Package",
+      "objective": "Management package for borers and caterpillar pests",
+      "packageType": "Curative",
+      "productRoles": [
+        { "productId": "prod_spindura_plus", "role": "Primary larval management" },
+        { "productId": "prod_margospin", "role": "Combination support" },
+        { "productId": "prod_blooma", "role": "Recovery support" }
+      ],
+      "dosageNote": "Use after crop and pest validation.",
+      "stageRelevance": ["Vegetative", "Flowering", "Fruiting"],
+      "seasonalRelevance": ["Kharif", "Rabi", "Summer"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate crop-target fit before deployment."
+    },
+    {
+      "id": "pkg_soil_borne_disease",
+      "name": "Soil-borne Disease Management Package",
+      "objective": "Support against damping off, root rot and wilt complex",
+      "packageType": "Preventive",
+      "productRoles": [
+        { "productId": "prod_biota_v", "role": "Soil disease suppression" },
+        { "productId": "prod_biota_h", "role": "Rhizosphere protection" },
+        { "productId": "prod_subtilix", "role": "Additional microbial suppression" },
+        { "productId": "prod_enrhize", "role": "Root establishment support" }
+      ],
+      "dosageNote": "Apply through seed treatment, nursery drench or soil application as validated.",
+      "stageRelevance": ["Seed Treatment", "Nursery", "Seedling", "Vegetative"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Crop-use pattern must be validated before launch."
+    },
+    {
+      "id": "pkg_foliar_disease_support",
+      "name": "Foliar Disease Support Package",
+      "objective": "Support crop recovery and resilience under foliar disease pressure",
+      "packageType": "Supportive",
+      "productRoles": [
+        { "productId": "prod_neuvita", "role": "Microbial support" },
+        { "productId": "prod_envicta", "role": "Stress recovery" },
+        { "productId": "prod_blooma", "role": "Canopy vigor support" }
+      ],
+      "dosageNote": "Use only after crop-disease suitability review.",
+      "stageRelevance": ["Vegetative", "Flowering", "Fruiting"],
+      "seasonalRelevance": ["Kharif", "Rabi"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Supportive package only; not a fungicide claim."
+    },
+    {
+      "id": "pkg_nutrient_recovery",
+      "name": "Nutrient Recovery Package",
+      "objective": "Support crop recovery under general nutrient deficiency",
+      "packageType": "Nutritional",
+      "productRoles": [
+        { "productId": "prod_igreen_npk", "role": "Balanced nutrient mobilization" },
+        { "productId": "prod_igreen_shield", "role": "Protective microbial support" },
+        { "productId": "prod_blooma", "role": "Growth recovery support" }
+      ],
+      "dosageNote": "Refine combinations based on diagnosis.",
+      "stageRelevance": ["Vegetative", "Tillering", "Flowering"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Use deficiency-specific package where exact diagnosis is available."
+    },
+    {
+      "id": "pkg_n_deficiency",
+      "name": "Nitrogen Support Package",
+      "objective": "Support crop response under nitrogen deficiency",
+      "packageType": "Nutritional",
+      "productRoles": [
+        { "productId": "prod_igreen_n", "role": "Nitrogen support" },
+        { "productId": "prod_blooma", "role": "Recovery support" }
+      ],
+      "dosageNote": "Use where N deficiency is confirmed.",
+      "stageRelevance": ["Seedling", "Vegetative", "Tillering"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate diagnosis before use."
+    },
+    {
+      "id": "pkg_p_deficiency",
+      "name": "Phosphorus Support Package",
+      "objective": "Support crop response under phosphorus deficiency",
+      "packageType": "Nutritional",
+      "productRoles": [
+        { "productId": "prod_igreen_p", "role": "Phosphorus support" },
+        { "productId": "prod_enrhize", "role": "Root support" }
+      ],
+      "dosageNote": "Use where P deficiency is confirmed.",
+      "stageRelevance": ["Seedling", "Vegetative"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate diagnosis before use."
+    },
+    {
+      "id": "pkg_k_deficiency",
+      "name": "Potassium Support Package",
+      "objective": "Support crop response under potassium deficiency",
+      "packageType": "Nutritional",
+      "productRoles": [
+        { "productId": "prod_igreen_k", "role": "Potassium support" },
+        { "productId": "prod_envicta", "role": "Stress support" }
+      ],
+      "dosageNote": "Use where K deficiency is confirmed.",
+      "stageRelevance": ["Vegetative", "Flowering", "Fruiting"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate diagnosis before use."
+    },
+    {
+      "id": "pkg_zn_deficiency",
+      "name": "Zinc Support Package",
+      "objective": "Support crop response under zinc deficiency",
+      "packageType": "Nutritional",
+      "productRoles": [
+        { "productId": "prod_igreen_zn", "role": "Zinc support" },
+        { "productId": "prod_blooma", "role": "Recovery support" }
+      ],
+      "dosageNote": "Use where Zn deficiency is confirmed.",
+      "stageRelevance": ["Seedling", "Vegetative", "Tillering"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate diagnosis before use."
+    },
+    {
+      "id": "pkg_si_deficiency",
+      "name": "Silicon Support Package",
+      "objective": "Support crop response under silicon deficiency and weak plant structure",
+      "packageType": "Nutritional",
+      "productRoles": [
+        { "productId": "prod_igreen_si", "role": "Silicon support" },
+        { "productId": "prod_envicta", "role": "Stress support" }
+      ],
+      "dosageNote": "Use where silicon deficiency or weak stem expression is observed.",
+      "stageRelevance": ["Vegetative", "Tillering"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate diagnosis before use."
+    },
+    {
+      "id": "pkg_stress_orgocare",
+      "name": "Abiotic Stress Support Package",
+      "objective": "Primary support recommendation for abiotic stress conditions",
+      "packageType": "Supportive",
+      "productRoles": [
+        { "productId": "prod_orgocare", "role": "Primary stress support" },
+        { "productId": "prod_envicta", "role": "Additional recovery support" }
+      ],
+      "dosageNote": "Finalize crop-wise and stage-wise dose internally.",
+      "stageRelevance": ["Seedling", "Vegetative", "Flowering", "Fruiting"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Primary abiotic stress positioning to be validated internally."
+    },
+    {
+      "id": "pkg_root_establishment",
+      "name": "Root Establishment Package",
+      "objective": "Support root development and transplant establishment",
+      "packageType": "Preventive",
+      "productRoles": [
+        { "productId": "prod_enrhize", "role": "Root colonization support" },
+        { "productId": "prod_blooma", "role": "Early vigor support" },
+        { "productId": "prod_orgocare", "role": "Transplant recovery support" }
+      ],
+      "dosageNote": "Use in nursery, transplanting or early establishment phases.",
+      "stageRelevance": ["Nursery", "Seedling", "Vegetative"],
+      "seasonalRelevance": ["All Seasons"],
+      "regionRelevance": ["Pan India"],
+      "complianceNote": "Validate crop-stage use before publishing."
+    }
+  ],
+  "recommendationTemplates": [
+    {
+      "id": "rec_tpl_crop_pest",
+      "ruleType": "crop+pest",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_insect_pressure_botanical",
+      "supportedPests": [
+        "Stem Borer",
+        "Leaf Folder",
+        "Spodoptera",
+        "Fruit Borer",
+        "Helicoverpa",
+        "Semilooper",
+        "Thrips",
+        "Aphid",
+        "Whitefly",
+        "Jassid",
+        "Mealybug",
+        "Shoot Borer",
+        "Diamondback Moth",
+        "Scale Insect",
+        "Root Grub",
+        "Fruit Fly",
+        "Mite",
+        "Red Spider Mite",
+        "Brown Planthopper"
+      ],
+      "recommendationReason": "Starter recommendation template for crop-specific pest pressure.",
+      "crossSell": [
+        { "type": "product", "productId": "prod_orgocare", "reason": "General crop vitality support" }
+      ],
+      "upSell": [
+        { "type": "product", "productId": "prod_margospin", "reason": "Combination botanical option for higher intervention cases" }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tpl_crop_disease",
+      "ruleType": "crop+disease",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "supportedDiseases": [
+        "Damping Off",
+        "Wilt",
+        "Root Rot",
+        "Stem Rot",
+        "Leaf Spot",
+        "Anthracnose",
+        "Downy Mildew",
+        "Powdery Mildew",
+        "Early Blight",
+        "Late Blight",
+        "Purple Blotch",
+        "Sheath Blight",
+        "Blast",
+        "Alternaria Blight",
+        "Bacterial Spot",
+        "Bacterial Leaf Blight",
+        "Gummosis"
+      ],
+      "recommendationReason": "Starter recommendation template for microbial-led disease support.",
+      "crossSell": [
+        { "type": "product", "productId": "prod_envicta", "reason": "Stress recovery support" }
+      ],
+      "upSell": [
+        { "type": "product", "productId": "prod_neuvita", "reason": "Broader microbial support option" }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tpl_crop_deficiency",
+      "ruleType": "crop+nutrientDeficiency",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_nutrient_recovery",
+      "supportedDeficiencies": [
+        "Nitrogen Deficiency",
+        "Phosphorus Deficiency",
+        "Potassium Deficiency",
+        "Zinc Deficiency",
+        "Sulphur Deficiency",
+        "Silicon Deficiency",
+        "General Nutrient Imbalance"
+      ],
+      "recommendationReason": "Starter package for nutrient recovery and microbial nutrient mobilization.",
+      "crossSell": [
+        { "type": "product", "productId": "prod_envicta", "reason": "Improves recovery under stress" }
+      ],
+      "upSell": [
+        { "type": "product", "productId": "prod_igreen_n", "reason": "More focused nutrient support where N deficiency is confirmed" }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tpl_crop_stage",
+      "ruleType": "crop+growthStage",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_seedling_vigor",
+      "supportedStages": [
+        "Seed Treatment",
+        "Nursery",
+        "Germination / Emergence",
+        "Seedling",
+        "Vegetative",
+        "Tillering",
+        "Branching",
+        "Flowering",
+        "Boll Development",
+        "Fruiting",
+        "Grain Filling"
+      ],
+      "recommendationReason": "Starter package for stage-based crop support.",
+      "crossSell": [
+        { "type": "product", "productId": "prod_orgocare", "reason": "Supports recovery under growth-stage stress" }
+      ],
+      "upSell": [
+        { "type": "product", "productId": "prod_zynerx", "reason": "Growth response support for higher-value programs" }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tpl_crop_stress",
+      "ruleType": "crop+abioticStress",
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod_orgocare",
+      "supportedStresses": [
+        "Drought Stress",
+        "Heat Stress",
+        "Cold Stress",
+        "Waterlogging",
+        "Transplant Shock",
+        "Salinity Stress"
+      ],
+      "recommendationReason": "Recommended as the primary crop support product for abiotic stress conditions.",
+      "dosageNote": "Dose to be finalized crop-wise and stage-wise as per agronomy recommendation.",
+      "stageRelevance": "Applicable across stress-prone crop stages depending on crop condition.",
+      "seasonalRelevance": "Suitable across seasons where abiotic stress is observed.",
+      "regionRelevance": "Pan India",
+      "complianceNote": "Validate crop-wise recommendation and approved usage before production deployment.",
+      "crossSell": [
+        { "type": "product", "productId": "prod_envicta", "reason": "Additional recovery support under severe stress." }
+      ],
+      "upSell": [
+        { "type": "product", "productId": "prod_zenita", "reason": "Higher-value crop response support option." }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tpl_category_botanical",
+      "ruleType": "category",
+      "priority": 5,
+      "recommendationType": "productGroup",
+      "categoryId": "cat_botanical_pesticide",
+      "recommendedProductIds": [
+        "prod_ecoza_max",
+        "prod_ecoza_ace",
+        "prod_ecoza_pro",
+        "prod_ecoza_rix",
+        "prod_margoshine",
+        "prod_margorix",
+        "prod_k_guard",
+        "prod_k_rix",
+        "prod_spindura_plus",
+        "prod_spindura_rix",
+        "prod_spindura_pro",
+        "prod_margospin",
+        "prod_weedx"
+      ],
+      "recommendationReason": "Portfolio browse view for botanical crop protection range.",
+      "status": "approved_for_catalog_browse"
+    },
+    {
+      "id": "rec_tpl_category_microbial_pesticide",
+      "ruleType": "category",
+      "priority": 5,
+      "recommendationType": "productGroup",
+      "categoryId": "cat_microbial_pesticide",
+      "recommendedProductIds": [
+        "prod_mycova",
+        "prod_biota_v",
+        "prod_biota_h",
+        "prod_neuvita",
+        "prod_subtilix",
+        "prod_seira",
+        "prod_metaera"
+      ],
+      "recommendationReason": "Portfolio browse view for microbial crop protection range.",
+      "status": "approved_for_catalog_browse"
+    },
+    {
+      "id": "rec_tpl_category_biostimulant",
+      "ruleType": "category",
+      "priority": 5,
+      "recommendationType": "productGroup",
+      "categoryId": "cat_biostimulant",
+      "recommendedProductIds": [
+        "prod_admira_adyme",
+        "prod_orgocare",
+        "prod_blooma",
+        "prod_flora",
+        "prod_envicta",
+        "prod_zynerx",
+        "prod_zenita"
+      ],
+      "recommendationReason": "Portfolio browse view for biostimulant range.",
+      "status": "approved_for_catalog_browse"
+    },
+    {
+      "id": "rec_tpl_category_biofertilizer",
+      "ruleType": "category",
+      "priority": 5,
+      "recommendationType": "productGroup",
+      "categoryId": "cat_biofertilizer",
+      "recommendedProductIds": [
+        "prod_rhizobio",
+        "prod_igreen_az",
+        "prod_igreen_psb",
+        "prod_igreen_ksb",
+        "prod_igreen_zn",
+        "prod_igreen_si",
+        "prod_igreen_npk",
+        "prod_igreen_shield",
+        "prod_enrhize",
+        "prod_igreen_n",
+        "prod_igreen_p",
+        "prod_igreen_k",
+        "prod_igreen_cons"
+      ],
+      "recommendationReason": "Portfolio browse view for biofertilizer range.",
+      "status": "approved_for_catalog_browse"
+    }
+  ],
+  "exactRecommendations": [
+    {
+      "id": "rec_rice_stem_borer",
+      "cropId": "crop_rice",
+      "pestId": "pest_stem_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for stem borer pressure in rice.",
+      "crossSell": [{ "type": "product", "productId": "prod_orgocare", "reason": "Supports crop recovery after pest stress." }],
+      "upSell": [{ "type": "product", "productId": "prod_margospin", "reason": "Combination botanical option." }],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_rice_leaf_folder",
+      "cropId": "crop_rice",
+      "pestId": "pest_leaf_folder",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for leaf folder pressure in rice.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_rice_bph",
+      "cropId": "crop_rice",
+      "pestId": "pest_brown_planthopper",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for sucking pest pressure in rice.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_rice_thrips",
+      "cropId": "crop_rice",
+      "pestId": "pest_thrips",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in rice.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_rice_blast",
+      "cropId": "crop_rice",
+      "diseaseId": "disease_blast",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive microbial and recovery package for blast-prone rice conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_rice_sheath_blight",
+      "cropId": "crop_rice",
+      "diseaseId": "disease_sheath_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive microbial and recovery package for sheath blight-prone rice conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_rice_blb",
+      "cropId": "crop_rice",
+      "diseaseId": "disease_bacterial_leaf_blight",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive crop recovery package for bacterial leaf blight-associated stress.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_wheat_aphid",
+      "cropId": "crop_wheat",
+      "pestId": "pest_aphid",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in wheat.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_wheat_termite",
+      "cropId": "crop_wheat",
+      "pestId": "pest_termite",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Starter soil-health oriented support under termite-prone conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_wheat_root_rot",
+      "cropId": "crop_wheat",
+      "diseaseId": "disease_root_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial package for root rot-prone wheat conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_wheat_wilt",
+      "cropId": "crop_wheat",
+      "diseaseId": "disease_wilt",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial package for wilt-associated soil stress in wheat.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_maize_stem_borer",
+      "cropId": "crop_maize",
+      "pestId": "pest_stem_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for stem borer pressure in maize.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_maize_spodoptera",
+      "cropId": "crop_maize",
+      "pestId": "pest_spodoptera",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for Spodoptera pressure in maize.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_maize_termite",
+      "cropId": "crop_maize",
+      "pestId": "pest_termite",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_root_establishment",
+      "recommendationReason": "Root-support oriented starter program under termite and establishment stress in maize.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_maize_downy_mildew",
+      "cropId": "crop_maize",
+      "diseaseId": "disease_downy_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive program for downy mildew-associated crop stress in maize.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_maize_leaf_spot",
+      "cropId": "crop_maize",
+      "diseaseId": "disease_leaf_spot",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive crop recovery program for leaf spot-associated stress in maize.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_cotton_whitefly",
+      "cropId": "crop_cotton",
+      "pestId": "pest_whitefly",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in cotton.",
+      "crossSell": [{ "type": "product", "productId": "prod_orgocare", "reason": "Supports crop recovery under sucking pest stress." }],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_aphid",
+      "cropId": "crop_cotton",
+      "pestId": "pest_aphid",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_jassid",
+      "cropId": "crop_cotton",
+      "pestId": "pest_jassid",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for jassid pressure in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_thrips",
+      "cropId": "crop_cotton",
+      "pestId": "pest_thrips",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_mealybug",
+      "cropId": "crop_cotton",
+      "pestId": "pest_mealybug",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for mealybug pressure in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_spodoptera",
+      "cropId": "crop_cotton",
+      "pestId": "pest_spodoptera",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for Spodoptera pressure in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_helicoverpa",
+      "cropId": "crop_cotton",
+      "pestId": "pest_helicoverpa",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for Helicoverpa pressure in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_rsm",
+      "cropId": "crop_cotton",
+      "pestId": "pest_red_spider_mite",
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod_margoshine",
+      "recommendationReason": "Botanical support choice for mite-associated stress in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_wilt",
+      "cropId": "crop_cotton",
+      "diseaseId": "disease_wilt",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for wilt-prone cotton fields.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_root_rot",
+      "cropId": "crop_cotton",
+      "diseaseId": "disease_root_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for root rot-prone cotton fields.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cotton_leaf_spot",
+      "cropId": "crop_cotton",
+      "diseaseId": "disease_leaf_spot",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for leaf spot-associated stress in cotton.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_sugarcane_shoot_borer",
+      "cropId": "crop_sugarcane",
+      "pestId": "pest_shoot_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for shoot borer pressure in sugarcane.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_sugarcane_termite",
+      "cropId": "crop_sugarcane",
+      "pestId": "pest_termite",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_root_establishment",
+      "recommendationReason": "Starter root establishment support under termite-prone sugarcane conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_sugarcane_root_grub",
+      "cropId": "crop_sugarcane",
+      "pestId": "pest_root_grub",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_root_establishment",
+      "recommendationReason": "Starter root establishment support under root grub stress in sugarcane.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_sugarcane_scale",
+      "cropId": "crop_sugarcane",
+      "pestId": "pest_scale_insect",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Support program for scale insect and sucking pest pressure in sugarcane.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_soybean_semilooper",
+      "cropId": "crop_soybean",
+      "pestId": "pest_semilooper",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for semilooper pressure in soybean.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_soybean_spodoptera",
+      "cropId": "crop_soybean",
+      "pestId": "pest_spodoptera",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for Spodoptera pressure in soybean.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_soybean_whitefly",
+      "cropId": "crop_soybean",
+      "pestId": "pest_whitefly",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in soybean.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_soybean_aphid",
+      "cropId": "crop_soybean",
+      "pestId": "pest_aphid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in soybean.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_soybean_root_rot",
+      "cropId": "crop_soybean",
+      "diseaseId": "disease_root_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for root rot-prone soybean conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_soybean_anthracnose",
+      "cropId": "crop_soybean",
+      "diseaseId": "disease_anthracnose",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery program for anthracnose-associated crop stress in soybean.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_groundnut_root_rot",
+      "cropId": "crop_groundnut",
+      "diseaseId": "disease_root_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for root rot-prone groundnut fields.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_groundnut_leaf_spot",
+      "cropId": "crop_groundnut",
+      "diseaseId": "disease_leaf_spot",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery program for leaf spot-associated stress in groundnut.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_groundnut_stem_rot",
+      "cropId": "crop_groundnut",
+      "diseaseId": "disease_stem_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for stem rot-associated soil stress in groundnut.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_mustard_aphid",
+      "cropId": "crop_mustard",
+      "pestId": "pest_aphid",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in mustard.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_mustard_painted_bug",
+      "cropId": "crop_mustard",
+      "pestId": "pest_painted_bug",
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod_ecoza_max",
+      "recommendationReason": "Starter botanical support under painted bug pressure in mustard.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_mustard_downy_mildew",
+      "cropId": "crop_mustard",
+      "diseaseId": "disease_downy_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for downy mildew-associated crop stress in mustard.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_mustard_alternaria",
+      "cropId": "crop_mustard",
+      "diseaseId": "disease_alternaria_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for Alternaria blight-associated crop stress in mustard.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_chilli_thrips",
+      "cropId": "crop_chilli",
+      "pestId": "pest_thrips",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in chilli.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_chilli_mite",
+      "cropId": "crop_chilli",
+      "pestId": "pest_mite",
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod_margoshine",
+      "recommendationReason": "Botanical support choice for mite-associated stress in chilli.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_chilli_fruit_borer",
+      "cropId": "crop_chilli",
+      "pestId": "pest_fruit_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for fruit borer pressure in chilli.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_chilli_whitefly",
+      "cropId": "crop_chilli",
+      "pestId": "pest_whitefly",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in chilli.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_chilli_damping_off",
+      "cropId": "crop_chilli",
+      "diseaseId": "disease_damping_off",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for damping off-prone chilli nursery conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_chilli_wilt",
+      "cropId": "crop_chilli",
+      "diseaseId": "disease_wilt",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for wilt-prone chilli fields.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_chilli_anthracnose",
+      "cropId": "crop_chilli",
+      "diseaseId": "disease_anthracnose",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for anthracnose-associated crop stress in chilli.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_chilli_leaf_spot",
+      "cropId": "crop_chilli",
+      "diseaseId": "disease_leaf_spot",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for leaf spot-associated crop stress in chilli.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_tomato_fruit_borer",
+      "cropId": "crop_tomato",
+      "pestId": "pest_fruit_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for fruit borer pressure in tomato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_whitefly",
+      "cropId": "crop_tomato",
+      "pestId": "pest_whitefly",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in tomato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_thrips",
+      "cropId": "crop_tomato",
+      "pestId": "pest_thrips",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in tomato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_aphid",
+      "cropId": "crop_tomato",
+      "pestId": "pest_aphid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in tomato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_damping_off",
+      "cropId": "crop_tomato",
+      "diseaseId": "disease_damping_off",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for damping off-prone tomato nursery conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_wilt",
+      "cropId": "crop_tomato",
+      "diseaseId": "disease_wilt",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for wilt-prone tomato fields.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_early_blight",
+      "cropId": "crop_tomato",
+      "diseaseId": "disease_early_blight",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for early blight-associated crop stress in tomato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_late_blight",
+      "cropId": "crop_tomato",
+      "diseaseId": "disease_late_blight",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for late blight-associated crop stress in tomato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_tomato_bacterial_spot",
+      "cropId": "crop_tomato",
+      "diseaseId": "disease_bacterial_spot",
+      "priority": 3,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive crop recovery package for bacterial spot-associated stress in tomato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_okra_jassid",
+      "cropId": "crop_okra",
+      "pestId": "pest_jassid",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for jassid pressure in okra.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_okra_whitefly",
+      "cropId": "crop_okra",
+      "pestId": "pest_whitefly",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in okra.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_okra_fruit_borer",
+      "cropId": "crop_okra",
+      "pestId": "pest_fruit_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for fruit borer pressure in okra.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_okra_mite",
+      "cropId": "crop_okra",
+      "pestId": "pest_mite",
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod_margoshine",
+      "recommendationReason": "Botanical support choice for mite-associated stress in okra.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_onion_thrips",
+      "cropId": "crop_onion",
+      "pestId": "pest_thrips",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in onion.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_onion_damping_off",
+      "cropId": "crop_onion",
+      "diseaseId": "disease_damping_off",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for damping off-prone onion nursery conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_onion_downy_mildew",
+      "cropId": "crop_onion",
+      "diseaseId": "disease_downy_mildew",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for downy mildew-associated crop stress in onion.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_onion_purple_blotch",
+      "cropId": "crop_onion",
+      "diseaseId": "disease_purple_blotch",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for purple blotch-associated crop stress in onion.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_potato_aphid",
+      "cropId": "crop_potato",
+      "pestId": "pest_aphid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in potato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_potato_whitefly",
+      "cropId": "crop_potato",
+      "pestId": "pest_whitefly",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in potato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_potato_late_blight",
+      "cropId": "crop_potato",
+      "diseaseId": "disease_late_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for late blight-associated crop stress in potato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_potato_early_blight",
+      "cropId": "crop_potato",
+      "diseaseId": "disease_early_blight",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for early blight-associated crop stress in potato.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_brinjal_shoot_borer",
+      "cropId": "crop_brinjal",
+      "pestId": "pest_shoot_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for shoot borer pressure in brinjal.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_brinjal_fruit_borer",
+      "cropId": "crop_brinjal",
+      "pestId": "pest_fruit_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for fruit borer pressure in brinjal.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_brinjal_whitefly",
+      "cropId": "crop_brinjal",
+      "pestId": "pest_whitefly",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in brinjal.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_brinjal_jassid",
+      "cropId": "crop_brinjal",
+      "pestId": "pest_jassid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for jassid pressure in brinjal.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_brinjal_wilt",
+      "cropId": "crop_brinjal",
+      "diseaseId": "disease_wilt",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for wilt-prone brinjal fields.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_brinjal_damping_off",
+      "cropId": "crop_brinjal",
+      "diseaseId": "disease_damping_off",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for damping off-prone brinjal nursery conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_brinjal_leaf_spot",
+      "cropId": "crop_brinjal",
+      "diseaseId": "disease_leaf_spot",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for leaf spot-associated crop stress in brinjal.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_cabbage_spodoptera",
+      "cropId": "crop_cabbage",
+      "pestId": "pest_spodoptera",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for Spodoptera pressure in cabbage.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cabbage_aphid",
+      "cropId": "crop_cabbage",
+      "pestId": "pest_aphid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in cabbage.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cabbage_dbm",
+      "cropId": "crop_cabbage",
+      "pestId": "pest_diamondback_moth",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for diamondback moth pressure in cabbage.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cabbage_damping_off",
+      "cropId": "crop_cabbage",
+      "diseaseId": "disease_damping_off",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for damping off-prone cabbage nursery conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_cabbage_downy_mildew",
+      "cropId": "crop_cabbage",
+      "diseaseId": "disease_downy_mildew",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for downy mildew-associated crop stress in cabbage.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_grapes_thrips",
+      "cropId": "crop_grapes",
+      "pestId": "pest_thrips",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in grapes.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_grapes_mealybug",
+      "cropId": "crop_grapes",
+      "pestId": "pest_mealybug",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for mealybug pressure in grapes.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_grapes_mite",
+      "cropId": "crop_grapes",
+      "pestId": "pest_mite",
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod_margoshine",
+      "recommendationReason": "Botanical support choice for mite-associated stress in grapes.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_grapes_downy_mildew",
+      "cropId": "crop_grapes",
+      "diseaseId": "disease_downy_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for downy mildew-associated crop stress in grapes.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_grapes_powdery_mildew",
+      "cropId": "crop_grapes",
+      "diseaseId": "disease_powdery_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for powdery mildew-associated crop stress in grapes.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_grapes_anthracnose",
+      "cropId": "crop_grapes",
+      "diseaseId": "disease_anthracnose",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for anthracnose-associated crop stress in grapes.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_mango_mealybug",
+      "cropId": "crop_mango",
+      "pestId": "pest_mealybug",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for mealybug pressure in mango.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_mango_fruit_fly",
+      "cropId": "crop_mango",
+      "pestId": "pest_fruit_fly",
+      "priority": 2,
+      "recommendationType": "product",
+      "productId": "prod_ecoza_max",
+      "recommendationReason": "Starter botanical support under fruit fly pressure in mango.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_mango_thrips",
+      "cropId": "crop_mango",
+      "pestId": "pest_thrips",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in mango.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_mango_anthracnose",
+      "cropId": "crop_mango",
+      "diseaseId": "disease_anthracnose",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for anthracnose-associated crop stress in mango.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_mango_powdery_mildew",
+      "cropId": "crop_mango",
+      "diseaseId": "disease_powdery_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for powdery mildew-associated crop stress in mango.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_banana_nematode",
+      "cropId": "crop_banana",
+      "pestId": "pest_nematode",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_root_establishment",
+      "recommendationReason": "Root-support starter program under nematode-associated root stress in banana.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_banana_aphid",
+      "cropId": "crop_banana",
+      "pestId": "pest_aphid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in banana.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_banana_thrips",
+      "cropId": "crop_banana",
+      "pestId": "pest_thrips",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in banana.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_banana_wilt",
+      "cropId": "crop_banana",
+      "diseaseId": "disease_wilt",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for wilt-prone banana conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_banana_leaf_spot",
+      "cropId": "crop_banana",
+      "diseaseId": "disease_leaf_spot",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for leaf spot-associated crop stress in banana.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_pomegranate_thrips",
+      "cropId": "crop_pomegranate",
+      "pestId": "pest_thrips",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for thrips pressure in pomegranate.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_pomegranate_aphid",
+      "cropId": "crop_pomegranate",
+      "pestId": "pest_aphid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in pomegranate.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_pomegranate_mealybug",
+      "cropId": "crop_pomegranate",
+      "pestId": "pest_mealybug",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for mealybug pressure in pomegranate.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_pomegranate_fruit_borer",
+      "cropId": "crop_pomegranate",
+      "pestId": "pest_fruit_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Recommended support program for fruit borer pressure in pomegranate.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_pomegranate_bacterial_spot",
+      "cropId": "crop_pomegranate",
+      "diseaseId": "disease_bacterial_spot",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Supportive recovery package for bacterial spot-associated crop stress in pomegranate.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_pomegranate_wilt",
+      "cropId": "crop_pomegranate",
+      "diseaseId": "disease_wilt",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for wilt-prone pomegranate conditions.",
+      "status": "draft_needs_agronomy_validation"
+    },
+
+    {
+      "id": "rec_citrus_aphid",
+      "cropId": "crop_citrus",
+      "pestId": "pest_aphid",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for aphid pressure in citrus.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_citrus_whitefly",
+      "cropId": "crop_citrus",
+      "pestId": "pest_whitefly",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for whitefly pressure in citrus.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_citrus_scale",
+      "cropId": "crop_citrus",
+      "pestId": "pest_scale_insect",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for scale insect pressure in citrus.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_citrus_mealybug",
+      "cropId": "crop_citrus",
+      "pestId": "pest_mealybug",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Recommended support program for mealybug pressure in citrus.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_citrus_gummosis",
+      "cropId": "crop_citrus",
+      "diseaseId": "disease_gummosis",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for gummosis-associated root and collar stress in citrus.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_citrus_root_rot",
+      "cropId": "crop_citrus",
+      "diseaseId": "disease_root_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Supportive microbial program for root rot-prone citrus orchards.",
+      "status": "draft_needs_agronomy_validation"
+    }
+  ],
+  "deficiencyRecommendations": [
+    {
+      "id": "rec_def_nitrogen",
+      "nutrientDeficiencyId": "def_nitrogen",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_n_deficiency",
+      "recommendationReason": "Recommended general support package for nitrogen deficiency.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_def_phosphorus",
+      "nutrientDeficiencyId": "def_phosphorus",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_p_deficiency",
+      "recommendationReason": "Recommended general support package for phosphorus deficiency.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_def_potassium",
+      "nutrientDeficiencyId": "def_potassium",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_k_deficiency",
+      "recommendationReason": "Recommended general support package for potassium deficiency.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_def_zinc",
+      "nutrientDeficiencyId": "def_zinc",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_zn_deficiency",
+      "recommendationReason": "Recommended general support package for zinc deficiency.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_def_silicon",
+      "nutrientDeficiencyId": "def_silicon",
+      "priority": 2,
+      "recommendationType": "package",
+      "packageId": "pkg_si_deficiency",
+      "recommendationReason": "Recommended general support package for silicon deficiency.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_def_general",
+      "nutrientDeficiencyId": "def_multi_nutrient",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_nutrient_recovery",
+      "recommendationReason": "Recommended general support package for multi-nutrient imbalance.",
+      "status": "draft_needs_agronomy_validation"
+    }
+  ],
+  "stressRecommendations": [
+    {
+      "id": "rec_stress_drought",
+      "abioticStressId": "stress_drought",
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod_orgocare",
+      "recommendationReason": "Primary recommendation for drought stress support.",
+      "crossSell": [{ "type": "product", "productId": "prod_envicta", "reason": "Additional recovery support under severe stress." }],
+      "status": "approved_internal_rule"
+    },
+    {
+      "id": "rec_stress_heat",
+      "abioticStressId": "stress_heat",
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod_orgocare",
+      "recommendationReason": "Primary recommendation for heat stress support.",
+      "crossSell": [{ "type": "product", "productId": "prod_envicta", "reason": "Additional recovery support under severe stress." }],
+      "status": "approved_internal_rule"
+    },
+    {
+      "id": "rec_stress_cold",
+      "abioticStressId": "stress_cold",
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod_orgocare",
+      "recommendationReason": "Primary recommendation for cold stress support.",
+      "crossSell": [{ "type": "product", "productId": "prod_envicta", "reason": "Additional recovery support under severe stress." }],
+      "status": "approved_internal_rule"
+    },
+    {
+      "id": "rec_stress_waterlogging",
+      "abioticStressId": "stress_waterlogging",
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod_orgocare",
+      "recommendationReason": "Primary recommendation for waterlogging stress support.",
+      "crossSell": [{ "type": "product", "productId": "prod_envicta", "reason": "Additional recovery support under severe stress." }],
+      "status": "approved_internal_rule"
+    },
+    {
+      "id": "rec_stress_transplant",
+      "abioticStressId": "stress_transplant_shock",
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod_orgocare",
+      "recommendationReason": "Primary recommendation for transplant shock support.",
+      "crossSell": [{ "type": "product", "productId": "prod_blooma", "reason": "Supports establishment and vigor." }],
+      "status": "approved_internal_rule"
+    },
+    {
+      "id": "rec_stress_salinity",
+      "abioticStressId": "stress_salinity",
+      "priority": 1,
+      "recommendationType": "product",
+      "productId": "prod_orgocare",
+      "recommendationReason": "Primary recommendation for salinity stress support.",
+      "crossSell": [{ "type": "product", "productId": "prod_envicta", "reason": "Additional recovery support under severe stress." }],
+      "status": "approved_internal_rule"
+    }
+  ],
+  "stageRecommendations": [
+    {
+      "id": "rec_stage_seed_treatment",
+      "growthStageId": "stage_seed_treatment",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Primary starter package for seed treatment and early microbial support.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_stage_nursery",
+      "growthStageId": "stage_nursery",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_root_establishment",
+      "recommendationReason": "Primary starter package for nursery establishment and root support.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_stage_seedling",
+      "growthStageId": "stage_seedling",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_seedling_vigor",
+      "recommendationReason": "Primary starter package for early crop vigor and establishment.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_stage_vegetative",
+      "growthStageId": "stage_vegetative",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_seedling_vigor",
+      "recommendationReason": "Primary starter package for vegetative growth support.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_stage_tillering",
+      "growthStageId": "stage_tillering",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_nutrient_recovery",
+      "recommendationReason": "Primary starter package for tillering-stage nutrient and vigor support.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_stage_flowering",
+      "growthStageId": "stage_flowering",
+      "priority": 1,
+      "recommendationType": "productGroup",
+      "recommendedProductIds": ["prod_blooma", "prod_zynerx", "prod_envicta"],
+      "recommendationReason": "Flowering stage support choices from the portfolio.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_stage_fruiting",
+      "growthStageId": "stage_fruiting",
+      "priority": 1,
+      "recommendationType": "productGroup",
+      "recommendedProductIds": ["prod_blooma", "prod_envicta", "prod_orgocare"],
+      "recommendationReason": "Fruiting stage support choices from the portfolio.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_stage_boll_development",
+      "growthStageId": "stage_boll_development",
+      "priority": 1,
+      "recommendationType": "productGroup",
+      "recommendedProductIds": ["prod_envicta", "prod_blooma", "prod_orgocare"],
+      "recommendationReason": "Boll development stage support choices from the portfolio.",
+      "status": "draft_needs_agronomy_validation"
+    }
+  ],
+  "weedRecommendations": [
+    {
+      "id": "rec_weed_general",
+      "priority": 3,
+      "recommendationType": "product",
+      "productId": "prod_weedx",
+      "recommendationReason": "General portfolio browse recommendation for weed-related queries.",
+      "complianceNote": "Validate exact positioning and approved use internally before production deployment.",
+      "status": "draft_needs_internal_validation"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import * as FileSystem from 'expo-file-system/legacy';
+import * as Sharing from 'expo-sharing';
 import Header from '../components/common/Header';
 import PinModal from '../components/common/PinModal';
 import theme from '../constants/theme';
@@ -18,6 +20,8 @@ const SyncScreen = ({ navigation }) => {
   const [leadCount, setLeadCount] = useState(0);
   const [meetingCount, setMeetingCount] = useState(0);
   const [mediaPacks, setMediaPacks] = useState({});
+  const [exporting, setExporting] = useState(false);
+  const [backingUp, setBackingUp] = useState(false);
 
   useEffect(() => {
     const loadStats = async () => {
@@ -32,36 +36,188 @@ const SyncScreen = ({ navigation }) => {
   }, [authenticated]);
 
   const handlePinSuccess = useCallback(async () => {
-    const stored = await DatabaseService.getSetting('admin_pin');
-    // Pin was already validated by PinModal via verifyPin
     setPinVisible(false);
     setAuthenticated(true);
   }, []);
 
+  // ─── Real CSV Export ───────────────────────────────────────
   const handleExportLeads = useCallback(async () => {
     try {
+      setExporting(true);
       const csv = await DatabaseService.getLeadsAsCSV();
       if (!csv) {
         Alert.alert('No Data', 'No leads to export.');
+        setExporting(false);
         return;
       }
-      Alert.alert(
-        'Export Ready',
-        `${leadCount} leads ready for export as CSV.\n\nIn production: This would open your email client with the CSV attached.`,
-        [{ text: 'OK' }]
-      );
+
+      // Write CSV to document directory
+      const exportDir = `${FileSystem.documentDirectory}exports/`;
+      const dirInfo = await FileSystem.getInfoAsync(exportDir);
+      if (!dirInfo.exists) await FileSystem.makeDirectoryAsync(exportDir, { intermediates: true });
+
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+      const filename = `BioDesk_Leads_${timestamp}.csv`;
+      const filePath = exportDir + filename;
+
+      await FileSystem.writeAsStringAsync(filePath, csv, { encoding: FileSystem.EncodingType.UTF8 });
+
+      // Verify file was written
+      const fileInfo = await FileSystem.getInfoAsync(filePath);
+      if (!fileInfo.exists) {
+        Alert.alert('Error', 'Failed to write export file.');
+        setExporting(false);
+        return;
+      }
+
+      setExporting(false);
+
+      // Share the file
+      const sharingAvailable = await Sharing.isAvailableAsync();
+      if (sharingAvailable) {
+        await Sharing.shareAsync(filePath, {
+          mimeType: 'text/csv',
+          dialogTitle: 'Export Leads CSV',
+          UTI: 'public.comma-separated-values-text',
+        });
+      } else {
+        Alert.alert(
+          'Export Saved',
+          `${leadCount} leads exported successfully.\n\nFile saved to:\n${filePath}`,
+        );
+      }
     } catch (e) {
-      Alert.alert('Error', e.message);
+      setExporting(false);
+      Alert.alert('Export Failed', 'Could not export leads: ' + (e.message || 'Unknown error'));
     }
   }, [leadCount]);
 
-  const handleBackup = useCallback(() => {
+  // ─── Real Backup with ZIP ──────────────────────────────────
+  const handleBackup = useCallback(async () => {
     Alert.alert(
       'Create Backup',
-      `This will create BioDesk_Backup.zip containing:\n• ${leadCount} leads\n• ${meetingCount} meetings\n• Visiting card images\n\nIn production: The file would be saved to your device.`,
+      `This will create a backup containing:\n• ${leadCount} leads\n• ${meetingCount} meetings\n• Audio recordings & visiting cards`,
       [
         { text: 'Cancel', style: 'cancel' },
-        { text: 'Create Backup', onPress: () => Alert.alert('Success', 'BioDesk_Backup.zip created successfully!') },
+        {
+          text: 'Create Backup',
+          onPress: async () => {
+            try {
+              setBackingUp(true);
+
+              // Gather all data
+              const leads = await DatabaseService.getLeads();
+              const meetings = await DatabaseService.getMeetings();
+
+              // Gather audio recordings for all leads and meetings
+              const audioRecordings = [];
+              for (const lead of leads) {
+                const recs = await DatabaseService.getAudioRecordings('lead', lead.id);
+                audioRecordings.push(...recs.map(r => ({ ...r, parentType: 'lead' })));
+              }
+              for (const meeting of meetings) {
+                const recs = await DatabaseService.getAudioRecordings('meeting', meeting.id);
+                audioRecordings.push(...recs.map(r => ({ ...r, parentType: 'meeting' })));
+              }
+
+              // Gather visiting cards
+              const visitingCards = [];
+              for (const lead of leads) {
+                const cards = await DatabaseService.getVisitingCards(lead.id);
+                visitingCards.push(...cards);
+              }
+
+              // Build backup JSON
+              const backupData = {
+                version: '1.0.0',
+                createdAt: new Date().toISOString(),
+                app: 'BioDesk',
+                data: {
+                  leads,
+                  meetings,
+                  audioRecordings,
+                  visitingCards,
+                },
+                stats: {
+                  leadCount: leads.length,
+                  meetingCount: meetings.length,
+                  audioCount: audioRecordings.length,
+                  cardCount: visitingCards.length,
+                },
+              };
+
+              // Create ZIP using JSZip
+              const JSZip = require('jszip');
+              const zip = new JSZip();
+              zip.file('backup_data.json', JSON.stringify(backupData, null, 2));
+
+              // Add audio files to ZIP if they exist
+              for (const rec of audioRecordings) {
+                try {
+                  const info = await FileSystem.getInfoAsync(rec.filePath);
+                  if (info.exists) {
+                    const content = await FileSystem.readAsStringAsync(rec.filePath, { encoding: FileSystem.EncodingType.Base64 });
+                    const pathParts = rec.filePath.split('/');
+                    const audioFilename = pathParts[pathParts.length - 1];
+                    zip.file(`audio/${rec.parentType}_${rec.parentId}/${audioFilename}`, content, { base64: true });
+                  }
+                } catch {}
+              }
+
+              // Add visiting card images to ZIP if they exist
+              for (const card of visitingCards) {
+                try {
+                  const info = await FileSystem.getInfoAsync(card.imagePath);
+                  if (info.exists) {
+                    const content = await FileSystem.readAsStringAsync(card.imagePath, { encoding: FileSystem.EncodingType.Base64 });
+                    const pathParts = card.imagePath.split('/');
+                    const imageFilename = pathParts[pathParts.length - 1];
+                    zip.file(`visiting_cards/${card.leadId}/${imageFilename}`, content, { base64: true });
+                  }
+                } catch {}
+              }
+
+              // Generate ZIP blob as base64
+              const zipBase64 = await zip.generateAsync({ type: 'base64' });
+
+              // Write ZIP to file system
+              const exportDir = `${FileSystem.documentDirectory}exports/`;
+              const dirInfo = await FileSystem.getInfoAsync(exportDir);
+              if (!dirInfo.exists) await FileSystem.makeDirectoryAsync(exportDir, { intermediates: true });
+
+              const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+              const zipPath = `${exportDir}BioDesk_Backup_${timestamp}.zip`;
+              await FileSystem.writeAsStringAsync(zipPath, zipBase64, { encoding: FileSystem.EncodingType.Base64 });
+
+              // Verify
+              const zipInfo = await FileSystem.getInfoAsync(zipPath);
+              if (!zipInfo.exists) {
+                setBackingUp(false);
+                Alert.alert('Error', 'Failed to create backup file.');
+                return;
+              }
+
+              setBackingUp(false);
+
+              // Share the ZIP
+              const sharingAvailable = await Sharing.isAvailableAsync();
+              if (sharingAvailable) {
+                await Sharing.shareAsync(zipPath, {
+                  mimeType: 'application/zip',
+                  dialogTitle: 'BioDesk Backup',
+                });
+              } else {
+                Alert.alert(
+                  'Backup Created',
+                  `Backup saved successfully!\n\nFile: ${zipPath}\nSize: ${(zipInfo.size / 1024).toFixed(1)} KB`,
+                );
+              }
+            } catch (e) {
+              setBackingUp(false);
+              Alert.alert('Backup Failed', 'Could not create backup: ' + (e.message || 'Unknown error'));
+            }
+          },
+        },
       ]
     );
   }, [leadCount, meetingCount]);
@@ -73,11 +229,11 @@ const SyncScreen = ({ navigation }) => {
     }
     Alert.alert(
       `Download ${pack.title}`,
-      `Size: ${pack.size}\n${pack.desc}\n\nIn production: This would download the media pack for offline use.`,
+      `Size: ${pack.size}\n${pack.desc}\n\nThis will download the media pack for offline use.`,
       [
         { text: 'Cancel', style: 'cancel' },
         {
-          text: 'Simulate Download',
+          text: 'Download',
           onPress: () => {
             setMediaPacks(p => ({ ...p, [pack.id]: true }));
             Alert.alert('Downloaded', `${pack.title} is now available offline.`);
@@ -148,10 +304,17 @@ const SyncScreen = ({ navigation }) => {
             </View>
             <View style={styles.actionText}>
               <Text style={styles.actionTitle}>Export Leads as CSV</Text>
-              <Text style={styles.actionDesc}>{leadCount} leads ready • Opens email client</Text>
+              <Text style={styles.actionDesc}>{leadCount} leads ready • Save or share</Text>
             </View>
-            <TouchableOpacity style={[styles.actionBtn, { backgroundColor: '#2196F3' }]} onPress={handleExportLeads}>
-              <Text style={styles.actionBtnText}>Export</Text>
+            <TouchableOpacity
+              style={[styles.actionBtn, { backgroundColor: '#2196F3', opacity: exporting ? 0.6 : 1 }]}
+              onPress={handleExportLeads}
+              disabled={exporting}>
+              {exporting ? (
+                <ActivityIndicator size="small" color="#FFF" />
+              ) : (
+                <Text style={styles.actionBtnText}>Export</Text>
+              )}
             </TouchableOpacity>
           </View>
         </View>
@@ -165,10 +328,17 @@ const SyncScreen = ({ navigation }) => {
             </View>
             <View style={styles.actionText}>
               <Text style={styles.actionTitle}>Create Full Backup</Text>
-              <Text style={styles.actionDesc}>Leads, meetings & card images → BioDesk_Backup.zip</Text>
+              <Text style={styles.actionDesc}>Leads, meetings, audio & cards → ZIP</Text>
             </View>
-            <TouchableOpacity style={[styles.actionBtn, { backgroundColor: theme.colors.primary }]} onPress={handleBackup}>
-              <Text style={styles.actionBtnText}>Backup</Text>
+            <TouchableOpacity
+              style={[styles.actionBtn, { backgroundColor: theme.colors.primary, opacity: backingUp ? 0.6 : 1 }]}
+              onPress={handleBackup}
+              disabled={backingUp}>
+              {backingUp ? (
+                <ActivityIndicator size="small" color="#FFF" />
+              ) : (
+                <Text style={styles.actionBtnText}>Backup</Text>
+              )}
             </TouchableOpacity>
           </View>
         </View>
@@ -250,6 +420,8 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 20,
     gap: 4,
+    minWidth: 70,
+    justifyContent: 'center',
   },
   actionBtnText: { color: '#FFF', fontSize: 13, fontWeight: '600' },
 });

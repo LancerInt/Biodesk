@@ -2,6 +2,17 @@ import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import DatabaseService from '../database/DatabaseService';
 import { PRODUCTS } from '../constants/productData';
 
+/**
+ * Lazy-load expo-av to prevent crash when ExponentAV native module
+ * isn't linked (stale prebuild). Audio mode setup is best-effort.
+ */
+let AVAudio = null;
+try {
+  AVAudio = require('expo-av').Audio;
+} catch {
+  // expo-av not available — audio features will show fallback
+}
+
 const AppContext = createContext();
 
 const initialState = {
@@ -25,6 +36,19 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     const init = async () => {
+      // Configure audio mode for recording + playback (best-effort)
+      if (AVAudio) {
+        try {
+          await AVAudio.setAudioModeAsync({
+            allowsRecordingIOS: true,
+            playsInSilentModeIOS: true,
+            staysActiveInBackground: false,
+            shouldDuckAndroid: true,
+          });
+        } catch (e) {
+          console.warn('Audio mode init error:', e);
+        }
+      }
       try {
         await DatabaseService.getDatabase();
         await DatabaseService.populateSearchIndex(PRODUCTS);

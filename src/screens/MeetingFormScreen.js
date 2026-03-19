@@ -7,12 +7,41 @@ import theme from '../constants/theme';
 import DatabaseService from '../database/DatabaseService';
 import { generateId } from '../utils/helpers';
 
+// Module-level sub-component to prevent remount on parent re-render (keyboard fix)
+const MeetingField = ({ label, icon, value, onChange, placeholder, multiline, keyboardType }) => (
+  <View style={styles.fieldWrap}>
+    <View style={styles.fieldLabel}>
+      <Icon name={icon} size={16} color={theme.colors.textLight} />
+      <Text style={styles.fieldLabelText}>{label}</Text>
+    </View>
+    <TextInput
+      style={[styles.input, multiline && styles.inputMulti]}
+      value={value}
+      onChangeText={onChange}
+      placeholder={placeholder || label}
+      placeholderTextColor={theme.colors.textLight}
+      multiline={multiline}
+      numberOfLines={multiline ? 6 : 1}
+      textAlignVertical={multiline ? 'top' : 'center'}
+      keyboardType={keyboardType || 'default'}
+    />
+  </View>
+);
+
 const MeetingFormScreen = ({ route, navigation }) => {
   const { meeting, mode } = route.params || {};
   const isEdit = mode === 'edit' && meeting;
 
   // Generate a stable ID for new meetings so audio can be linked before save
   const [meetingId] = useState(() => isEdit ? meeting.id : generateId('meet'));
+  const [meetingNumber, setMeetingNumber] = useState(meeting?.meeting_number || '');
+
+  // Generate meeting number for new meetings
+  useEffect(() => {
+    if (!isEdit && !meetingNumber) {
+      DatabaseService.generateNextMeetingNumber().then(setMeetingNumber).catch(() => {});
+    }
+  }, [isEdit, meetingNumber]);
 
   const [form, setForm] = useState({
     title: meeting?.title || '',
@@ -24,8 +53,13 @@ const MeetingFormScreen = ({ route, navigation }) => {
     associatedLeads: meeting?.associatedLeads || [],
   });
 
+  const isCreate = !isEdit;
+
   const [audioRecordings, setAudioRecordings] = useState([]);
+  const [pendingAudio, setPendingAudio] = useState([]);
   const audioRef = useRef(null);
+  const pendingAudioRef = useRef([]);
+  const savedRef = useRef(false);
 
   // Load existing audio recordings for edit mode
   useEffect(() => {
@@ -39,29 +73,63 @@ const MeetingFormScreen = ({ route, navigation }) => {
   const set = (key, value) => setForm(f => ({ ...f, [key]: value }));
 
   const handleRecordingComplete = useCallback(async (recording) => {
-    try {
-      const id = await DatabaseService.insertAudioRecording({
-        ...recording,
-        parentType: 'meeting',
-        parentId: meetingId,
-      });
-      setAudioRecordings(prev => [{
-        id,
-        filePath: recording.filePath,
-        duration: recording.duration,
+    if (isCreate) {
+      // Defer DB insert — store in pending state, commit only on Save
+      const tempId = 'pending_aud_' + Date.now();
+      const entry = {
+        id: tempId, filePath: recording.filePath, duration: recording.duration,
         createdAt: new Date().toISOString(),
-      }, ...prev]);
-    } catch (e) {
-      Alert.alert('Error', 'Failed to save recording.');
+      };
+      pendingAudioRef.current = [entry, ...pendingAudioRef.current];
+      setPendingAudio(prev => [entry, ...prev]);
+    } else {
+      // Edit mode: save immediately (meeting already exists)
+      try {
+        const id = await DatabaseService.insertAudioRecording({
+          ...recording, parentType: 'meeting', parentId: meetingId,
+        });
+        setAudioRecordings(prev => [{
+          id, filePath: recording.filePath, duration: recording.duration,
+          createdAt: new Date().toISOString(),
+        }, ...prev]);
+      } catch (e) {
+        Alert.alert('Error', 'Failed to save recording.');
+      }
     }
-  }, [meetingId]);
+  }, [meetingId, isCreate]);
 
   const handleRecordingDelete = useCallback(async (id) => {
-    try {
-      await DatabaseService.deleteAudioRecording(id);
-      setAudioRecordings(prev => prev.filter(r => r.id !== id));
-    } catch {}
+    const isPending = typeof id === 'string' && id.startsWith('pending_');
+    if (isPending) {
+      const rec = pendingAudioRef.current.find(r => r.id === id);
+      if (rec) {
+        try {
+          const FileSystem = require('expo-file-system/legacy');
+          await FileSystem.deleteAsync(rec.filePath, { idempotent: true });
+        } catch {}
+      }
+      pendingAudioRef.current = pendingAudioRef.current.filter(r => r.id !== id);
+      setPendingAudio(prev => prev.filter(r => r.id !== id));
+    } else {
+      try {
+        await DatabaseService.deleteAudioRecording(id);
+        setAudioRecordings(prev => prev.filter(r => r.id !== id));
+      } catch {}
+    }
   }, []);
+
+  // Cleanup temp audio when user exits without saving (new meetings only)
+  useEffect(() => {
+    if (!isCreate) return;
+    const unsubscribe = navigation.addListener('beforeRemove', () => {
+      if (savedRef.current) return;
+      const FileSystem = require('expo-file-system/legacy');
+      pendingAudioRef.current.forEach(rec => {
+        FileSystem.deleteAsync(rec.filePath, { idempotent: true }).catch(() => {});
+      });
+    });
+    return unsubscribe;
+  }, [isCreate, navigation]);
 
   const handleSave = useCallback(async () => {
     if (!form.title.trim()) {
@@ -73,38 +141,37 @@ const MeetingFormScreen = ({ route, navigation }) => {
       await audioRef.current.saveIfRecording();
     }
     try {
+      const FileSystem = require('expo-file-system/legacy');
+
       if (isEdit) {
         await DatabaseService.updateMeeting(meeting.id, form);
         Alert.alert('Updated', 'Meeting updated successfully.');
       } else {
-        await DatabaseService.insertMeeting({ ...form, id: meetingId });
+        await DatabaseService.insertMeeting({ ...form, id: meetingId, meeting_number: meetingNumber });
+
+        // Commit pending audio: move from cache → permanent + insert DB
+        for (const rec of pendingAudioRef.current) {
+          try {
+            const permDir = `${FileSystem.documentDirectory}meetings/audio/${meetingId}/`;
+            const permDirInfo = await FileSystem.getInfoAsync(permDir);
+            if (!permDirInfo.exists) await FileSystem.makeDirectoryAsync(permDir, { intermediates: true });
+            const filename = rec.filePath.split('/').pop();
+            const permPath = permDir + filename;
+            await FileSystem.moveAsync({ from: rec.filePath, to: permPath });
+            await DatabaseService.insertAudioRecording({
+              parentType: 'meeting', parentId: meetingId, filePath: permPath, duration: rec.duration,
+            });
+          } catch {}
+        }
+
         Alert.alert('Saved', 'Meeting saved successfully!');
       }
+      savedRef.current = true;
       navigation.goBack();
     } catch (e) {
       Alert.alert('Error', e.message);
     }
-  }, [form, isEdit, meeting, meetingId, navigation]);
-
-  const Field = ({ label, icon, value, onChange, placeholder, multiline, keyboardType }) => (
-    <View style={styles.fieldWrap}>
-      <View style={styles.fieldLabel}>
-        <Icon name={icon} size={16} color={theme.colors.textLight} />
-        <Text style={styles.fieldLabelText}>{label}</Text>
-      </View>
-      <TextInput
-        style={[styles.input, multiline && styles.inputMulti]}
-        value={value}
-        onChangeText={onChange}
-        placeholder={placeholder || label}
-        placeholderTextColor={theme.colors.textLight}
-        multiline={multiline}
-        numberOfLines={multiline ? 6 : 1}
-        textAlignVertical={multiline ? 'top' : 'center'}
-        keyboardType={keyboardType || 'default'}
-      />
-    </View>
-  );
+  }, [form, isEdit, meeting, meetingId, meetingNumber, navigation]);
 
   return (
     <View style={styles.container}>
@@ -114,12 +181,18 @@ const MeetingFormScreen = ({ route, navigation }) => {
       />
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+          {meetingNumber ? (
+            <View style={styles.meetingNumberBadge}>
+              <Icon name="pound-box" size={18} color={theme.colors.primary} />
+              <Text style={styles.meetingNumberText}>{meetingNumber}</Text>
+            </View>
+          ) : null}
           <View style={styles.card}>
-            <Field label="Meeting Title *" icon="tag-text" value={form.title} onChange={v => set('title', v)} placeholder="e.g. BioFach 2025 Follow-up" />
-            <Field label="Event / Conference" icon="calendar-star" value={form.event} onChange={v => set('event', v)} />
-            <Field label="Date" icon="calendar" value={form.date} onChange={v => set('date', v)} />
-            <Field label="Location / City" icon="map-marker" value={form.location} onChange={v => set('location', v)} />
-            <Field label="Attendees" icon="account-multiple" value={form.attendees} onChange={v => set('attendees', v)} placeholder="Names of attendees..." />
+            <MeetingField label="Meeting Title *" icon="tag-text" value={form.title} onChange={v => set('title', v)} placeholder="e.g. BioFach 2025 Follow-up" />
+            <MeetingField label="Event / Conference" icon="calendar-star" value={form.event} onChange={v => set('event', v)} />
+            <MeetingField label="Date" icon="calendar" value={form.date} onChange={v => set('date', v)} />
+            <MeetingField label="Location / City" icon="map-marker" value={form.location} onChange={v => set('location', v)} />
+            <MeetingField label="Attendees" icon="account-multiple" value={form.attendees} onChange={v => set('attendees', v)} placeholder="Names of attendees..." />
           </View>
 
           <Text style={styles.notesLabel}>Meeting Notes</Text>
@@ -142,9 +215,10 @@ const MeetingFormScreen = ({ route, navigation }) => {
             ref={audioRef}
             parentType="meeting"
             parentId={meetingId}
-            recordings={audioRecordings}
+            recordings={[...audioRecordings, ...pendingAudio]}
             onRecordingComplete={handleRecordingComplete}
             onRecordingDelete={handleRecordingDelete}
+            tempMode={isCreate}
           />
 
           <TouchableOpacity style={styles.saveBtn} onPress={handleSave} activeOpacity={0.85}>
@@ -160,6 +234,23 @@ const MeetingFormScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.colors.background },
   content: { padding: 16, paddingBottom: 40 },
+  meetingNumberBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    gap: 6,
+    backgroundColor: theme.colors.primary + '14',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  meetingNumberText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: theme.colors.primary,
+    letterSpacing: 0.5,
+  },
   card: { backgroundColor: '#FFF', borderRadius: 14, marginBottom: 16, ...theme.shadows.sm },
   fieldWrap: { paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 0.5, borderBottomColor: theme.colors.divider },
   fieldLabel: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 6 },

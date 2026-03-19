@@ -1,12 +1,18 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import { getPortfolioVariants } from '../constants/productData';
 import { getCategoryColor, getFormulationColor } from '../utils/helpers';
+import { getHeroImage, getMoaImage } from '../constants/productImages';
+import { getProductDocuments } from '../constants/documentData';
 
-const TABS = ['Overview', 'Agronomy', 'Highlights', 'Media', 'Documents'];
+const { width: screenWidth } = Dimensions.get('window');
+const isTablet = screenWidth >= 768;
+
+const TABS = ['Overview', 'Agronomy', 'Highlights', 'Documents'];
 
 const PortfolioDetailScreen = ({ route, navigation }) => {
   const { family } = route.params;
@@ -16,29 +22,40 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
 
   const selectedVariant = variants[selectedIndex] || null;
   const catColor = getCategoryColor(family.category);
-
+  const heroImage = selectedVariant ? getHeroImage(selectedVariant.name) : null;
+  const moaImage = selectedVariant ? getMoaImage(selectedVariant.name) : null;
 
   // ─── Overview Tab ───────────────────────────────────────────
   const renderOverview = () => (
     <View style={styles.section}>
-      {/* Hero Card */}
-      <View style={[styles.heroCard, { borderLeftColor: family.color }]}>
-        <View style={[styles.heroIconWrap, { backgroundColor: family.color + '15', overflow: 'hidden' }]}>
-          {family.imageUrl ? (
-            <Image
-              source={typeof family.imageUrl === 'string' ? { uri: family.imageUrl } : family.imageUrl}
-              style={{ width: 80, height: 80, borderRadius: 40 }}
-              resizeMode="cover"
-            />
+      {/* Premium Hero Card */}
+      <View style={styles.heroCard}>
+        <View style={[styles.heroAccent, { backgroundColor: family.color }]} />
+        <View style={styles.heroCardInner}>
+          <View style={styles.heroCardLeft}>
+            <Text style={styles.heroName}>{family.name}</Text>
+            <Text style={styles.heroIngredient}>{family.activeIngredient}</Text>
+            <Text style={styles.heroTagline}>{family.tagline}</Text>
+            <View style={styles.heroBadges}>
+              <View style={[styles.heroPill, { backgroundColor: family.color + '10', borderColor: family.color + '30' }]}>
+                <Text style={[styles.heroPillText, { color: family.color }]}>{family.category}</Text>
+              </View>
+              {family.subcategory ? (
+                <View style={[styles.heroPill, { backgroundColor: family.color + '08', borderColor: family.color + '20' }]}>
+                  <Text style={[styles.heroPillText, { color: family.color }]}>{family.subcategory}</Text>
+                </View>
+              ) : null}
+            </View>
+          </View>
+          {heroImage ? (
+            <View style={styles.heroImageWrap}>
+              <Image source={heroImage} style={styles.heroProductImage} contentFit="contain" transition={200} />
+            </View>
           ) : (
-            <Icon name={family.icon} size={48} color={family.color} />
+            <View style={[styles.heroFallbackIcon, { backgroundColor: family.color + '08' }]}>
+              <Icon name={family.icon} size={44} color={family.color} />
+            </View>
           )}
-        </View>
-        <Text style={styles.heroName}>{family.name}</Text>
-        <Text style={styles.heroTagline}>{family.tagline}</Text>
-        <View style={[styles.aiBadge, { backgroundColor: family.color + '18' }]}>
-          <Icon name="flask" size={14} color={family.color} />
-          <Text style={[styles.aiBadgeText, { color: family.color }]}>{family.activeIngredient}</Text>
         </View>
       </View>
 
@@ -62,7 +79,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
               key={v.id}
               style={[
                 styles.variantCard,
-                isActive && { borderColor: family.color, borderWidth: 2 },
+                isActive && {
+                  borderWidth: 2,
+                  borderColor: family.color,
+                  backgroundColor: family.color + '08',
+                },
               ]}
               activeOpacity={0.7}
               onPress={() => setSelectedIndex(i)}
@@ -73,20 +94,38 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
               >
                 {v.name}
               </Text>
-              <View style={[styles.formBadge, { backgroundColor: formColor + '18' }]}>
+              <View style={[styles.formBadge, { backgroundColor: formColor + '10' }]}>
                 <Text style={[styles.formBadgeText, { color: formColor }]}>{v.formulation}</Text>
               </View>
-              <Text style={styles.variantConc}>{v.concentration}</Text>
+              {v.concentration ? (
+                <Text style={[styles.variantConc, isActive && { color: family.color }]}>{v.concentration}</Text>
+              ) : null}
             </TouchableOpacity>
           );
         })}
       </ScrollView>
 
-      {/* Technical Profile of selected variant */}
-      {selectedVariant && (
-        <>
-          <Text style={styles.sectionTitle}>Technical Profile</Text>
-          <View style={styles.infoGrid}>
+      {/* Mode of Action Diagram */}
+      <Text style={styles.sectionTitle}>Mode of Action</Text>
+      {moaImage ? (
+        <View style={styles.moaDiagramCard}>
+          <Image source={moaImage} style={styles.moaDiagramImage} contentFit="contain" transition={200} />
+        </View>
+      ) : (
+        <View style={styles.moaDiagramPlaceholder}>
+          <Icon name="cog-outline" size={32} color={theme.colors.textLight} />
+          <Text style={styles.moaDiagramPlaceholderText}>Mode of Action diagram coming soon</Text>
+        </View>
+      )}
+
+      {/* Technical Profile — Clean Spec Card */}
+      {selectedVariant ? (
+        <View style={styles.specCard}>
+          <View style={styles.specCardHeader}>
+            <Icon name="flask-outline" size={18} color={theme.colors.primary} />
+            <Text style={styles.specCardTitle}>Technical Profile</Text>
+          </View>
+          <View style={styles.specCardBody}>
             <InfoRow icon="flask" label="Active Ingredient" value={selectedVariant.activeIngredient} />
             {selectedVariant.concentration ? (
               <InfoRow icon="percent" label="Concentration" value={selectedVariant.concentration} />
@@ -96,8 +135,8 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
               <InfoRow icon="dna" label="Strain / Active Strength" value={selectedVariant.strainStrength} />
             ) : null}
           </View>
-        </>
-      )}
+        </View>
+      ) : null}
 
       {/* Technical Profile Images */}
       {selectedVariant?.technicalImages && selectedVariant.technicalImages.length > 0 ? (
@@ -110,71 +149,38 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
               <Image
                 source={typeof img.source === 'string' ? { uri: img.source } : img.source}
                 style={styles.techImage}
-                resizeMode="contain"
+                contentFit="contain"
+                transition={200}
               />
             </View>
           ))}
         </View>
       ) : null}
 
-      {/* Pack Sizes */}
+      {/* Pack Sizes — Pill Style */}
       {selectedVariant?.packSizes && selectedVariant.packSizes.length > 0 ? (
         <>
           <Text style={styles.sectionTitle}>Pack Sizes</Text>
           <View style={styles.packSizes}>
             {selectedVariant.packSizes.map((size, i) => (
-              <View key={i} style={styles.packChip}>
-                <Icon name="package-variant" size={16} color={theme.colors.primary} />
-                <Text style={styles.packText}>{size}</Text>
+              <View key={i} style={styles.packPill}>
+                <Text style={styles.packPillText}>{size}</Text>
               </View>
             ))}
           </View>
         </>
       ) : null}
 
-      {/* Technical Positioning */}
+      {/* Technical Positioning — Insight Card */}
       {selectedVariant?.technicalSummary ? (
-        <>
-          <Text style={styles.sectionTitle}>Technical Positioning</Text>
-          <View style={styles.summaryCard}>
-            <Icon name="bullseye-arrow" size={20} color={theme.colors.secondary} style={styles.summaryIcon} />
-            <Text style={styles.summaryText}>{selectedVariant.technicalSummary}</Text>
+        <View style={styles.insightCard}>
+          <View style={styles.insightHeader}>
+            <Icon name="bullseye-arrow" size={20} color={theme.colors.secondary} />
+            <Text style={styles.insightTitle}>Technical Positioning</Text>
           </View>
-        </>
+          <Text style={styles.insightText}>{selectedVariant.technicalSummary}</Text>
+        </View>
       ) : null}
-
-      {/* Compare Formulations */}
-      {variants.length > 1 && (
-        <>
-          <Text style={styles.sectionTitle}>Compare Formulations</Text>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.compareScroll}
-          >
-            {variants.map((v) => {
-              const formColor = getFormulationColor(v.formulation);
-              const firstDose = v.dosageTable?.[0]?.dose_per_acre || '-';
-              return (
-                <View key={v.id} style={styles.compareCard}>
-                  <Text style={styles.compareName} numberOfLines={1}>{v.name}</Text>
-                  <View style={[styles.formBadge, { backgroundColor: formColor + '18', alignSelf: 'flex-start' }]}>
-                    <Text style={[styles.formBadgeText, { color: formColor }]}>{v.formulation}</Text>
-                  </View>
-                  <View style={styles.compareRow}>
-                    <Text style={styles.compareLabel}>Concentration</Text>
-                    <Text style={styles.compareValue}>{v.concentration}</Text>
-                  </View>
-                  <View style={styles.compareRow}>
-                    <Text style={styles.compareLabel}>Dosage</Text>
-                    <Text style={styles.compareValue} numberOfLines={2}>{firstDose}</Text>
-                  </View>
-                </View>
-              );
-            })}
-          </ScrollView>
-        </>
-      )}
     </View>
   );
 
@@ -425,49 +431,67 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
     );
   };
 
-  // ─── Media Tab ──────────────────────────────────────────────
-  const renderMedia = () => (
-    <View style={styles.section}>
-      <Text style={styles.sectionTitle}>Product Media</Text>
-      <View style={styles.mediaGrid}>
-        {['Product Image', 'Packaging', 'Label', 'Packshot'].map((type, i) => (
-          <View key={i} style={styles.mediaPlaceholder}>
-            <Icon name="image-outline" size={32} color={theme.colors.textLight} />
-            <Text style={styles.mediaLabel}>{type}</Text>
-          </View>
-        ))}
-      </View>
-    </View>
-  );
-
   // ─── Documents Tab ──────────────────────────────────────────
   const renderDocuments = () => {
-    const docs = [
-      { type: 'TDS', icon: 'file-document', color: '#2196F3' },
-      { type: 'COA', icon: 'file-certificate', color: '#4CAF50' },
-      { type: 'Brochure', icon: 'file-presentation-box', color: '#FF9800' },
-      { type: 'Product Label', icon: 'label', color: '#9C27B0' },
-      { type: 'SDS / MSDS', icon: 'file-alert', color: '#F44336' },
-    ];
+    const DOC_ICON_MAP = {
+      'COA': { icon: 'file-certificate', color: '#4CAF50', label: 'Certificate of Analysis' },
+      'SDS/MSDS': { icon: 'file-alert', color: '#F44336', label: 'Safety Data Sheet' },
+      'TDS': { icon: 'file-document', color: '#2196F3', label: 'Technical Data Sheet' },
+      'Brochure': { icon: 'file-presentation-box', color: '#FF9800', label: 'Product Brochure' },
+      'Product Label': { icon: 'label', color: '#9C27B0', label: 'Product Label' },
+    };
+
     const displayName = selectedVariant ? selectedVariant.name : family.name;
+    const realDocs = selectedVariant ? getProductDocuments(selectedVariant.name) : [];
+    const placeholderTypes = ['TDS', 'Brochure', 'Product Label'];
+
+    const openDoc = (doc) => {
+      navigation.navigate('CertificateViewer', {
+        certName: `${displayName} - ${doc.docType === 'SDS/MSDS' ? 'MSDS' : doc.docType}`,
+        authority: DOC_ICON_MAP[doc.docType]?.label || doc.docType,
+        asset: doc.asset,
+      });
+    };
+
     return (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Technical Documents</Text>
-        {docs.map((doc, i) => (
-          <TouchableOpacity key={i} style={styles.docRow}>
-            <View style={[styles.docIcon, { backgroundColor: doc.color + '15' }]}>
-              <Icon name={doc.icon} size={22} color={doc.color} />
-            </View>
-            <View style={styles.docInfo}>
-              <Text style={styles.docTitle}>{displayName} - {doc.type}</Text>
-              <Text style={styles.docMeta}>PDF document</Text>
-            </View>
-            <View style={styles.docBadge}>
-              <Icon name="check-circle" size={14} color={theme.colors.success} />
-              <Text style={styles.docBadgeText}>Offline</Text>
-            </View>
-          </TouchableOpacity>
-        ))}
+        {realDocs.map((doc) => {
+          const meta = DOC_ICON_MAP[doc.docType];
+          return (
+            <TouchableOpacity key={doc.id} style={styles.docRow} activeOpacity={0.7} onPress={() => openDoc(doc)}>
+              <View style={[styles.docIcon, { backgroundColor: meta.color + '15' }]}>
+                <Icon name={meta.icon} size={22} color={meta.color} />
+              </View>
+              <View style={styles.docInfo}>
+                <Text style={styles.docTitle}>{displayName} - {doc.docType === 'SDS/MSDS' ? 'SDS / MSDS' : doc.docType}</Text>
+                <Text style={styles.docMeta}>PDF document</Text>
+              </View>
+              <View style={styles.docBadge}>
+                <Icon name="check-circle" size={14} color={theme.colors.success} />
+                <Text style={styles.docBadgeText}>Offline</Text>
+              </View>
+            </TouchableOpacity>
+          );
+        })}
+        {placeholderTypes.map((type) => {
+          const meta = DOC_ICON_MAP[type];
+          return (
+            <TouchableOpacity key={type} style={[styles.docRow, { opacity: 0.5 }]} activeOpacity={1}>
+              <View style={[styles.docIcon, { backgroundColor: meta.color + '15' }]}>
+                <Icon name={meta.icon} size={22} color={meta.color} />
+              </View>
+              <View style={styles.docInfo}>
+                <Text style={styles.docTitle}>{displayName} - {type}</Text>
+                <Text style={styles.docMeta}>PDF document</Text>
+              </View>
+              <View style={styles.docBadge}>
+                <Icon name="clock-outline" size={14} color={theme.colors.textLight} />
+                <Text style={[styles.docBadgeText, { color: theme.colors.textLight }]}>Pending</Text>
+              </View>
+            </TouchableOpacity>
+          );
+        })}
       </View>
     );
   };
@@ -481,7 +505,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
     </View>
   );
 
-  const tabContent = [renderOverview, renderAgronomy, renderHighlights, renderMedia, renderDocuments];
+  const tabContent = [renderOverview, renderAgronomy, renderHighlights, renderDocuments];
 
   return (
     <View style={styles.container}>
@@ -513,94 +537,210 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
 };
 
 // ─── Sub-components ─────────────────────────────────────────
-const InfoRow = ({ icon, label, value }) => (
+const InfoRow = React.memo(({ icon, label, value }) => (
   <View style={styles.infoRow}>
-    <Icon name={icon} size={18} color={theme.colors.primary} style={styles.infoIcon} />
+    <View style={styles.infoIconWrap}>
+      <Icon name={icon} size={16} color={theme.colors.primary} />
+    </View>
     <View style={styles.infoContent}>
       <Text style={styles.infoLabel}>{label}</Text>
       <Text style={styles.infoValue}>{value}</Text>
     </View>
   </View>
-);
+));
 
 // ─── Styles ────────────────────────────────────────────────
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.colors.background },
 
-  // Tab bar (matches ProductDetailScreen)
+  // Tab bar
   tabBar: { backgroundColor: '#FFF', ...theme.shadows.sm },
-  tabScroll: { paddingHorizontal: 12 },
-  tab: { paddingHorizontal: 16, paddingVertical: 14 },
+  tabScroll: { paddingHorizontal: 16 },
+  tab: { paddingHorizontal: 18, paddingVertical: 14 },
   tabActive: { borderBottomWidth: 3, borderBottomColor: theme.colors.primary },
-  tabText: { fontSize: 14, fontWeight: '500', color: theme.colors.textLight },
+  tabText: { fontSize: 14, fontWeight: '600', color: theme.colors.textLight, letterSpacing: 0.2 },
   tabTextActive: { color: theme.colors.primary, fontWeight: '700' },
 
   // Section
-  section: { padding: 16 },
-  sectionTitle: { fontSize: 17, fontWeight: '700', color: theme.colors.text, marginTop: 20, marginBottom: 12 },
+  section: { padding: 20 },
+  sectionTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.textLight,
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+    marginTop: 28,
+    marginBottom: 14,
+  },
 
-  // Hero
+  // Premium Hero
   heroCard: {
     backgroundColor: '#FFF',
-    borderRadius: 16,
-    padding: 24,
-    alignItems: 'center',
-    borderLeftWidth: 4,
-    ...theme.shadows.md,
-    marginBottom: 16,
+    borderRadius: 20,
+    overflow: 'hidden',
+    ...theme.shadows.lg,
+    marginBottom: 20,
   },
-  heroIconWrap: { width: 80, height: 80, borderRadius: 40, alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
-  heroName: { fontSize: 26, fontWeight: '800', color: theme.colors.text, textAlign: 'center' },
-  heroTagline: { fontSize: 14, fontWeight: '500', color: theme.colors.textSecondary, textAlign: 'center', marginTop: 4 },
-  aiBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 14, paddingVertical: 6, borderRadius: 16, marginTop: 12, gap: 6 },
-  aiBadgeText: { fontSize: 13, fontWeight: '600' },
+  heroAccent: {
+    height: 3,
+    width: '100%',
+  },
+  heroCardInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: isTablet ? 32 : 28,
+  },
+  heroCardLeft: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  heroName: {
+    fontSize: isTablet ? 28 : 26,
+    fontWeight: '800',
+    color: theme.colors.text,
+    letterSpacing: -0.3,
+  },
+  heroIngredient: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: theme.colors.textSecondary,
+    marginTop: 4,
+    lineHeight: 20,
+  },
+  heroTagline: {
+    fontSize: 13,
+    fontWeight: '400',
+    color: theme.colors.textLight,
+    marginTop: 2,
+    lineHeight: 18,
+  },
+  heroBadges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 14, gap: 8 },
+  heroPill: {
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 20,
+    borderWidth: 1,
+  },
+  heroPillText: { fontSize: 12, fontWeight: '600' },
+  heroImageWrap: {
+    width: isTablet ? 180 : 160,
+    height: isTablet ? 260 : 240,
+    marginLeft: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heroProductImage: {
+    width: '100%',
+    height: '100%',
+  },
+  heroFallbackIcon: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 16,
+  },
 
   // Description
-  description: { fontSize: 15, color: theme.colors.textSecondary, lineHeight: 23, marginBottom: 16 },
+  description: {
+    fontSize: 15,
+    color: theme.colors.textSecondary,
+    lineHeight: 24,
+    marginBottom: 4,
+    letterSpacing: 0.1,
+  },
 
-  // Variant Selector
-  variantScroll: { paddingRight: 16, gap: 10 },
+  // Variant Selector — Apple-style (no elevation to avoid Android double-edge)
+  variantScroll: { paddingRight: 20, gap: 10 },
   variantCard: {
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 14,
-    minWidth: 120,
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    minWidth: isTablet ? 136 : 120,
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: theme.colors.border,
-    ...theme.shadows.sm,
+    borderColor: '#E0E0E0',
   },
   variantName: { fontSize: 14, fontWeight: '700', color: theme.colors.text, marginBottom: 6, textAlign: 'center' },
-  formBadge: { paddingHorizontal: 10, paddingVertical: 3, borderRadius: 10, marginBottom: 6 },
-  formBadgeText: { fontSize: 11, fontWeight: '700' },
-  variantConc: { fontSize: 13, fontWeight: '600', color: theme.colors.textSecondary },
+  formBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    borderRadius: 8,
+    marginBottom: 5,
+  },
+  formBadgeText: { fontSize: 11, fontWeight: '600' },
+  variantConc: { fontSize: 12, fontWeight: '600', color: theme.colors.textSecondary },
 
   // Variant indicator
   variantIndicator: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F1F8E9',
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
     gap: 8,
     marginBottom: 4,
   },
   variantIndicatorText: { fontSize: 13, fontWeight: '600' },
 
-  // Info grid (Technical Profile)
-  infoGrid: { backgroundColor: '#FFF', borderRadius: 12, padding: 4, ...theme.shadows.sm },
-  infoRow: { flexDirection: 'row', alignItems: 'center', padding: 12, borderBottomWidth: 0.5, borderBottomColor: theme.colors.divider },
-  infoIcon: { marginRight: 12 },
+  // Spec Card (Technical Profile)
+  specCard: {
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    overflow: 'hidden',
+    marginTop: 28,
+    ...theme.shadows.md,
+  },
+  specCardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.divider,
+    backgroundColor: theme.colors.primary + '06',
+  },
+  specCardTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: theme.colors.text,
+    letterSpacing: 0.3,
+  },
+  specCardBody: {
+    padding: 4,
+  },
+
+  // Info rows
+  infoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 14,
+    borderBottomWidth: 0.5,
+    borderBottomColor: theme.colors.divider,
+  },
+  infoIconWrap: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: theme.colors.primary + '0C',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 14,
+  },
   infoContent: { flex: 1 },
-  infoLabel: { fontSize: 12, color: theme.colors.textLight, fontWeight: '500' },
-  infoValue: { fontSize: 15, color: theme.colors.text, fontWeight: '600', marginTop: 2 },
+  infoLabel: { fontSize: 12, color: theme.colors.textLight, fontWeight: '500', letterSpacing: 0.3 },
+  infoValue: { fontSize: 15, color: theme.colors.text, fontWeight: '600', marginTop: 3 },
 
   // Technical images
   techImagesWrap: { marginTop: 12, gap: 10 },
   techImageCard: {
     backgroundColor: '#FFF',
-    borderRadius: 12,
+    borderRadius: 14,
     overflow: 'hidden',
     ...theme.shadows.sm,
   },
@@ -619,23 +759,85 @@ const styles = StyleSheet.create({
     height: 200,
   },
 
-  // Pack sizes
-  packSizes: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  packChip: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#E8F5E9', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 20, gap: 6 },
-  packText: { fontSize: 14, fontWeight: '600', color: '#2E7D32' },
+  // Pack sizes — pill style
+  packSizes: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  packPill: {
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: 24,
+    borderWidth: 1.5,
+    borderColor: theme.colors.primary + '35',
+    backgroundColor: '#FFF',
+  },
+  packPillText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: theme.colors.primary,
+    letterSpacing: 0.2,
+  },
 
-  // Technical Summary
-  summaryCard: { backgroundColor: '#FFF', borderRadius: 12, padding: 16, flexDirection: 'row', alignItems: 'flex-start', gap: 12, ...theme.shadows.sm },
-  summaryIcon: { marginTop: 2 },
-  summaryText: { flex: 1, fontSize: 14, color: theme.colors.textSecondary, lineHeight: 21 },
+  // Insight card (Technical Positioning)
+  insightCard: {
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    borderLeftWidth: 4,
+    borderLeftColor: theme.colors.secondary,
+    padding: 20,
+    marginTop: 28,
+    ...theme.shadows.md,
+  },
+  insightHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    marginBottom: 12,
+  },
+  insightTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: theme.colors.text,
+  },
+  insightText: {
+    fontSize: 14,
+    color: theme.colors.textSecondary,
+    lineHeight: 22,
+    letterSpacing: 0.1,
+  },
 
-  // Compare Formulations
-  compareScroll: { gap: 10, paddingRight: 16 },
-  compareCard: { backgroundColor: '#FFF', borderRadius: 12, padding: 14, width: 160, ...theme.shadows.sm },
-  compareName: { fontSize: 14, fontWeight: '700', color: theme.colors.text, marginBottom: 6 },
-  compareRow: { marginTop: 8 },
-  compareLabel: { fontSize: 11, color: theme.colors.textLight, fontWeight: '500' },
-  compareValue: { fontSize: 13, color: theme.colors.text, fontWeight: '600', marginTop: 1 },
+  // Mode of Action diagram
+  moaDiagramCard: {
+    backgroundColor: '#FFF',
+    borderRadius: 18,
+    overflow: 'hidden',
+    marginTop: 4,
+    marginBottom: 8,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 4,
+  },
+  moaDiagramImage: {
+    width: '100%',
+    height: undefined,
+    aspectRatio: 3 / 2,
+  },
+  moaDiagramPlaceholder: {
+    backgroundColor: '#FFF',
+    borderRadius: 18,
+    padding: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1.5,
+    borderColor: theme.colors.border,
+    borderStyle: 'dashed',
+  },
+  moaDiagramPlaceholderText: {
+    fontSize: 13,
+    color: theme.colors.textLight,
+    marginTop: 10,
+    fontStyle: 'italic',
+  },
 
   // Chips
   chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
@@ -643,7 +845,7 @@ const styles = StyleSheet.create({
   chipText: { fontSize: 13, fontWeight: '500' },
 
   // Dosage cards
-  dosageCard: { backgroundColor: '#FFF', borderRadius: 12, marginBottom: 10, overflow: 'hidden', ...theme.shadows.sm },
+  dosageCard: { backgroundColor: '#FFF', borderRadius: 14, marginBottom: 10, overflow: 'hidden', ...theme.shadows.sm },
   dosageHeader: { flexDirection: 'row', alignItems: 'center', backgroundColor: theme.colors.primary + '0A', paddingHorizontal: 14, paddingVertical: 10, gap: 8, borderBottomWidth: 1, borderBottomColor: theme.colors.divider },
   dosageStage: { flex: 1, fontSize: 15, fontWeight: '700', color: theme.colors.text },
   dosageBody: { paddingHorizontal: 14, paddingVertical: 10 },
@@ -653,7 +855,7 @@ const styles = StyleSheet.create({
   dosageDivider: { height: 1, backgroundColor: theme.colors.divider },
 
   // Schedule cards
-  scheduleCard: { backgroundColor: '#FFF', borderRadius: 12, marginBottom: 10, overflow: 'hidden', ...theme.shadows.sm },
+  scheduleCard: { backgroundColor: '#FFF', borderRadius: 14, marginBottom: 10, overflow: 'hidden', ...theme.shadows.sm },
   scheduleHeader: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 14, paddingVertical: 10, gap: 10, borderBottomWidth: 1, borderBottomColor: theme.colors.divider },
   scheduleIndex: { width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
   scheduleIndexText: { fontSize: 13, fontWeight: '700' },
@@ -669,12 +871,12 @@ const styles = StyleSheet.create({
   benefitText: { flex: 1, fontSize: 15, color: theme.colors.text, lineHeight: 22 },
 
   // MOA / Compatibility
-  moaCard: { flexDirection: 'row', backgroundColor: '#FFF', borderRadius: 12, padding: 14, gap: 10, alignItems: 'flex-start', ...theme.shadows.sm },
-  moaText: { flex: 1, fontSize: 14, color: theme.colors.textSecondary, lineHeight: 21 },
+  moaCard: { flexDirection: 'row', backgroundColor: '#FFF', borderRadius: 14, padding: 16, gap: 10, alignItems: 'flex-start', ...theme.shadows.sm },
+  moaText: { flex: 1, fontSize: 14, color: theme.colors.textSecondary, lineHeight: 22 },
 
   // Problem & Solution
   psContainer: { marginBottom: 16 },
-  psCard: { flexDirection: 'row', backgroundColor: '#FFF', borderRadius: 12, padding: 12, alignItems: 'flex-start', gap: 10, ...theme.shadows.sm },
+  psCard: { flexDirection: 'row', backgroundColor: '#FFF', borderRadius: 14, padding: 14, alignItems: 'flex-start', gap: 10, ...theme.shadows.sm },
   psIconWrap: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   psContent: { flex: 1 },
   psLabel: { fontSize: 11, fontWeight: '700', color: '#D32F2F', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 3 },
@@ -682,31 +884,16 @@ const styles = StyleSheet.create({
   psArrow: { alignItems: 'center', paddingVertical: 4 },
 
   // Storage
-  storageCard: { backgroundColor: '#FFF', borderRadius: 12, padding: 14, ...theme.shadows.sm },
+  storageCard: { backgroundColor: '#FFF', borderRadius: 14, padding: 16, ...theme.shadows.sm },
   storageRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, paddingVertical: 6 },
   storageContent: { flex: 1 },
   storageLabel: { fontSize: 12, fontWeight: '600', color: theme.colors.textLight, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 2 },
   storageValue: { fontSize: 14, color: theme.colors.text, lineHeight: 20 },
   storageDivider: { height: 1, backgroundColor: theme.colors.divider, marginVertical: 6 },
 
-  // Media
-  mediaGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
-  mediaPlaceholder: {
-    width: (Dimensions.get('window').width - 56) / 2,
-    height: 140,
-    backgroundColor: '#F0F0F0',
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderStyle: 'dashed',
-  },
-  mediaLabel: { marginTop: 6, fontSize: 12, color: theme.colors.textLight },
-
   // Documents
-  docRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFF', borderRadius: 12, padding: 14, marginBottom: 8, ...theme.shadows.sm },
-  docIcon: { width: 44, height: 44, borderRadius: 10, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
+  docRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFF', borderRadius: 14, padding: 14, marginBottom: 8, ...theme.shadows.sm },
+  docIcon: { width: 44, height: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
   docInfo: { flex: 1 },
   docTitle: { fontSize: 14, fontWeight: '600', color: theme.colors.text },
   docMeta: { fontSize: 12, color: theme.colors.textLight, marginTop: 2 },

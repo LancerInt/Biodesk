@@ -86,6 +86,11 @@ const SettingsScreen = ({ navigation }) => {
           )}
         </View>
 
+        <Text style={styles.sectionLabel}>Sync & Backup</Text>
+        <View style={styles.card}>
+          <SettingRow icon="cloud-sync" iconColor="#37474F" title="Sync & Backup" desc="Export leads, backup data" onPress={() => navigation.navigate('Sync')} />
+        </View>
+
         <Text style={styles.sectionLabel}>Data Management</Text>
         <View style={styles.card}>
           <SettingRow icon="trash-can" iconColor={theme.colors.error} title="Clear Lead Data" desc="Delete all captured leads" onPress={handleClearLeads} danger />

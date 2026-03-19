@@ -5,7 +5,7 @@ import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import { TECHNOLOGIES, getTechnologyById } from '../constants/technologyData';
 
-const PLATFORM_IDS = ['wynn', 'karyo', 'microvate'];
+const PLATFORM_IDS = ['wynn', 'microvate', 'karyo'];
 
 // Comparison categories with structured data extraction
 const COMPARISON_CATEGORIES = [

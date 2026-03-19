@@ -2,6 +2,7 @@ import botanicalRaw from './data/botanical.json';
 import microbialRaw from './data/microbial.json';
 import biostimulantRaw from './data/biostimulant.json';
 import biofertilizerRaw from './data/biofertilizer.json';
+import productContentRaw from './data/product-content.json';
 
 // ═══════════════════════════════════════════════════════════════
 // CATEGORY ARCHITECTURE
@@ -68,7 +69,7 @@ export const PORTFOLIO_FAMILIES = [
   },
   {
     id: 'pf-margo',
-    name: 'Margo',
+    name: 'MargoShine',
     tagline: 'Neem Oil Range',
     category: 'Biocontrol',
     subcategory: 'Botanical Pesticide',
@@ -163,6 +164,8 @@ const PACK_SIZES = {
   'IGreen N': ['500 g', '1 kg', '25 kg'], 'IGreen P': ['500 g', '1 kg', '25 kg'],
   'IGreen K': ['500 g', '1 kg', '25 kg'], 'IGreen Zn': ['500 g', '1 kg', '25 kg'],
   'IGreen S': ['500 g', '1 kg', '25 kg'], 'IGreen Si': ['500 g', '1 kg', '25 kg'],
+  'Mystica': ['1 kg', '5 kg', '25 kg'], 'Engrow': ['1 kg', '5 kg', '25 kg'],
+  'K-Mix': ['1 kg', '5 kg', '25 kg'],
 };
 
 const TARGET_CROPS = {
@@ -202,7 +205,31 @@ const TARGET_CROPS = {
   'IGreen Zn': ['Rice', 'Wheat', 'Maize', 'Citrus', 'Pulses'],
   'IGreen S': ['Mustard', 'Soybean', 'Groundnut', 'Onion', 'Garlic'],
   'IGreen Si': ['Rice', 'Wheat', 'Sugarcane', 'Maize', 'Bamboo'],
+  'Mystica': ['All Crops'],
+  'Engrow': ['All Crops'],
+  'K-Mix': ['All Crops'],
 };
+
+// ═══════════════════════════════════════════════════════════════
+// CONTENT DATA — dynamically loaded from product-content.json
+// ═══════════════════════════════════════════════════════════════
+// Name normalization: JSON may have slightly different casing/spelling
+const CONTENT_NAME_MAP = {
+  'Encilo': 'EnCilo',
+  'IGreen Shield': 'IGreen SHIELD',
+};
+
+const CONTENT_DATA = {};
+productContentRaw.forEach(entry => {
+  const name = CONTENT_NAME_MAP[entry.product] || entry.product;
+  CONTENT_DATA[name] = {
+    active: entry.active,
+    dosage: entry.dosage,
+    rate: entry.application_rate,
+    method: entry.method,
+    interval: entry.interval,
+  };
+});
 
 // ═══════════════════════════════════════════════════════════════
 // PRODUCT IMAGES (optional — add URL or require() for each product)
@@ -240,7 +267,42 @@ const ID_MAP = {
   'IGreen NPK': 'bf-001', 'IGreen SHIELD': 'bf-002', 'IGreen N': 'bf-003',
   'IGreen P': 'bf-004', 'IGreen K': 'bf-005', 'IGreen Zn': 'bf-006',
   'IGreen S': 'bf-007', 'IGreen Si': 'bf-008',
+  'Mystica': 'sb-001', 'Engrow': 'sb-002', 'Maxineem': 'sb-003', 'K-Mix': 'sb-004',
 };
+
+// ═══════════════════════════════════════════════════════════════
+// EXCEL-BASED CATEGORY SYSTEM
+// Maps the 5 subcategories from "List of Products.xlsx"
+// ═══════════════════════════════════════════════════════════════
+export const EXCEL_CATEGORIES = [
+  'All',
+  'Botanical Pesticides',
+  'Microbial Pesticides',
+  'Bio Stimulants',
+  'Microbial Fertilizer',
+  'Substrates',
+];
+
+export const EXCEL_CATEGORY_INFO = {
+  'Botanical Pesticides': { icon: 'leaf', color: '#4CAF50', subcategory: 'Botanical Pesticide' },
+  'Microbial Pesticides': { icon: 'mushroom', color: '#2196F3', subcategory: 'Microbial Pesticide' },
+  'Bio Stimulants': { icon: 'sprout', color: '#FF9800', subcategory: 'Biostimulant' },
+  'Microbial Fertilizer': { icon: 'spa', color: '#9C27B0', subcategory: 'Biofertilizer' },
+  'Substrates': { icon: 'terrain', color: '#795548', subcategory: 'Substrate' },
+};
+
+const EXCEL_SUBCATEGORY_MAP = {
+  'Botanical Pesticides': 'Botanical Pesticide',
+  'Microbial Pesticides': 'Microbial Pesticide',
+  'Bio Stimulants': 'Biostimulant',
+  'Microbial Fertilizer': 'Biofertilizer',
+  'Substrates': 'Substrate',
+};
+
+const REVERSE_SUBCATEGORY_MAP = {};
+Object.entries(EXCEL_SUBCATEGORY_MAP).forEach(([excel, sub]) => {
+  REVERSE_SUBCATEGORY_MAP[sub] = excel;
+});
 
 // Inject imageUrl into portfolio families
 PORTFOLIO_FAMILIES.forEach(f => { f.imageUrl = FAMILY_IMAGES[f.id] || null; });
@@ -301,26 +363,98 @@ function transformProduct(raw) {
 const allRaw = [...botanicalRaw, ...microbialRaw, ...biostimulantRaw, ...biofertilizerRaw];
 export const PRODUCTS = allRaw.map(transformProduct).filter(Boolean);
 
-// Substrate products for solution backward compat
-PRODUCTS.push({
-  id: 'sb-003', name: 'Maxineem', category: 'Biocontrol', subcategory: 'Substrate',
-  activeIngredient: 'Neem Cake', concentration: null, formulation: 'Granules',
-  packSizes: ['5 kg', '25 kg', '50 kg'], targetCrops: ['All Crops'],
-  portfolioId: null, homeGarden: true,
-  overview: 'Premium quality neem cake substrate for soil application.',
-  highlights: ['Organic manure value', 'Soil pest deterrent', 'Nitrification inhibitor'],
-  mechanismOfAction: 'Releases azadirachtin slowly in soil, deterring pests while providing organic nutrition.',
-  dosageTable: [{ crop_stage: 'At planting', dose_per_acre: '200-400 kg/acre', water_volume: 'N/A', application_method: 'Soil incorporation' }],
-  repeatability: [], targets: ['Soil Pests', 'Nematodes', 'White Grubs'],
-  strainStrength: '', shelfLife: 'Store in cool, dry place.',
+// ═══════════════════════════════════════════════════════════════
+// SUBSTRATE PRODUCTS (from Excel "List of Products")
+// ═══════════════════════════════════════════════════════════════
+const SUBSTRATE_DEFAULTS = {
+  category: 'Biocontrol', subcategory: 'Substrate', formulation: 'Granules',
+  portfolioId: null, homeGarden: true, imageUrl: null, technicalImages: [],
+  repeatability: [], problemSolutions: [], strainStrength: '',
   compatibilityStatement: 'Compatible with all soil amendments.',
-  problemSolutions: [], storageSafety: 'Store in cool, dry place.',
-  technicalSummary: 'Neem cake substrate for soil amendment and pest deterrence.',
-  description: 'Premium quality neem cake substrate for soil application.',
-  targetPests: ['Soil Pests', 'Nematodes', 'White Grubs'],
-  keyBenefits: ['Organic manure value', 'Soil pest deterrent', 'Nitrification inhibitor'],
-  modeOfAction: 'Releases azadirachtin slowly in soil.', compatibility: 'Compatible with all soil amendments.',
-  dosage: '200-400 kg per acre', repeatInterval: 'Once per season',
+  storageSafety: 'Store in cool, dry place.', shelfLife: 'Store in cool, dry place.',
+  compatibility: 'Compatible with all soil amendments.', repeatInterval: 'Once per season',
+};
+
+PRODUCTS.push(
+  {
+    ...SUBSTRATE_DEFAULTS, id: 'sb-001', name: 'Mystica',
+    activeIngredient: 'Wetting & Spreading Agent', concentration: null, formulation: 'Adjuvant',
+    packSizes: ['1 kg', '5 kg', '25 kg'], targetCrops: ['All Crops'],
+    overview: 'Wetting and spreading adjuvant for enhanced spray coverage and pesticide performance.',
+    highlights: ['Improved spray coverage', 'Enhanced pesticide uptake', 'Compatible tank-mix partner'],
+    mechanismOfAction: 'Reduces surface tension of spray droplets, improving wetting, spreading, and penetration on leaf surfaces for better active ingredient absorption.',
+    dosageTable: [{ crop_stage: 'With each foliar application', dose_per_acre: '50-100 ml/acre with spray mix', water_volume: 'As per main spray', application_method: 'Tank-mix adjuvant' }],
+    targets: [], description: 'Wetting and spreading adjuvant for enhanced spray coverage.',
+    targetPests: [], keyBenefits: ['Improved spray coverage', 'Enhanced pesticide uptake', 'Compatible tank-mix partner'],
+    modeOfAction: 'Reduces surface tension for better spray coverage.', dosage: '0.3-0.5 ml/L',
+    technicalSummary: 'Wetting and spreading agent for improved foliar spray performance.',
+  },
+  {
+    ...SUBSTRATE_DEFAULTS, id: 'sb-002', name: 'Engrow',
+    activeIngredient: 'Seed Coating', concentration: null, formulation: 'Seed Treatment',
+    packSizes: ['1 kg', '5 kg', '25 kg'], targetCrops: ['All Crops'],
+    overview: 'Seed coating formulation for uniform seed treatment and enhanced germination.',
+    highlights: ['Uniform seed coating', 'Enhanced germination', 'Seedling vigor improvement'],
+    mechanismOfAction: 'Forms a protective film around seeds, delivering active ingredients uniformly for improved germination and early seedling establishment.',
+    dosageTable: [{ crop_stage: 'Pre-sowing', dose_per_acre: '3-5 ml/kg seed', water_volume: 'N/A', application_method: 'Seed treatment' }],
+    targets: [], description: 'Seed coating formulation for uniform seed treatment.',
+    targetPests: [], keyBenefits: ['Uniform seed coating', 'Enhanced germination', 'Seedling vigor improvement'],
+    modeOfAction: 'Protective film for improved germination.', dosage: '3-5 ml/kg seed',
+    technicalSummary: 'Seed coating for uniform treatment and enhanced germination.',
+  },
+  {
+    ...SUBSTRATE_DEFAULTS, id: 'sb-003', name: 'Maxineem',
+    activeIngredient: 'Neem Cake', concentration: null,
+    packSizes: ['5 kg', '25 kg', '50 kg'], targetCrops: ['All Crops'],
+    overview: 'Premium quality neem cake substrate for soil application.',
+    highlights: ['Organic manure value', 'Soil pest deterrent', 'Nitrification inhibitor'],
+    mechanismOfAction: 'Releases azadirachtin slowly in soil, deterring pests while providing organic nutrition.',
+    dosageTable: [{ crop_stage: 'At land preparation', dose_per_acre: '200-400 kg/acre', water_volume: 'N/A', application_method: 'Basal soil incorporation' }],
+    targets: ['Soil Pests', 'Nematodes', 'White Grubs'],
+    description: 'Premium quality neem cake substrate for soil application.',
+    targetPests: ['Soil Pests', 'Nematodes', 'White Grubs'],
+    keyBenefits: ['Organic manure value', 'Soil pest deterrent', 'Nitrification inhibitor'],
+    modeOfAction: 'Releases azadirachtin slowly in soil.', dosage: 'Not diluted — 200-400 kg/acre',
+    technicalSummary: 'Neem cake substrate for soil amendment and pest deterrence.',
+  },
+  {
+    ...SUBSTRATE_DEFAULTS, id: 'sb-004', name: 'K-Mix',
+    activeIngredient: 'Karanja Cake', concentration: null,
+    packSizes: ['1 kg', '5 kg', '25 kg'], targetCrops: ['All Crops'],
+    overview: 'Karanja cake substrate for soil amendment and organic crop nutrition.',
+    highlights: ['Organic soil conditioner', 'Nutrient release', 'Pest deterrent properties'],
+    mechanismOfAction: 'Karanja cake releases karanjin and organic nutrients slowly into the soil, providing dual benefit of pest deterrence and crop nutrition.',
+    dosageTable: [{ crop_stage: 'At land preparation', dose_per_acre: '200-400 kg/acre', water_volume: 'N/A', application_method: 'Basal soil incorporation' }],
+    targets: [], description: 'Karanja cake substrate for soil amendment.',
+    targetPests: [], keyBenefits: ['Organic soil conditioner', 'Nutrient release', 'Pest deterrent properties'],
+    modeOfAction: 'Slow-release karanjin and organic nutrients.', dosage: 'Not diluted — 200-400 kg/acre',
+    technicalSummary: 'Karanja cake substrate for soil amendment and organic nutrition.',
+  },
+);
+
+// ═══════════════════════════════════════════════════════════════
+// APPLY CONTENT DATA OVERRIDES
+// ═══════════════════════════════════════════════════════════════
+PRODUCTS.forEach(p => {
+  const cd = CONTENT_DATA[p.name];
+  if (!cd) return;
+  // Update active ingredient display
+  p.activeIngredient = cd.active;
+  // Add per-liter dosage and application rate
+  p.dilutionRate = cd.dosage;
+  p.applicationRate = cd.rate;
+  p.applicationMethod = cd.method;
+  p.sprayInterval = cd.interval;
+  // Replace dosageTable with single authoritative entry
+  p.dosageTable = [{
+    crop_stage: 'Recommended Dosage',
+    dose_per_acre: cd.rate,
+    water_volume: cd.dosage,
+    application_method: cd.method,
+  }];
+  // Update backward-compatible fields
+  p.dosage = cd.dosage;
+  p.repeatInterval = cd.interval;
 });
 
 // ═══════════════════════════════════════════════════════════════
@@ -374,6 +508,14 @@ export const searchProducts = (query) => {
   );
 };
 
+export const getRelatedProducts = (product, limit = 6) => {
+  return PRODUCTS.filter(p =>
+    p.id !== product.id &&
+    p.subcategory === product.subcategory &&
+    p.subcategory !== 'Substrate'
+  ).slice(0, limit);
+};
+
 export const findPortfolioBySearch = (query) => {
   const q = query.toLowerCase();
   return PORTFOLIO_FAMILIES.find(f =>
@@ -382,4 +524,37 @@ export const findPortfolioBySearch = (query) => {
       return p && p.name.toLowerCase().includes(q);
     })
   );
+};
+
+// ═══════════════════════════════════════════════════════════════
+// EXCEL CATEGORY HELPERS
+// ═══════════════════════════════════════════════════════════════
+
+export const getProductsByExcelCategory = (excelCategory) => {
+  if (excelCategory === 'All') return PRODUCTS;
+  const subcategory = EXCEL_SUBCATEGORY_MAP[excelCategory];
+  if (!subcategory) return [];
+  return PRODUCTS.filter(p => p.subcategory === subcategory);
+};
+
+export const groupProductsByExcelCategory = (products) => {
+  const order = ['Botanical Pesticides', 'Microbial Pesticides', 'Bio Stimulants', 'Microbial Fertilizer', 'Substrates'];
+  const groups = {};
+  order.forEach(cat => { groups[cat] = []; });
+
+  products.forEach(p => {
+    const excelCat = REVERSE_SUBCATEGORY_MAP[p.subcategory];
+    if (excelCat && groups[excelCat]) {
+      groups[excelCat].push(p);
+    }
+  });
+
+  return order
+    .filter(cat => groups[cat].length > 0)
+    .map(cat => ({
+      title: cat,
+      icon: EXCEL_CATEGORY_INFO[cat].icon,
+      color: EXCEL_CATEGORY_INFO[cat].color,
+      data: groups[cat],
+    }));
 };

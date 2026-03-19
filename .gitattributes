@@ -1,0 +1,3 @@
+# Ensure shell scripts keep LF line endings (required for EAS Build on Linux)
+*.sh text eol=lf
+android/gradlew text eol=lf

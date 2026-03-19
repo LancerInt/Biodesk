@@ -1,25 +1,114 @@
+// ═══════════════════════════════════════════════════════════════
+// KRIYA BIOSYS PROFILE DATA
+// Content sourced from: Kriya Biosys- APP.docx
+// ═══════════════════════════════════════════════════════════════
+
+// Section images — real images for available sections, null for pending
+const SECTION_IMAGES = {
+  about: require('../assets/images/KriyaProfile/about.jpeg'),
+  manufacturing: require('../assets/images/KriyaProfile/manufacturing.jpeg'),
+  rnd: require('../assets/images/KriyaProfile/rnd.jpeg'),
+  quality: require('../assets/images/KriyaProfile/quality.jpeg'),
+  global: require('../assets/images/KriyaProfile/global-preference.jpeg'),
+  certifications: null,
+  expertise: require('../assets/images/KriyaProfile/expertise.jpeg'),
+  technology: null,
+};
+
+// Certificate logos — only certs with logos will be displayed
+const CERT_LOGOS = {
+  omri: require('../assets/images/KriyaProfile/CertificateLogo/omri.jpeg'),
+  ecocert: require('../assets/images/KriyaProfile/CertificateLogo/ecocert.jpeg'),
+  iso: require('../assets/images/KriyaProfile/CertificateLogo/ISO.jpeg'),
+  gmp: require('../assets/images/KriyaProfile/CertificateLogo/GMP.jpeg'),
+  chemexcil: require('../assets/images/KriyaProfile/CertificateLogo/chemixl.jpeg'),
+  shefexil: require('../assets/images/KriyaProfile/CertificateLogo/shefexil.jpeg'),
+  apeda: require('../assets/images/KriyaProfile/CertificateLogo/apeda.jpeg'),
+  usepa: require('../assets/images/KriyaProfile/CertificateLogo/usepa.png'),
+};
+
+// Certificate PDF assets — mapped to merged files in Certificate/ folder
+const CERT_PDFS = {
+  omri: require('../assets/certificates/OMRI-MERGED.pdf'),
+  ecocert: require('../assets/certificates/ECOCERT-MERGED.pdf'),
+  iso: require('../assets/certificates/ISO-1.pdf'),
+  gmp: require('../assets/certificates/GMP-MERGED.pdf'),
+  chemexcil: require('../assets/certificates/CHEMIXIL-MERGED.pdf'),
+  shefexil: require('../assets/certificates/SHEFIXIL-MERGED.pdf'),
+  apeda: require('../assets/certificates/APEDA-MERGED.pdf'),
+  usepa: require('../assets/certificates/USEPA-MERGED.pdf'),
+};
+
 export const PROFILE_SECTIONS = [
   {
     id: 'about',
     title: 'About Kriya',
     icon: 'information',
+    image: SECTION_IMAGES.about,
     content: {
       headline: 'Delightfully Organic!',
-      description: 'Kriya Biosys is a leading biotechnology company specializing in the research, development, and manufacturing of biological crop protection and nutrition products. Founded with a vision to make agriculture sustainable, Kriya combines cutting-edge science with nature\'s own solutions.',
+      description: 'Kriya Biosys Private Limited is a young and dynamic company specialized in the manufacture and export of high-quality organic crop inputs. We are passionate about empowering sustainable agriculture with 100% organic crop protection solutions.\n\nOur purpose is to provide effective, eco-friendly solutions for nutrition management, pest control, and disease management \u2013 without harming nature. Our products are designed to meet the challenges faced by modern growers while supporting sustainable farming practices. We focus on delivering solutions that improve crop health, soil vitality, and overall farm productivity. We measure our success not only through business performance but also by the positive impact we bring to agriculture and the environment.',
       highlights: [
-        'Pioneer in biological crop protection',
-        'Vertically integrated from R&D to manufacturing',
-        'Serving farmers across 30+ countries',
-        'ISO 9001:2015 certified operations',
-        'State-of-the-art fermentation and formulation facilities',
+        'Specialized in manufacture and export of organic crop inputs',
+        '100% organic crop protection solutions',
+        'Effective solutions for nutrition, pest control, and disease management',
+        'Improve crop health, soil vitality, and farm productivity',
+        'Positive impact on agriculture and environment',
       ],
-      mission: 'To provide innovative, sustainable, and effective biological solutions that empower farmers while protecting the environment.',
-      vision: 'To be the global leader in agricultural biotechnology, making biological crop protection the standard for modern farming.',
+      mission: 'To deliver high quality, cost effective organic crop inputs, helping agriculture meet the challenges of chemical free produce at scale.',
+      vision: 'To be a comprehensive crop care solution provider promoting sustainable & environment safe agricultural practices.',
       values: [
-        { title: 'Innovation', description: 'Pioneering new biological solutions through cutting-edge research' },
-        { title: 'Sustainability', description: 'Every product we create respects and protects the environment' },
-        { title: 'Quality', description: 'Uncompromising standards from laboratory to field' },
-        { title: 'Partnership', description: 'Growing together with farmers, distributors, and communities' },
+        { title: 'Quality', description: 'Prioritizing quality in every product and process we deliver' },
+        { title: 'Integrity', description: 'Maintaining integrity and transparency in all business dealings' },
+        { title: 'Customer Centric', description: 'Putting customer needs at the center of our innovation and service' },
+        { title: 'Embracing Change', description: 'Continuously adapting and evolving with agricultural science' },
+        { title: 'Reliability & Trust', description: 'Building lasting partnerships through consistent, dependable performance' },
+      ],
+    },
+  },
+  {
+    id: 'expertise',
+    title: 'Expertise',
+    icon: 'lightbulb-on',
+    image: SECTION_IMAGES.expertise,
+    content: {
+      description: 'Kriya Biosys brings deep domain expertise across botanical innovation, microbial science, and advanced formulation technologies.',
+      areas: [
+        {
+          title: 'Botanical Innovation',
+          icon: 'leaf',
+          items: [
+            'Azadirachtin extraction & Neem-based solutions',
+            'Botanical pesticide development',
+            'Natural compound stabilization',
+          ],
+        },
+        {
+          title: 'Microbial Innovation',
+          icon: 'bacteria',
+          items: [
+            'Biological pest & disease control',
+            'Enhanced nutrient uptake',
+            'Soil balance & plant growth promotion',
+          ],
+        },
+        {
+          title: 'Formulation Science',
+          icon: 'test-tube',
+          items: [
+            'Microencapsulation',
+            'Emulsifiable concentrates',
+            'Suspension concentrates',
+            'Water dispersible formulations',
+            'Multi-active combinations',
+          ],
+        },
+      ],
+      technologyIntro: 'Kriya\u2019s tech platform combines three powerful systems that transform natural actives into stable, high-performance solutions for modern agriculture.',
+      technologies: [
+        { name: 'WYNN\u2122', tagline: 'Unlocks microbial science for potent crop solutions', color: '#4A148C' },
+        { name: 'KARYO\u2122', tagline: 'Safeguards and delivers actives effectively', color: '#E65100' },
+        { name: 'MICROVATE\u2122', tagline: 'Activates precision performance', color: '#1565C0' },
       ],
     },
   },
@@ -27,14 +116,15 @@ export const PROFILE_SECTIONS = [
     id: 'manufacturing',
     title: 'Manufacturing',
     icon: 'factory',
+    image: SECTION_IMAGES.manufacturing,
     content: {
-      description: 'Kriya operates a world-class integrated manufacturing facility designed specifically for biological product manufacturing. The facility combines fermentation, formulation, quality control, and packaging under one roof.',
+      description: 'Our global manufacturing facility is designed to meet the highest international standards in the production of organic crop input solutions. Equipped with advanced technology and modern processing systems, our facility ensures consistent quality, efficiency, and scalability to serve customers across international markets.\n\nFrom the careful sourcing of high-quality raw materials to the final packaging and dispatch of finished products, every stage of our manufacturing process is governed by strict quality control protocols. Our state-of-the-art infrastructure supports precision formulation, environmentally responsible production practices, and compliance with global regulatory requirements.\n\nStrategically located and supported by robust logistics capabilities, our manufacturing operations enable us to deliver reliable and sustainable agricultural inputs to farmers and partners worldwide.',
       capabilities: [
-        { title: 'Fermentation Plant', description: 'Multiple fermenters ranging from 500L to 20,000L capacity with precise environmental controls for optimal microbial growth.', icon: 'flask-round-bottom' },
-        { title: 'Formulation Unit', description: 'Advanced formulation lines for WP, SC, EC, and granular products with dedicated clean rooms and mixing systems.', icon: 'beaker-outline' },
-        { title: 'Quality Control Lab', description: 'NABL-accredited laboratory with HPLC, GC, microbial assay equipment, and bioassay facilities for comprehensive quality testing.', icon: 'microscope' },
-        { title: 'Packaging Lines', description: 'Automated packaging lines for pouches, bottles, and bulk containers with barcode tracking and batch traceability.', icon: 'package-variant-closed' },
-        { title: 'Warehouse', description: 'Climate-controlled warehousing for raw materials and finished goods ensuring product stability and freshness.', icon: 'warehouse' },
+        { title: 'Precision Formulation', description: 'Advanced processing systems for consistent, high-quality organic crop input production.', icon: 'flask-round-bottom' },
+        { title: 'Quality Control Protocols', description: 'Strict QC at every stage from raw material sourcing to final packaging and dispatch.', icon: 'microscope' },
+        { title: 'Global Compliance', description: 'Infrastructure supports compliance with global regulatory requirements and environmental standards.', icon: 'shield-check' },
+        { title: 'Scalable Operations', description: 'Designed for scalability to serve customers across international markets efficiently.', icon: 'package-variant-closed' },
+        { title: 'Robust Logistics', description: 'Strategically located with robust logistics capabilities for worldwide delivery.', icon: 'truck-delivery' },
       ],
       capacity: [
         { metric: 'Annual Production Capacity', value: '5,000 MT' },
@@ -48,13 +138,16 @@ export const PROFILE_SECTIONS = [
     id: 'rnd',
     title: 'R&D',
     icon: 'flask',
+    image: SECTION_IMAGES.rnd,
     content: {
-      description: 'Kriya\'s Research & Development center is the innovation engine driving the company\'s product pipeline. With a team of microbiologists, chemists, agronomists, and formulation scientists, the R&D center operates at the intersection of microbiology and agricultural science.',
+      description: 'Innovation is at the core of our growth. Our R&D facilities focus on developing next-generation organic crop care solutions that address evolving agricultural challenges. We focus on standardization and quality assurance, ensuring our products meet the highest industry standards \u2013 with longer shelf life and enhanced bio-efficacy.\n\nWe conduct extensive research in microbial technologies, exploring beneficial microorganisms for sustainable crop protection and plant health improvement. Our team also works on developing advanced formulations that enhance product stability, efficacy, and ease of application.',
       areas: [
-        { title: 'Microbial Research', description: 'Discovery, characterization, and optimization of beneficial microbial strains for crop protection and nutrition.', icon: 'bacteria' },
-        { title: 'Formulation Science', description: 'Development of novel delivery systems and formulation technologies for enhanced product performance.', icon: 'test-tube' },
-        { title: 'Agronomy Research', description: 'Field trials, efficacy studies, and agronomic protocol development across diverse crops and geographies.', icon: 'sprout' },
-        { title: 'Analytical Chemistry', description: 'Method development, quality specifications, and stability studies for all product formulations.', icon: 'chart-bar' },
+        { title: 'Microbial Technologies', description: 'Exploring beneficial microorganisms for sustainable crop protection and plant health improvement.', icon: 'bacteria' },
+        { title: 'Botanical Research', description: 'Research on botanical-based crop protection products derived from natural plant extracts.', icon: 'leaf' },
+        { title: 'Advanced Formulations', description: 'Developing formulations that enhance product stability, efficacy, and ease of application.', icon: 'test-tube' },
+        { title: 'Entomopathogenic Research', description: 'Development and study of entomopathogenic fungi and insect-based biological solutions for pest management.', icon: 'bug' },
+        { title: 'Controlled-Release Systems', description: 'Converting conventional formulations into user-friendly formats such as tablets and controlled-release delivery systems.', icon: 'pill' },
+        { title: 'Synergistic Products', description: 'Combining multiple active components through advanced formulation platforms for enhanced field performance.', icon: 'chart-bar' },
       ],
       achievements: [
         '12+ patents filed/granted',
@@ -62,6 +155,22 @@ export const PROFILE_SECTIONS = [
         '200+ field trials conducted annually',
         'Collaborations with 5+ agricultural universities',
         'Published 30+ research papers',
+        'Next-generation organic crop care solutions',
+      ],
+    },
+  },
+  {
+    id: 'quality',
+    title: 'Quality',
+    icon: 'shield-check',
+    image: SECTION_IMAGES.quality,
+    content: {
+      description: 'At Kriya Biosys, quality is at the forefront. Our advanced QC lab and expert team ensure every product meets stringent standards. Our sophisticated Quality Control laboratory ensures that every product meets defined specifications and international standards. Through rigorous testing, monitoring, and process control, we guarantee consistent product performance and reliability.',
+      pillars: [
+        { title: 'Advanced QC Laboratory', description: 'Sophisticated lab equipped with HPLC, GC, microbial assay equipment, and bioassay facilities.', icon: 'microscope' },
+        { title: 'Rigorous Testing', description: 'Every product undergoes comprehensive testing to meet defined specifications and international standards.', icon: 'clipboard-check' },
+        { title: 'Process Control', description: 'Continuous monitoring and process control systems guarantee consistent product performance.', icon: 'cog' },
+        { title: 'Expert Team', description: 'Dedicated quality team with deep expertise in biological product quality assurance.', icon: 'account-group' },
       ],
     },
   },
@@ -69,10 +178,11 @@ export const PROFILE_SECTIONS = [
     id: 'global',
     title: 'Global Presence',
     icon: 'earth',
+    image: SECTION_IMAGES.global,
     content: {
       description: 'Kriya Biosys products reach farmers across the globe through a robust network of distributors, importers, and strategic partners. From India to Africa, Southeast Asia to Latin America, Kriya is making biological solutions accessible worldwide.',
       regions: [
-        { name: 'South Asia', countries: ['India', 'Sri Lanka', 'Bangladesh', 'Nepal'], status: 'Established' },
+        { name: 'South Asia', countries: ['Sri Lanka', 'Bangladesh', 'Nepal'], status: 'Established' },
         { name: 'Southeast Asia', countries: ['Vietnam', 'Thailand', 'Indonesia', 'Philippines'], status: 'Growing' },
         { name: 'Africa', countries: ['Kenya', 'Tanzania', 'Nigeria', 'South Africa', 'Ethiopia'], status: 'Expanding' },
         { name: 'Latin America', countries: ['Brazil', 'Mexico', 'Colombia', 'Peru'], status: 'Emerging' },
@@ -80,10 +190,10 @@ export const PROFILE_SECTIONS = [
         { name: 'Europe', countries: ['Spain', 'Italy', 'Turkey', 'Greece'], status: 'Emerging' },
       ],
       stats: [
-        { label: 'Countries', value: '30+' },
-        { label: 'Distribution Partners', value: '150+' },
+        { label: 'Countries', value: '20+' },
+        { label: 'Distribution Partners', value: '25+' },
         { label: 'Farmers Reached', value: '1M+' },
-        { label: 'Hectares Treated', value: '5M+' },
+        { label: 'Hectares Treated', value: '2M+' },
       ],
     },
   },
@@ -91,17 +201,22 @@ export const PROFILE_SECTIONS = [
     id: 'certifications',
     title: 'Certifications',
     icon: 'certificate',
+    image: SECTION_IMAGES.certifications,
     content: {
-      description: 'Kriya maintains the highest standards of quality and compliance through a comprehensive certification framework. All products are manufactured under stringent quality management systems.',
+      description: 'Our products meet international organic and quality standards, ensuring reliability and regulatory compliance. Our neem formulations are also registered with the US EPA, supporting use in global crop protection markets.',
       certifications: [
-        { name: 'ISO 9001:2015', description: 'Quality Management System certification for all manufacturing and business processes.', category: 'Quality' },
-        { name: 'GMP Certification', description: 'Good Manufacturing Practice compliance ensuring consistent product quality and safety.', category: 'Manufacturing' },
-        { name: 'NABL Accreditation', description: 'National Accreditation Board for Testing and Calibration Laboratories for quality control lab.', category: 'Laboratory' },
-        { name: 'Organic Certification', description: 'Products certified for use in organic farming under multiple international organic standards.', category: 'Product' },
-        { name: 'CIB Registration', description: 'Central Insecticide Board registration for all pesticide products in India.', category: 'Regulatory' },
-        { name: 'CIBRC Approved', description: 'Central Insecticides Board and Registration Committee approved formulations.', category: 'Regulatory' },
-        { name: 'WHO GHS Compliant', description: 'Globally Harmonized System of Classification and Labelling compliance for all products.', category: 'Safety' },
-        { name: 'REACH Pre-registered', description: 'Pre-registration under EU REACH regulation for European market access.', category: 'International' },
+        { name: 'OMRI Listed', description: 'Organic Materials Review Institute listing for use in certified organic production.', category: 'Organic', logo: CERT_LOGOS.omri, pdfAsset: CERT_PDFS.omri },
+        { name: 'Ecocert Certified', description: 'International organic certification recognized in over 80 countries worldwide.', category: 'Organic', logo: CERT_LOGOS.ecocert, pdfAsset: CERT_PDFS.ecocert },
+        { name: 'US NOP Compliant', description: 'United States National Organic Program compliance for organic farming standards.', category: 'Organic', logo: null, pdfAsset: null },
+        { name: 'JAS Approved', description: 'Japanese Agricultural Standards approval for organic agricultural products.', category: 'International', logo: null, pdfAsset: null },
+        { name: 'ISO Quality Systems', description: 'Quality Management System certification for all manufacturing and business processes.', category: 'Quality', logo: CERT_LOGOS.iso, pdfAsset: CERT_PDFS.iso },
+        { name: 'US EPA Registered', description: 'Neem formulations registered with the United States Environmental Protection Agency.', category: 'Regulatory', logo: CERT_LOGOS.usepa, pdfAsset: CERT_PDFS.usepa },
+        { name: 'CIB Registration', description: 'Central Insecticide Board registration for all pesticide products in India.', category: 'Regulatory', logo: null, pdfAsset: null },
+        { name: 'WHO GHS Compliant', description: 'Globally Harmonized System of Classification and Labelling compliance for all products.', category: 'Safety', logo: null, pdfAsset: null },
+        { name: 'GMP Certified', description: 'Good Manufacturing Practice certification ensuring products are consistently produced and controlled to quality standards.', category: 'Quality', logo: CERT_LOGOS.gmp, pdfAsset: CERT_PDFS.gmp },
+        { name: 'Chemexcil Member', description: 'Basic Chemicals, Cosmetics & Dyes Export Promotion Council membership for international trade facilitation.', category: 'Trade', logo: CERT_LOGOS.chemexcil, pdfAsset: CERT_PDFS.chemexcil },
+        { name: 'Shefexil Member', description: 'Shellac & Forest Products Export Promotion Council membership supporting export of natural products.', category: 'Trade', logo: CERT_LOGOS.shefexil, pdfAsset: CERT_PDFS.shefexil },
+        { name: 'APEDA Registration', description: 'Agricultural & Processed Food Products Export Development Authority registration for export of agricultural products.', category: 'Trade', logo: CERT_LOGOS.apeda, pdfAsset: CERT_PDFS.apeda },
       ],
     },
   },

@@ -3,7 +3,7 @@
     "name": "BioDesk",
     "slug": "biodesk",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -18,6 +18,7 @@
       },
       "package": "com.kriyabiosys.biodesk",
       "permissions": [
+        "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO",
         "android.permission.MODIFY_AUDIO_SETTINGS",
         "android.permission.FOREGROUND_SERVICE",
@@ -26,17 +27,33 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.kriyabiosys.biodesk"
+      "bundleIdentifier": "com.kriyabiosys.biodesk",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "plugins": [
       "expo-sqlite",
-      "expo-audio"
+      "expo-audio",
+      "expo-av",
+      "expo-sharing",
+      "expo-image",
+      "expo-asset",
+      "expo-navigation-bar",
+      "expo-font",
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "BioDesk needs camera access to scan visiting cards and documents.",
+          "enableCodeScanner": false
+        }
+      ]
     ],
-    "newArchEnabled": false,
     "extra": {
       "eas": {
         "projectId": "93e6717b-f744-48cd-8cca-d9f8d31c47d9"
-      }
+      },
+      "expo-navigation-bar": {}
     }
   }
 }
