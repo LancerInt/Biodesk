@@ -46,7 +46,7 @@
     "dosage": "2-3 ml/L",
     "application_rate": "500-750 ml/acre in 200-250 L water",
     "method": "Foliar spray",
-    "interval": "7 days",
+    "interval": "7-10 days",
     "source": "inferred"
   },
   {
@@ -56,7 +56,7 @@
     "dosage": "2-3 g/L",
     "application_rate": "500-750 g/acre in 200-250 L water",
     "method": "Foliar spray",
-    "interval": "7 days",
+    "interval": "7-10 days",
     "source": "inferred"
   },
   {
@@ -106,7 +106,7 @@
     "dosage": "1-1.5 ml/L",
     "application_rate": "250-400 ml/acre in 180-250 L water",
     "method": "Foliar spray",
-    "interval": "7 days",
+    "interval": "7-10 days",
     "source": "inferred"
   },
   {
@@ -144,7 +144,7 @@
     "category": "biocontrol",
     "active": "Metarhizium anisopliae (1 x 10^9 CFU/g)",
     "dosage": "2-3 g/L",
-    "application_rate": "500-1000 g/acre in 200-250 L water; 1-2 kg/acre for soil application",
+    "application_rate": "1-2 kg/acre for soil application",
     "method": "Foliar spray, soil drench, or drip application",
     "interval": "10-15 days",
     "source": "inferred"
@@ -176,7 +176,7 @@
     "dosage": "2-3 g/L",
     "application_rate": "500-1000 g/acre in 200-250 L water",
     "method": "Foliar spray targeting powdery mildew onset",
-    "interval": "7 days",
+    "interval": "7-10 days",
     "source": "inferred"
   },
   {
@@ -196,7 +196,7 @@
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
     "method": "Soil application, root-zone drench, or drip for nematode suppression",
-    "interval": "20-30 days",
+    "interval": "10-15 days",
     "source": "inferred"
   },
   {
@@ -205,8 +205,8 @@
     "active": "Bacillus amyloliquefaciens (1 x 10^9 CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
-    "method": "Soil application, root-zone drench, or drip for nematode suppression",
-    "interval": "20-30 days",
+    "method": "Soil application, root-zone drench, drip or foliar",
+    "interval": "7-10 days",
     "source": "inferred"
   },
   {
@@ -215,14 +215,14 @@
     "active": "Bacillus subtilis (1 x 10^9 CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
-    "method": "Soil application, root-zone drench, or drip for nematode suppression",
-    "interval": "20-30 days",
+    "method": "Soil application, root-zone drench, drip or foliar",
+    "interval": "7-10 days",
     "source": "inferred"
   },
   {
     "product": "Zenita",
     "category": "biostimulant",
-    "active": "Neem Based PGP",
+    "active": "Neem Based Amino Acid",
     "dosage": "2-3 ml/L",
     "application_rate": "500-750 ml/acre in 200-250 L water",
     "method": "Foliar spray or soil drench",
@@ -252,7 +252,7 @@
   {
     "product": "EnRhize",
     "category": "biostimulant",
-    "active": "Arbuscular Mycorrhiza (>=1500 propagules/g)",
+    "active": "Arbuscular Mycorrhiza (>=500 sporse/g)",
     "dosage": "5-10 g/plant for transplanting; 10 g/kg seed for seed treatment",
     "application_rate": "2-4 kg/acre",
     "method": "Root-zone placement, seed treatment, nursery mix, or transplant dip",
@@ -265,7 +265,7 @@
     "active": "Vegetable Fatty Acid Compounds SL",
     "dosage": "5 ml/L",
     "application_rate": "1 litre/acre",
-    "method": "Foliar spray during pre-flowering, fruit setting, and 10 days before harvest",
+    "method": "spray during pre-flowering and fruit setting stage",
     "interval": "10-15 days",
     "source": "official"
   },
@@ -283,8 +283,8 @@
     "product": "IGreen NPK",
     "category": "biostimulant",
     "active": "Azotobacter chroococcum + Bacillus megaterium + Frateuria aurantia",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or seedling root dip",
     "interval": "15-20 days",
     "source": "inferred"
@@ -293,8 +293,8 @@
     "product": "IGreen N",
     "category": "biostimulant",
     "active": "Azotobacter chroococcum + Azospirillum brasilense + Rhizobium sp. ",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or seed treatment",
     "interval": "15-20 days",
     "source": "inferred"
@@ -303,8 +303,8 @@
     "product": "IGreen P",
     "category": "biostimulant",
     "active": "Bacillus megaterium + Bacillus polymyxa",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or basal soil application",
     "interval": "15-20 days",
     "source": "inferred"
@@ -313,8 +313,8 @@
     "product": "IGreen K",
     "category": "biostimulant",
     "active": "Frateuria aurantia + Bacillus mucilaginosus",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or basal soil application",
     "interval": "15-20 days",
     "source": "inferred"
@@ -323,8 +323,8 @@
     "product": "IGreen Zn",
     "category": "biostimulant",
     "active": "Bacillus megaterium + Bacillus subtilis",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or basal soil application",
     "interval": "15-20 days",
     "source": "inferred"
@@ -333,8 +333,8 @@
     "product": "IGreen S",
     "category": "biostimulant",
     "active": "Acidothiobacillus ferroxidans",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or foliar-biological support spray",
     "interval": "15-20 days",
     "source": "inferred"
@@ -343,8 +343,8 @@
     "product": "IGreen Si",
     "category": "biostimulant",
     "active": "Bacillus mycoides",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or basal soil application",
     "interval": "15-20 days",
     "source": "inferred"
@@ -353,8 +353,8 @@
     "product": "IGreen Shield",
     "category": "biostimulant",
     "active": "Bacillus licheniformis + Bacillus amyloliquefaciens + Bacillus subtilis",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g to 1 kg/acre",
     "method": "Soil drench, drip, or basal soil application",
     "interval": "15-20 days",
     "source": "inferred"
@@ -373,7 +373,7 @@
     "product": "Engrow",
     "category": "substrate",
     "active": "Seed Coating",
-    "dosage": "3-5 ml/kg seed",
+    "dosage": "3-5 g/kg seeds",
     "application_rate": "Apply uniformly to seed surface before sowing",
     "method": "Seed treatment",
     "interval": "One-time pre-sowing application",
@@ -396,13 +396,13 @@
     "dosage": "Not diluted",
     "application_rate": "75-150 kg/acre",
     "method": "Basal soil incorporation",
-    "interval": "At land preparation",
+    "interval": "At land preparation or split in 1-2 doses",
     "source": "inferred"
   },
   {
     "product": "Admira Adyme",
     "category": "botanical",
-    "active": "Thyme Oil Capsule",
+    "active": "Thyme Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",
@@ -412,7 +412,7 @@
   {
     "product": "Admira Admon",
     "category": "botanical",
-    "active": "Cinnamon Oil Capsule",
+    "active": "Cinnamon Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",
@@ -422,7 +422,7 @@
   {
     "product": "Admira Adrlic",
     "category": "botanical",
-    "active": "Garlic Oil Capsule",
+    "active": "Garlic Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",
@@ -432,7 +432,7 @@
   {
     "product": "Admira Adove",
     "category": "botanical",
-    "active": "Clove Oil Capsule",
+    "active": "Clove Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",

@@ -452,6 +452,13 @@ PRODUCTS.forEach(p => {
     water_volume: cd.dosage,
     application_method: cd.method,
   }];
+  // Replace repeatability with single JSON-driven schedule entry
+  p.repeatability = [{
+    application_timing: (p.repeatability && p.repeatability[0]?.application_timing)
+      || 'Recommended application schedule',
+    frequency: cd.interval,
+    recommendation: 'Use the lower dose as a preventive treatment and the upper dose under rising pest pressure.',
+  }];
   // Update backward-compatible fields
   p.dosage = cd.dosage;
   p.repeatInterval = cd.interval;
