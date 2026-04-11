@@ -414,7 +414,7 @@ const styles = StyleSheet.create({
   scopeColumnHeader: { borderRadius: 6, paddingVertical: 6, paddingHorizontal: 8, marginBottom: 6 },
   scopeColumnTitle: { fontSize: 11, fontWeight: '700', textAlign: 'center' },
   scopeItem: { flexDirection: 'row', alignItems: 'flex-start', gap: 4, marginBottom: 4, paddingHorizontal: 4 },
-  scopeItemText: { flex: 1, fontSize: 11, color: theme.colors.text, lineHeight: 16 },
+  scopeItemText: { flex: 1, fontSize: 11, color: theme.colors.text, lineHeight: 16, textAlign: 'justify' },
 
   // Pillar comparison
   pillarRow: { flexDirection: 'row', marginBottom: 8 },
@@ -438,7 +438,7 @@ const styles = StyleSheet.create({
     borderLeftWidth: 3,
   },
   pillarTitle: { fontSize: 11, fontWeight: '700', marginBottom: 2 },
-  pillarDesc: { fontSize: 10, color: theme.colors.textSecondary, lineHeight: 14 },
+  pillarDesc: { fontSize: 10, color: theme.colors.textSecondary, lineHeight: 14, textAlign: 'justify' },
   pillarEmpty: { fontSize: 12, color: theme.colors.textLight, textAlign: 'center' },
 
   // Differentiator columns
@@ -447,7 +447,7 @@ const styles = StyleSheet.create({
   diffDot: { width: 6, height: 6, borderRadius: 3, marginTop: 5 },
   diffContent: { flex: 1 },
   diffTitle: { fontSize: 11, fontWeight: '700', color: theme.colors.text, marginBottom: 1 },
-  diffBody: { fontSize: 10, color: theme.colors.textSecondary, lineHeight: 14 },
+  diffBody: { fontSize: 10, color: theme.colors.textSecondary, lineHeight: 14, textAlign: 'justify' },
 
   // Table rows
   tableRow: { flexDirection: 'row', paddingVertical: 8, paddingHorizontal: 4 },

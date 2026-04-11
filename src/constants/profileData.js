@@ -4,6 +4,17 @@
 // ═══════════════════════════════════════════════════════════════
 
 // Section images — real images for available sections, null for pending
+const MANUFACTURING_IMAGES = [
+  require('../assets/images/Manufacturing/manufacturing_1.jpg'),
+  require('../assets/images/Manufacturing/manufacturing_2.jpg'),
+  require('../assets/images/Manufacturing/manufacturing_3.jpg'),
+  require('../assets/images/Manufacturing/manufacturing_4.jpg'),
+  require('../assets/images/Manufacturing/manufacturing_5.jpg'),
+  require('../assets/images/Manufacturing/manufacturing_6.jpg'),
+  require('../assets/images/Manufacturing/manufacturing_7.jpg'),
+  require('../assets/images/Manufacturing/manufacturing_8.jpg'),
+];
+
 const SECTION_IMAGES = {
   about: require('../assets/images/KriyaProfile/about.jpeg'),
   manufacturing: require('../assets/images/KriyaProfile/manufacturing.jpeg'),
@@ -46,7 +57,7 @@ export const PROFILE_SECTIONS = [
     icon: 'information',
     image: SECTION_IMAGES.about,
     content: {
-      headline: 'Delightfully Organic!',
+      headline: 'About Kriya',
       description: 'Kriya Biosys Private Limited is a young and dynamic company specialized in the manufacture and export of high-quality organic crop inputs. We are passionate about empowering sustainable agriculture with 100% organic crop protection solutions.\n\nOur purpose is to provide effective, eco-friendly solutions for nutrition management, pest control, and disease management \u2013 without harming nature. Our products are designed to meet the challenges faced by modern growers while supporting sustainable farming practices. We focus on delivering solutions that improve crop health, soil vitality, and overall farm productivity. We measure our success not only through business performance but also by the positive impact we bring to agriculture and the environment.',
       highlights: [
         'Specialized in manufacture and export of organic crop inputs',
@@ -55,8 +66,8 @@ export const PROFILE_SECTIONS = [
         'Improve crop health, soil vitality, and farm productivity',
         'Positive impact on agriculture and environment',
       ],
-      mission: 'To deliver high quality, cost effective organic crop inputs, helping agriculture meet the challenges of chemical free produce at scale.',
-      vision: 'To be a comprehensive crop care solution provider promoting sustainable & environment safe agricultural practices.',
+      mission: 'To transform nature-derived actives into effective, compliant, and scalable inputs that enable growers to reduce chemical residues, achieve sustainable yields.',
+      vision: 'A future where every farmer accesses high-performance crop care solutions that are safe for people, soil, and the planet\u2014supported by trusted partnerships worldwide.',
       values: [
         { title: 'Quality', description: 'Prioritizing quality in every product and process we deliver' },
         { title: 'Integrity', description: 'Maintaining integrity and transparency in all business dealings' },
@@ -117,6 +128,7 @@ export const PROFILE_SECTIONS = [
     title: 'Manufacturing',
     icon: 'factory',
     image: SECTION_IMAGES.manufacturing,
+    carouselImages: MANUFACTURING_IMAGES,
     content: {
       description: 'Our global manufacturing facility is designed to meet the highest international standards in the production of organic crop input solutions. Equipped with advanced technology and modern processing systems, our facility ensures consistent quality, efficiency, and scalability to serve customers across international markets.\n\nFrom the careful sourcing of high-quality raw materials to the final packaging and dispatch of finished products, every stage of our manufacturing process is governed by strict quality control protocols. Our state-of-the-art infrastructure supports precision formulation, environmentally responsible production practices, and compliance with global regulatory requirements.\n\nStrategically located and supported by robust logistics capabilities, our manufacturing operations enable us to deliver reliable and sustainable agricultural inputs to farmers and partners worldwide.',
       capabilities: [
@@ -125,6 +137,7 @@ export const PROFILE_SECTIONS = [
         { title: 'Global Compliance', description: 'Infrastructure supports compliance with global regulatory requirements and environmental standards.', icon: 'shield-check' },
         { title: 'Scalable Operations', description: 'Designed for scalability to serve customers across international markets efficiently.', icon: 'package-variant-closed' },
         { title: 'Robust Logistics', description: 'Strategically located with robust logistics capabilities for worldwide delivery.', icon: 'truck-delivery' },
+        { title: 'Traceability', description: 'A robust traceability system tracks every stage, from sourcing to distribution, ensuring transparency, quality, and global compliance.', icon: 'file-search-outline' },
       ],
       capacity: [
         { metric: 'Annual Production Capacity', value: '5,000 MT' },
@@ -161,7 +174,7 @@ export const PROFILE_SECTIONS = [
   },
   {
     id: 'quality',
-    title: 'Quality',
+    title: 'Quality Control',
     icon: 'shield-check',
     image: SECTION_IMAGES.quality,
     content: {
@@ -191,7 +204,7 @@ export const PROFILE_SECTIONS = [
       ],
       stats: [
         { label: 'Countries', value: '20+' },
-        { label: 'Distribution Partners', value: '25+' },
+        { label: 'Distribution Partners', value: '15+' },
         { label: 'Farmers Reached', value: '1M+' },
         { label: 'Hectares Treated', value: '2M+' },
       ],

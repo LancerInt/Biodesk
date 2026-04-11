@@ -613,6 +613,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textLight,
     marginTop: 2,
     lineHeight: 18,
+    textAlign: 'justify',
   },
   heroBadges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 14, gap: 8 },
   heroPill: {
@@ -649,6 +650,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     marginBottom: 4,
     letterSpacing: 0.1,
+    textAlign: 'justify',
   },
 
   // Variant Selector — Apple-style (no elevation to avoid Android double-edge)
@@ -802,6 +804,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     lineHeight: 22,
     letterSpacing: 0.1,
+    textAlign: 'justify',
   },
 
   // Mode of Action diagram
@@ -863,16 +866,16 @@ const styles = StyleSheet.create({
   scheduleBody: { paddingHorizontal: 14, paddingVertical: 10, gap: 6 },
   scheduleRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8 },
   scheduleLabel: { fontSize: 13, fontWeight: '600', color: theme.colors.textLight },
-  scheduleValue: { flex: 1, fontSize: 14, fontWeight: '500', color: theme.colors.text, lineHeight: 20 },
+  scheduleValue: { flex: 1, fontSize: 14, fontWeight: '500', color: theme.colors.text, lineHeight: 20, textAlign: 'justify' },
 
   // Benefits
   benefitRow: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 10 },
   benefitDot: { marginRight: 10, marginTop: 2 },
-  benefitText: { flex: 1, fontSize: 15, color: theme.colors.text, lineHeight: 22 },
+  benefitText: { flex: 1, fontSize: 15, color: theme.colors.text, lineHeight: 22, textAlign: 'justify' },
 
   // MOA / Compatibility
   moaCard: { flexDirection: 'row', backgroundColor: '#FFF', borderRadius: 14, padding: 16, gap: 10, alignItems: 'flex-start', ...theme.shadows.sm },
-  moaText: { flex: 1, fontSize: 14, color: theme.colors.textSecondary, lineHeight: 22 },
+  moaText: { flex: 1, fontSize: 14, color: theme.colors.textSecondary, lineHeight: 22, textAlign: 'justify' },
 
   // Problem & Solution
   psContainer: { marginBottom: 16 },
@@ -880,7 +883,7 @@ const styles = StyleSheet.create({
   psIconWrap: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   psContent: { flex: 1 },
   psLabel: { fontSize: 11, fontWeight: '700', color: '#D32F2F', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 3 },
-  psText: { fontSize: 14, color: theme.colors.text, lineHeight: 20 },
+  psText: { fontSize: 14, color: theme.colors.text, lineHeight: 20, textAlign: 'justify' },
   psArrow: { alignItems: 'center', paddingVertical: 4 },
 
   // Storage
@@ -888,7 +891,7 @@ const styles = StyleSheet.create({
   storageRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, paddingVertical: 6 },
   storageContent: { flex: 1 },
   storageLabel: { fontSize: 12, fontWeight: '600', color: theme.colors.textLight, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 2 },
-  storageValue: { fontSize: 14, color: theme.colors.text, lineHeight: 20 },
+  storageValue: { fontSize: 14, color: theme.colors.text, lineHeight: 20, textAlign: 'justify' },
   storageDivider: { height: 1, backgroundColor: theme.colors.divider, marginVertical: 6 },
 
   // Documents

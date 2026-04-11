@@ -813,6 +813,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     marginBottom: 4,
     letterSpacing: 0.1,
+    textAlign: 'justify',
   },
 
   // Spec Card (Technical Profile)
@@ -931,6 +932,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     lineHeight: 22,
     letterSpacing: 0.1,
+    textAlign: 'justify',
   },
 
   // Chips
@@ -1047,6 +1049,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: theme.colors.text,
     lineHeight: 20,
+    textAlign: 'justify',
   },
 
   // Apple-style variant button
@@ -1072,7 +1075,7 @@ const styles = StyleSheet.create({
   // Benefits
   benefitRow: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 10 },
   benefitDot: { marginRight: 10, marginTop: 2 },
-  benefitText: { flex: 1, fontSize: 15, color: theme.colors.text, lineHeight: 22 },
+  benefitText: { flex: 1, fontSize: 15, color: theme.colors.text, lineHeight: 22, textAlign: 'justify' },
 
   // Mode of Action diagram
   moaDiagramCard: {
@@ -1169,6 +1172,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     lineHeight: 21,
     letterSpacing: 0.1,
+    textAlign: 'justify',
   },
 
   // MOA / Compatibility card
@@ -1181,7 +1185,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     ...theme.shadows.sm,
   },
-  moaText: { flex: 1, fontSize: 14, color: theme.colors.textSecondary, lineHeight: 21 },
+  moaText: { flex: 1, fontSize: 14, color: theme.colors.textSecondary, lineHeight: 21, textAlign: 'justify' },
 
   // Problem & Solution
   psContainer: {
@@ -1216,6 +1220,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: theme.colors.text,
     lineHeight: 20,
+    textAlign: 'justify',
   },
   psArrow: {
     alignItems: 'center',
@@ -1248,6 +1253,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: theme.colors.text,
     lineHeight: 20,
+    textAlign: 'justify',
   },
   storageDivider: {
     height: 1,

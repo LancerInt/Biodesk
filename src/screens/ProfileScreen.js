@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, Alert, FlatList, Dimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
@@ -10,6 +10,83 @@ const SectionImage = React.memo(({ source }) => {
   return (
     <View style={styles.sectionImageCard}>
       <Image source={source} style={styles.sectionImage} resizeMode="cover" />
+    </View>
+  );
+});
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const CAROUSEL_WIDTH = SCREEN_WIDTH - 32; // 16px padding each side
+
+const ImageCarousel = React.memo(({ images }) => {
+  const flatListRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const autoPlayRef = useRef(null);
+
+  const startAutoPlay = useCallback(() => {
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    autoPlayRef.current = setInterval(() => {
+      setActiveIndex(prev => {
+        const next = (prev + 1) % images.length;
+        flatListRef.current?.scrollToIndex({ index: next, animated: true });
+        return next;
+      });
+    }, 5000);
+  }, [images.length]);
+
+  useEffect(() => {
+    startAutoPlay();
+    return () => { if (autoPlayRef.current) clearInterval(autoPlayRef.current); };
+  }, [startAutoPlay]);
+
+  const onViewableItemsChanged = useRef(({ viewableItems }) => {
+    if (viewableItems.length > 0) setActiveIndex(viewableItems[0].index);
+  }).current;
+
+  const viewabilityConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
+
+  const onScrollBeginDrag = () => {
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+  };
+  const onScrollEndDrag = () => startAutoPlay();
+
+  const goTo = (dir) => {
+    const next = dir === 'next'
+      ? (activeIndex + 1) % images.length
+      : (activeIndex - 1 + images.length) % images.length;
+    flatListRef.current?.scrollToIndex({ index: next, animated: true });
+    setActiveIndex(next);
+    startAutoPlay();
+  };
+
+  return (
+    <View style={styles.carouselContainer}>
+      <FlatList
+        ref={flatListRef}
+        data={images}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={viewabilityConfig}
+        onScrollBeginDrag={onScrollBeginDrag}
+        onScrollEndDrag={onScrollEndDrag}
+        keyExtractor={(_, i) => String(i)}
+        getItemLayout={(_, index) => ({ length: CAROUSEL_WIDTH, offset: CAROUSEL_WIDTH * index, index })}
+        renderItem={({ item }) => (
+          <Image source={item} style={styles.carouselImage} resizeMode="cover" />
+        )}
+      />
+      <TouchableOpacity style={[styles.carouselArrow, styles.carouselArrowLeft]} onPress={() => goTo('prev')}>
+        <Icon name="chevron-left" size={28} color="#FFF" />
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.carouselArrow, styles.carouselArrowRight]} onPress={() => goTo('next')}>
+        <Icon name="chevron-right" size={28} color="#FFF" />
+      </TouchableOpacity>
+      <View style={styles.carouselDots}>
+        {images.map((_, i) => (
+          <View key={i} style={[styles.carouselDot, i === activeIndex && styles.carouselDotActive]} />
+        ))}
+      </View>
     </View>
   );
 });
@@ -34,7 +111,7 @@ const ProfileScreen = ({ navigation }) => {
       <Text style={styles.headline}>{section.content.headline}</Text>
       <Text style={styles.bodyText}>{section.content.description}</Text>
 
-      <Text style={styles.subTitle}>Highlights</Text>
+      <Text style={styles.subTitle}>Kriya Highlights</Text>
       {section.content.highlights.map((h, i) => (
         <View key={i} style={styles.highlightRow}>
           <Icon name="check-decagram" size={18} color={theme.colors.primary} />
@@ -90,7 +167,10 @@ const ProfileScreen = ({ navigation }) => {
       <Text style={styles.bodyText}>{section.content.technologyIntro}</Text>
       {section.content.technologies.map((tech, i) => (
         <View key={i} style={[styles.techPlatformCard, { borderLeftColor: tech.color }]}>
-          <Text style={[styles.techPlatformName, { color: tech.color }]}>{tech.name}</Text>
+          <View style={styles.techNameRow}>
+            <Text style={[styles.techPlatformName, { color: tech.color }]}>{tech.name.replace('\u2122', '')}</Text>
+            <Text style={[styles.tmSymbol, { color: tech.color }]}>{'\u2122'}</Text>
+          </View>
           <Text style={styles.techPlatformTagline}>{tech.tagline}</Text>
         </View>
       ))}
@@ -99,7 +179,7 @@ const ProfileScreen = ({ navigation }) => {
 
   const renderManufacturing = () => (
     <View>
-      <SectionImage source={section.image} />
+      {section.carouselImages ? <ImageCarousel images={section.carouselImages} /> : <SectionImage source={section.image} />}
       <Text style={styles.bodyText}>{section.content.description}</Text>
       <Text style={styles.subTitle}>Capabilities</Text>
       {section.content.capabilities.map((c, i) => (
@@ -256,6 +336,55 @@ const styles = StyleSheet.create({
   tabTextActive: { color: theme.colors.primary, fontWeight: '700' },
   content: { padding: 16, paddingBottom: 40 },
 
+  // Image Carousel
+  carouselContainer: {
+    borderRadius: 16,
+    overflow: 'hidden',
+    marginBottom: 20,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+  },
+  carouselImage: {
+    width: CAROUSEL_WIDTH,
+    height: undefined,
+    aspectRatio: 16 / 9,
+  },
+  carouselArrow: {
+    position: 'absolute',
+    top: '50%',
+    marginTop: -18,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(0,0,0,0.35)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  carouselArrowLeft: { left: 8 },
+  carouselArrowRight: { right: 8 },
+  carouselDots: {
+    position: 'absolute',
+    bottom: 10,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 6,
+  },
+  carouselDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'rgba(255,255,255,0.5)',
+  },
+  carouselDotActive: {
+    backgroundColor: '#FFF',
+    width: 20,
+  },
+
   // Section image — full-width banner
   sectionImageCard: {
     borderRadius: 16,
@@ -274,12 +403,12 @@ const styles = StyleSheet.create({
   },
 
   headline: { fontSize: 24, fontWeight: '800', color: theme.colors.secondary, marginBottom: 12, fontStyle: 'italic' },
-  bodyText: { fontSize: 15, color: theme.colors.textSecondary, lineHeight: 23, marginBottom: 12 },
+  bodyText: { fontSize: 15, color: theme.colors.textSecondary, lineHeight: 23, marginBottom: 12, textAlign: 'justify' },
   subTitle: { fontSize: 18, fontWeight: '700', color: theme.colors.text, marginTop: 20, marginBottom: 12 },
   highlightRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 },
   highlightText: { flex: 1, fontSize: 14, color: theme.colors.text },
   quoteCard: { backgroundColor: '#FFF', borderRadius: 12, padding: 16, gap: 8, ...theme.shadows.sm },
-  quoteText: { fontSize: 15, color: theme.colors.textSecondary, lineHeight: 22, fontStyle: 'italic' },
+  quoteText: { fontSize: 15, color: theme.colors.textSecondary, lineHeight: 22, fontStyle: 'italic', textAlign: 'justify' },
   valueCard: { backgroundColor: '#FFF', borderRadius: 12, padding: 14, marginBottom: 8, ...theme.shadows.sm },
   valueTitle: { fontSize: 16, fontWeight: '700', color: theme.colors.primary },
   valueDesc: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 4 },
@@ -318,13 +447,15 @@ const styles = StyleSheet.create({
     ...theme.shadows.sm,
   },
   techPlatformName: { fontSize: 17, fontWeight: '800' },
-  techPlatformTagline: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 4, lineHeight: 19 },
+  techNameRow: { flexDirection: 'row', alignItems: 'flex-start' },
+  tmSymbol: { fontSize: 9, fontWeight: '400', marginTop: 2 },
+  techPlatformTagline: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 4, lineHeight: 19, textAlign: 'justify' },
 
   // Capability cards (Manufacturing, R&D, Quality)
   capCard: { flexDirection: 'row', backgroundColor: '#FFF', borderRadius: 12, padding: 14, marginBottom: 8, gap: 12, ...theme.shadows.sm },
   capIconWrap: { width: 44, height: 44, borderRadius: 22, backgroundColor: theme.colors.primary + '10', alignItems: 'center', justifyContent: 'center' },
   capTitle: { fontSize: 15, fontWeight: '700', color: theme.colors.text },
-  capDesc: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 3, lineHeight: 19 },
+  capDesc: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 3, lineHeight: 19, textAlign: 'justify' },
 
   // Stats
   statsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 4 },
@@ -348,7 +479,7 @@ const styles = StyleSheet.create({
   certName: { fontSize: 15, fontWeight: '700', color: theme.colors.text },
   certCatBadge: { backgroundColor: '#F5F5F5', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 8 },
   certCatText: { fontSize: 10, fontWeight: '600', color: theme.colors.textSecondary },
-  certDesc: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 3 },
+  certDesc: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 3, textAlign: 'justify' },
 });
 
 export default ProfileScreen;

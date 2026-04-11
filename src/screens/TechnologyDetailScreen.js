@@ -387,6 +387,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     marginBottom: 16,
     letterSpacing: 0.1,
+    textAlign: 'justify',
   },
 
   // ─── Overview ─────────────────────────────────────────────
@@ -411,6 +412,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: theme.colors.textSecondary,
     lineHeight: 22,
+    textAlign: 'justify',
   },
 
   // ─── Core Positioning ─────────────────────────────────────
@@ -436,6 +438,7 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
     lineHeight: 22,
     fontWeight: '500',
+    textAlign: 'justify',
   },
 
   // ─── Pillar Grid ──────────────────────────────────────────
@@ -476,6 +479,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     marginTop: 4,
     lineHeight: 20,
+    textAlign: 'justify',
   },
 
   // ─── Process Flow ─────────────────────────────────────────
@@ -551,6 +555,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: theme.colors.textSecondary,
     lineHeight: 20,
+    textAlign: 'justify',
   },
 
   // ─── Scope ────────────────────────────────────────────────
@@ -598,6 +603,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: theme.colors.text,
     lineHeight: 20,
+    textAlign: 'justify',
   },
   scopeDivider: {
     height: 1,
@@ -627,6 +633,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: theme.colors.textSecondary,
     lineHeight: 22,
+    textAlign: 'justify',
   },
 
   // ─── Closing ──────────────────────────────────────────────
