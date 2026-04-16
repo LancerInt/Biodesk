@@ -72,10 +72,10 @@
       { "id": "abiotic-waterlogging", "name": "Waterlogging Stress", "icon": "water" }
     ],
     "categories": [
-      { "id": "cat-botanical", "name": "Botanical Pesticide", "icon": "leaf", "color": "#4CAF50" },
+      { "id": "cat-botanical", "name": "Botanical Pesticide", "icon": "leaf", "color": "#16416c" },
       { "id": "cat-microbial", "name": "Microbial Pesticide", "icon": "bacteria", "color": "#2196F3" },
-      { "id": "cat-biostimulant", "name": "Biostimulant", "icon": "sprout", "color": "#FF9800" },
-      { "id": "cat-biofertilizer", "name": "Biofertilizer", "icon": "grain", "color": "#9C27B0" }
+      { "id": "cat-biostimulant", "name": "Biostimulant", "icon": "sprout", "color": "#415d34" },
+      { "id": "cat-biofertilizer", "name": "Biofertilizer", "icon": "grain", "color": "#4b653e" }
     ]
   },
 

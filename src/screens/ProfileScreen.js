@@ -198,7 +198,7 @@ const ProfileScreen = ({ navigation }) => {
 
   const renderRnD = () => (
     <View>
-      <SectionImage source={section.image} />
+      {section.carouselImages ? <ImageCarousel images={section.carouselImages} /> : <SectionImage source={section.image} />}
       <Text style={styles.bodyText}>{section.content.description}</Text>
       <Text style={styles.subTitle}>Research Areas</Text>
       {section.content.areas.map((a, i) => (
@@ -255,13 +255,17 @@ const ProfileScreen = ({ navigation }) => {
               <Text style={[styles.statusText, { color: r.status === 'Established' ? '#2E7D32' : r.status === 'Growing' ? '#E65100' : '#7B1FA2' }]}>{r.status}</Text>
             </View>
           </View>
-          <Text style={styles.countries}>{r.countries.join(' | ')}</Text>
+          {r.countries && <Text style={styles.countries}>{r.countries.join(' | ')}</Text>}
         </View>
       ))}
     </View>
   );
 
   const openCertificatePdf = (cert) => {
+    if (cert.subTypes) {
+      navigation.navigate('EcocertSelect');
+      return;
+    }
     if (!cert.pdfAsset) {
       Alert.alert('Not Available', 'Certificate file not available');
       return;

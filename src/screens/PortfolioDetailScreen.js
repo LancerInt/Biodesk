@@ -33,7 +33,10 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         <View style={[styles.heroAccent, { backgroundColor: family.color }]} />
         <View style={styles.heroCardInner}>
           <View style={styles.heroCardLeft}>
-            <Text style={styles.heroName}>{family.name}</Text>
+            <View style={styles.nameRow}>
+              <Text style={styles.heroName}>{family.name}</Text>
+              <Text style={styles.tmSymbol}>{'\u2122'}</Text>
+            </View>
             <Text style={styles.heroIngredient}>{family.activeIngredient}</Text>
             <Text style={styles.heroTagline}>{family.tagline}</Text>
             <View style={styles.heroBadges}>
@@ -167,6 +170,9 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                 <Text style={styles.packPillText}>{size}</Text>
               </View>
             ))}
+            <View style={styles.packPill}>
+              <Text style={styles.packPillText}>Bulk Packing</Text>
+            </View>
           </View>
         </>
       ) : null}
@@ -253,13 +259,13 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                 </View>
                 <View style={styles.dosageBody}>
                   <View style={styles.dosageRow}>
-                    <Text style={styles.dosageLabel}>Dose</Text>
-                    <Text style={styles.dosageValue}>{entry.dose_per_acre}</Text>
+                    <Text style={styles.dosageLabel}>Water</Text>
+                    <Text style={styles.dosageValue}>{entry.water_volume}</Text>
                   </View>
                   <View style={styles.dosageDivider} />
                   <View style={styles.dosageRow}>
-                    <Text style={styles.dosageLabel}>Water</Text>
-                    <Text style={styles.dosageValue}>{entry.water_volume}</Text>
+                    <Text style={styles.dosageLabel}>Dose</Text>
+                    <Text style={styles.dosageValue}>{entry.dose_per_acre}</Text>
                   </View>
                   <View style={styles.dosageDivider} />
                   <View style={styles.dosageRow}>
@@ -387,16 +393,6 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
           </>
         ) : null}
 
-        {/* Compatibility */}
-        {(v.compatibilityStatement || v.compatibility) ? (
-          <>
-            <Text style={styles.sectionTitle}>Compatibility</Text>
-            <View style={styles.moaCard}>
-              <Icon name="handshake" size={20} color={theme.colors.info} />
-              <Text style={styles.moaText}>{v.compatibilityStatement || v.compatibility}</Text>
-            </View>
-          </>
-        ) : null}
 
         {/* Shelf Life & Storage */}
         {(v.shelfLife || v.storageSafety) ? (
@@ -510,7 +506,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title={family.name}
+        title={`${family.name}\u2122`}
         subtitle={family.tagline}
         onBack={() => navigation.goBack()}
       />
@@ -600,6 +596,8 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
     letterSpacing: -0.3,
   },
+  nameRow: { flexDirection: 'row', alignItems: 'flex-start' },
+  tmSymbol: { fontSize: 9, fontWeight: '400', marginTop: 2 },
   heroIngredient: {
     fontSize: 14,
     fontWeight: '500',

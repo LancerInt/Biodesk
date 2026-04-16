@@ -7,12 +7,14 @@
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Ecoza Max is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "product_overview": "Ecoza Max is a high-strength neem-based botanical insecticide formulated as an emulsifiable concentrate containing 3% Azadirachtin extracted from Azadirachta indica seed kernels. Due to its higher concentration of the active ingredient, it delivers stronger efficacy at lower application dosages, making it suitable for intensive pest management programs and large-scale agricultural applications while supporting environmentally responsible pest control practices.",
     "key_product_highlights": [
-      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
-      "Disrupts immature development across multiple insect stages",
-      "Useful in IPM rotations for sucking and chewing pest complexes",
-      "Best performance is obtained with early application and thorough coverage"
+      "Protects Crops from the Damaging Immature and Adult Stage Insects.",
+      "Effective on a Wide Range of Target Pests and Crops.",
+      "Completely Restricts Growth by Disrupting the Hormonal Control of Molting.",
+      "Help Prevent or Delay Resistance in Pests.",
+      "Easy to Handle and Compatible with Other Pesticides.",
+      "Great Tool to Supplement the existing IPM programs."
     ],
     "mechanism_of_action": {
       "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
@@ -44,11 +46,14 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Leaf miners",
+      "Beetles (early stages)"
     ],
     "strain_or_active_strength": "Standardized to 3% azadirachtin.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -74,12 +79,13 @@
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Ecoza Ace is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "product_overview": "Ecoza Ace is a neem-based botanical insecticide formulated as an emulsifiable concentrate containing 1.2% Azadirachtin derived from Azadirachta indica seed kernels. It acts primarily as an antifeedant, insect growth regulator, and repellent, interfering with the feeding, molting, and reproduction of insect pests. It is commonly used for regular pest management programs in agricultural and horticultural crops, providing effective control while maintaining a low environmental impact.",
     "key_product_highlights": [
-      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
-      "Disrupts immature development across multiple insect stages",
-      "Useful in IPM rotations for sucking and chewing pest complexes",
-      "Best performance is obtained with early application and thorough coverage"
+      "Broad Spectrum Biopesticide",
+      "Multiple modes of Action - IGR, Antifeedant, Repellent",
+      "IPM friendly",
+      "Compatible with Beneficials",
+      "Low Residue & better UV Stability."
     ],
     "mechanism_of_action": {
       "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
@@ -111,11 +117,12 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Caterpillars (Helicoverpa, Spodoptera)"
     ],
     "strain_or_active_strength": "Standardized to 1.2% azadirachtin.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -141,12 +148,14 @@
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Ecoza Pro is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "product_overview": "Ecoza Pro is a neem-based botanical insecticide formulated as an Emulsifiable Concentrate (EC) containing 0.3% Azadirachtin as the active ingredient derived from neem seed kernels. It acts primarily as an antifeedant, insect growth regulator, and repellent, disrupting the feeding, molting, and reproductive cycles of insect pests. Ecoza Pro is widely used for the management of sucking and chewing pests in agricultural and horticultural crops and is valued for its biodegradability, low toxicity to non-target organisms, and compatibility with Integrated Pest Management (IPM) and organic farming systems.",
     "key_product_highlights": [
-      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
-      "Disrupts immature development across multiple insect stages",
-      "Useful in IPM rotations for sucking and chewing pest complexes",
-      "Best performance is obtained with early application and thorough coverage"
+      "Broad-Spectrum Biopesticide.",
+      "Over 100 biologically active limonoids.",
+      "Excellent UV stability for prolonged efficacy.",
+      "High emulsification for uniform active ingredient dispersion.",
+      "Great for foliar & systemic applications.",
+      "Superior activity on sucking & mining pests."
     ],
     "mechanism_of_action": {
       "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
@@ -178,11 +187,14 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Leaf miners",
+      "Mites (early stages)"
     ],
     "strain_or_active_strength": "Standardized to 0.3% azadirachtin.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -208,12 +220,13 @@
       "formulation_type": "WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Ecoza Rix is an azadirachtin-based botanical insecticide for management of sucking and chewing pests in field, fruit, and vegetable crops. It fits preventive and early-curative programs where residue-sensitive and resistance-management-compatible options are needed.",
+    "product_overview": "Ecoza Rix is a neem-derived botanical insecticide formulated as a Water Soluble Powder (WP) containing 1.2% Azadirachtin extracted from neem seed kernels. The formulation is designed to readily dissolve in water, ensuring uniform dispersion and ease of application. It functions primarily as an insect growth regulator (IGR), antifeedant, and oviposition deterrent, disrupting the hormonal balance of insect pests and thereby inhibiting their feeding, molting, and reproduction. Ecoza Rix is suitable for use in sustainable crop protection programs, integrated pest management (IPM), and environmentally responsible agricultural practices.",
     "key_product_highlights": [
-      "Neem-derived limonoid with antifeedant and oviposition-suppressive activity",
-      "Disrupts immature development across multiple insect stages",
-      "Useful in IPM rotations for sucking and chewing pest complexes",
-      "Best performance is obtained with early application and thorough coverage"
+      "Multiple modes of action: antifeedant, repellent, sterilant, insect growth regulator, and oviposition deterrent.",
+      "Minimal impact on natural predators and pollinators.",
+      "Suitable IPM and organic programs.",
+      "No phytotoxicity; Biodegradable, non-persistent & Non toxic residue.",
+      "Controls a wide range of pests at multiple life stages."
     ],
     "mechanism_of_action": {
       "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
@@ -245,11 +258,14 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Leaf miners",
+      "Mites (Spider mites)"
     ],
     "strain_or_active_strength": "Standardized to 1.2% azadirachtin.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -275,12 +291,14 @@
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "MargoShine is a neem oil-based botanical pesticide intended for soft-bodied pests, eggs, and early larval stages. It combines contact smothering with neem limonoid activity and performs best where thorough spray coverage can be achieved.",
+    "product_overview": "MargoShine is a natural, broad-spectrum botanical insecticide, acaricide, and fungicide derived from the seeds of the Neem tree (Azadirachta indica). It acts as an antifeedant, repellent, oviposition deterrent, and insect growth regulator. MargoShine interferes with the hormonal balance of pests, preventing molting, feeding, and reproduction. Safe for beneficial insects, it provides effective pest management for sustainable and organic farming systems.",
     "key_product_highlights": [
-      "Provides contact activity plus neem-derived antifeedant effects",
-      "Useful on eggs, nymphs, and soft-bodied adults",
-      "Supports IPM programs with multi-site botanical action",
-      "Coverage-dependent performance makes spray quality critical"
+      "100% natural and biodegradable insecticide.",
+      "Multi-mode action ensures long-lasting control.",
+      "Safe for beneficial insects like honeybees and pollinators.",
+      "No chemical residues on crops.",
+      "Enhances overall plant health and vigor.",
+      "Ideal for IPM and organic farming systems."
     ],
     "mechanism_of_action": {
       "description": "Neem oil coats insect and egg surfaces, disrupting spiracular respiration and cuticular integrity, while associated neem limonoids act as feeding deterrents and mild insect growth regulators. Exposure interferes with endocrine control of molting, lowers feeding intensity, and suppresses oviposition and egg hatch in treated populations."
@@ -312,11 +330,14 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Spider mites",
+      "Caterpillars (early stages)",
+      "Leaf miners"
     ],
     "strain_or_active_strength": "Neem oil standardized to 70% total oil phase.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -342,12 +363,13 @@
       "formulation_type": "WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "MargoRix is a neem oil-based botanical pesticide intended for soft-bodied pests, eggs, and early larval stages. It combines contact smothering with neem limonoid activity and performs best where thorough spray coverage can be achieved.",
+    "product_overview": "MargoRix is a water-soluble neem oil formulation developed for the broad-spectrum management of sucking pests and soft-bodied insects in agricultural and horticultural crops. It functions as an antifeedant, repellent, insect growth regulator, and contact suppressant, disrupting pest feeding and development. The formulation is designed to readily dissolve in water, ensuring easy tank mixing, uniform spray dispersion, and reliable field performance. MargoRix offers convenient handling and consistent application under both open-field and greenhouse cultivation systems, supporting sustainable and environmentally responsible crop protection programs.",
     "key_product_highlights": [
-      "Provides contact activity plus neem-derived antifeedant effects",
-      "Useful on eggs, nymphs, and soft-bodied adults",
-      "Supports IPM programs with multi-site botanical action",
-      "Coverage-dependent performance makes spray quality critical"
+      "Broad-spectrum Biopesticide, Biofungicide, Bioacaricide.",
+      "Multi mode of action repellent, antifeedent, growth regulator, ovicidal, fungistatic.",
+      "Suitable for organic farming and safe for beneficial insects.",
+      "It mixes easily in water & forms a stable solution.",
+      "Zero-residue, environmental safe & ideal for IPM."
     ],
     "mechanism_of_action": {
       "description": "Neem oil coats insect and egg surfaces, disrupting spiracular respiration and cuticular integrity, while associated neem limonoids act as feeding deterrents and mild insect growth regulators. Exposure interferes with endocrine control of molting, lowers feeding intensity, and suppresses oviposition and egg hatch in treated populations."
@@ -379,11 +401,14 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Spider mites",
+      "Caterpillars (early stages)",
+      "Leaf miners"
     ],
     "strain_or_active_strength": "Neem oil standardized to 35% total oil phase.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -409,12 +434,13 @@
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "K-Guard is a karanjin-based botanical pesticide derived from Pongamia seed actives for early control of sucking and chewing pests. It is suited to IPM programs that require a plant-derived antifeedant and population-suppressive spray option.",
+    "product_overview": "K-Guard is a 100% natural botanical bio-acaricide derived from Pongamia glabra (Karanja). It is enriched with karanjin, a naturally occurring furano-flavonoid known for its strong acaricidal, insecticidal, and antimicrobial properties. K-Guard delivers both preventive and curative protection, effectively managing mites and a wide range of insect pests. The formulation supports sustainable crop protection programs, offering broad-spectrum pest control while maintaining a low environmental impact.",
     "key_product_highlights": [
-      "Pongamia-derived botanical with contact and antifeedant properties",
-      "Reduces larval feeding and slows pest population build-up",
-      "Useful in early infestation windows before severe crop injury",
-      "Appropriate for rotation with other natural-origin pest management tools"
+      "100% natural, biodegradable, and eco-friendly.",
+      "Safe for beneficial insects, pollinators, and soil microbes.",
+      "Exhibits insecticidal, repellent, and therapeutic properties.",
+      "Biopesticide, Miticide, Bactericide, Acaricide, suitable for organic farming.",
+      "Enhances plant health and vigor by reducing pest pressure."
     ],
     "mechanism_of_action": {
       "description": "Karanjin acts as a feeding deterrent and contact-active botanical toxicant. It interferes with digestive physiology and insect hormonal regulation in immature stages, reduces larval growth and feeding, and suppresses adult fecundity and oviposition, thereby slowing population build-up."
@@ -446,11 +472,13 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Leaf miners"
     ],
     "strain_or_active_strength": "Standardized to 2% karanjin.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -476,12 +504,12 @@
       "formulation_type": "WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "K-Rix is a karanjin-based botanical pesticide derived from Pongamia seed actives for early control of sucking and chewing pests. It is suited to IPM programs that require a plant-derived antifeedant and population-suppressive spray option.",
+    "product_overview": "K-Rix is a water-soluble powder (WP) formulation of karanja oil developed for the effective management of sucking pests and soft-bodied insects in agricultural and horticultural crops. It functions as an antifeedant, repellent, insect growth regulator, and contact suppressant, disrupting pest feeding and development while helping to reduce pest populations. The formulation is designed to dissolve readily in water, ensuring easy tank mixing, uniform spray coverage, and consistent performance in both field and greenhouse cultivation systems.",
     "key_product_highlights": [
-      "Pongamia-derived botanical with contact and antifeedant properties",
-      "Reduces larval feeding and slows pest population build-up",
-      "Useful in early infestation windows before severe crop injury",
-      "Appropriate for rotation with other natural-origin pest management tools"
+      "Dual action against insect pests and fungal pathogens.",
+      "Water-soluble and easy to mix for uniform spray coverage.",
+      "Non-toxic, residue-free, and safe for beneficial organisms.",
+      "Supports sustainable and organic crop production systems."
     ],
     "mechanism_of_action": {
       "description": "Karanjin acts as a feeding deterrent and contact-active botanical toxicant. It interferes with digestive physiology and insect hormonal regulation in immature stages, reduces larval growth and feeding, and suppresses adult fecundity and oviposition, thereby slowing population build-up."
@@ -513,11 +541,13 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Leaf miners"
     ],
     "strain_or_active_strength": "Standardized to 5% karanjin.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -543,12 +573,12 @@
       "formulation_type": "SC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Spindura Plus is a natural-origin insecticidal formulation based on spinosad for control of thrips and lepidopteran larvae. It is best positioned for early larval stages, rapid feeding cessation, and rotation-based resistance management programs.",
+    "product_overview": "Spindura Plus is a highly effective, broad-spectrum biological insecticide produced through the fermentation of the naturally occurring soil bacterium Saccharopolyspora spinosa. It acts on the nervous system of insect pests, causing rapid feeding cessation and eventual mortality. The product is highly effective against resistant and difficult-to-control insect populations in agricultural and horticultural crops.",
     "key_product_highlights": [
-      "High intrinsic activity against thrips and leaf-feeding larvae",
-      "Rapid feeding cessation after exposure reduces fresh crop injury",
-      "Useful in rotation programs because of a distinct neuroactive mode of action",
-      "Most effective when directed at small larvae and early infestation build-up"
+      "Rapid knockdown and extended residual effect.",
+      "Novel mode of action targets nervous system, often effective where resistance to other insecticides has developed.",
+      "Safe for beneficial insects when used as directed, making it compatible with integrated pest management (IPM) strategies.",
+      "Minimal residue, safe for use close to harvest."
     ],
     "mechanism_of_action": {
       "description": "Spinosad acts primarily on insect nicotinic acetylcholine receptors and secondarily on GABA-gated chloride channels, causing neuromuscular hyperexcitation, paralysis, and death. Treated larvae rapidly cease feeding, population growth is curtailed, and surviving adults often show reduced oviposition and lower egg viability."
@@ -580,11 +610,10 @@
       }
     ],
     "targets": [
-      "thrips",
-      "caterpillars",
-      "leaf miners",
-      "fruit borers",
-      "armyworms"
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Fruit borers",
+      "Leaf miners",
+      "Thrips"
     ],
     "strain_or_active_strength": "Standardized to 25.2% spinosad.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -610,12 +639,13 @@
       "formulation_type": "WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Spindura Rix is a natural-origin insecticidal formulation based on spinosad for control of thrips and lepidopteran larvae. It is best positioned for early larval stages, rapid feeding cessation, and rotation-based resistance management programs.",
+    "product_overview": "Spindura Rix is a naturally derived bio-insecticide obtained through the fermentation of Saccharopolyspora spinosa. It provides rapid knockdown and long-lasting control of a wide range of lepidopteran pests, thrips, and leaf miners. Spinosad acts both by ingestion and contact, targeting the insect's nervous system while remaining safe for beneficial insects and the environment. It is ideal for use in organic and integrated pest management (IPM) systems.",
     "key_product_highlights": [
-      "High intrinsic activity against thrips and leaf-feeding larvae",
-      "Rapid feeding cessation after exposure reduces fresh crop injury",
-      "Useful in rotation programs because of a distinct neuroactive mode of action",
-      "Most effective when directed at small larvae and early infestation build-up"
+      "Fast knockdown action and long residual control.",
+      "Broad-spectrum activity against chewing and sucking pests.",
+      "Derived from natural fermentation – safe for beneficial insects.",
+      "Suitable for organic and IPM cultivation.",
+      "Environmentally safe and leaves no harmful residues."
     ],
     "mechanism_of_action": {
       "description": "Spinosad acts primarily on insect nicotinic acetylcholine receptors and secondarily on GABA-gated chloride channels, causing neuromuscular hyperexcitation, paralysis, and death. Treated larvae rapidly cease feeding, population growth is curtailed, and surviving adults often show reduced oviposition and lower egg viability."
@@ -647,11 +677,10 @@
       }
     ],
     "targets": [
-      "thrips",
-      "caterpillars",
-      "leaf miners",
-      "fruit borers",
-      "armyworms"
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Fruit borers",
+      "Leaf miners",
+      "Thrips"
     ],
     "strain_or_active_strength": "Standardized to 12% spinosad.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -677,12 +706,13 @@
       "formulation_type": "SC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Spindura Pro is a natural-origin insecticidal formulation based on spinosad for control of thrips and lepidopteran larvae. It is best positioned for early larval stages, rapid feeding cessation, and rotation-based resistance management programs.",
+    "product_overview": "Spindura Pro is a biological insecticide produced through the aerobic fermentation of the soil actinomycete Saccharopolyspora spinosa. It provides effective control against a broad spectrum of chewing and sucking insect pests by targeting their nervous system, leading to rapid feeding cessation and pest mortality. The formulation ensures high efficacy even at low application rates, delivering reliable pest management in a wide range of crops. Due to its selective mode of action and low environmental impact, it has minimal effects on beneficial insects.",
     "key_product_highlights": [
-      "High intrinsic activity against thrips and leaf-feeding larvae",
-      "Rapid feeding cessation after exposure reduces fresh crop injury",
-      "Useful in rotation programs because of a distinct neuroactive mode of action",
-      "Most effective when directed at small larvae and early infestation build-up"
+      "Fast knockdown with long residual activity.",
+      "Effective at low doses, providing broad-spectrum pest control.",
+      "Derived from natural fermentation — safe for beneficial insects and pollinators.",
+      "No chemical residues — ideal for residue-free farming.",
+      "Suitable for both organic and IPM programs."
     ],
     "mechanism_of_action": {
       "description": "Spinosad acts primarily on insect nicotinic acetylcholine receptors and secondarily on GABA-gated chloride channels, causing neuromuscular hyperexcitation, paralysis, and death. Treated larvae rapidly cease feeding, population growth is curtailed, and surviving adults often show reduced oviposition and lower egg viability."
@@ -714,11 +744,10 @@
       }
     ],
     "targets": [
-      "thrips",
-      "caterpillars",
-      "leaf miners",
-      "fruit borers",
-      "armyworms"
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Fruit borers",
+      "Leaf miners",
+      "Thrips"
     ],
     "strain_or_active_strength": "Standardized to 2.5% spinosad.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -744,12 +773,13 @@
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "MargoSpin combines neem oil and spinosad in a single botanical-origin foliar spray for mixed sucking and chewing pest pressure. It provides broad biological relevance where both repellency/growth suppression and rapid feeding cessation are required.",
+    "product_overview": "MargoSpin is a synergistic bio-insecticide combining two natural actives—Neem Oil and Spinosad derived from Saccharopolyspora spinosa. Neem oil works as a repellent, antifeedant, and insect growth regulator, disrupting pest feeding and development. Spinosad targets the insect nervous system, leading to rapid feeding cessation and effective pest control. The combination provides broad-spectrum management of chewing and sucking pests in agricultural crops. This dual-action formulation enhances pest control efficacy, helps delay resistance development, and supports sustainable crop protection practices.",
     "key_product_highlights": [
-      "Combines neem-based deterrence with spinosad-driven rapid feeding stoppage",
-      "Useful where sucking pests and early larvae occur together",
-      "Supports integrated programs by combining contact, behavioral, and physiological effects",
-      "Coverage and timely application remain critical for consistent field performance"
+      "Combines two natural insecticides for broad-spectrum control.",
+      "Fast knockdown action with long residual effect.",
+      "Repels and kills pests through multiple biological mechanisms.",
+      "Safe for pollinators, beneficial insects, and the environment.",
+      "100% biodegradable and residue-free — ideal for organic farming."
     ],
     "mechanism_of_action": {
       "description": "The neem oil fraction contributes contact smothering, feeding deterrence, and endocrine disruption that interferes with molting and oviposition, while spinosad acts on nicotinic acetylcholine receptors to induce rapid neuromuscular dysfunction. Together, the formulation suppresses feeding, development, reproduction, and overall pest survival across mixed infestations."
@@ -781,11 +811,15 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Jassids (Leafhoppers)",
+      "Mealybugs",
+      "Caterpillars (Helicoverpa, Spodoptera)",
+      "Leaf miners",
+      "Fruit borers",
+      "Mites (early stages)"
     ],
     "strain_or_active_strength": "Combined actives: neem oil 70% plus spinosad 0.8%.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -806,17 +840,19 @@
   {
     "product_identity": {
       "brand_name": "WeedX",
-      "active_ingredient": "Spinosadc Fatty Acid Blend",
+      "active_ingredient": "Organic Herbicide",
       "concentration": "78%",
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "WeedX is a fatty-acid-based botanical contact pesticide intended for exposed soft-bodied pests and eggs. Performance depends strongly on direct spray contact and is best in early infestations with good canopy access.",
+    "product_overview": "WeedX is a broad-spectrum, non-selective organic herbicide designed for effective control of a wide range of weeds, mosses, algae, and lichens. When applied, it acts on the outer leaf tissues, causing rapid cell disruption that leads to desiccation, wilting, and eventual plant death. The formulation delivers fast-acting results and is effective under a wide range of environmental conditions. WeedX requires minimal sunlight or heat to perform effectively, making it reliable for diverse field conditions.",
     "key_product_highlights": [
-      "Contact-active fatty acid blend for exposed pest stages",
-      "Disrupts cuticular integrity and quickly reduces mobility and feeding",
-      "Useful where residue-sensitive, short-persistence sprays are preferred",
-      "Requires thorough spray wetting because activity is primarily contact-based"
+      "Glyphosate free, Broad spectrum & Non-selective weed control.",
+      "Highly effective to be used in both organic and conventional weed management programs.",
+      "High formulation stability allows for better spreading and rapid knockdown.",
+      "Achieves total kill within 12 - 72 hours depending on environmental conditions.",
+      "Unique mode of action that shuts down photosynthesis and kills only weeds.",
+      "Not harmful to beneficial crops when used as directed."
     ],
     "mechanism_of_action": {
       "description": "Contact-active fatty acids solubilize cuticular lipids and disrupt cell membranes, causing leakage, desiccation, and rapid loss of mobility in exposed pests. Feeding stops soon after contact, egg viability is reduced on treated surfaces, and repeated coverage suppresses population establishment and reproduction."
@@ -848,11 +884,9 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "mealybugs",
-      "mites"
+      "Broadleaf weeds",
+      "Grassy weeds (young stage)",
+      "Sedges (early stage)"
     ],
     "strain_or_active_strength": "Standardized to 78% fatty acid blend.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -874,16 +908,17 @@
     "product_identity": {
       "brand_name": "Admira Adyme",
       "active_ingredient": "Thyme Oil",
-      "concentration": "18%",
-      "formulation_type": "WP",
+      "concentration": null,
+      "formulation_type": "EC & WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Admira Adyme is a thyme oil-based botanical pesticide for suppression of soft-bodied pests and early larval stages. It is suited to coverage-dependent foliar use where volatile phenolic actives can provide contact, repellent, and behavioral disruption.",
+    "product_overview": "Admira Adyme is a plant-based botanical bio-insecticide formulated with thyme oil extracted from Thymus species. It contains naturally occurring compounds such as thymol, which provide strong insecticidal, antimicrobial, and repellent properties. It acts primarily through contact and fumigant action, disrupting pests and affecting their respiration and cellular functions. It is effective against a wide range of insect pests and mites in agricultural crops. Due to its natural origin, biodegradability, and low environmental impact, Admira Adyme is well suited for sustainable crop protection and Integrated Pest Management (IPM) programs.",
     "key_product_highlights": [
-      "Thyme phenolics provide contact, repellent, and behavioral effects",
-      "Useful on early pest establishment and exposed colonies",
-      "Supports natural-origin spray programs and rotational use",
-      "Best applied under cooler conditions to preserve volatile actives"
+      "Contains natural essential oil with high thymol (36–55%) and carvacrol levels.",
+      "Provides broad-spectrum antimicrobial and insecticidal action.",
+      "Rapid knockdown and deterrent effect on common insect pests and fungal pathogens.",
+      "Biodegradable with minimal environmental impact.",
+      "Safe for use in organic and sustainable agriculture systems."
     ],
     "mechanism_of_action": {
       "description": "Thyme oil constituents such as thymol and related phenolics disrupt cell membranes and alter neurophysiological signaling in exposed insects. The treatment acts as a feeding deterrent, interferes with immature development and oviposition, and suppresses pest establishment on treated foliage."
@@ -915,11 +950,16 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Spider mites",
+      "Mealybugs",
+      "Powdery mildew",
+      "Downy mildew",
+      "Leaf spot diseases",
+      "Blight (early stages)",
+      "Damping-off (preventive stage)"
     ],
     "strain_or_active_strength": "Standardized to 18% Thyme Oil.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -941,16 +981,17 @@
     "product_identity": {
       "brand_name": "Admira Admon",
       "active_ingredient": "Cinnamon Oil",
-      "concentration": "11%",
-      "formulation_type": "WP",
+      "concentration": null,
+      "formulation_type": "EC & WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Admira Admon is a cinnamon oil-based botanical foliar pesticide designed for early intervention against sucking pests and tender larval stages. It combines volatile contact activity with repellent and oviposition-suppressive effects.",
+    "product_overview": "Admira Admon is a plant-based botanical bio-insecticide formulated with cinnamon oil extracted from Cinnamomum species. It contains naturally occurring compounds such as cinnamaldehyde, which provide strong insecticidal, repellent, and antimicrobial properties. Admira Admon works primarily through contact and fumigant action, disrupting pest activity and affecting their respiration and cellular functions. It is effective against a wide range of insect pests, mites, and certain fungal pathogens in agricultural and horticultural crops. Due to its natural origin, biodegradability, and low environmental impact, it is well suited for sustainable crop protection and Integrated Pest Management (IPM) programs.",
     "key_product_highlights": [
-      "Cinnamaldehyde-rich botanical with strong volatile contact character",
-      "Reduces pest feeding and settlement on treated surfaces",
-      "Appropriate for rotation within natural-origin programs",
-      "Field performance improves when applications are well timed and well covered"
+      "Botanical active ingredient — suitable for reduced-risk/eco-aware programs.",
+      "Broad-spectrum activity against a range of chewing and sucking insects, mites, and certain fungal pathogens.",
+      "Fast knockdown and repellency for many target pests.",
+      "Low residue profile when used as directed.",
+      "Compatible with many IPM strategies; may reduce reliance on synthetic chemistries."
     ],
     "mechanism_of_action": {
       "description": "Cinnamon oil constituents, especially cinnamaldehyde-rich fractions, disrupt membrane integrity and respiratory metabolism in exposed insects. The treatment deters feeding, disturbs developmental physiology in immature stages, and suppresses oviposition and egg viability on treated crop surfaces."
@@ -982,11 +1023,16 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Spider mites",
+      "Mealybugs",
+      "Leaf miners (early stages)",
+      "Powdery mildew",
+      "Downy mildew (early stage)",
+      "Leaf spot diseases",
+      "Blight (early stage)"
     ],
     "strain_or_active_strength": "Standardized to 11% Cinnamon Oil.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -1008,16 +1054,17 @@
     "product_identity": {
       "brand_name": "Admira Adrlic",
       "active_ingredient": "Garlic Oil",
-      "concentration": "8%",
-      "formulation_type": "WP",
+      "concentration": null,
+      "formulation_type": "EC & WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Admira Adrlic is a garlic oil-based botanical pesticide for repellent and contact management of sucking pests and early larvae. It is particularly relevant where a strong volatile barrier effect is desired on actively growing crop canopies.",
+    "product_overview": "Admira Adrlic is a plant-based botanical bio-insecticide formulated with garlic oil extracted from Allium sativum. It contains naturally occurring sulfur compounds such as allicin, known for their insecticidal, repellent, and antimicrobial properties. Admira Adrlic works primarily through contact and repellent action, disrupting pest feeding and activity. It is effective against a wide range of insect pests and mites in agricultural and horticultural crops. Due to its natural origin, biodegradability, and low environmental impact, it supports sustainable crop protection and Integrated Pest Management (IPM) programs.",
     "key_product_highlights": [
-      "Organosulfur volatiles provide strong repellent and contact activity",
-      "Helps reduce pest settlement on tender crop growth",
-      "Useful in preventive and early-curative botanical programs",
-      "Works best with repeated coverage during active infestation windows"
+      "Natural botanical repellent with low mammalian toxicity.",
+      "Broad-spectrum control with contact and vapor-phase action.",
+      "Safe for pollinators and beneficial insects when used correctly.",
+      "Fast biodegradation and residue-free produce.",
+      "Ideal for IPM and organic farming programs."
     ],
     "mechanism_of_action": {
       "description": "Garlic oil organosulfur compounds act as feeding deterrents and volatile repellents while also disturbing respiratory and membrane-associated processes in exposed insects. This reduces feeding intensity, impairs immature development, and suppresses adult settling and oviposition on treated surfaces."
@@ -1049,11 +1096,13 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Spider mites",
+      "Mealybugs",
+      "Caterpillars (early stages)",
+      "Leaf miners (early stages)"
     ],
     "strain_or_active_strength": "Standardized to 8% Garlic Oil.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
@@ -1075,16 +1124,17 @@
     "product_identity": {
       "brand_name": "Admira Adove",
       "active_ingredient": "Clove Oil",
-      "concentration": "12%",
-      "formulation_type": "WP",
+      "concentration": null,
+      "formulation_type": "EC & WP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Admira Adove is a clove oil-based botanical foliar pesticide for management of soft-bodied pests and exposed larval stages. It is suited to natural-origin spray programs where eugenol-rich volatile activity can provide rapid behavioral and contact effects.",
+    "product_overview": "Admira Adove is a plant-based botanical bio-insecticide formulated with clove oil extracted from Syzygium aromaticum. It contains naturally occurring compounds such as eugenol, known for their insecticidal, repellent, and antimicrobial properties. Admira Adove acts primarily through contact action, disrupting pest cell membranes and physiological processes. It is effective against a broad range of insect pests and mites in agricultural and horticultural crops. Due to its natural origin, biodegradability, and low environmental impact, it is suitable for sustainable crop protection and Integrated Pest Management (IPM) programs.",
     "key_product_highlights": [
-      "Eugenol-rich botanical with contact and repellent activity",
-      "Rapidly reduces feeding and mobility of exposed pests",
-      "Useful for early canopy protection and botanical rotation",
-      "Performance depends on direct contact and complete coverage"
+      "Natural alternative to synthetic fungicides and insecticides",
+      "Broad-spectrum antimicrobial and insecticidal activity",
+      "Enhances plant health by reducing disease and pest pressure",
+      "Safe for beneficial insects and non-target organisms when used as directed",
+      "Compatible with most agrochemicals and fertilizers"
     ],
     "mechanism_of_action": {
       "description": "Clove oil constituents dominated by eugenol disrupt membrane function and neurophysiological signaling in exposed insects. The treatment acts as a feeding deterrent, interferes with immature development and oviposition, and reduces pest survival on treated plant surfaces."
@@ -1116,11 +1166,12 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "caterpillars",
-      "leaf miners"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Spider mites",
+      "Mealybugs",
+      "Leaf miners (early stages)"
     ],
     "strain_or_active_strength": "Standardized to 12% Clove Oil.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",

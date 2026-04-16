@@ -4,15 +4,17 @@
       "brand_name": "Zenita",
       "active_ingredient": "Neem Peptide Extract",
       "concentration": "40%",
-      "formulation_type": "WP",
+      "formulation_type": "EC",
       "category": "Biostimulant"
     },
-    "product_overview": "Zenita is a peptide-rich biostimulant derived from neem-based plant extract fractions for improving crop vigor and stress recovery. It is intended for foliar use where rapid metabolic activation and better nutrient assimilation are required.",
+    "product_overview": "Zenita is a next-generation neem-based biostimulant formulated with neem-derived soluble proteins and limonoids. It promotes vigorous vegetative growth, enhances plant resilience against abiotic stress, and strengthens overall plant structure. Its natural neem compounds ensure safe, eco-friendly, and sustainable performance across diverse crop systems.",
     "key_product_highlights": [
-      "Plant-derived peptide fraction for metabolic activation and crop recovery",
-      "Supports nutrient assimilation and early vegetative vigor",
-      "Helps crops tolerate transient abiotic stress",
-      "Suitable for preventive and recovery-oriented foliar programs"
+      "100% plant-derived formulation with bioactive growth-enhancing compounds.",
+      "Stimulates vegetative growth and root development.",
+      "Enhances photosynthesis and nutrient uptake.",
+      "Builds stress tolerance under adverse climatic conditions.",
+      "Improves plant vigor, structure, and overall yield potential.",
+      "Environmentally safe and compatible with organic farming practices."
     ],
     "mechanism_of_action": {
       "description": "Bioactive peptides and low-molecular-weight plant compounds are absorbed by foliage and act as metabolic activators, stimulating enzyme systems, nutrient transport, and root-associated growth responses. This improves nutrient uptake efficiency, supports stress tolerance through osmotic and antioxidant regulation, and promotes faster recovery of active growth."
@@ -43,15 +45,9 @@
         "recommendation": "Apply soon after stress relief to reactivate metabolism and canopy growth."
       }
     ],
-    "targets": [
-      "early vigor",
-      "nutrient-use efficiency",
-      "transplant stress",
-      "heat or moisture stress recovery",
-      "root growth stimulation"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Standardized to 40% neem peptide extract.",
-    "shelf_life_statement": "Typical shelf life: 18-24 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Generally compatible with neutral-pH fertilizers and crop inputs; avoid highly alkaline or strongly acidic concentrates.",
     "problem_solution": [
       {
@@ -71,15 +67,16 @@
       "brand_name": "Cropsia",
       "active_ingredient": "Plant Extract Complex",
       "concentration": "4%",
-      "formulation_type": "WP",
+      "formulation_type": "EC",
       "category": "Biostimulant"
     },
-    "product_overview": "Cropsia is a plant extract complex formulated as a foliar biostimulant for improving crop metabolism and stress resilience. It is suited to routine support programs where gradual enhancement of vigor and nutrient response is required.",
+    "product_overview": "Cropsia is a premium biostimulant formulated from Adhatoda vasica extract, known for enhancing plant growth and resilience. It promotes vegetative growth by stimulating root and shoot development, increasing chlorophyll content, and enhancing stress tolerance. The extract is rich in bioactive compounds like vasicine, which support antioxidant and antimicrobial activity. Cropsia improves crop vigor naturally, aiding plants to better withstand drought and oxidative stress. Ideal for use in sustainable and organic agriculture practices.",
     "key_product_highlights": [
-      "Botanical extract complex for routine metabolic support",
-      "Improves plant vigor, nutrient response, and recovery capacity",
-      "Supports balanced growth under variable field conditions",
-      "Useful in low-intensity, repeat foliar biostimulant programs"
+      "Stimulates vigorous plant growth and improved crop yield.",
+      "Increases drought and oxidative stress tolerance.",
+      "Improves nutrient uptake and chlorophyll synthesis.",
+      "Enhances plant defense mechanisms naturally.",
+      "Suitable for organic and sustainable farming."
     ],
     "mechanism_of_action": {
       "description": "Plant-derived metabolites act as metabolic primers that stimulate enzyme activity, improve nutrient uptake processes, and support root-growth signaling. This enhances plant resilience to abiotic stress, promotes steady vegetative development, and improves physiological efficiency during active growth."
@@ -110,15 +107,9 @@
         "recommendation": "Follow with repeat spray where crop recovery is delayed."
       }
     ],
-    "targets": [
-      "vegetative vigor",
-      "nutrient uptake enhancement",
-      "stress tolerance",
-      "root initiation",
-      "recovery from growth checks"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Standardized to 4% plant extract complex.",
-    "shelf_life_statement": "Typical shelf life: 18-24 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Generally compatible with neutral-pH fertilizers and crop inputs; avoid highly alkaline or strongly acidic concentrates.",
     "problem_solution": [
       {
@@ -138,15 +129,17 @@
       "brand_name": "Blooma",
       "active_ingredient": "Seaweed Extract",
       "concentration": "32%",
-      "formulation_type": "SC",
+      "formulation_type": "EC",
       "category": "Biostimulant"
     },
-    "product_overview": "Blooma is a seaweed extract suspension concentrate for improving crop vigor, stress buffering, and reproductive performance. It is suited to foliar programs around vegetative expansion, flowering, and fruit set.",
+    "product_overview": "Blooma is a natural biostimulant derived from Ascophyllum nodosum seaweed extract. It is formulated to enhance plant growth, root development, and stress tolerance through the action of naturally occurring phytohormones such as cytokinins, auxins, and gibberellins. Blooma promotes healthier, more productive crops by improving nutrient uptake, stimulating enzymatic activity, and supporting balanced plant physiology.",
     "key_product_highlights": [
-      "Seaweed-derived biostimulant rich in polysaccharides and betaines",
-      "Supports root development, nutrient uptake, and stress buffering",
-      "Useful around flowering and fruit set to stabilize plant physiology",
-      "Suitable for repeated foliar use across multiple crop stages"
+      "100% natural and organic seaweed extract",
+      "Enhances root growth and nutrient absorption",
+      "Increases stress tolerance (heat, drought, salinity)",
+      "Improves flowering, fruit set, and yield quality",
+      "Stimulates soil microbial activity and soil health",
+      "Safe, biodegradable, and suitable for organic farming"
     ],
     "mechanism_of_action": {
       "description": "Seaweed-derived polysaccharides, betaines, and hormone-like compounds activate plant metabolism, improve membrane function, and stimulate root growth responses. This enhances nutrient uptake, increases tolerance to drought, salinity, and temperature stress, and supports more stable reproductive development."
@@ -177,15 +170,9 @@
         "recommendation": "Apply before or immediately after stress periods to stabilize metabolism."
       }
     ],
-    "targets": [
-      "root growth stimulation",
-      "flowering support",
-      "fruit set support",
-      "abiotic stress tolerance",
-      "nutrient uptake enhancement"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Standardized to 32% seaweed extract solids.",
-    "shelf_life_statement": "Typical shelf life: 18-24 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Generally compatible with neutral-pH fertilizers and crop inputs; avoid highly alkaline or strongly acidic concentrates.",
     "problem_solution": [
       {
@@ -204,16 +191,17 @@
     "product_identity": {
       "brand_name": "EnRhize",
       "active_ingredient": "Mycorrhizal Fungi",
-      "concentration": ">1500 spores/gram",
-      "formulation_type": "WP",
+      "concentration": ">500 spores/gram",
+      "formulation_type": "WP & EC",
       "category": "Biostimulant"
     },
-    "product_overview": "EnRhize is a mycorrhizal fungal inoculant designed to enhance root exploration and nutrient capture through symbiotic colonization. It is best used at planting or transplanting where root-zone establishment and phosphorus acquisition are critical.",
+    "product_overview": "EnRhize is a biofertilizer based on Vesicular Arbuscular Mycorrhiza (VAM), consisting of beneficial fungi that form a symbiotic association with plant roots. It enhances the plant's ability to absorb water and essential nutrients, especially phosphorus, from the soil. The mycorrhizal network improves root surface area and nutrient efficiency, leading to stronger plant growth. EnRhize also helps improve soil structure and stress tolerance in plants. It is widely used in sustainable agriculture and organic farming systems.",
     "key_product_highlights": [
-      "Symbiotic root inoculant that extends the absorptive root network",
-      "Improves phosphorus and micronutrient acquisition from soil",
-      "Supports drought tolerance and root-zone resilience",
-      "Most effective when applied directly to the active root zone"
+      "Boosts root mass & effective root area.",
+      "Improves nutrient uptake (P, Zn, Fe, Ca, micros).",
+      "Improves plant vigor & early establishment.",
+      "Reduces transplant shock & abiotic stress.",
+      "Strengthens soil microbiome & fertility."
     ],
     "mechanism_of_action": {
       "description": "Mycorrhizal fungi colonize feeder roots and develop an external hyphal network that extends beyond the depletion zone surrounding roots. This symbiosis stimulates root growth, enhances uptake of phosphorus and other immobile nutrients, improves water extraction from soil, and increases tolerance to abiotic stress during establishment and active growth."
@@ -244,15 +232,9 @@
         "recommendation": "Reapply to the root zone when establishment was delayed or root growth remains weak."
       }
     ],
-    "targets": [
-      "root colonization",
-      "phosphorus uptake",
-      "micronutrient uptake",
-      "drought tolerance",
-      "transplant establishment"
-    ],
-    "strain_or_active_strength": "Mycorrhizal inoculum strength: >1500 spores/gram.",
-    "shelf_life_statement": "Typical shelf life: 18-24 months in the unopened original pack under cool, dry, shaded storage.",
+    "targets": [],
+    "strain_or_active_strength": "Mycorrhizal inoculum strength: >500 spores/gram.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Generally compatible with neutral-pH fertilizers and crop inputs; avoid highly alkaline or strongly acidic concentrates.",
     "problem_solution": [
       {
@@ -272,15 +254,16 @@
       "brand_name": "Envicta",
       "active_ingredient": "Humic + Fulvic + Amino Complex",
       "concentration": ">30%",
-      "formulation_type": "SC",
+      "formulation_type": "EC",
       "category": "Biostimulant"
     },
-    "product_overview": "Envicta is a humic, fulvic, and amino acid complex designed to improve nutrient efficiency, root development, and stress recovery. It is suitable for foliar and root-zone support where both carbon-based chelation and metabolic activation are valuable.",
+    "product_overview": "Envicta is a plant biostimulant formulation composed of humic acid, fulvic acid, and amino acids. It enhances soil fertility and nutrient availability by improving nutrient chelation and uptake efficiency. The formulation stimulates root development, plant metabolism, and overall growth performance. Envicta also helps improve soil structure, microbial activity, and stress tolerance in crops. It is widely used in sustainable agriculture to support higher productivity and healthier plant growth.",
     "key_product_highlights": [
-      "Combines humic substances, fulvic fractions, and amino compounds",
-      "Improves nutrient chelation, transport, and root stimulation",
-      "Supports crop recovery from abiotic and nutritional stress",
-      "Useful across vegetative and reproductive crop stages"
+      "Promotes flowering, fruit set, and yield quality.",
+      "Enhances nutrient uptake and efficiency (NPK + micronutrients).",
+      "Increases resistence to stress and diseases.",
+      "Improves soil fertility and long term productivity.",
+      "Reduces abiotic stress."
     ],
     "mechanism_of_action": {
       "description": "Humic substances improve root membrane activity and rhizosphere nutrient exchange, fulvic fractions enhance solubility and translocation of nutrients, and amino compounds directly support plant metabolism. Together they activate growth processes, improve nutrient uptake efficiency, stimulate root growth, and strengthen tolerance to abiotic stress."
@@ -311,15 +294,9 @@
         "recommendation": "Apply promptly after stress to accelerate physiological recovery."
       }
     ],
-    "targets": [
-      "root growth stimulation",
-      "nutrient-use efficiency",
-      "stress recovery",
-      "chelated nutrient transport",
-      "soil-plant metabolic activation"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Bioactive complex content: >30%.",
-    "shelf_life_statement": "Typical shelf life: 18-24 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Generally compatible with neutral-pH fertilizers and crop inputs; avoid highly alkaline or strongly acidic concentrates.",
     "problem_solution": [
       {
@@ -339,15 +316,17 @@
       "brand_name": "Orgocare",
       "active_ingredient": "Bioactive Plant Metabolites",
       "concentration": ">12%",
-      "formulation_type": "SC",
+      "formulation_type": "EC",
       "category": "Biostimulant"
     },
-    "product_overview": "Orgocare is a bioactive plant metabolite concentrate formulated to stimulate crop metabolism and stress resilience. It is intended for foliar programs where physiological priming and recovery support are needed during key growth transitions.",
+    "product_overview": "Orgocare is an organic transpiration inhibitor, which reduces the perspiration rate and improves plant health. It is an anti-transpirant and anti-stress product that protects the plant tissues from the thermic effect of light. It acts as a protective shield against water loss, frost protector and plant stress regulator, without interfering the plant growth or materially affecting respiration, osmosis or photosynthesis.",
     "key_product_highlights": [
-      "Concentrated plant metabolite biostimulant for physiological priming",
-      "Supports active metabolism, nutrient utilization, and crop resilience",
-      "Useful around growth transitions and stress-prone periods",
-      "Suitable for repeated low-volume foliar support programs"
+      "Reduces the Perspiration Rate.",
+      "Does not interfere with the Plant Growth and photosynthetic processes.",
+      "Provides a shiny leaf and allows for a better plant appearance.",
+      "Application on seedlings and new transplants enables healthier early rooting.",
+      "Acts as an excellent plant de-stressing agent during drought, frost and cold weather.",
+      "Helps to maintain relative water content of the plant cells."
     ],
     "mechanism_of_action": {
       "description": "Bioactive plant metabolites act as signaling and metabolic priming molecules that enhance enzyme activity, nutrient uptake pathways, and antioxidant defense systems. This stimulates root growth responses, improves tolerance to abiotic stress, and supports steadier plant performance during high-demand growth phases."
@@ -378,15 +357,9 @@
         "recommendation": "Apply promptly after stress to support physiological rebound."
       }
     ],
-    "targets": [
-      "metabolic activation",
-      "stress tolerance",
-      "nutrient utilization",
-      "root growth support",
-      "growth transition recovery"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Standardized bioactive metabolite content: >12%.",
-    "shelf_life_statement": "Typical shelf life: 18-24 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Generally compatible with neutral-pH fertilizers and crop inputs; avoid highly alkaline or strongly acidic concentrates.",
     "problem_solution": [
       {

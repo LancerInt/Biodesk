@@ -7,6 +7,7 @@ import {
   StyleSheet,
   SectionList,
   Dimensions,
+  Platform,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { Image } from 'expo-image';
@@ -125,26 +126,13 @@ const ProductsScreen = ({ navigation }) => {
 
           {/* Info */}
           <View style={styles.cardInfo}>
-            <Text style={styles.cardName} numberOfLines={1}>{item.name}</Text>
-            <Text style={styles.cardIngredient} numberOfLines={1}>
+            <View style={styles.nameRow}>
+              <Text style={styles.cardName} numberOfLines={1}>{item.name}</Text>
+              <Text style={styles.tmSymbol}>{'\u2122'}</Text>
+            </View>
+            <Text style={[styles.cardIngredient, item.subcategory === 'Microbial Pesticide' && { fontStyle: 'italic', fontFamily: Platform.OS === 'android' ? 'serif' : undefined }]} numberOfLines={1}>
               {item.activeIngredient}
             </Text>
-            <View style={styles.cardBadges}>
-              {item.formulation && (
-                <View style={[styles.badge, { backgroundColor: formColor + '14' }]}>
-                  <Text style={[styles.badgeText, { color: formColor }]}>
-                    {item.formulation}
-                  </Text>
-                </View>
-              )}
-              {item.concentration && (
-                <View style={[styles.badge, { backgroundColor: '#F5F5F5' }]}>
-                  <Text style={[styles.badgeText, { color: '#616161' }]}>
-                    {item.concentration}
-                  </Text>
-                </View>
-              )}
-            </View>
           </View>
 
           {/* Arrow */}
@@ -304,15 +292,18 @@ const styles = StyleSheet.create({
     paddingRight: 14,
   },
   cardImageWrap: {
-    width: 56,
-    height: 72,
+    width: 85,
+    height: 85,
     marginRight: 12,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 10,
+    overflow: 'hidden',
+    backgroundColor: '#F9F9F9',
   },
   cardImage: {
-    width: '100%',
-    height: '100%',
+    width: 81,
+    height: 81,
   },
   cardIcon: {
     width: 56,
@@ -331,11 +322,21 @@ const styles = StyleSheet.create({
     color: '#1B1B1B',
     letterSpacing: -0.2,
   },
+  nameRow: { flexDirection: 'row', alignItems: 'flex-start' },
+  tmSymbol: { fontSize: 8, fontWeight: '400', marginTop: 2 },
   cardIngredient: {
     fontSize: 13,
     color: '#757575',
     marginTop: 2,
     lineHeight: 18,
+  },
+  cardIngredientMicrobial: {
+    fontSize: 13,
+    color: '#757575',
+    marginTop: 2,
+    lineHeight: 18,
+    fontStyle: 'italic',
+    ...(Platform.OS === 'android' && { fontFamily: 'sans-serif' }),
   },
   cardBadges: {
     flexDirection: 'row',

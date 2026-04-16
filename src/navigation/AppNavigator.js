@@ -27,6 +27,7 @@ import LeadImagesScreen from '../screens/LeadImagesScreen';
 import LeadAudioScreen from '../screens/LeadAudioScreen';
 import CertificatesScreen from '../screens/CertificatesScreen';
 import CertificateViewerScreen from '../screens/CertificateViewerScreen';
+import EcocertSelectScreen from '../screens/EcocertSelectScreen';
 import PresentationViewerScreen from '../screens/PresentationViewerScreen';
 import LiveScannerScreen from '../screens/LiveScannerScreen';
 const Stack = createNativeStackNavigator();
@@ -65,6 +66,7 @@ const AppNavigator = () => (
       <Stack.Screen name="TechnologyComparison" component={TechnologyComparisonScreen} />
       <Stack.Screen name="Certificates" component={CertificatesScreen} />
       <Stack.Screen name="CertificateViewer" component={CertificateViewerScreen} />
+      <Stack.Screen name="EcocertSelect" component={EcocertSelectScreen} />
       <Stack.Screen name="PresentationViewer" component={PresentationViewerScreen} options={{ animation: 'fade' }} />
       <Stack.Screen name="LiveScanner" component={LiveScannerScreen} options={{ animation: 'slide_from_bottom' }} />
     </Stack.Navigator>

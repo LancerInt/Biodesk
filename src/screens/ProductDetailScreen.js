@@ -69,7 +69,10 @@ const ProductDetailScreen = ({ route, navigation }) => {
             width: isLandscape ? '60%' : undefined,
             paddingRight: isLandscape ? 28 : (isTablet ? 16 : 0),
           }]}>
-            <Text style={[styles.heroName, { fontSize: isTablet ? (isLandscape ? 32 : 28) : 24 }]}>{product.name}</Text>
+            <View style={styles.nameRow}>
+              <Text style={[styles.heroName, { fontSize: isTablet ? (isLandscape ? 32 : 28) : 24 }]}>{product.name}</Text>
+              <Text style={styles.tmSymbol}>{'\u2122'}</Text>
+            </View>
             <Text style={styles.heroIngredient}>{product.activeIngredient}</Text>
             <View style={styles.heroBadges}>
               <View style={[styles.heroPill, { backgroundColor: catColor + '10', borderColor: catColor + '30' }]}>
@@ -195,6 +198,9 @@ const ProductDetailScreen = ({ route, navigation }) => {
                 <Text style={styles.packPillText}>{size}</Text>
               </View>
             ))}
+            <View style={styles.packPill}>
+              <Text style={styles.packPillText}>Bulk Packing</Text>
+            </View>
           </View>
         </>
       ) : null}
@@ -302,13 +308,13 @@ const ProductDetailScreen = ({ route, navigation }) => {
               </View>
               <View style={styles.dosageBody}>
                 <View style={styles.dosageRow}>
-                  <Text style={styles.dosageLabel}>Dose</Text>
-                  <Text style={styles.dosageValue}>{entry.dose_per_acre}</Text>
+                  <Text style={styles.dosageLabel}>Water</Text>
+                  <Text style={styles.dosageValue}>{entry.water_volume}</Text>
                 </View>
                 <View style={styles.dosageDivider} />
                 <View style={styles.dosageRow}>
-                  <Text style={styles.dosageLabel}>Water</Text>
-                  <Text style={styles.dosageValue}>{entry.water_volume}</Text>
+                  <Text style={styles.dosageLabel}>Dose</Text>
+                  <Text style={styles.dosageValue}>{entry.dose_per_acre}</Text>
                 </View>
                 <View style={styles.dosageDivider} />
                 <View style={styles.dosageRow}>
@@ -441,16 +447,6 @@ const ProductDetailScreen = ({ route, navigation }) => {
         </>
       ) : null}
 
-      {/* Compatibility */}
-      {(product.compatibilityStatement || product.compatibility) ? (
-        <>
-          <Text style={styles.sectionTitle}>Compatibility</Text>
-          <View style={styles.moaCard}>
-            <Icon name="handshake" size={20} color={theme.colors.info} />
-            <Text style={styles.moaText}>{product.compatibilityStatement || product.compatibility}</Text>
-          </View>
-        </>
-      ) : null}
 
       {/* Shelf Life & Storage */}
       {(product.shelfLife || product.storageSafety) ? (
@@ -555,7 +551,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title={product.name} subtitle={product.category} onBack={() => navigation.goBack()} />
+      <Header title={`${product.name}\u2122`} subtitle={product.category} onBack={() => navigation.goBack()} />
 
       {/* Tabs */}
       <View style={styles.tabBar}>
@@ -767,6 +763,8 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
     letterSpacing: -0.3,
   },
+  nameRow: { flexDirection: 'row', alignItems: 'flex-start' },
+  tmSymbol: { fontSize: 9, fontWeight: '400', marginTop: 2 },
   heroIngredient: {
     fontSize: 14,
     fontWeight: '500',

@@ -7,12 +7,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Mycova is a Beauveria bassiana wettable powder containing viable conidia for biological control of canopy-dwelling insect pests. It performs best under humid conditions and at early infestation stages where spore adhesion and germination are favored.",
+    "product_overview": "Mycova is a biological insecticide based on the naturally occurring entomopathogenic fungus Beauveria bassiana. The fungus infects insect pests by attaching to their outer cuticle, penetrating the body, and multiplying inside the host, ultimately causing the insect's death. Mycova provides effective control against a wide range of insect pests, including aphids, whiteflies, thrips, beetles, and caterpillars. It is valued for its target-specific action, environmental safety, and minimal impact on beneficial organisms. Due to these advantages, Mycova is widely used in Integrated Pest Management (IPM) and sustainable agricultural practices.",
     "key_product_highlights": [
-      "Entomopathogenic fungus for biological control of foliar insect pests",
-      "Penetrates the insect cuticle after spore germination",
-      "Compatible with IPM programs when microbial viability is protected",
-      "Field efficacy improves with humidity, coverage, and early use"
+      "Acts as a biological insecticide (entomopathogenic fungus)",
+      "Infects and kills insects through cuticle penetration",
+      "Provides broad-spectrum pest control",
+      "Safe for beneficial insects (when used correctly)",
+      "Suitable for organic farming and IPM programs",
+      "Leaves no harmful residues",
+      "Helps in resistance management",
+      "Improves sustainable crop protection"
     ],
     "mechanism_of_action": {
       "description": "Beauveria bassiana conidia adhere to the insect cuticle, germinate, and penetrate through enzymatic degradation using proteases, chitinases, and lipases. The fungus colonizes the hemocoel, produces insecticidal secondary metabolites, and suppresses the pest through mycosis followed by external sporulation."
@@ -44,11 +48,13 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "mealybugs",
-      "caterpillars"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Mealybugs",
+      "Termites",
+      "Beetles",
+      "Caterpillars (early stages)"
     ],
     "strain_or_active_strength": "Viable conidial load: 1 × 10⁹ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -74,12 +80,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Rexora is a Metarhizium anisopliae wettable powder for biological suppression of soil-associated and foliar insect pests. It is especially relevant where cuticle-infecting fungal control is needed against persistent field populations.",
+    "product_overview": "Rexora is a biological insecticide based on the naturally occurring entomopathogenic fungus Metarhizium anisopliae. The fungus infects insect pests by attaching to their outer cuticle, penetrating the body, and proliferating inside the host, ultimately leading to the insect's death. Rexora is effective against a wide range of soil and foliar insect pests, including termites, beetles, and other soil-dwelling insects. It is valued for its target-specific action, environmental safety, and minimal impact on beneficial organisms. Due to these properties, Rexora is suitable for Integrated Pest Management (IPM) and sustainable agricultural practices.",
     "key_product_highlights": [
-      "Entomopathogenic fungus active against several soil and foliage insect pests",
-      "Infects through spore adhesion, germination, and cuticle penetration",
-      "Useful in biological programs targeting persistent field populations",
-      "Performs best when moisture supports conidial survival and infection"
+      "Acts as a biological insecticide (entomopathogenic fungus)",
+      "Infects insects through cuticle penetration and sporulation",
+      "Highly effective against soil-dwelling pests",
+      "Provides long-lasting pest suppression in soil",
+      "Safe for beneficial organisms when used correctly",
+      "Suitable for organic farming and IPM programs",
+      "Reduces dependency on chemical insecticides",
+      "Improves crop health and yield"
     ],
     "mechanism_of_action": {
       "description": "Metarhizium anisopliae conidia colonize the insect cuticle, germinate, and penetrate by enzymatic degradation involving proteases, chitinases, and lipases. The fungus proliferates inside the host, produces toxic secondary metabolites, and suppresses insect survival through systemic fungal colonization and mycosis."
@@ -111,11 +121,13 @@
       }
     ],
     "targets": [
-      "white grubs",
-      "termites",
-      "thrips",
-      "caterpillars",
-      "beetle larvae"
+      "Termites",
+      "White grubs",
+      "Root grubs",
+      "Cutworms",
+      "Stem borers (early stage)",
+      "Weevils",
+      "Grasshoppers"
     ],
     "strain_or_active_strength": "Viable conidial load: 1 × 10⁹ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -141,12 +153,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Biota-V is a Trichoderma viride wettable powder for biological suppression of soil-borne fungal pathogens in the rhizosphere. It is used in nursery, basal, and root-zone programs to improve root health and reduce early disease pressure.",
+    "product_overview": "Biota-V is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma viride. It works by colonizing the plant root zone and suppressing soil-borne fungal pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Biota-V helps control diseases caused by pathogens like Fusarium, Rhizoctonia, Pythium, and Sclerotium. In addition to disease suppression, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in sustainable agriculture and Integrated Disease Management (IDM) programs due to its environmental safety and compatibility with organic farming practices.",
     "key_product_highlights": [
-      "Fast-growing rhizosphere fungus with mycoparasitic activity",
-      "Produces cell-wall-degrading enzymes against fungal pathogens",
-      "Improves root-zone microbial balance and establishment",
-      "Best positioned as a preventive soil and nursery input"
+      "Acts as a biological fungicide against soil pathogens",
+      "Produces antifungal compounds to suppress harmful fungi",
+      "Enhances root growth and plant vigor",
+      "Improves nutrient uptake and soil health",
+      "Competes with pathogenic fungi in the rhizosphere",
+      "Enhances plant resistance to diseases",
+      "Suitable for organic farming and IPM programs",
+      "Improves crop yield and survival rate"
     ],
     "mechanism_of_action": {
       "description": "Trichoderma colonizes the rhizosphere and root surface, competes aggressively for space and nutrients, and parasitizes pathogenic fungi through enzymatic degradation involving chitinases, glucanases, and proteases. It also produces antifungal secondary metabolites and can trigger host defense priming, thereby suppressing soil-borne pathogens and improving root health."
@@ -178,11 +194,11 @@
       }
     ],
     "targets": [
-      "Fusarium wilt complex",
-      "Pythium damping-off",
-      "Rhizoctonia root rot",
-      "Sclerotium collar rot",
-      "seedling blight"
+      "Damping-off",
+      "Root rot",
+      "Wilt (Fusarium, Rhizoctonia)",
+      "Collar rot",
+      "Seedling blight"
     ],
     "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -208,12 +224,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Biota-H is a Trichoderma harzianum wettable powder for preventive management of soil-borne pathogens and root-zone stress. It is suited to basal and drench programs where strong rhizosphere colonization and mycoparasitic activity are required.",
+    "product_overview": "Biota-H is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma harzianum. It colonizes the plant rhizosphere and suppresses soil-borne plant pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Biota-H helps manage diseases caused by pathogens like Fusarium, Pythium, Rhizoctonia, and Sclerotium. In addition to disease control, it enhances root growth, improves nutrient availability, and promotes overall plant health and vigor. It is widely used in sustainable agriculture, Integrated Disease Management (IDM), and organic farming systems.",
     "key_product_highlights": [
-      "Rhizosphere-competent Trichoderma strain for root-zone protection",
-      "Suppresses pathogens through mycoparasitism and metabolite production",
-      "Promotes a healthier root environment and better establishment",
-      "Most effective when introduced before severe disease development"
+      "Acts as a biological fungicide against soil pathogens",
+      "Promotes root growth and plant vigor",
+      "Improves nutrient uptake and soil health",
+      "Produces antifungal metabolites",
+      "Competes with and suppresses harmful fungi",
+      "Enhances plant resistance to diseases",
+      "Suitable for organic farming and IPM programs",
+      "Improves crop yield and survival rate"
     ],
     "mechanism_of_action": {
       "description": "Trichoderma colonizes the rhizosphere and root surface, competes aggressively for space and nutrients, and parasitizes pathogenic fungi through enzymatic degradation involving chitinases, glucanases, and proteases. It also produces antifungal secondary metabolites and can trigger host defense priming, thereby suppressing soil-borne pathogens and improving root health."
@@ -245,11 +265,11 @@
       }
     ],
     "targets": [
-      "Fusarium wilt complex",
-      "Pythium damping-off",
-      "Rhizoctonia root rot",
-      "Sclerotium collar rot",
-      "seedling blight"
+      "Damping-off",
+      "Root rot",
+      "Wilt (Fusarium, Rhizoctonia)",
+      "Collar rot",
+      "Seedling blight"
     ],
     "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -275,12 +295,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Neuvita is a Pseudomonas fluorescens wettable powder for rhizosphere-based suppression of soil-borne pathogens and nursery disease pressure. It is used to establish beneficial root-zone colonization and improve biological buffering around the root system.",
+    "product_overview": "Neuvita is a biological plant protection product based on the beneficial bacterium Pseudomonas fluorescens, which colonizes the plant rhizosphere and helps suppress soil-borne pathogens while promoting plant growth, improving nutrient uptake, and enhancing overall plant health in sustainable agricultural systems.",
     "key_product_highlights": [
-      "Beneficial rhizobacterium with strong root-zone colonization ability",
-      "Produces siderophores, antibiotics, and lytic enzymes",
-      "Improves root-zone microbial balance and disease suppression",
-      "Useful in nursery, transplant, and soil-drench programs"
+      "Acts as a biological control agent (biofungicide)",
+      "Produces antibiotics and siderophores to suppress pathogens",
+      "Promotes root growth and plant vigor (PGPR effect)",
+      "Enhances nutrient uptake and soil health",
+      "Induces systemic resistance (ISR) in plants",
+      "Reduces dependency on chemical fungicides",
+      "Suitable for organic farming and IPM programs",
+      "Improves crop yield and quality"
     ],
     "mechanism_of_action": {
       "description": "Pseudomonas fluorescens colonizes the rhizosphere and root surface, competes for iron through siderophore production, and suppresses pathogens via antibiotics, lytic enzymes, and other secondary metabolites. This microbial occupation also primes plant defense responses and reduces the activity of root-zone pathogens."
@@ -312,11 +336,17 @@
       }
     ],
     "targets": [
-      "Fusarium wilt complex",
-      "Pythium damping-off",
-      "Rhizoctonia root rot",
-      "root rot complex",
-      "nursery disease pressure"
+      "Damping-off",
+      "Root rot",
+      "Wilt diseases",
+      "Leaf spot",
+      "Blight (early stage)",
+      "Fusarium spp.",
+      "Rhizoctonia solani",
+      "Pythium spp.",
+      "Phytophthora spp.",
+      "Sclerotium rolfsii",
+      "Alternaria spp."
     ],
     "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -342,12 +372,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Seira is a Verticillium lecanii wettable powder for biological control of soft-bodied sucking pests in crop canopies. It performs best when applied early under humid conditions that support spore germination on the insect cuticle.",
+    "product_overview": "Seira is a biological insecticide based on the entomopathogenic fungus Verticillium lecanii, which infects and controls soft-bodied insect pests by penetrating the cuticle, multiplying within the host, and causing pest mortality, thereby supporting sustainable and environmentally responsible crop protection. Seira is widely used in Integrated Pest Management (IPM) and sustainable agriculture systems.",
     "key_product_highlights": [
-      "Entomopathogenic fungus specialized for soft-bodied sucking pests",
-      "Penetrates the host through spore germination and cuticle infection",
-      "Useful in biological canopy management under humid conditions",
-      "Best results occur with early application and good lower-leaf coverage"
+      "Acts as a biological insecticide (entomopathogenic fungus)",
+      "Highly effective against sucking insect pests",
+      "Infects insects through cuticle penetration and colonization",
+      "Provides eco-friendly pest control",
+      "Suitable for organic farming and IPM programs",
+      "Leaves no harmful residues",
+      "Helps in resistance management",
+      "Improves crop protection and quality"
     ],
     "mechanism_of_action": {
       "description": "Verticillium lecanii conidia adhere to the insect cuticle, germinate, and penetrate by enzymatic degradation involving chitinases, proteases, and lipases. The fungus colonizes the host internally, produces suppressive metabolites, and ultimately kills the insect before sporulating externally under favorable humidity."
@@ -379,11 +413,11 @@
       }
     ],
     "targets": [
-      "aphids",
-      "whiteflies",
-      "thrips",
-      "mealybugs",
-      "scale crawlers"
+      "Aphids",
+      "Whiteflies",
+      "Thrips",
+      "Mealybugs",
+      "Scale insects"
     ],
     "strain_or_active_strength": "Viable conidial load: 1 × 10⁸ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -409,12 +443,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "EnCilo is a Verticillium chlamydosporium wettable powder for biological suppression of plant-parasitic nematodes in the root zone. It is suited to basal and drip-based programs where egg parasitism and rhizosphere persistence are required.",
+    "product_overview": "EnCilo is a biological nematicide formulated with the beneficial fungus Verticillium chlamydosporium. It acts by parasitizing and degrading the eggs and reproductive structures of plant-parasitic nematodes. This activity helps disrupt the nematode life cycle and reduce soil infestation levels. EnCilo supports healthier root development and improved plant vigor. It is widely used in sustainable agriculture and Integrated Nematode Management (INM) programs.",
     "key_product_highlights": [
-      "Nematophagous fungus for root-zone nematode suppression",
-      "Parasitizes eggs and reduces hatching in the soil profile",
-      "Establishes around roots and in the rhizosphere",
-      "Best positioned preventively or at low to moderate nematode pressure"
+      "Acts as a biological nematicide",
+      "Parasitizes and destroys nematode eggs and juveniles",
+      "Reduces nematode population in soil",
+      "Promotes healthy root system development",
+      "Improves nutrient and water uptake",
+      "Enhances plant growth and yield",
+      "Safe for organic farming and IPM programs",
+      "Improves soil microbial balance"
     ],
     "mechanism_of_action": {
       "description": "Verticillium chlamydosporium colonizes the rhizosphere and parasitizes nematode eggs, females, and related survival structures through enzymatic degradation using proteases and chitinases. This microbial colonization reduces egg viability and juvenile emergence, lowering nematode pressure in the root zone over time."
@@ -446,11 +484,10 @@
       }
     ],
     "targets": [
-      "root-knot nematodes",
-      "cyst nematodes",
-      "reniform nematodes",
-      "nematode egg masses",
-      "juvenile nematode populations"
+      "Root-knot nematodes (Meloidogyne spp.)",
+      "Cyst nematodes",
+      "Lesion nematodes (Pratylenchus spp.)",
+      "Burrowing nematodes"
     ],
     "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -476,12 +513,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Subtilix is a Bacillus subtilis wettable powder for biological suppression of foliar and root-zone pathogens. It is suited to preventive disease programs that require rapid microbial colonization and metabolite-based antagonism.",
+    "product_overview": "Subtilix is a biological fungicide and plant growth–promoting agent based on the beneficial bacterium Bacillus subtilis. It suppresses a wide range of soil-borne and foliar fungal pathogens through the production of natural antibiotics, lipopeptides, and competitive colonization. Subtilix helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. In addition to disease control, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in Integrated Disease Management (IDM) and sustainable agriculture systems.",
     "key_product_highlights": [
-      "Beneficial Bacillus with strong colonization of the phyllosphere and rhizosphere",
-      "Produces lipopeptides and enzymes that suppress pathogens",
-      "Useful in preventive disease management and root-zone stabilization",
-      "Can be applied as foliar spray or root-zone drench"
+      "Acts as a biological control agent (biofungicide)",
+      "Produces antibiotics and enzymes to suppress pathogens",
+      "Promotes root growth and plant vigor (PGPR effect)",
+      "Enhances nutrient uptake efficiency",
+      "Improves soil microbial balance and fertility",
+      "Induces systemic resistance in plants (ISR)",
+      "Reduces dependency on chemical fungicides",
+      "Improves crop yield and quality"
     ],
     "mechanism_of_action": {
       "description": "Bacillus subtilis colonizes plant surfaces and the rhizosphere, forms biofilms, and suppresses pathogens through lipopeptide antibiotics, lytic enzymes, and competitive exclusion. It also stimulates host defense responses, reducing establishment of both foliar and soil-borne disease organisms."
@@ -513,11 +554,12 @@
       }
     ],
     "targets": [
-      "Alternaria leaf spot",
-      "powdery mildew",
-      "bacterial leaf spot",
-      "damping-off complex",
-      "Fusarium root stress"
+      "Fusarium spp.",
+      "Rhizoctonia solani",
+      "Pythium spp.",
+      "Phytophthora spp.",
+      "Alternaria spp.",
+      "Sclerotium rolfsii"
     ],
     "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
@@ -543,12 +585,16 @@
       "formulation_type": "WP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Elixora is a Bacillus amyloliquefaciens wettable powder for preventive suppression of foliar and root-zone pathogens. It is suited to integrated biological disease programs that rely on lipopeptide-producing Bacillus strains.",
+    "product_overview": "Elixora is a biological fungicide and plant growth–promoting bioagent based on the beneficial bacterium Bacillus amyloliquefaciens. It suppresses a wide range of soil-borne and foliar fungal pathogens through the production of antimicrobial compounds, enzymes, and competitive colonization of the root zone. Elixora helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. It also enhances root development, nutrient uptake, and overall plant vigor. It is widely used in Integrated Disease Management (IDM) and sustainable agricultural practices.",
     "key_product_highlights": [
-      "Lipopeptide-producing Bacillus for broad biological disease suppression",
-      "Colonizes roots and aerial surfaces and competes with pathogens",
-      "Produces surfactin, iturin, fengycin-type antagonistic metabolites",
-      "Useful in rotation or preventive biological crop programs"
+      "Acts as a biological control agent (biofungicide)",
+      "Produces antimicrobial compounds (lipopeptides, enzymes)",
+      "Promotes root growth and plant vigor (PGPR effect)",
+      "Enhances nutrient uptake efficiency",
+      "Suppresses soil-borne and foliar pathogens",
+      "Improves plant immunity and stress tolerance",
+      "Suitable for organic farming and IPM programs",
+      "Improves crop yield and quality"
     ],
     "mechanism_of_action": {
       "description": "Bacillus amyloliquefaciens colonizes the rhizosphere and phyllosphere and suppresses pathogens through biofilm formation, competitive exclusion, and release of antifungal and antibacterial secondary metabolites such as iturin-, fengycin-, and surfactin-like lipopeptides. This reduces pathogen establishment and can prime plant defense responses."
@@ -580,11 +626,11 @@
       }
     ],
     "targets": [
-      "anthracnose pressure",
-      "damping-off complex",
-      "root rot complex",
-      "bacterial speck or spot pressure",
-      "Fusarium-associated stress"
+      "Root rot",
+      "Wilt diseases",
+      "Damping-off",
+      "Leaf spot (early stage)",
+      "Blight (early stage)"
     ],
     "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",

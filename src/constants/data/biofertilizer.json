@@ -7,12 +7,14 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen NPK is a broad-spectrum microbial consortium biofertilizer designed to improve nitrogen, phosphorus, and potassium availability in the rhizosphere. It is suited to integrated nutrient programs where fertilizer-use efficiency and soil biological activity need reinforcement.",
+    "product_overview": "IGreen NPK is a microbial consortium-based biofertilizer containing beneficial bacteria Azotobacter chroococcum, Bacillus megaterium, and Frateuria aurantia. It enhances nitrogen fixation, phosphorus solubilization, and potassium mobilization in soil. The formulation improves nutrient availability and uptake efficiency for better plant growth and yield. It also promotes root development and soil microbial activity. IGreen NPK is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
     "key_product_highlights": [
-      "Multi-functional consortium for N fixation and P/K mobilization",
-      "Improves rhizosphere nutrient cycling and root-zone activity",
-      "Supports better fertilizer-use efficiency across major nutrients",
-      "Useful as a basal and early vegetative biofertility input"
+      "Enhances availability of nitrogen, phosphorus, and potassium",
+      "Improves nutrient uptake and use efficiency",
+      "Promotes balanced root and shoot development",
+      "Solubilizes phosphorus and mobilizes potassium effectively",
+      "Boosts soil microbial activity and soil health",
+      "Increases crop yield and overall productivity"
     ],
     "mechanism_of_action": {
       "description": "The microbial consortium colonizes the rhizosphere and root surface, fixes atmospheric nitrogen through associative N-fixing members, solubilizes bound phosphorus and mobilizes native potassium pools, and drives microbial nutrient cycling in the soil. This combined activity improves nutrient availability, root uptake efficiency, and overall crop nutrition."
@@ -43,15 +45,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "nitrogen availability",
-      "phosphorus availability",
-      "potassium mobilization",
-      "fertilizer-use efficiency",
-      "rhizosphere activity"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
@@ -74,12 +70,13 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen SHIELD is a rhizosphere-conditioning microbial consortium biofertilizer intended to stabilize nutrient capture under stressed or biologically weak soil conditions. It is positioned where root-zone activity, nutrient retention, and early crop establishment require reinforcement.",
+    "product_overview": "IGreen SHIELD is a biological plant protection product formulated with a consortium of beneficial bacteria, including Bacillus licheniformis, Bacillus amyloliquefaciens, and Bacillus subtilis. It acts through antagonism, competitive colonization, and production of antimicrobial compounds to suppress a wide range of soil-borne and foliar pathogens. The formulation helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. It also enhances root health, plant vigor, and natural defense mechanisms.",
     "key_product_highlights": [
-      "Rhizosphere-conditioning consortium for biologically weak soils",
-      "Supports nutrient solubilization, nitrogen contribution, and root-zone activity",
-      "Improves biological buffering around the active root system",
-      "Useful in transplant, basal, and stress-prone soil programs"
+      "Controls bacterial diseases such as leaf blight with efficient biocontrol activity.",
+      "Produces antifungal compounds that disrupt pathogen growth and colonization.",
+      "Enhances systemic resistance in plants, providing long-lasting internal protection.",
+      "Improves overall plant health leading to increased yields and better crop quality.",
+      "Provides both preventive and curative effects for holistic crop protection."
     ],
     "mechanism_of_action": {
       "description": "The consortium colonizes the rhizosphere, contributes associative nitrogen fixation, solubilizes native and applied nutrient pools, and sustains microbial nutrient cycling around feeder roots. By maintaining an active microbial zone near roots, it improves nutrient capture efficiency and stabilizes crop nutrition under stress-prone soil conditions."
@@ -110,15 +107,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "root-zone biological activity",
-      "nutrient capture efficiency",
-      "transplant establishment",
-      "soil biological buffering",
-      "stress-conditioned nutrition"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
@@ -141,12 +132,14 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen N is a nitrogen-oriented microbial consortium biofertilizer intended to improve biological nitrogen supply and crop uptake efficiency. It is suited to systems where nitrogen-use efficiency and vegetative response need support beyond mineral fertilization alone.",
+    "product_overview": "IGreen N is a microbial nitrogen-fixing biofertilizer formulated with beneficial bacterial strains Azotobacter chroococcum, Azospirillum brasilense, and Rhizobium spp. It enhances biological nitrogen fixation in soil and within the plant rhizosphere. The formulation improves nitrogen availability, root development, and overall plant growth performance. It also supports better nutrient uptake efficiency and soil microbial activity. IGreen N is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
     "key_product_highlights": [
-      "Nitrogen-focused consortium with associative biological N contribution",
-      "Improves rhizosphere activity and plant access to available nitrogen",
-      "Supports greener canopy development and vegetative vigor",
-      "Useful where N loss or poor N efficiency is common"
+      "Enhances biological nitrogen fixation naturally",
+      "Improves nitrogen availability in the soil",
+      "Promotes strong root and shoot growth",
+      "Boosts soil microbial activity and fertility",
+      "Reduces dependency on chemical fertilizers",
+      "Improves crop yield and overall productivity"
     ],
     "mechanism_of_action": {
       "description": "The consortium colonizes the rhizosphere and root surface, fixes atmospheric nitrogen through associative diazotrophic members, and supports microbial nutrient cycling that improves nitrogen conversion and uptake. Supportive nutrient solubilization in the root zone further enhances the efficiency of applied fertilizer nitrogen."
@@ -177,15 +170,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "nitrogen availability",
-      "vegetative vigor",
-      "canopy greenness",
-      "nitrogen-use efficiency",
-      "rhizosphere colonization"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
@@ -208,12 +195,14 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen P is a phosphorus-oriented microbial consortium biofertilizer for improving phosphate solubilization and crop access to fixed soil P. It is best suited to soils where phosphorus is present but poorly available to roots.",
+    "product_overview": "IGreen P is a phosphate-solubilizing biofertilizer formulated with beneficial bacterial strains Bacillus megaterium and Bacillus polymyxa. It enhances the solubilization of insoluble soil phosphates, making phosphorus more available to plants. The formulation improves root development, nutrient uptake efficiency, and overall plant growth performance. It also supports better soil microbial activity and soil fertility improvement. IGreen P is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
     "key_product_highlights": [
-      "Phosphorus-focused consortium for release of fixed soil phosphate",
-      "Improves root-zone P availability and fertilizer efficiency",
-      "Supports early root growth and energy-demanding crop stages",
-      "Useful in calcareous or P-fixing soils"
+      "Enhances phosphorus availability in the soil",
+      "Improves nutrient uptake and utilization efficiency",
+      "Promotes strong root growth and development",
+      "Stimulates beneficial soil microbial activity",
+      "Improves soil fertility and structure",
+      "Increases crop yield and overall productivity"
     ],
     "mechanism_of_action": {
       "description": "The consortium colonizes the rhizosphere and solubilizes insoluble phosphorus through organic acid production and allied microbial nutrient cycling processes. Supportive associative nitrogen fixation and root-zone colonization improve total nutrient capture, while released phosphate becomes more available for root uptake."
@@ -244,15 +233,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "phosphorus availability",
-      "root development",
-      "early crop establishment",
-      "fertilizer P efficiency",
-      "rhizosphere nutrient cycling"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
@@ -275,12 +258,15 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen K is a potassium-oriented microbial consortium biofertilizer designed to mobilize non-exchangeable K from soil minerals and improve crop K uptake. It is relevant where potassium response is limited by poor mineral weathering or low nutrient-use efficiency.",
+    "product_overview": "IGreen K is a potassium-mobilizing biofertilizer formulated with beneficial bacterial strains Frateuria aurantia and Bacillus mucilaginosus. It enhances the release and solubilization of fixed soil potassium, making it more available for plant uptake. The formulation improves nutrient efficiency, root growth, and overall crop development. It also supports better soil fertility and microbial activity in the rhizosphere. IGreen K is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
     "key_product_highlights": [
-      "Potassium-mobilizing consortium for release of native soil K",
-      "Supports enzyme function, turgor balance, and crop quality",
-      "Improves K-use efficiency alongside overall rhizosphere activity",
-      "Useful in soils with high total K but low available K"
+      "Enhances availability of soil-bound potassium to plants",
+      "Improves nutrient uptake and utilization efficiency",
+      "Promotes strong root and shoot development",
+      "Increases crop yield and quality",
+      "Stimulates beneficial soil microbial activity",
+      "Improves plant tolerance to stress conditions",
+      "Supports sustainable and eco-friendly farming practices"
     ],
     "mechanism_of_action": {
       "description": "The consortium colonizes the rhizosphere, mobilizes potassium from mineral fractions through organic acid and chelation-mediated processes, and supports microbial nutrient cycling around roots. Supportive nitrogen-fixing and nutrient-solubilizing members improve total nutrient capture while increasing access to plant-available potassium."
@@ -311,15 +297,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "potassium availability",
-      "turgor regulation",
-      "quality development",
-      "nutrient-use efficiency",
-      "rhizosphere mineral weathering"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
@@ -342,12 +322,14 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen Zn is a zinc-oriented microbial consortium biofertilizer for improving Zn solubilization and root access to micronutrient pools in soil. It is suited to Zn-deficient or high-pH soils where micronutrient availability is restricted.",
+    "product_overview": "IGreen Zn is a zinc-solubilizing biofertilizer formulated with beneficial bacterial strains Bacillus subtilis and Bacillus megaterium. It enhances the conversion of insoluble soil zinc into plant-available forms. The formulation improves zinc uptake efficiency, root development, and overall plant growth performance. It also supports better enzyme activity, chlorophyll formation, and crop productivity. IGreen Zn is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
     "key_product_highlights": [
-      "Zinc-solubilizing consortium for improved micronutrient availability",
-      "Supports enzyme systems, auxin-linked growth, and chlorophyll function",
-      "Improves zinc-use efficiency under alkaline or deficient conditions",
-      "Useful in nursery, basal, and early crop establishment programs"
+      "Enhances zinc availability in the soil",
+      "Corrects zinc deficiency in crops",
+      "Improves nutrient uptake and utilization",
+      "Promotes strong root growth and development",
+      "Boosts crop yield and quality",
+      "Supports sustainable and eco-friendly farming"
     ],
     "mechanism_of_action": {
       "description": "The consortium colonizes the rhizosphere and solubilizes zinc-bearing compounds through acidification, chelation, and active microbial nutrient cycling. Supportive nitrogen-fixing and nutrient-mobilizing members maintain root-zone activity, resulting in improved zinc availability and more efficient plant uptake."
@@ -378,15 +360,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "zinc availability",
-      "micronutrient efficiency",
-      "early growth",
-      "chlorosis correction support",
-      "rhizosphere micronutrient cycling"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
@@ -409,12 +385,14 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen S is a sulfur-oriented microbial consortium biofertilizer intended to improve sulfur oxidation, mobilization, and uptake in the root zone. It is relevant where sulfur nutrition limits protein formation and efficient nitrogen utilization.",
+    "product_overview": "IGreen S is a biological sulfur-oxidizing biofertilizer formulated with the beneficial bacterium Acidithiobacillus ferrooxidans. It enhances the oxidation of elemental sulfur and conversion into plant-available sulfate forms in the soil. The formulation helps improve sulfur nutrition, chlorophyll synthesis, and overall plant metabolic activity. It also supports better soil fertility and microbial balance in the rhizosphere. IGreen S is widely used in Integrated Nutrient Management (INM) and sustainable agricultural systems.",
     "key_product_highlights": [
-      "Sulfur-mobilizing consortium for improved sulfate availability",
-      "Supports amino acid formation and efficient nitrogen metabolism",
-      "Improves sulfur-use efficiency in low-availability soils",
-      "Useful where leaching or low organic matter limits S supply"
+      "Converts elemental sulfur into plant-available sulfate",
+      "Enhances sulfur availability and nutrient uptake",
+      "Promotes strong root growth and development",
+      "Improves soil microbial activity and soil health",
+      "Increases crop yield and quality",
+      "Supports sustainable and eco-friendly farming"
     ],
     "mechanism_of_action": {
       "description": "The consortium colonizes the rhizosphere and promotes sulfur oxidation or mobilization into plant-available sulfate forms while sustaining active microbial nutrient cycling around roots. Supportive nitrogen-fixing and nutrient-solubilizing members improve the overall efficiency of nutrient capture and utilization in the crop."
@@ -445,15 +423,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "sulfur availability",
-      "protein synthesis support",
-      "nitrogen metabolism efficiency",
-      "micronutrient interaction support",
-      "rhizosphere nutrient cycling"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
@@ -476,12 +448,14 @@
       "formulation_type": "WP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen Si is a silicon-oriented microbial consortium biofertilizer for mobilizing plant-available silicon from silicate minerals in the soil. It is suited to programs that aim to improve structural resilience and nutrient-use efficiency through better Si uptake.",
+    "product_overview": "IGreen Si is a biological silicon-solubilizing biofertilizer formulated with the beneficial bacterium Bacillus mycoides. It enhances the availability of plant-available silicic acid by mobilizing insoluble silicon compounds in the soil. The formulation strengthens plant cell walls, improves structural integrity, and increases resistance to biotic and abiotic stresses. It also supports better root development, nutrient uptake, and overall crop vigor. IGreen Si is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
     "key_product_highlights": [
-      "Silicate-mobilizing consortium for improved plant-available silicon",
-      "Supports stronger cell wall function and abiotic stress buffering",
-      "Enhances rhizosphere mineral weathering and nutrient cycling",
-      "Useful in stress-prone systems where Si nutrition is beneficial"
+      "Enhances availability of plant-usable silicon",
+      "Strengthens plant cell walls and structure",
+      "Improves tolerance to drought and disease stress",
+      "Promotes strong root growth and development",
+      "Boosts crop vigor, yield, and quality",
+      "Supports sustainable and eco-friendly farming"
     ],
     "mechanism_of_action": {
       "description": "The consortium colonizes the rhizosphere and mobilizes soluble silicon from silicate-bearing minerals through microbial weathering, acidification, and nutrient cycling processes. Supportive nitrogen-fixing and nutrient-solubilizing activity improves root-zone function, allowing better access to silicon and associated nutrients."
@@ -512,15 +486,9 @@
         "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
       }
     ],
-    "targets": [
-      "silicon availability",
-      "structural resilience",
-      "abiotic stress buffering",
-      "rhizosphere mineral weathering",
-      "nutrient-use efficiency"
-    ],
+    "targets": [],
     "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened original pack under cool, dry, shaded storage.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {

@@ -9,6 +9,9 @@ const MANUFACTURING_IMAGES = [
   require('../assets/images/Manufacturing/manufacturing_2.jpg'),
   require('../assets/images/Manufacturing/manufacturing_3.jpg'),
   require('../assets/images/Manufacturing/manufacturing_4.jpg'),
+];
+
+const RND_IMAGES = [
   require('../assets/images/Manufacturing/manufacturing_5.jpg'),
   require('../assets/images/Manufacturing/manufacturing_6.jpg'),
   require('../assets/images/Manufacturing/manufacturing_7.jpg'),
@@ -40,13 +43,15 @@ const CERT_LOGOS = {
 
 // Certificate PDF assets — mapped to merged files in Certificate/ folder
 const CERT_PDFS = {
-  omri: require('../assets/certificates/OMRI-MERGED.pdf'),
-  ecocert: require('../assets/certificates/ECOCERT-MERGED.pdf'),
-  iso: require('../assets/certificates/ISO-1.pdf'),
-  gmp: require('../assets/certificates/GMP-MERGED.pdf'),
-  chemexcil: require('../assets/certificates/CHEMIXIL-MERGED.pdf'),
-  shefexil: require('../assets/certificates/SHEFIXIL-MERGED.pdf'),
-  apeda: require('../assets/certificates/APEDA-MERGED.pdf'),
+  omri: require('../assets/certificates/OMRI.pdf'),
+  ecocert_eu: require('../assets/certificates/ECOCERT-EU.pdf'),
+  ecocert_jas: require('../assets/certificates/ECOCERT-JAS.pdf'),
+  ecocert_nop: require('../assets/certificates/ECOCERT-NOP.pdf'),
+  iso: require('../assets/certificates/ISO.pdf'),
+  gmp: require('../assets/certificates/GMP.pdf'),
+  chemexcil: require('../assets/certificates/CHEMEXCIL.pdf'),
+  shefexil: require('../assets/certificates/SHEFEXIL.pdf'),
+  apeda: require('../assets/certificates/APEDA.pdf'),
   usepa: require('../assets/certificates/USEPA-MERGED.pdf'),
 };
 
@@ -152,6 +157,7 @@ export const PROFILE_SECTIONS = [
     title: 'R&D',
     icon: 'flask',
     image: SECTION_IMAGES.rnd,
+    carouselImages: RND_IMAGES,
     content: {
       description: 'Innovation is at the core of our growth. Our R&D facilities focus on developing next-generation organic crop care solutions that address evolving agricultural challenges. We focus on standardization and quality assurance, ensuring our products meet the highest industry standards \u2013 with longer shelf life and enhanced bio-efficacy.\n\nWe conduct extensive research in microbial technologies, exploring beneficial microorganisms for sustainable crop protection and plant health improvement. Our team also works on developing advanced formulations that enhance product stability, efficacy, and ease of application.',
       areas: [
@@ -195,12 +201,13 @@ export const PROFILE_SECTIONS = [
     content: {
       description: 'Kriya Biosys products reach farmers across the globe through a robust network of distributors, importers, and strategic partners. From India to Africa, Southeast Asia to Latin America, Kriya is making biological solutions accessible worldwide.',
       regions: [
-        { name: 'South Asia', countries: ['Sri Lanka', 'Bangladesh', 'Nepal'], status: 'Established' },
-        { name: 'Southeast Asia', countries: ['Vietnam', 'Thailand', 'Indonesia', 'Philippines'], status: 'Growing' },
-        { name: 'Africa', countries: ['Kenya', 'Tanzania', 'Nigeria', 'South Africa', 'Ethiopia'], status: 'Expanding' },
-        { name: 'Latin America', countries: ['Brazil', 'Mexico', 'Colombia', 'Peru'], status: 'Emerging' },
-        { name: 'Middle East', countries: ['UAE', 'Saudi Arabia', 'Oman', 'Jordan'], status: 'Established' },
-        { name: 'Europe', countries: ['Spain', 'Italy', 'Turkey', 'Greece'], status: 'Emerging' },
+        { name: 'USA', status: 'Established' },
+        { name: 'Latin America', status: 'Emerging' },
+        { name: 'Africa', status: 'Expanding' },
+        { name: 'Middle East', status: 'Established' },
+        { name: 'Southeast Asia', status: 'Growing' },
+        { name: 'South Asia', status: 'Established' },
+        { name: 'Europe', status: 'Emerging' },
       ],
       stats: [
         { label: 'Countries', value: '20+' },
@@ -219,9 +226,11 @@ export const PROFILE_SECTIONS = [
       description: 'Our products meet international organic and quality standards, ensuring reliability and regulatory compliance. Our neem formulations are also registered with the US EPA, supporting use in global crop protection markets.',
       certifications: [
         { name: 'OMRI Listed', description: 'Organic Materials Review Institute listing for use in certified organic production.', category: 'Organic', logo: CERT_LOGOS.omri, pdfAsset: CERT_PDFS.omri },
-        { name: 'Ecocert Certified', description: 'International organic certification recognized in over 80 countries worldwide.', category: 'Organic', logo: CERT_LOGOS.ecocert, pdfAsset: CERT_PDFS.ecocert },
-        { name: 'US NOP Compliant', description: 'United States National Organic Program compliance for organic farming standards.', category: 'Organic', logo: null, pdfAsset: null },
-        { name: 'JAS Approved', description: 'Japanese Agricultural Standards approval for organic agricultural products.', category: 'International', logo: null, pdfAsset: null },
+        { name: 'Ecocert Certified', description: 'International organic certification recognized in over 80 countries worldwide.', category: 'Organic', logo: CERT_LOGOS.ecocert, subTypes: [
+          { name: 'EU', pdfAsset: CERT_PDFS.ecocert_eu },
+          { name: 'JAS', pdfAsset: CERT_PDFS.ecocert_jas },
+          { name: 'NOP', pdfAsset: CERT_PDFS.ecocert_nop },
+        ] },
         { name: 'ISO Quality Systems', description: 'Quality Management System certification for all manufacturing and business processes.', category: 'Quality', logo: CERT_LOGOS.iso, pdfAsset: CERT_PDFS.iso },
         { name: 'US EPA Registered', description: 'Neem formulations registered with the United States Environmental Protection Agency.', category: 'Regulatory', logo: CERT_LOGOS.usepa, pdfAsset: CERT_PDFS.usepa },
         { name: 'CIB Registration', description: 'Central Insecticide Board registration for all pesticide products in India.', category: 'Regulatory', logo: null, pdfAsset: null },

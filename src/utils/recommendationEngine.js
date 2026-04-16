@@ -21,11 +21,18 @@ const CROPS = [
   { id: 'crop_potato', name: 'Potato', icon: 'food-variant' },
   { id: 'crop_brinjal', name: 'Brinjal', icon: 'food-drumstick' },
   { id: 'crop_cabbage', name: 'Cabbage', icon: 'leaf' },
+  { id: 'crop_cauliflower', name: 'Cauliflower', icon: 'leaf' },
   { id: 'crop_grapes', name: 'Grapes', icon: 'fruit-grapes' },
   { id: 'crop_mango', name: 'Mango', icon: 'food-apple-outline' },
   { id: 'crop_banana', name: 'Banana', icon: 'fruit-pineapple' },
   { id: 'crop_pomegranate', name: 'Pomegranate', icon: 'fruit-cherries' },
   { id: 'crop_citrus', name: 'Citrus', icon: 'fruit-citrus' },
+  { id: 'crop_tea', name: 'Tea', icon: 'leaf' },
+  { id: 'crop_coffee', name: 'Coffee', icon: 'coffee' },
+  { id: 'crop_pulses', name: 'Pulses', icon: 'seed' },
+  { id: 'crop_oilseeds', name: 'Oilseeds', icon: 'seed-outline' },
+  { id: 'crop_garlic', name: 'Garlic', icon: 'circle-slice-8' },
+  { id: 'crop_chickpea', name: 'Chickpea', icon: 'seed' },
 ];
 
 const PESTS = [
@@ -48,9 +55,17 @@ const PESTS = [
   { id: 'pest_diamondback_moth', name: 'Diamondback Moth' },
   { id: 'pest_fruit_borer', name: 'Fruit Borer' },
   { id: 'pest_mite', name: 'Mite' },
+  { id: 'pest_spider_mite', name: 'Spider Mite' },
   { id: 'pest_nematode', name: 'Nematode' },
   { id: 'pest_fruit_fly', name: 'Fruit Fly' },
   { id: 'pest_painted_bug', name: 'Painted Bug' },
+  { id: 'pest_leaf_miner', name: 'Leaf Miner' },
+  { id: 'pest_beetle', name: 'Beetle' },
+  { id: 'pest_caterpillar', name: 'Caterpillar' },
+  { id: 'pest_white_grub', name: 'White Grub' },
+  { id: 'pest_cutworm', name: 'Cutworm' },
+  { id: 'pest_weevil', name: 'Weevil' },
+  { id: 'pest_grasshopper', name: 'Grasshopper' },
 ];
 
 const DISEASES = [
@@ -71,6 +86,9 @@ const DISEASES = [
   { id: 'disease_stem_rot', name: 'Stem Rot' },
   { id: 'disease_alternaria_blight', name: 'Alternaria Blight' },
   { id: 'disease_gummosis', name: 'Gummosis' },
+  { id: 'disease_collar_rot', name: 'Collar Rot' },
+  { id: 'disease_seedling_blight', name: 'Seedling Blight' },
+  { id: 'disease_fusarium_wilt', name: 'Fusarium Wilt' },
 ];
 
 const NUTRIENT_DEFICIENCIES = [
@@ -108,13 +126,16 @@ const ABIOTIC_STRESSES = [
 
 const WEEDS = [
   { id: 'weed_general', name: 'General Weed Pressure', icon: 'grass' },
+  { id: 'weed_broadleaf', name: 'Broadleaf Weeds', icon: 'grass' },
+  { id: 'weed_grassy', name: 'Grassy Weeds', icon: 'grass' },
+  { id: 'weed_sedge', name: 'Sedges', icon: 'grass' },
 ];
 
 const CATEGORIES = [
-  { id: 'cat_botanical_pesticide', name: 'Botanical Pesticide', icon: 'leaf', color: '#4CAF50', description: 'Neem, Spinosad, Karanjin, and essential oil-based crop protection' },
+  { id: 'cat_botanical_pesticide', name: 'Botanical Pesticide', icon: 'leaf', color: '#16416c', description: 'Neem, Spinosad, Karanjin, and essential oil-based crop protection' },
   { id: 'cat_microbial_pesticide', name: 'Microbial Pesticide', icon: 'bacteria', color: '#2196F3', description: 'Beauveria, Trichoderma, Pseudomonas, and Bacillus-based biocontrol' },
-  { id: 'cat_biostimulant', name: 'Biostimulant', icon: 'sprout', color: '#FF9800', description: 'Seaweed, humic, amino, and organic acid-based growth enhancers' },
-  { id: 'cat_biofertilizer', name: 'Biofertilizer', icon: 'grain', color: '#9C27B0', description: 'Microbial consortium for nutrient fixation and solubilization' },
+  { id: 'cat_biostimulant', name: 'Biostimulant', icon: 'sprout', color: '#415d34', description: 'Seaweed, humic, amino, and organic acid-based growth enhancers' },
+  { id: 'cat_biofertilizer', name: 'Biofertilizer', icon: 'grain', color: '#4b653e', description: 'Microbial consortium for nutrient fixation and solubilization' },
 ];
 
 // ═══════════════════════════════════════════════════════════════

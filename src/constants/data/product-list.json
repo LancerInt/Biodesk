@@ -85,7 +85,7 @@
   },
   {
     "brand_name": "WeedX",
-    "active_ingredient": "Spinosadc Fatty Acid Blend",
+    "active_ingredient": "Organic Herbicide",
     "concentration": "78%",
     "formulation_type": "EC",
     "category": "Botanical Pesticide"
@@ -93,29 +93,29 @@
   {
     "brand_name": "Admira Adyme",
     "active_ingredient": "Thyme Oil",
-    "concentration": "18%",
-    "formulation_type": "WP",
+    "concentration": null,
+    "formulation_type": "EC & WP",
     "category": "Botanical Pesticide"
   },
   {
     "brand_name": "Admira Admon",
     "active_ingredient": "Cinnamon Oil",
-    "concentration": "11%",
-    "formulation_type": "WP",
+    "concentration": null,
+    "formulation_type": "EC & WP",
     "category": "Botanical Pesticide"
   },
   {
     "brand_name": "Admira Adrlic",
     "active_ingredient": "Garlic Oil",
-    "concentration": "8%",
-    "formulation_type": "WP",
+    "concentration": null,
+    "formulation_type": "EC & WP",
     "category": "Botanical Pesticide"
   },
   {
     "brand_name": "Admira Adove",
     "active_ingredient": "Clove Oil",
-    "concentration": "12%",
-    "formulation_type": "WP",
+    "concentration": null,
+    "formulation_type": "EC & WP",
     "category": "Botanical Pesticide"
   },
   {
@@ -185,42 +185,42 @@
     "brand_name": "Zenita",
     "active_ingredient": "Neem Peptide Extract",
     "concentration": "40%",
-    "formulation_type": "WP",
+    "formulation_type": "EC",
     "category": "Biostimulant"
   },
   {
     "brand_name": "Cropsia",
     "active_ingredient": "Plant Extract Complex",
     "concentration": "4%",
-    "formulation_type": "WP",
+    "formulation_type": "EC",
     "category": "Biostimulant"
   },
   {
     "brand_name": "Blooma",
     "active_ingredient": "Seaweed Extract",
     "concentration": "32%",
-    "formulation_type": "SC",
+    "formulation_type": "EC",
     "category": "Biostimulant"
   },
   {
     "brand_name": "EnRhize",
     "active_ingredient": "Mycorrhizal Fungi",
-    "concentration": ">1500 spores/gram",
-    "formulation_type": "WP",
+    "concentration": ">500 spores/gram",
+    "formulation_type": "WP & EC",
     "category": "Biostimulant"
   },
   {
     "brand_name": "Envicta",
     "active_ingredient": "Humic + Fulvic + Amino Complex",
     "concentration": ">30%",
-    "formulation_type": "SC",
+    "formulation_type": "EC",
     "category": "Biostimulant"
   },
   {
     "brand_name": "Orgocare",
     "active_ingredient": "Bioactive Plant Metabolites",
     "concentration": ">12%",
-    "formulation_type": "SC",
+    "formulation_type": "EC",
     "category": "Biostimulant"
   },
   {
