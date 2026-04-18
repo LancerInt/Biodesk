@@ -123,8 +123,8 @@ export const PROFILE_SECTIONS = [
       technologyIntro: 'Kriya\u2019s tech platform combines three powerful systems that transform natural actives into stable, high-performance solutions for modern agriculture.',
       technologies: [
         { name: 'WYNN\u2122', tagline: 'Unlocks microbial science for potent crop solutions', color: '#4A148C' },
-        { name: 'KARYO\u2122', tagline: 'Safeguards and delivers actives effectively', color: '#E65100' },
         { name: 'MICROVATE\u2122', tagline: 'Activates precision performance', color: '#1565C0' },
+        { name: 'KARYO\u2122', tagline: 'Safeguards and delivers actives effectively', color: '#ffa554' },
       ],
     },
   },

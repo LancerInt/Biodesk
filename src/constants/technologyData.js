@@ -37,7 +37,7 @@ const MICROVATE_ICONS = [
 // ═══════════════════════════════════════════════════════════════
 const PLATFORM_COLORS = {
   wynn: '#1B5E20',
-  karyo: '#E65100',
+  karyo: '#ffa554',
   microvate: '#4A148C',
   integrated: '#006064',
 };
@@ -79,23 +79,6 @@ export const TECHNOLOGIES = [
     closing: wynnPage.closing_section,
   },
 
-  // ─── Karyo ───────────────────────────────────────────────────
-  {
-    id: 'karyo',
-    name: karyoPage.hero.title,
-    tagline: karyoPage.hero.headline,
-    icon: 'atom',
-    color: PLATFORM_COLORS.karyo,
-    description: karyoPage.hero.body,
-    overview: karyoPage.overview_section.body,
-    corePositioning: karyoPage.core_positioning_section.body,
-    features: mapPillarsToFeatures(karyoPage.six_pillars_section.pillars, KARYO_ICONS),
-    differentiators: karyoPage.what_makes_it_different_section.points,
-    scope: karyoPage.scope_section,
-    futurePotential: karyoPage.future_potential_section.body,
-    closing: karyoPage.closing_section,
-  },
-
   // ─── Microvate ───────────────────────────────────────────────
   {
     id: 'microvate',
@@ -113,6 +96,23 @@ export const TECHNOLOGIES = [
     closing: microvatePage.closing_section,
   },
 
+  // ─── Karyo ───────────────────────────────────────────────────
+  {
+    id: 'karyo',
+    name: karyoPage.hero.title,
+    tagline: karyoPage.hero.headline,
+    icon: 'atom',
+    color: PLATFORM_COLORS.karyo,
+    description: karyoPage.hero.body,
+    overview: karyoPage.overview_section.body,
+    corePositioning: karyoPage.core_positioning_section.body,
+    features: mapPillarsToFeatures(karyoPage.six_pillars_section.pillars, KARYO_ICONS),
+    differentiators: karyoPage.what_makes_it_different_section.points,
+    scope: karyoPage.scope_section,
+    futurePotential: karyoPage.future_potential_section.body,
+    closing: karyoPage.closing_section,
+  },
+
   // ─── Integrated Technology Platform ──────────────────────────
   {
     id: 'integrated',
@@ -127,8 +127,8 @@ export const TECHNOLOGIES = [
       title: item.platform,
       platform: item.scope,
       description: item.definition,
-      icon: ['microscope', 'atom', 'lightning-bolt'][i],
-      color: [PLATFORM_COLORS.wynn, PLATFORM_COLORS.karyo, PLATFORM_COLORS.microvate][i],
+      icon: ['microscope', 'lightning-bolt', 'atom'][i],
+      color: [PLATFORM_COLORS.wynn, PLATFORM_COLORS.microvate, PLATFORM_COLORS.karyo][i],
     })),
     advantages: [
       'Each platform has a distinct role — microbial science, active delivery, and biological readiness',

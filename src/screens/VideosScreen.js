@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, Image, useWindowDimensions, ScrollView } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import ImageViewer from '../components/common/ImageViewer';
 import theme from '../constants/theme';
 import { PRODUCTS } from '../constants/productData';
 import { getHeroImage, getMoaImage } from '../constants/productImages';
@@ -106,6 +107,7 @@ const VideosScreen = ({ navigation }) => {
 
   const [mediaType, setMediaType] = useState('Photos');
   const [activeCategory, setActiveCategory] = useState('All');
+  const [viewerImage, setViewerImage] = useState(null);
 
   const isPhotos = mediaType === 'Photos';
   const sourceData = isPhotos ? PHOTOS : VIDEOS;
@@ -128,7 +130,7 @@ const VideosScreen = ({ navigation }) => {
     setActiveCategory('All');
   };
 
-  // Navigate to the product or relevant page on photo tap
+  // Navigate to relevant page or open image viewer
   const handlePhotoPress = (item) => {
     if (item.productName) {
       const product = PRODUCTS.find(p => p.name === item.productName);
@@ -140,6 +142,9 @@ const VideosScreen = ({ navigation }) => {
     if (item.navTarget) {
       navigation.navigate(item.navTarget);
       return;
+    }
+    if (item.image) {
+      setViewerImage(item.image);
     }
   };
 
@@ -264,6 +269,11 @@ const VideosScreen = ({ navigation }) => {
             <Text style={styles.emptyText}>No {mediaType.toLowerCase()} in this category</Text>
           </View>
         }
+      />
+      <ImageViewer
+        visible={!!viewerImage}
+        imageSource={viewerImage}
+        onClose={() => setViewerImage(null)}
       />
     </View>
   );

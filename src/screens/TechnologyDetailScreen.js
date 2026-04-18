@@ -63,25 +63,22 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     </View>
   );
 
-  // ─── Platform Overview ────────────────────────────────────
-  const renderOverview = () => (
-    <View style={styles.section}>
-      <Text style={styles.bodyText}>{tech.description}</Text>
-      {tech.overview ? (
-        <View style={styles.overviewCard}>
-          <View style={styles.overviewAccent} />
-          <View style={styles.overviewBody}>
-            <Icon name="information-outline" size={18} color={tech.color} />
-            <Text style={styles.overviewText}>{tech.overview}</Text>
-          </View>
-        </View>
-      ) : null}
-    </View>
-  );
-
-  // ─── Core Positioning ─────────────────────────────────────
+  // ─── Core Positioning (merged overview + positioning) ─────
   const renderCorePositioning = () => {
-    if (!tech.corePositioning) return null;
+    // Extract first part of overview up to "relevance." and second part of corePositioning from "The platform"/"The value"/"By separating"
+    let firstPart = tech.overview || '';
+    const relevanceIdx = firstPart.indexOf('relevance.');
+    if (relevanceIdx > -1) firstPart = firstPart.substring(0, relevanceIdx + 'relevance.'.length);
+
+    let secondPart = tech.corePositioning || '';
+    const platformIdx = secondPart.indexOf('The platform');
+    const valueIdx = secondPart.indexOf('The value');
+    const byIdx = secondPart.indexOf('By separating');
+    const cutIdx = [platformIdx, valueIdx, byIdx].filter(i => i > -1).sort((a, b) => a - b)[0];
+    if (cutIdx > -1) secondPart = secondPart.substring(cutIdx);
+
+    const mergedText = firstPart + ' ' + secondPart;
+
     return (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Core Positioning</Text>
@@ -89,12 +86,19 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
           <View style={[styles.positioningAccent, { backgroundColor: tech.color }]} />
           <View style={styles.positioningBody}>
             <Icon name="bullseye-arrow" size={22} color={tech.color} />
-            <Text style={styles.positioningText}>{tech.corePositioning}</Text>
+            <Text style={styles.positioningText}>{mergedText}</Text>
           </View>
         </View>
       </View>
     );
   };
+
+  // ─── Platform Description ────────────────────────────────
+  const renderOverview = () => (
+    <View style={[styles.section, { paddingTop: 8 }]}>
+      <Text style={styles.bodyText}>{tech.description}</Text>
+    </View>
+  );
 
   // ─── Six-Pillar Architecture ──────────────────────────────
   const renderPillars = () => (
@@ -280,11 +284,9 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
         {renderOverview()}
         {renderCorePositioning()}
         {renderPillars()}
-        {renderProcessFlow()}
         {renderDifferentiators()}
-        {renderScope()}
-        {renderFuture()}
         {renderClosing()}
+        {renderFuture()}
         {renderBackToStack()}
       </ScrollView>
       <ImageViewer
@@ -338,7 +340,7 @@ const styles = StyleSheet.create({
   heroTextBlock: {
     paddingHorizontal: 20,
     paddingTop: 16,
-    paddingBottom: 4,
+    paddingBottom: 0,
     alignItems: 'center',
   },
   heroTitle: {
@@ -350,6 +352,7 @@ const styles = StyleSheet.create({
   heroTagline: {
     fontSize: 14,
     fontWeight: '500',
+    fontStyle: 'italic',
     color: theme.colors.textSecondary,
     marginTop: 6,
     textAlign: 'center',

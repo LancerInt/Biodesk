@@ -153,23 +153,6 @@ const TechnologyComparisonScreen = ({ navigation }) => {
         ))}
       </View>
 
-      {/* Does Not Own */}
-      <Text style={[styles.subSectionTitle, { marginTop: 16 }]}>Boundaries (Does Not Own)</Text>
-      <View style={styles.comparisonGrid}>
-        {platforms.map(tech => (
-          <View key={tech.id} style={[styles.scopeColumn, { flex: 1 }]}>
-            <View style={[styles.scopeColumnHeader, { backgroundColor: '#FFEBEE' }]}>
-              <Text style={[styles.scopeColumnTitle, { color: theme.colors.error }]}>{tech.name}</Text>
-            </View>
-            {(tech.scope?.does_not_own || []).map((item, i) => (
-              <View key={i} style={styles.scopeItem}>
-                <Icon name="close-circle" size={14} color={theme.colors.error} />
-                <Text style={styles.scopeItemText}>{item}</Text>
-              </View>
-            ))}
-          </View>
-        ))}
-      </View>
     </View>
   );
 

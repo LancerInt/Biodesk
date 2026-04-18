@@ -87,15 +87,10 @@ const TechnologyScreen = ({ navigation }) => {
                 <Icon name="chevron-right" size={22} color={theme.colors.textLight} />
               </View>
               {card ? (
-                <Text style={[styles.cardDescription, { fontSize: isTablet ? 15 : 14, lineHeight: isTablet ? 26 : 23 }]} numberOfLines={3}>
-                  {card.short_description}
-                </Text>
-              ) : null}
-              {card ? (
                 <View style={[styles.cardRoleWrap, { borderColor: tech.color + '20', padding: isTablet ? 16 : 14 }]}>
                   <Icon name="target" size={14} color={tech.color} />
-                  <Text style={[styles.cardRole, { color: tech.color, fontSize: isTablet ? 14 : 13, lineHeight: isTablet ? 22 : 20 }]} numberOfLines={2}>
-                    {card.role_statement}
+                  <Text style={[styles.cardRole, { color: tech.color, fontSize: isTablet ? 14 : 13, lineHeight: isTablet ? 22 : 20 }]}>
+                    {card.short_description}
                   </Text>
                 </View>
               ) : null}
@@ -250,7 +245,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: theme.colors.textSecondary,
     lineHeight: 24,
-    textAlign: 'center',
+    textAlign: 'justify',
     letterSpacing: 0.1,
     marginBottom: 8,
   },
@@ -349,6 +344,7 @@ const styles = StyleSheet.create({
     lineHeight: 23,
     marginBottom: 16,
     letterSpacing: 0.15,
+    textAlign: 'justify',
   },
   cardRoleWrap: {
     flexDirection: 'row',

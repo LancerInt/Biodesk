@@ -48,14 +48,14 @@
             "definition": "Discovers and builds microbial systems through intelligence, analytics, process engineering, stabilization, and validation."
           },
           {
-            "platform": "Karyo™",
-            "scope": "Microbial and botanical",
-            "definition": "Protects, encapsulates, combines, and delivers one or more actives through structured agricultural delivery systems."
-          },
-          {
             "platform": "Microvate™",
             "scope": "Microbial only",
             "definition": "Controls the transition from protected storage state to functional biological readiness through point-of-use activation."
+          },
+          {
+            "platform": "Karyo™",
+            "scope": "Microbial and botanical",
+            "definition": "Protects, encapsulates, combines, and delivers one or more actives through structured agricultural delivery systems."
           }
         ]
       },

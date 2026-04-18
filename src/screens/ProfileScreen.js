@@ -4,6 +4,7 @@ import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import { PROFILE_SECTIONS } from '../constants/profileData';
+import { getTechnologyById } from '../constants/technologyData';
 
 const SectionImage = React.memo(({ source }) => {
   if (!source) return null;
@@ -165,15 +166,20 @@ const ProfileScreen = ({ navigation }) => {
 
       <Text style={styles.subTitle}>Technology Platform</Text>
       <Text style={styles.bodyText}>{section.content.technologyIntro}</Text>
-      {section.content.technologies.map((tech, i) => (
-        <View key={i} style={[styles.techPlatformCard, { borderLeftColor: tech.color }]}>
-          <View style={styles.techNameRow}>
-            <Text style={[styles.techPlatformName, { color: tech.color }]}>{tech.name.replace('\u2122', '')}</Text>
-            <Text style={[styles.tmSymbol, { color: tech.color }]}>{'\u2122'}</Text>
-          </View>
-          <Text style={styles.techPlatformTagline}>{tech.tagline}</Text>
-        </View>
-      ))}
+      {section.content.technologies.map((tech, i) => {
+        const techId = tech.name.replace('\u2122', '').trim().toLowerCase();
+        const techData = getTechnologyById(techId);
+        return (
+          <TouchableOpacity key={i} style={[styles.techPlatformCard, { borderLeftColor: tech.color }]} activeOpacity={0.7}
+            onPress={() => techData && navigation.navigate('TechnologyDetail', { tech: techData })}>
+            <View style={styles.techNameRow}>
+              <Text style={[styles.techPlatformName, { color: tech.color }]}>{tech.name.replace('\u2122', '')}</Text>
+              <Text style={[styles.tmSymbol, { color: tech.color }]}>{'\u2122'}</Text>
+            </View>
+            <Text style={styles.techPlatformTagline}>{tech.tagline}</Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 
