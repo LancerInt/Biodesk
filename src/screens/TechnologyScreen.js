@@ -79,7 +79,10 @@ const TechnologyScreen = ({ navigation }) => {
                   <Icon name={tech.icon} size={24} color={tech.color} />
                 </View>
                 <View style={styles.cardHeaderText}>
-                  <Text style={[styles.cardName, { fontSize: isTablet ? 22 : 20 }]}>{tech.name}</Text>
+                  <View style={styles.cardNameRow}>
+                    <Text style={[styles.cardName, { fontSize: isTablet ? 22 : 20 }]}>{tech.name.replace('™', '')}</Text>
+                    <Text style={styles.cardTm}>™</Text>
+                  </View>
                   {card ? (
                     <Text style={[styles.cardCategory, { color: tech.color }]}>{card.category}</Text>
                   ) : null}
@@ -282,6 +285,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     lineHeight: 22,
     letterSpacing: 0.1,
+    textAlign: 'justify',
   },
 
   // ─── Section Title ────────────────────────────────────────
@@ -332,6 +336,12 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: theme.colors.text,
     letterSpacing: -0.2,
+  },
+  cardNameRow: { flexDirection: 'row', alignItems: 'flex-start' },
+  cardTm: {
+    fontSize: 10,
+    fontWeight: '400',
+    marginTop: 2,
   },
   cardCategory: {
     fontSize: 12,

@@ -92,8 +92,9 @@ const ImageCarousel = React.memo(({ images }) => {
   );
 });
 
-const ProfileScreen = ({ navigation }) => {
-  const [activeSection, setActiveSection] = useState(0);
+const ProfileScreen = ({ navigation, route }) => {
+  const initialTab = route?.params?.sectionIndex ?? 0;
+  const [activeSection, setActiveSection] = useState(initialTab);
   const section = PROFILE_SECTIONS[activeSection];
 
   // Preload all section images on mount for instant tab switching

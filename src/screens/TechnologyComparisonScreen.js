@@ -14,7 +14,6 @@ const COMPARISON_CATEGORIES = [
   { id: 'pillars', title: 'Core Capabilities (6 Pillars)', icon: 'pillar' },
   { id: 'differentiators', title: 'Key Differentiators', icon: 'star-four-points' },
   { id: 'activeTypes', title: 'Active Types Supported', icon: 'flask' },
-  { id: 'coverage', title: 'Coverage & Application', icon: 'spray' },
   { id: 'future', title: 'Future Potential', icon: 'rocket-launch' },
 ];
 
@@ -78,7 +77,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
       {platforms.map(tech => (
         <View key={tech.id} style={[styles.valueCol, { borderTopColor: tech.color }]}>
           <Icon name={tech.icon} size={18} color={tech.color} />
-          <Text style={[styles.colHeaderText, { color: tech.color }]} numberOfLines={1}>
+          <Text style={[styles.colHeaderText, { color: tech.color }]}>
             {tech.name}
           </Text>
         </View>
@@ -174,7 +173,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
                     {feature ? (
                       <>
                         <Text style={[styles.pillarTitle, { color: tech.color }]}>{feature.title}</Text>
-                        <Text style={styles.pillarDesc} numberOfLines={3}>{feature.description}</Text>
+                        <Text style={styles.pillarDesc}>{feature.description}</Text>
                       </>
                     ) : (
                       <Text style={styles.pillarEmpty}>—</Text>
@@ -203,7 +202,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
                 <View style={[styles.diffDot, { backgroundColor: tech.color }]} />
                 <View style={styles.diffContent}>
                   <Text style={styles.diffTitle}>{d.title}</Text>
-                  <Text style={styles.diffBody} numberOfLines={3}>{d.body}</Text>
+                  <Text style={styles.diffBody}>{d.body}</Text>
                 </View>
               </View>
             ))}
@@ -316,7 +315,7 @@ const ComparisonRow = ({ label, platforms, extractor, multiline }) => (
     <View style={styles.compRowValues}>
       {platforms.map(tech => (
         <View key={tech.id} style={[styles.compRowCell, { borderLeftColor: tech.color }]}>
-          <Text style={[styles.compRowValue, multiline && styles.compRowValueMulti]} numberOfLines={multiline ? 6 : 2}>
+          <Text style={[styles.compRowValue, multiline && styles.compRowValueMulti]}>
             {extractor(tech) || '—'}
           </Text>
         </View>

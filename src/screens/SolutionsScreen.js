@@ -282,13 +282,6 @@ const SolutionsScreen = ({ navigation }) => {
           </View>
         )}
 
-        {/* Secondary Recommendations (Individual Products) */}
-        {secondary.length > 0 && (
-          <View style={styles.resultSection}>
-            <Text style={styles.resultSectionTitle}>Additional Products</Text>
-            {secondary.map((r, i) => renderResultCard(r, i, false))}
-          </View>
-        )}
       </ScrollView>
     );
   };
@@ -363,39 +356,6 @@ const SolutionsScreen = ({ navigation }) => {
         {rec.region && <DetailRow icon="map-marker" label="Region" value={Array.isArray(rec.region) ? rec.region.join(', ') : rec.region} />}
         {rec.compliance && <DetailRow icon="shield-check" label="Compliance" value={rec.compliance} />}
 
-        {/* Cross-Sell */}
-        {crossSellProducts.length > 0 && (
-          <View style={styles.crossSellSection}>
-            <Text style={styles.crossSellTitle}>Also Works Well With</Text>
-            <View style={styles.crossSellRow}>
-              {crossSellProducts.map((p, ci) => (
-                <View key={ci} style={styles.crossSellChip}>
-                  <Icon name="leaf" size={12} color={theme.colors.primary} />
-                  <Text style={styles.crossSellChipText}>{p.brandName}</Text>
-                </View>
-              ))}
-            </View>
-          </View>
-        )}
-
-        {/* Up-Sell */}
-        {upSellItems.length > 0 && (
-          <View style={styles.upSellSection}>
-            <Text style={styles.upSellTitle}>Upgrade Options</Text>
-            {upSellItems.map((u, ui) => (
-              <View key={ui} style={styles.upSellCard}>
-                <Icon
-                  name={u.type === 'package' ? 'package-variant' : 'leaf'}
-                  size={16}
-                  color={theme.colors.secondary}
-                />
-                <Text style={styles.upSellName}>
-                  {u.type === 'package' ? u.item.name : u.item.brandName}
-                </Text>
-              </View>
-            ))}
-          </View>
-        )}
       </View>
     );
   };

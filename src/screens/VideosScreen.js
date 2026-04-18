@@ -10,7 +10,7 @@ import { getHeroImage, getMoaImage } from '../constants/productImages';
 // ═══════════════════════════════════════════════════════════════
 // MEDIA DATA
 // ═══════════════════════════════════════════════════════════════
-const CATEGORIES = ['All', 'Product', 'Manufacturing', 'Mode of Action', 'Shipping'];
+const CATEGORIES = ['Product', 'Manufacturing', 'Mode of Action', 'Client Visit', 'Shipping'];
 
 const VIDEOS = [
   { id: 'v1', title: 'Ecoza Max – Product Overview', category: 'Product', duration: '3:24', icon: 'leaf' },
@@ -67,12 +67,9 @@ const buildPhotos = () => {
 
   // Manufacturing & Technology images
   photos.push(
-    { id: `mfg-${idx++}`, title: 'Manufacturing Facility', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/manufacturing.jpeg'), navTarget: 'Profile' },
-    { id: `mfg-${idx++}`, title: 'R&D Laboratory', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/rnd.jpeg'), navTarget: 'Profile' },
-    { id: `mfg-${idx++}`, title: 'Quality Control Lab', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/quality.jpeg'), navTarget: 'Profile' },
-    { id: `mfg-${idx++}`, title: 'Wynn Fermentation Platform', category: 'Manufacturing', image: require('../assets/images/TechnologyImages/wynn.jpeg'), navTarget: 'Technology' },
-    { id: `mfg-${idx++}`, title: 'Karyo Formulation Platform', category: 'Manufacturing', image: require('../assets/images/TechnologyImages/karyo.jpeg'), navTarget: 'Technology' },
-    { id: `mfg-${idx++}`, title: 'Microvate Activation Platform', category: 'Manufacturing', image: require('../assets/images/TechnologyImages/microvate.jpeg'), navTarget: 'Technology' },
+    { id: `mfg-${idx++}`, title: 'Manufacturing Facility', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/manufacturing.jpeg'), navTarget: 'Profile', navParams: { sectionIndex: 2 } },
+    { id: `mfg-${idx++}`, title: 'R&D Laboratory', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/rnd.jpeg'), navTarget: 'Profile', navParams: { sectionIndex: 3 } },
+    { id: `mfg-${idx++}`, title: 'Quality Control Lab', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/quality.jpeg'), navTarget: 'Profile', navParams: { sectionIndex: 4 } },
   );
 
   // Shipping photos (6 items = 2 full rows of 3)
@@ -106,7 +103,7 @@ const VideosScreen = ({ navigation }) => {
   const THUMB_W = (winW - 48) / COLS;
 
   const [mediaType, setMediaType] = useState('Photos');
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState('Product');
   const [viewerImage, setViewerImage] = useState(null);
 
   const isPhotos = mediaType === 'Photos';
@@ -127,7 +124,7 @@ const VideosScreen = ({ navigation }) => {
   // Reset category when switching media type
   const switchMediaType = (type) => {
     setMediaType(type);
-    setActiveCategory('All');
+    setActiveCategory('Product');
   };
 
   // Navigate to relevant page or open image viewer
@@ -140,7 +137,7 @@ const VideosScreen = ({ navigation }) => {
       }
     }
     if (item.navTarget) {
-      navigation.navigate(item.navTarget);
+      navigation.navigate(item.navTarget, item.navParams || {});
       return;
     }
     if (item.image) {
@@ -199,11 +196,6 @@ const VideosScreen = ({ navigation }) => {
       </View>
       <View style={styles.videoInfo}>
         <Text style={styles.videoTitle} numberOfLines={2}>{item.title}</Text>
-        <View style={[styles.catBadge, { backgroundColor: (CAT_COLORS[item.category] || '#757') + '15' }]}>
-          <Text style={[styles.catText, { color: CAT_COLORS[item.category] || theme.colors.primary }]}>
-            {item.category}
-          </Text>
-        </View>
       </View>
     </TouchableOpacity>
     );
