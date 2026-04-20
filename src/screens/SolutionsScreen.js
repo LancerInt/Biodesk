@@ -18,9 +18,9 @@ const VIEW = { LANDING: 'LANDING', BROWSE: 'BROWSE', RESULTS: 'RESULTS' };
 const PROBLEM_ICONS = {
   pests: 'bug',
   diseases: 'virus',
-  nutrientDeficiencies: 'flask-empty',
+  nutrientDeficiencies: 'flask-round-bottom-empty',
   weeds: 'grass',
-  abioticStresses: 'weather-sunny-alert',
+  abioticStresses: 'weather-lightning',
 };
 
 const SolutionsScreen = ({ navigation }) => {
@@ -180,7 +180,7 @@ const SolutionsScreen = ({ navigation }) => {
     }
   };
 
-  const renderItemGrid = (items, filterKey, icon) => (
+  const renderItemGrid = (items, filterKey, fallbackIcon) => (
     <ScrollView contentContainerStyle={styles.itemGrid} showsVerticalScrollIndicator={false}>
       {items.map((item) => (
         <TouchableOpacity
@@ -189,7 +189,7 @@ const SolutionsScreen = ({ navigation }) => {
           activeOpacity={0.7}
           onPress={() => selectItem(filterKey, item.id, item.name)}>
           <View style={[styles.itemIconWrap, { backgroundColor: browseSection.color + '12' }]}>
-            <Icon name={icon} size={28} color={browseSection.color} />
+            <Icon name={item.icon || fallbackIcon} size={28} color={browseSection.color} />
           </View>
           <Text style={styles.itemName}>{item.name}</Text>
         </TouchableOpacity>
@@ -197,55 +197,61 @@ const SolutionsScreen = ({ navigation }) => {
     </ScrollView>
   );
 
+  const PROBLEM_COLORS = {
+    pests: '#D32F2F',
+    diseases: '#7B1FA2',
+    nutrientDeficiencies: '#E65100',
+    weeds: '#2E7D32',
+  };
+
   const renderProblemBrowse = () => (
-    <ScrollView contentContainerStyle={styles.problemBrowse} showsVerticalScrollIndicator={false}>
-      {problemSections.map((section) => (
-        <View key={section.id} style={styles.problemGroup}>
-          <View style={styles.problemGroupHeader}>
-            <Icon name={PROBLEM_ICONS[section.id] || 'alert'} size={20} color={theme.colors.error} />
-            <Text style={styles.problemGroupTitle}>{section.title}</Text>
-            <Text style={styles.problemGroupCount}>{section.data.length}</Text>
-          </View>
-          {section.data.map((item) => {
-            const filterKey = section.id === 'pests' ? 'pestIds'
-              : section.id === 'diseases' ? 'diseaseIds'
-                : section.id === 'nutrientDeficiencies' ? 'nutrientDeficiencyIds'
-                  : section.id === 'weeds' ? 'weedIds'
-                    : 'abioticStressIds';
-            return (
+    <ScrollView contentContainerStyle={styles.itemGrid} showsVerticalScrollIndicator={false}>
+      {problemSections.map((section) => {
+        const sectionColor = PROBLEM_COLORS[section.id] || theme.colors.error;
+        const filterKey = section.id === 'pests' ? 'pestIds'
+          : section.id === 'diseases' ? 'diseaseIds'
+            : section.id === 'nutrientDeficiencies' ? 'nutrientDeficiencyIds'
+              : section.id === 'weeds' ? 'weedIds'
+                : 'abioticStressIds';
+        return (
+          <React.Fragment key={section.id}>
+            <View style={styles.problemSectionHeader}>
+              <Icon name={PROBLEM_ICONS[section.id] || 'alert'} size={18} color={sectionColor} />
+              <Text style={[styles.problemSectionTitle, { color: sectionColor }]}>{section.title}</Text>
+              <View style={[styles.problemSectionBadge, { backgroundColor: sectionColor + '14' }]}>
+                <Text style={[styles.problemSectionCount, { color: sectionColor }]}>{section.data.length}</Text>
+              </View>
+            </View>
+            {section.data.map((item) => (
               <TouchableOpacity
                 key={item.id}
-                style={styles.problemItem}
+                style={styles.itemCard}
                 activeOpacity={0.7}
                 onPress={() => selectItem(filterKey, item.id, item.name)}>
-                <Text style={styles.problemItemName}>{item.name}</Text>
-                <Icon name="chevron-right" size={18} color={theme.colors.textLight} />
+                <View style={[styles.itemIconWrap, { backgroundColor: sectionColor + '12' }]}>
+                  <Icon name={item.icon || PROBLEM_ICONS[section.id] || 'alert'} size={28} color={sectionColor} />
+                </View>
+                <Text style={styles.itemName}>{item.name}</Text>
               </TouchableOpacity>
-            );
-          })}
-        </View>
-      ))}
+            ))}
+          </React.Fragment>
+        );
+      })}
     </ScrollView>
   );
 
   const renderCategoryList = () => (
-    <ScrollView contentContainerStyle={styles.categoryList} showsVerticalScrollIndicator={false}>
+    <ScrollView contentContainerStyle={styles.itemGrid} showsVerticalScrollIndicator={false}>
       {categories.map((cat) => (
         <TouchableOpacity
           key={cat.id}
-          style={styles.categoryCard}
+          style={styles.itemCard}
           activeOpacity={0.7}
           onPress={() => selectItem('categoryIds', cat.id, cat.name)}>
-          <View style={[styles.categoryIconWrap, { backgroundColor: (cat.color || '#7B1FA2') + '15' }]}>
-            <Icon name="tag" size={22} color={cat.color || '#7B1FA2'} />
+          <View style={[styles.itemIconWrap, { backgroundColor: (cat.color || '#7B1FA2') + '12' }]}>
+            <Icon name={cat.icon || 'shape'} size={28} color={cat.color || '#7B1FA2'} />
           </View>
-          <View style={styles.categoryInfo}>
-            <Text style={styles.categoryName}>{cat.name}</Text>
-            {cat.description && (
-              <Text style={styles.categoryDesc} numberOfLines={2}>{cat.description}</Text>
-            )}
-          </View>
-          <Icon name="chevron-right" size={20} color={theme.colors.textLight} />
+          <Text style={styles.itemName}>{cat.name}</Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -512,53 +518,21 @@ const styles = StyleSheet.create({
   },
   itemName: { fontSize: 14, fontWeight: '600', color: theme.colors.text, textAlign: 'center' },
 
-  // ─── Problem Browse ───────────────────────────────────────
-  problemBrowse: { padding: 16, paddingBottom: 32 },
-  problemGroup: { marginBottom: 16 },
-  problemGroupHeader: {
+  // ─── Problem Section Headers ────────────────────────────────
+  problemSectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
+    width: '100%',
     gap: 8,
-    marginBottom: 8,
+    marginTop: 12,
+    marginBottom: 4,
     paddingBottom: 8,
     borderBottomWidth: 1,
     borderBottomColor: theme.colors.divider,
   },
-  problemGroupTitle: { flex: 1, fontSize: 16, fontWeight: '700', color: theme.colors.text },
-  problemGroupCount: { fontSize: 12, color: theme.colors.textLight, fontWeight: '600' },
-  problemItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderRadius: 10,
-    padding: 14,
-    marginBottom: 6,
-    ...theme.shadows.sm,
-  },
-  problemItemName: { flex: 1, fontSize: 14, fontWeight: '600', color: theme.colors.text },
-
-  // ─── Category List ────────────────────────────────────────
-  categoryList: { padding: 16, paddingBottom: 32 },
-  categoryCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 10,
-    ...theme.shadows.sm,
-  },
-  categoryIconWrap: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 14,
-  },
-  categoryInfo: { flex: 1 },
-  categoryName: { fontSize: 15, fontWeight: '700', color: theme.colors.text },
-  categoryDesc: { fontSize: 12, color: theme.colors.textSecondary, marginTop: 3 },
+  problemSectionTitle: { flex: 1, fontSize: 14, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.8 },
+  problemSectionBadge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10 },
+  problemSectionCount: { fontSize: 12, fontWeight: '700' },
 
   // ─── Results ──────────────────────────────────────────────
   resultsContent: { padding: 16, paddingBottom: 32 },
