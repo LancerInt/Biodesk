@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import {
   View,
   Text,
@@ -100,7 +100,7 @@ const ProductsScreen = ({ navigation }) => {
   };
 
   // ─── Product card ────────────────────────────────────────────
-  const renderProductCard = ({ item, section }) => {
+  const renderProductCard = useCallback(({ item, section }) => {
     const catColor = section.color;
     const formColor = getFormulationColor(item.formulation);
     const heroImg = getHeroImage(item.name);
@@ -140,7 +140,7 @@ const ProductsScreen = ({ navigation }) => {
         </View>
       </TouchableOpacity>
     );
-  };
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -175,6 +175,10 @@ const ProductsScreen = ({ navigation }) => {
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
         stickySectionHeadersEnabled={false}
+        initialNumToRender={10}
+        maxToRenderPerBatch={8}
+        windowSize={5}
+        removeClippedSubviews={true}
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="magnify-close" size={48} color={theme.colors.textLight} />

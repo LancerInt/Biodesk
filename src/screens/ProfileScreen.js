@@ -254,17 +254,33 @@ const ProfileScreen = ({ navigation, route }) => {
         ))}
       </View>
       <Text style={styles.subTitle}>Regional Presence</Text>
-      {section.content.regions.map((r, i) => (
-        <View key={i} style={styles.regionCard}>
-          <View style={styles.regionHeader}>
-            <Text style={styles.regionName}>{r.name}</Text>
-            <View style={[styles.statusBadge, { backgroundColor: r.status === 'Established' ? '#E8F5E9' : r.status === 'Growing' ? '#FFF3E0' : '#F3E5F5' }]}>
-              <Text style={[styles.statusText, { color: r.status === 'Established' ? '#2E7D32' : r.status === 'Growing' ? '#E65100' : '#7B1FA2' }]}>{r.status}</Text>
+      {section.content.regions.map((r, i) => {
+        const STATUS_CONFIG = {
+          Established: { color: '#2E7D32', bg: '#E8F5E9', icon: 'earth',           dots: 4 },
+          Expanding:   { color: '#1565C0', bg: '#E3F2FD', icon: 'map-marker-radius', dots: 3 },
+          Growing:     { color: '#E65100', bg: '#FFF3E0', icon: 'chart-line',      dots: 2 },
+          Emerging:    { color: '#7B1FA2', bg: '#F3E5F5', icon: 'flag-outline',    dots: 1 },
+        };
+        const cfg = STATUS_CONFIG[r.status] || STATUS_CONFIG.Emerging;
+        return (
+          <View key={i} style={[styles.regionCard, { borderLeftWidth: 3.5, borderLeftColor: cfg.color }]}>
+            <View style={styles.regionHeader}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                <View style={[styles.regionIconCircle, { backgroundColor: cfg.bg }]}>
+                  <Icon name={cfg.icon} size={16} color={cfg.color} />
+                </View>
+                <Text style={styles.regionName}>{r.name}</Text>
+              </View>
+              <View style={styles.regionDots}>
+                {[1, 2, 3, 4].map(d => (
+                  <View key={d} style={[styles.regionDot, { backgroundColor: d <= cfg.dots ? cfg.color : '#E0E0E0' }]} />
+                ))}
+              </View>
             </View>
+            {r.countries && <Text style={styles.countries}>{r.countries.join(' | ')}</Text>}
           </View>
-          {r.countries && <Text style={styles.countries}>{r.countries.join(' | ')}</Text>}
-        </View>
-      ))}
+        );
+      })}
     </View>
   );
 
@@ -475,11 +491,12 @@ const styles = StyleSheet.create({
   statLabel: { fontSize: 11, color: theme.colors.textLight, marginTop: 4, textAlign: 'center' },
 
   // Global presence
-  regionCard: { backgroundColor: '#FFF', borderRadius: 12, padding: 14, marginBottom: 8, ...theme.shadows.sm },
+  regionCard: { backgroundColor: '#FFF', borderRadius: 12, padding: 14, marginBottom: 8, overflow: 'hidden', ...theme.shadows.sm },
   regionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  regionIconCircle: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center', marginRight: 10 },
   regionName: { fontSize: 16, fontWeight: '700', color: theme.colors.text },
-  statusBadge: { paddingHorizontal: 10, paddingVertical: 3, borderRadius: 10 },
-  statusText: { fontSize: 11, fontWeight: '600' },
+  regionDots: { flexDirection: 'row', gap: 5 },
+  regionDot: { width: 8, height: 8, borderRadius: 4 },
   countries: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 6 },
 
   // Certifications
