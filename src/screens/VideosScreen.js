@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, Image, useWindowDimensions, ScrollView } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, useWindowDimensions, ScrollView } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import ImageViewer from '../components/common/ImageViewer';
@@ -12,24 +12,6 @@ import CLIENT_VISIT_IMAGES from '../constants/clientVisitImages';
 // MEDIA DATA
 // ═══════════════════════════════════════════════════════════════
 const CATEGORIES = ['Product', 'Manufacturing', 'Mode of Action', 'Client Visit', 'Shipping'];
-
-const VIDEOS = [
-  { id: 'v1', title: 'Ecoza Max – Product Overview', category: 'Product', duration: '3:24', icon: 'leaf' },
-  { id: 'v2', title: 'Mycova – How It Works', category: 'Mode of Action', duration: '4:12', icon: 'bacteria' },
-  { id: 'v3', title: 'Wynn Platform – Fermentation Facility', category: 'Manufacturing', duration: '6:45', icon: 'factory' },
-  { id: 'v4', title: 'IGreen NPK – Application Demo', category: 'Product', duration: '2:58', icon: 'sprout' },
-  { id: 'v5', title: 'Karyo Platform – Formulation Process', category: 'Manufacturing', duration: '5:30', icon: 'beaker' },
-  { id: 'v6', title: 'MargoShine – Mode of Action', category: 'Mode of Action', duration: '3:15', icon: 'flask' },
-  { id: 'v7', title: 'Biota-H – Root Disease Control', category: 'Product', duration: '2:44', icon: 'bacteria' },
-  { id: 'v8', title: 'Microvate Platform Overview', category: 'Manufacturing', duration: '7:10', icon: 'lightning-bolt' },
-  { id: 'v9', title: 'Blooma – Seaweed Biostimulant', category: 'Product', duration: '3:01', icon: 'waves' },
-  { id: 'v10', title: 'Beauveria bassiana – Pest Infection', category: 'Mode of Action', duration: '4:55', icon: 'bacteria' },
-  { id: 'v11', title: 'K-Guard – Nematode Control', category: 'Product', duration: '2:33', icon: 'leaf' },
-  { id: 'v12', title: 'Kriya Manufacturing Facility Tour', category: 'Manufacturing', duration: '9:20', icon: 'factory' },
-  { id: 'v13', title: 'Product Packaging & Dispatch', category: 'Shipping', duration: '3:40', icon: 'package-variant-closed' },
-  { id: 'v14', title: 'Cold Chain Logistics', category: 'Shipping', duration: '4:15', icon: 'truck-delivery' },
-  { id: 'v15', title: 'Export Shipment Process', category: 'Shipping', duration: '5:05', icon: 'airplane-takeoff' },
-];
 
 // ─── Build complete photo gallery from all product images ─────
 const buildPhotos = () => {
@@ -154,17 +136,13 @@ const VideosScreen = ({ navigation }) => {
   const COLS = 3;
   const THUMB_W = (winW - 48) / COLS;
 
-  const [mediaType, setMediaType] = useState('Photos');
   const [activeCategory, setActiveCategory] = useState('Product');
   const [viewerImage, setViewerImage] = useState(null);
   const [clientVisitFolder, setClientVisitFolder] = useState(null); // null = show folders, string = show that folder's images
 
-  const isPhotos = mediaType === 'Photos';
-  const sourceData = isPhotos ? PHOTOS : VIDEOS;
-
   const filtered = useMemo(() => {
     // When inside a client visit folder, show that folder's images
-    if (isPhotos && activeCategory === 'Client Visit' && clientVisitFolder) {
+    if (activeCategory === 'Client Visit' && clientVisitFolder) {
       const images = CLIENT_VISIT_IMAGES[clientVisitFolder] || [];
       const data = images.map((img, i) => ({
         id: `cvi-${clientVisitFolder}-${i}`,
@@ -181,7 +159,7 @@ const VideosScreen = ({ navigation }) => {
       return [...data, ...fillers];
     }
 
-    const data = activeCategory === 'All' ? sourceData : sourceData.filter(item => item.category === activeCategory);
+    const data = activeCategory === 'All' ? PHOTOS : PHOTOS.filter(item => item.category === activeCategory);
     // Pad incomplete last row with invisible fillers so space-between doesn't leave gaps
     const remainder = data.length % COLS;
     if (remainder === 0) return data;
@@ -190,14 +168,7 @@ const VideosScreen = ({ navigation }) => {
       _filler: true,
     }));
     return [...data, ...fillers];
-  }, [mediaType, activeCategory, sourceData, clientVisitFolder]);
-
-  // Reset category when switching media type
-  const switchMediaType = (type) => {
-    setMediaType(type);
-    setActiveCategory('Product');
-    setClientVisitFolder(null);
-  };
+  }, [activeCategory, clientVisitFolder]);
 
   // Navigate to relevant page or open image viewer
   const handlePhotoPress = (item) => {
@@ -223,35 +194,6 @@ const VideosScreen = ({ navigation }) => {
   };
 
   const thumbH = THUMB_W * 0.75;
-
-  // ─── Video Card ──────────────────────────────────────────────
-  const renderVideo = ({ item }) => {
-    if (item._filler) return <View style={{ width: THUMB_W }} />;
-    return (
-    <TouchableOpacity
-      style={[styles.videoCard, { width: THUMB_W }]}
-      activeOpacity={0.75}
-      onPress={() => Alert.alert(item.title, `Duration: ${item.duration}\nCategory: ${item.category}\n\nVideo player would launch here with the bundled video file.`)}>
-      <View style={[styles.thumbnail, { height: thumbH, backgroundColor: (CAT_COLORS[item.category] || '#455') + '15' }]}>
-        <Icon name={item.icon} size={32} color={CAT_COLORS[item.category] || theme.colors.primary} />
-        <View style={styles.playOverlay}>
-          <Icon name="play-circle" size={36} color="rgba(0,0,0,0.5)" />
-        </View>
-        <View style={styles.durationBadge}>
-          <Text style={styles.durationText}>{item.duration}</Text>
-        </View>
-      </View>
-      <View style={styles.videoInfo}>
-        <Text style={styles.videoTitle} numberOfLines={2}>{item.title}</Text>
-        <View style={[styles.catBadge, { backgroundColor: (CAT_COLORS[item.category] || '#757') + '15' }]}>
-          <Text style={[styles.catText, { color: CAT_COLORS[item.category] || theme.colors.primary }]}>
-            {item.category}
-          </Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-    );
-  };
 
   // ─── Photo Card ──────────────────────────────────────────────
   const renderPhoto = ({ item }) => {
@@ -306,30 +248,12 @@ const VideosScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Gallery" subtitle={clientVisitFolder ? `${clientVisitFolder} — ${filtered.filter(i => !i._filler).length} photos` : `${filtered.filter(i => !i._filler).length} ${mediaType.toLowerCase()}`} onBack={() => {
+      <Header title="Gallery" subtitle={clientVisitFolder ? `${clientVisitFolder} — ${filtered.filter(i => !i._filler).length} photos` : `${filtered.filter(i => !i._filler).length} photos`} onBack={() => {
         if (clientVisitFolder) { setClientVisitFolder(null); }
         else { navigation.goBack(); }
       }} />
 
-      {/* ═══ Level 1 — Media Type Toggle ═══════════════════════ */}
-      <View style={styles.mediaTypeBar}>
-        {['Photos', 'Videos'].map(type => {
-          const active = mediaType === type;
-          const iconName = type === 'Photos' ? 'image-outline' : 'play-box-outline';
-          return (
-            <TouchableOpacity
-              key={type}
-              style={[styles.mediaTypeBtn, active && styles.mediaTypeBtnActive]}
-              onPress={() => switchMediaType(type)}
-              activeOpacity={0.7}>
-              <Icon name={iconName} size={18} color={active ? '#FFF' : theme.colors.textSecondary} />
-              <Text style={[styles.mediaTypeTxt, active && styles.mediaTypeTxtActive]}>{type}</Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
-
-      {/* ═══ Level 2 — Category Filter ═════════════════════════ */}
+      {/* ═══ Category Filter ══════════════════════════════════ */}
       <View style={styles.catListWrap}>
         <ScrollView
           horizontal
@@ -337,7 +261,7 @@ const VideosScreen = ({ navigation }) => {
           contentContainerStyle={styles.catList}>
           {CATEGORIES.map(cat => {
             const active = activeCategory === cat;
-            const label = cat === 'All' ? `All ${mediaType}` : `${cat} ${mediaType}`;
+            const label = cat === 'All' ? 'All Photos' : `${cat} Photos`;
             const color = CAT_COLORS[cat] || theme.colors.primary;
             return (
               <TouchableOpacity
@@ -355,7 +279,7 @@ const VideosScreen = ({ navigation }) => {
       {/* ═══ Media Grid ════════════════════════════════════════ */}
       <FlatList
         data={filtered}
-        renderItem={isPhotos ? renderPhoto : renderVideo}
+        renderItem={renderPhoto}
         keyExtractor={item => item.id}
         numColumns={COLS}
         contentContainerStyle={styles.grid}
@@ -363,8 +287,8 @@ const VideosScreen = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <View style={styles.empty}>
-            <Icon name={isPhotos ? 'image-off-outline' : 'video-off-outline'} size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyText}>No {mediaType.toLowerCase()} in this category</Text>
+            <Icon name="image-off-outline" size={64} color={theme.colors.textLight} />
+            <Text style={styles.emptyText}>No photos in this category</Text>
           </View>
         }
       />
@@ -383,41 +307,7 @@ const VideosScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.colors.background },
 
-  // ─── Level 1: Media Type Toggle ──────────────────────────────
-  mediaTypeBar: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingTop: 10,
-    paddingBottom: 6,
-    gap: 10,
-    backgroundColor: '#FFF',
-  },
-  mediaTypeBtn: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    paddingVertical: 10,
-    borderRadius: 12,
-    backgroundColor: '#F5F5F5',
-    borderWidth: 1.5,
-    borderColor: '#E0E0E0',
-  },
-  mediaTypeBtnActive: {
-    backgroundColor: theme.colors.primary,
-    borderColor: theme.colors.primary,
-  },
-  mediaTypeTxt: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.textSecondary,
-  },
-  mediaTypeTxtActive: {
-    color: '#FFF',
-  },
-
-  // ─── Level 2: Category Filter ────────────────────────────────
+  // ─── Category Filter ──────────────────────────────────────────
   catListWrap: {
     flexShrink: 0,
     backgroundColor: '#FFF',
@@ -453,17 +343,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  playOverlay: { position: 'absolute' },
-  durationBadge: {
-    position: 'absolute',
-    bottom: 6,
-    right: 8,
-    backgroundColor: 'rgba(0,0,0,0.65)',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 4,
-  },
-  durationText: { color: '#FFF', fontSize: 11, fontWeight: '600' },
   photoBadge: {
     position: 'absolute',
     bottom: 6,
@@ -475,8 +354,6 @@ const styles = StyleSheet.create({
   },
   videoInfo: { padding: 8 },
   videoTitle: { fontSize: 13, fontWeight: '600', color: theme.colors.text, lineHeight: 18 },
-  catBadge: { marginTop: 4, alignSelf: 'flex-start', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 8 },
-  catText: { fontSize: 10, fontWeight: '600' },
 
   // ─── Folder Style ────────────────────────────────────────────
   folderOverlay: {

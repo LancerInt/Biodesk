@@ -6,99 +6,99 @@ import solData from '../constants/data/solutions-recommendations.json';
 // ═══════════════════════════════════════════════════════════════
 
 const CROPS = [
-  { id: 'crop_rice', name: 'Rice', icon: 'grain' },
-  { id: 'crop_wheat', name: 'Wheat', icon: 'barley' },
-  { id: 'crop_maize', name: 'Maize', icon: 'corn' },
-  { id: 'crop_cotton', name: 'Cotton', icon: 'flower-tulip' },
-  { id: 'crop_sugarcane', name: 'Sugarcane', icon: 'bamboo' },
-  { id: 'crop_soybean', name: 'Soybean', icon: 'seed' },
-  { id: 'crop_groundnut', name: 'Groundnut', icon: 'peanut' },
-  { id: 'crop_mustard', name: 'Mustard', icon: 'flower' },
-  { id: 'crop_chilli', name: 'Chilli', icon: 'chili-mild' },
-  { id: 'crop_tomato', name: 'Tomato', icon: 'food-apple' },
-  { id: 'crop_okra', name: 'Okra', icon: 'leaf' },
-  { id: 'crop_onion', name: 'Onion', icon: 'circle-slice-8' },
-  { id: 'crop_potato', name: 'Potato', icon: 'food-variant' },
-  { id: 'crop_brinjal', name: 'Brinjal', icon: 'food-apple-outline' },
-  { id: 'crop_cabbage', name: 'Cabbage', icon: 'sprout-outline' },
-  { id: 'crop_cauliflower', name: 'Cauliflower', icon: 'tree-outline' },
-  { id: 'crop_grapes', name: 'Grapes', icon: 'fruit-grapes' },
-  { id: 'crop_mango', name: 'Mango', icon: 'fruit-citrus' },
-  { id: 'crop_banana', name: 'Banana', icon: 'fruit-pineapple' },
-  { id: 'crop_pomegranate', name: 'Pomegranate', icon: 'fruit-cherries' },
-  { id: 'crop_citrus', name: 'Citrus', icon: 'fruit-citrus' },
-  { id: 'crop_tea', name: 'Tea', icon: 'tea' },
-  { id: 'crop_coffee', name: 'Coffee', icon: 'coffee' },
-  { id: 'crop_pulses', name: 'Pulses', icon: 'seed-outline' },
-  { id: 'crop_oilseeds', name: 'Oilseeds', icon: 'water-outline' },
-  { id: 'crop_garlic', name: 'Garlic', icon: 'spa' },
-  { id: 'crop_chickpea', name: 'Chickpea', icon: 'seed' },
+  { id: 'crop_banana', name: 'Banana', icon: 'leaf', image: require('../assets/images/CropIcons/banana.png') },
+  { id: 'crop_brinjal', name: 'Brinjal', icon: 'leaf', image: require('../assets/images/CropIcons/brinjal.png') },
+  { id: 'crop_cabbage', name: 'Cabbage', icon: 'leaf', image: require('../assets/images/CropIcons/cabbage.png') },
+  { id: 'crop_cauliflower', name: 'Cauliflower', icon: 'leaf', image: require('../assets/images/CropIcons/cauliflower.png') },
+  { id: 'crop_chickpea', name: 'Chickpea', icon: 'seed', image: require('../assets/images/CropIcons/chickpea.png') },
+  { id: 'crop_chilli', name: 'Chilli', icon: 'chili-mild', image: require('../assets/images/CropIcons/chilli.png') },
+  { id: 'crop_citrus', name: 'Citrus', icon: 'fruit-citrus', image: require('../assets/images/CropIcons/citrus.png') },
+  { id: 'crop_coffee', name: 'Coffee', icon: 'coffee', image: require('../assets/images/CropIcons/coffee.png') },
+  { id: 'crop_cotton', name: 'Cotton', icon: 'flower-tulip', image: require('../assets/images/CropIcons/cotton.png') },
+  { id: 'crop_garlic', name: 'Garlic', icon: 'spa', image: require('../assets/images/CropIcons/garlic.png') },
+  { id: 'crop_grapes', name: 'Grapes', icon: 'fruit-grapes', image: require('../assets/images/CropIcons/grapes.png') },
+  { id: 'crop_groundnut', name: 'Groundnut', icon: 'peanut', image: require('../assets/images/CropIcons/groundnut.png') },
+  { id: 'crop_maize', name: 'Maize', icon: 'corn', image: require('../assets/images/CropIcons/maize.png') },
+  { id: 'crop_mango', name: 'Mango', icon: 'leaf', image: require('../assets/images/CropIcons/mango.png') },
+  { id: 'crop_mustard', name: 'Mustard', icon: 'flower', image: require('../assets/images/CropIcons/mustard.png') },
+  { id: 'crop_oilseeds', name: 'Oilseeds', icon: 'seed-outline', image: require('../assets/images/CropIcons/oilseeds.png') },
+  { id: 'crop_okra', name: 'Okra', icon: 'leaf', image: require('../assets/images/CropIcons/okra.png') },
+  { id: 'crop_onion', name: 'Onion', icon: 'leaf', image: require('../assets/images/CropIcons/onion.png') },
+  { id: 'crop_pomegranate', name: 'Pomegranate', icon: 'fruit-cherries', image: require('../assets/images/CropIcons/pomegranate.png') },
+  { id: 'crop_potato', name: 'Potato', icon: 'leaf', image: require('../assets/images/CropIcons/potato.png') },
+  { id: 'crop_pulses', name: 'Pulses', icon: 'seed', image: require('../assets/images/CropIcons/pulses.png') },
+  { id: 'crop_rice', name: 'Rice', icon: 'grain', image: require('../assets/images/CropIcons/rice.png') },
+  { id: 'crop_soybean', name: 'Soybean', icon: 'seed', image: require('../assets/images/CropIcons/soybean.png') },
+  { id: 'crop_sugarcane', name: 'Sugarcane', icon: 'bamboo', image: require('../assets/images/CropIcons/sugarcane.png') },
+  { id: 'crop_tea', name: 'Tea', icon: 'tea', image: require('../assets/images/CropIcons/tea.png') },
+  { id: 'crop_tomato', name: 'Tomato', icon: 'leaf', image: require('../assets/images/CropIcons/tomato.png') },
+  { id: 'crop_wheat', name: 'Wheat', icon: 'barley', image: require('../assets/images/CropIcons/wheat.png') },
 ];
 
 const PESTS = [
-  { id: 'pest_stem_borer', name: 'Stem Borer', icon: 'bug' },
-  { id: 'pest_leaf_folder', name: 'Leaf Folder', icon: 'bug-outline' },
-  { id: 'pest_brown_planthopper', name: 'Brown Planthopper', icon: 'bug' },
-  { id: 'pest_thrips', name: 'Thrips', icon: 'bug-outline' },
   { id: 'pest_aphid', name: 'Aphid', icon: 'bug' },
-  { id: 'pest_termite', name: 'Termite', icon: 'bug' },
-  { id: 'pest_spodoptera', name: 'Spodoptera', icon: 'butterfly' },
-  { id: 'pest_whitefly', name: 'Whitefly', icon: 'bee' },
-  { id: 'pest_jassid', name: 'Jassid', icon: 'bug-outline' },
-  { id: 'pest_mealybug', name: 'Mealybug', icon: 'bug' },
+  { id: 'pest_beetle', name: 'Beetle', icon: 'ladybug' },
+  { id: 'pest_brown_planthopper', name: 'Brown Planthopper', icon: 'bug' },
+  { id: 'pest_caterpillar', name: 'Caterpillar', icon: 'bug' },
+  { id: 'pest_cutworm', name: 'Cutworm', icon: 'worm' },
+  { id: 'pest_diamondback_moth', name: 'Diamondback Moth', icon: 'butterfly' },
+  { id: 'pest_fruit_borer', name: 'Fruit Borer', icon: 'bug' },
+  { id: 'pest_fruit_fly', name: 'Fruit Fly', icon: 'bee' },
+  { id: 'pest_grasshopper', name: 'Grasshopper', icon: 'bug' },
   { id: 'pest_helicoverpa', name: 'Helicoverpa', icon: 'butterfly' },
+  { id: 'pest_jassid', name: 'Jassid', icon: 'bug-outline' },
+  { id: 'pest_leaf_folder', name: 'Leaf Folder', icon: 'bug-outline' },
+  { id: 'pest_leaf_miner', name: 'Leaf Miner', icon: 'bug-outline' },
+  { id: 'pest_mealybug', name: 'Mealybug', icon: 'bug' },
+  { id: 'pest_mite', name: 'Mite', icon: 'spider' },
+  { id: 'pest_nematode', name: 'Nematode', icon: 'worm' },
+  { id: 'pest_painted_bug', name: 'Painted Bug', icon: 'ladybug' },
   { id: 'pest_red_spider_mite', name: 'Red Spider Mite', icon: 'spider' },
-  { id: 'pest_shoot_borer', name: 'Shoot Borer', icon: 'bug' },
   { id: 'pest_root_grub', name: 'Root Grub', icon: 'bug-outline' },
   { id: 'pest_scale_insect', name: 'Scale Insect', icon: 'circle-small' },
   { id: 'pest_semilooper', name: 'Semilooper', icon: 'butterfly-outline' },
-  { id: 'pest_diamondback_moth', name: 'Diamondback Moth', icon: 'butterfly' },
-  { id: 'pest_fruit_borer', name: 'Fruit Borer', icon: 'bug' },
-  { id: 'pest_mite', name: 'Mite', icon: 'spider' },
+  { id: 'pest_shoot_borer', name: 'Shoot Borer', icon: 'bug' },
   { id: 'pest_spider_mite', name: 'Spider Mite', icon: 'spider' },
-  { id: 'pest_nematode', name: 'Nematode', icon: 'worm' },
-  { id: 'pest_fruit_fly', name: 'Fruit Fly', icon: 'bee' },
-  { id: 'pest_painted_bug', name: 'Painted Bug', icon: 'ladybug' },
-  { id: 'pest_leaf_miner', name: 'Leaf Miner', icon: 'bug-outline' },
-  { id: 'pest_beetle', name: 'Beetle', icon: 'ladybug' },
-  { id: 'pest_caterpillar', name: 'Caterpillar', icon: 'bug' },
-  { id: 'pest_white_grub', name: 'White Grub', icon: 'bug-outline' },
-  { id: 'pest_cutworm', name: 'Cutworm', icon: 'worm' },
+  { id: 'pest_spodoptera', name: 'Spodoptera', icon: 'butterfly' },
+  { id: 'pest_stem_borer', name: 'Stem Borer', icon: 'bug' },
+  { id: 'pest_termite', name: 'Termite', icon: 'bug' },
+  { id: 'pest_thrips', name: 'Thrips', icon: 'bug-outline' },
   { id: 'pest_weevil', name: 'Weevil', icon: 'bug' },
-  { id: 'pest_grasshopper', name: 'Grasshopper', icon: 'bug' },
+  { id: 'pest_white_grub', name: 'White Grub', icon: 'bug-outline' },
+  { id: 'pest_whitefly', name: 'Whitefly', icon: 'bee' },
 ];
 
 const DISEASES = [
-  { id: 'disease_blast', name: 'Blast', icon: 'virus' },
-  { id: 'disease_sheath_blight', name: 'Sheath Blight', icon: 'virus-outline' },
-  { id: 'disease_bacterial_leaf_blight', name: 'Bacterial Leaf Blight', icon: 'bacteria' },
-  { id: 'disease_root_rot', name: 'Root Rot', icon: 'mushroom' },
-  { id: 'disease_wilt', name: 'Wilt', icon: 'leaf-off' },
-  { id: 'disease_downy_mildew', name: 'Downy Mildew', icon: 'mushroom-outline' },
-  { id: 'disease_leaf_spot', name: 'Leaf Spot', icon: 'circle-double' },
-  { id: 'disease_damping_off', name: 'Damping Off', icon: 'sprout' },
-  { id: 'disease_anthracnose', name: 'Anthracnose', icon: 'virus' },
-  { id: 'disease_powdery_mildew', name: 'Powdery Mildew', icon: 'mushroom-outline' },
-  { id: 'disease_early_blight', name: 'Early Blight', icon: 'virus-outline' },
-  { id: 'disease_late_blight', name: 'Late Blight', icon: 'virus' },
-  { id: 'disease_purple_blotch', name: 'Purple Blotch', icon: 'circle-double' },
-  { id: 'disease_bacterial_spot', name: 'Bacterial Spot', icon: 'bacteria' },
-  { id: 'disease_stem_rot', name: 'Stem Rot', icon: 'mushroom' },
   { id: 'disease_alternaria_blight', name: 'Alternaria Blight', icon: 'virus-outline' },
-  { id: 'disease_gummosis', name: 'Gummosis', icon: 'water-alert' },
+  { id: 'disease_anthracnose', name: 'Anthracnose', icon: 'virus' },
+  { id: 'disease_bacterial_leaf_blight', name: 'Bacterial Leaf Blight', icon: 'bacteria' },
+  { id: 'disease_bacterial_spot', name: 'Bacterial Spot', icon: 'bacteria' },
+  { id: 'disease_blast', name: 'Blast', icon: 'virus' },
   { id: 'disease_collar_rot', name: 'Collar Rot', icon: 'mushroom' },
-  { id: 'disease_seedling_blight', name: 'Seedling Blight', icon: 'sprout' },
+  { id: 'disease_damping_off', name: 'Damping Off', icon: 'sprout' },
+  { id: 'disease_downy_mildew', name: 'Downy Mildew', icon: 'mushroom-outline' },
+  { id: 'disease_early_blight', name: 'Early Blight', icon: 'virus-outline' },
   { id: 'disease_fusarium_wilt', name: 'Fusarium Wilt', icon: 'leaf-off' },
+  { id: 'disease_gummosis', name: 'Gummosis', icon: 'water-alert' },
+  { id: 'disease_late_blight', name: 'Late Blight', icon: 'virus' },
+  { id: 'disease_leaf_spot', name: 'Leaf Spot', icon: 'circle-double' },
+  { id: 'disease_powdery_mildew', name: 'Powdery Mildew', icon: 'mushroom-outline' },
+  { id: 'disease_purple_blotch', name: 'Purple Blotch', icon: 'circle-double' },
+  { id: 'disease_root_rot', name: 'Root Rot', icon: 'mushroom' },
+  { id: 'disease_seedling_blight', name: 'Seedling Blight', icon: 'sprout' },
+  { id: 'disease_sheath_blight', name: 'Sheath Blight', icon: 'virus-outline' },
+  { id: 'disease_stem_rot', name: 'Stem Rot', icon: 'mushroom' },
+  { id: 'disease_wilt', name: 'Wilt', icon: 'leaf-off' },
 ];
 
 const NUTRIENT_DEFICIENCIES = [
+  { id: 'def_multi_nutrient', name: 'General Nutrient Imbalance', icon: 'scale-unbalanced' },
   { id: 'def_nitrogen', name: 'Nitrogen Deficiency', icon: 'alpha-n-circle' },
   { id: 'def_phosphorus', name: 'Phosphorus Deficiency', icon: 'alpha-p-circle' },
   { id: 'def_potassium', name: 'Potassium Deficiency', icon: 'alpha-k-circle' },
-  { id: 'def_zinc', name: 'Zinc Deficiency', icon: 'alpha-z-circle' },
-  { id: 'def_sulphur', name: 'Sulphur Deficiency', icon: 'alpha-s-circle' },
   { id: 'def_silicon', name: 'Silicon Deficiency', icon: 'diamond-stone' },
-  { id: 'def_multi_nutrient', name: 'General Nutrient Imbalance', icon: 'scale-unbalanced' },
+  { id: 'def_sulphur', name: 'Sulphur Deficiency', icon: 'alpha-s-circle' },
+  { id: 'def_zinc', name: 'Zinc Deficiency', icon: 'alpha-z-circle' },
 ];
 
 const GROWTH_STAGES = [
@@ -116,12 +116,12 @@ const GROWTH_STAGES = [
 ];
 
 const ABIOTIC_STRESSES = [
+  { id: 'stress_cold', name: 'Cold Stress', icon: 'snowflake' },
   { id: 'stress_drought', name: 'Drought Stress', icon: 'weather-sunny' },
   { id: 'stress_heat', name: 'Heat Stress', icon: 'fire' },
-  { id: 'stress_cold', name: 'Cold Stress', icon: 'snowflake' },
-  { id: 'stress_waterlogging', name: 'Waterlogging', icon: 'waves' },
-  { id: 'stress_transplant_shock', name: 'Transplant Shock', icon: 'flash-alert' },
   { id: 'stress_salinity', name: 'Salinity Stress', icon: 'water-alert' },
+  { id: 'stress_transplant_shock', name: 'Transplant Shock', icon: 'flash-alert' },
+  { id: 'stress_waterlogging', name: 'Waterlogging', icon: 'waves' },
 ];
 
 const WEEDS = [
@@ -132,10 +132,10 @@ const WEEDS = [
 ];
 
 const CATEGORIES = [
+  { id: 'cat_biofertilizer', name: 'Biofertilizer', icon: 'earth', color: '#4b653e', description: 'Microbial consortium for nutrient fixation and solubilization' },
+  { id: 'cat_biostimulant', name: 'Biostimulant', icon: 'flask-round-bottom', color: '#415d34', description: 'Seaweed, humic, amino, and organic acid-based growth enhancers' },
   { id: 'cat_botanical_pesticide', name: 'Botanical Pesticide', icon: 'tree', color: '#16416c', description: 'Neem, Spinosad, Karanjin, and essential oil-based crop protection' },
   { id: 'cat_microbial_pesticide', name: 'Microbial Pesticide', icon: 'microscope', color: '#2196F3', description: 'Beauveria, Trichoderma, Pseudomonas, and Bacillus-based biocontrol' },
-  { id: 'cat_biostimulant', name: 'Biostimulant', icon: 'flask-round-bottom', color: '#415d34', description: 'Seaweed, humic, amino, and organic acid-based growth enhancers' },
-  { id: 'cat_biofertilizer', name: 'Biofertilizer', icon: 'earth', color: '#4b653e', description: 'Microbial consortium for nutrient fixation and solubilization' },
 ];
 
 // ═══════════════════════════════════════════════════════════════
@@ -217,13 +217,12 @@ export const getProblemSections = () => [
   { id: 'pests', title: 'Pests', icon: 'bug', data: PESTS },
   { id: 'diseases', title: 'Diseases', icon: 'virus', data: DISEASES },
   { id: 'nutrientDeficiencies', title: 'Nutrient Deficiency', icon: 'flask-round-bottom-empty', data: NUTRIENT_DEFICIENCIES },
-  { id: 'weeds', title: 'Weeds', icon: 'grass', data: WEEDS },
 ];
 
 // Top-level browse sections for the landing screen
 export const getBrowseSections = () => [
   { id: 'crop', title: 'Crop', icon: 'barley', color: '#2E7D32', count: CROPS.length },
-  { id: 'problem', title: 'Problem', icon: 'shield-alert', color: '#D32F2F', count: PESTS.length + DISEASES.length + NUTRIENT_DEFICIENCIES.length + WEEDS.length },
+  { id: 'problem', title: 'Problem', icon: 'shield-alert', color: '#D32F2F', count: PESTS.length + DISEASES.length + NUTRIENT_DEFICIENCIES.length },
   { id: 'growthStage', title: 'Growth Stage', icon: 'timeline-clock', color: '#F57C00', count: GROWTH_STAGES.length },
   { id: 'stress', title: 'Abiotic Stress', icon: 'weather-lightning', color: '#0097A7', count: ABIOTIC_STRESSES.length },
   { id: 'category', title: 'Category', icon: 'shape', color: '#7B1FA2', count: CATEGORIES.length },
@@ -291,9 +290,34 @@ export const matchRecommendations = (filters = {}) => {
       matches = matches.filter(r => r.diseaseId && filters.diseaseIds.includes(r.diseaseId));
     }
 
-    matches.forEach(rec => {
-      results.push(resolveRecommendation(rec));
-    });
+    // Group by packageId/productId to merge crop-specific recs into one card
+    if (!filters.cropIds && matches.length > 1) {
+      const grouped = {};
+      matches.forEach(rec => {
+        const key = rec.packageId || rec.productId || rec.id;
+        if (!grouped[key]) {
+          grouped[key] = { rec: { ...rec }, cropIds: [] };
+        }
+        if (rec.cropId) {
+          const cropName = CROPS.find(c => c.id === rec.cropId)?.name;
+          if (cropName && !grouped[key].cropIds.includes(cropName)) {
+            grouped[key].cropIds.push(cropName);
+          }
+        }
+      });
+      Object.values(grouped).forEach(({ rec, cropIds }) => {
+        if (cropIds.length > 0) {
+          rec.recommendationReason = (rec.recommendationReason || '') +
+            '\n\nApplicable Crops: ' + cropIds.join(', ');
+        }
+        delete rec.cropId; // remove single cropId since merged
+        results.push(resolveRecommendation(rec));
+      });
+    } else {
+      matches.forEach(rec => {
+        results.push(resolveRecommendation(rec));
+      });
+    }
 
     // If no exact matches, check recommendation templates as fallback
     if (results.length === 0) {

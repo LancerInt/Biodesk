@@ -95,6 +95,7 @@ const ImageCarousel = React.memo(({ images }) => {
 const ProfileScreen = ({ navigation, route }) => {
   const initialTab = route?.params?.sectionIndex ?? 0;
   const [activeSection, setActiveSection] = useState(initialTab);
+  const [expandedRegion, setExpandedRegion] = useState(null);
   const section = PROFILE_SECTIONS[activeSection];
 
   // Preload all section images on mount for instant tab switching
@@ -255,15 +256,23 @@ const ProfileScreen = ({ navigation, route }) => {
       </View>
       <Text style={styles.subTitle}>Regional Presence</Text>
       {section.content.regions.map((r, i) => {
-        const STATUS_CONFIG = {
-          Established: { color: '#2E7D32', bg: '#E8F5E9', icon: 'earth',           dots: 4 },
-          Expanding:   { color: '#1565C0', bg: '#E3F2FD', icon: 'map-marker-radius', dots: 3 },
-          Growing:     { color: '#E65100', bg: '#FFF3E0', icon: 'chart-line',      dots: 2 },
-          Emerging:    { color: '#7B1FA2', bg: '#F3E5F5', icon: 'flag-outline',    dots: 1 },
+        const REGION_CONFIG = {
+          'USA':            { color: '#2E7D32', bg: '#E8F5E9', icon: 'flag' },
+          'Latin America':  { color: '#7B1FA2', bg: '#F3E5F5', icon: 'map-marker-multiple' },
+          'Africa':         { color: '#1565C0', bg: '#E3F2FD', icon: 'map-marker-multiple' },
+          'Middle East':    { color: '#2E7D32', bg: '#E8F5E9', icon: 'map-marker-multiple' },
+          'Southeast Asia': { color: '#E65100', bg: '#FFF3E0', icon: 'map-marker-multiple' },
+          'South Asia':     { color: '#2E7D32', bg: '#E8F5E9', icon: 'map-marker-multiple' },
+          'Europe':         { color: '#7B1FA2', bg: '#F3E5F5', icon: 'map-marker-multiple' },
         };
-        const cfg = STATUS_CONFIG[r.status] || STATUS_CONFIG.Emerging;
+        const cfg = REGION_CONFIG[r.name] || { color: '#2E7D32', bg: '#E8F5E9', icon: 'map-marker' };
+        const isExpanded = expandedRegion === r.name;
         return (
-          <View key={i} style={[styles.regionCard, { borderLeftWidth: 3.5, borderLeftColor: cfg.color }]}>
+          <TouchableOpacity
+            key={i}
+            activeOpacity={0.7}
+            onPress={() => setExpandedRegion(isExpanded ? null : r.name)}
+            style={[styles.regionCard, { borderLeftWidth: 3.5, borderLeftColor: cfg.color }]}>
             <View style={styles.regionHeader}>
               <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
                 <View style={[styles.regionIconCircle, { backgroundColor: cfg.bg }]}>
@@ -271,14 +280,29 @@ const ProfileScreen = ({ navigation, route }) => {
                 </View>
                 <Text style={styles.regionName}>{r.name}</Text>
               </View>
-              <View style={styles.regionDots}>
-                {[1, 2, 3, 4].map(d => (
-                  <View key={d} style={[styles.regionDot, { backgroundColor: d <= cfg.dots ? cfg.color : '#E0E0E0' }]} />
+              {r.partners && (
+                <Text style={[styles.partnerCountLabel, { color: cfg.color }]}>{r.partners.length} partners</Text>
+              )}
+            </View>
+            {isExpanded && r.partners && r.partners.length > 0 && (
+              <View style={styles.partnersList}>
+                <View style={[styles.partnersHeader, { backgroundColor: cfg.bg }]}>
+                  <Icon name="handshake" size={14} color={cfg.color} />
+                  <Text style={[styles.partnersTitle, { color: cfg.color }]}>Distribution Partners ({r.partners.length})</Text>
+                </View>
+                {r.partners.map((p, j) => (
+                  <View key={j} style={styles.partnerRow}>
+                    <Icon name="domain" size={14} color={theme.colors.textSecondary} />
+                    <Text style={styles.partnerCompany}>{p.company}</Text>
+                    <View style={styles.partnerCountryBadge}>
+                      <Icon name="map-marker" size={11} color={cfg.color} />
+                      <Text style={[styles.partnerCountry, { color: cfg.color }]}>{p.country}</Text>
+                    </View>
+                  </View>
                 ))}
               </View>
-            </View>
-            {r.countries && <Text style={styles.countries}>{r.countries.join(' | ')}</Text>}
-          </View>
+            )}
+          </TouchableOpacity>
         );
       })}
     </View>
@@ -495,9 +519,14 @@ const styles = StyleSheet.create({
   regionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   regionIconCircle: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center', marginRight: 10 },
   regionName: { fontSize: 16, fontWeight: '700', color: theme.colors.text },
-  regionDots: { flexDirection: 'row', gap: 5 },
-  regionDot: { width: 8, height: 8, borderRadius: 4 },
-  countries: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 6 },
+  partnerCountLabel: { fontSize: 12, fontWeight: '600' },
+  partnersList: { marginTop: 12 },
+  partnersHeader: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 8, marginBottom: 8 },
+  partnersTitle: { fontSize: 12, fontWeight: '700' },
+  partnerRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 8, paddingHorizontal: 4, borderBottomWidth: 0.5, borderBottomColor: '#F0F0F0' },
+  partnerCompany: { flex: 1, fontSize: 13, fontWeight: '600', color: theme.colors.text },
+  partnerCountryBadge: { flexDirection: 'row', alignItems: 'center', gap: 3, backgroundColor: '#F5F5F5', paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10 },
+  partnerCountry: { fontSize: 11, fontWeight: '600' },
 
   // Certifications
   certCard: { flexDirection: 'row', backgroundColor: '#FFF', borderRadius: 12, padding: 14, marginBottom: 8, gap: 12, ...theme.shadows.sm },

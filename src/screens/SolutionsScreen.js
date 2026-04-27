@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import React, { useState, useMemo, useRef } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
@@ -29,6 +29,8 @@ const SolutionsScreen = ({ navigation }) => {
   const [filters, setFilters] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLabel, setSelectedLabel] = useState('');
+  const browseScrollRef = useRef(null);
+  const browseScrollPos = useRef(0);
 
   // ─── Data ────────────────────────────────────────────────────
   const browseSections = useMemo(() => getBrowseSections(), []);
@@ -55,6 +57,10 @@ const SolutionsScreen = ({ navigation }) => {
     if (view === VIEW.RESULTS) {
       setView(VIEW.BROWSE);
       setFilters({});
+      // Restore scroll position after re-render
+      setTimeout(() => {
+        browseScrollRef.current?.scrollTo({ y: browseScrollPos.current, animated: false });
+      }, 50);
     } else if (view === VIEW.BROWSE) {
       setView(VIEW.LANDING);
       setBrowseSection(null);
@@ -151,7 +157,7 @@ const SolutionsScreen = ({ navigation }) => {
                 key={section.id}
                 style={[styles.browseCard, { borderLeftColor: section.color }]}
                 activeOpacity={0.7}
-                onPress={() => { setBrowseSection(section); setView(VIEW.BROWSE); }}>
+                onPress={() => { setBrowseSection(section); setView(VIEW.BROWSE); browseScrollPos.current = 0; }}>
                 <View style={[styles.browseIconCircle, { backgroundColor: section.color + '15' }]}>
                   <Icon name={section.icon} size={28} color={section.color} />
                 </View>
@@ -181,15 +187,24 @@ const SolutionsScreen = ({ navigation }) => {
   };
 
   const renderItemGrid = (items, filterKey, fallbackIcon) => (
-    <ScrollView contentContainerStyle={styles.itemGrid} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      ref={browseScrollRef}
+      contentContainerStyle={styles.itemGrid}
+      showsVerticalScrollIndicator={false}
+      onScroll={(e) => { browseScrollPos.current = e.nativeEvent.contentOffset.y; }}
+      scrollEventThrottle={16}>
       {items.map((item) => (
         <TouchableOpacity
           key={item.id}
           style={styles.itemCard}
           activeOpacity={0.7}
           onPress={() => selectItem(filterKey, item.id, item.name)}>
-          <View style={[styles.itemIconWrap, { backgroundColor: browseSection.color + '12' }]}>
-            <Icon name={item.icon || fallbackIcon} size={28} color={browseSection.color} />
+          <View style={[styles.itemIconWrap, { backgroundColor: item.image ? 'transparent' : browseSection.color + '12' }]}>
+            {item.image ? (
+              <Image source={item.image} style={styles.itemImage} resizeMode="contain" />
+            ) : (
+              <Icon name={item.icon || fallbackIcon} size={28} color={browseSection.color} />
+            )}
           </View>
           <Text style={styles.itemName}>{item.name}</Text>
         </TouchableOpacity>
@@ -205,7 +220,12 @@ const SolutionsScreen = ({ navigation }) => {
   };
 
   const renderProblemBrowse = () => (
-    <ScrollView contentContainerStyle={styles.itemGrid} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      ref={browseScrollRef}
+      contentContainerStyle={styles.itemGrid}
+      showsVerticalScrollIndicator={false}
+      onScroll={(e) => { browseScrollPos.current = e.nativeEvent.contentOffset.y; }}
+      scrollEventThrottle={16}>
       {problemSections.map((section) => {
         const sectionColor = PROBLEM_COLORS[section.id] || theme.colors.error;
         const filterKey = section.id === 'pests' ? 'pestIds'
@@ -241,7 +261,12 @@ const SolutionsScreen = ({ navigation }) => {
   );
 
   const renderCategoryList = () => (
-    <ScrollView contentContainerStyle={styles.itemGrid} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      ref={browseScrollRef}
+      contentContainerStyle={styles.itemGrid}
+      showsVerticalScrollIndicator={false}
+      onScroll={(e) => { browseScrollPos.current = e.nativeEvent.contentOffset.y; }}
+      scrollEventThrottle={16}>
       {categories.map((cat) => (
         <TouchableOpacity
           key={cat.id}
@@ -285,6 +310,14 @@ const SolutionsScreen = ({ navigation }) => {
           <View style={styles.resultSection}>
             <Text style={styles.resultSectionTitle}>Recommended Solutions</Text>
             {primary.map((r, i) => renderResultCard(r, i, true))}
+          </View>
+        )}
+
+        {/* Secondary Recommendations */}
+        {secondary.length > 0 && (
+          <View style={styles.resultSection}>
+            <Text style={styles.resultSectionTitle}>Additional Recommendations</Text>
+            {secondary.map((r, i) => renderResultCard(r, i, false))}
           </View>
         )}
 
@@ -516,6 +549,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 8,
   },
+  itemImage: { width: 44, height: 44 },
   itemName: { fontSize: 14, fontWeight: '600', color: theme.colors.text, textAlign: 'center' },
 
   // ─── Problem Section Headers ────────────────────────────────

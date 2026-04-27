@@ -476,7 +476,15 @@
         "Fruit Fly",
         "Mite",
         "Red Spider Mite",
-        "Brown Planthopper"
+        "Brown Planthopper",
+        "Beetle",
+        "Caterpillar",
+        "White Grub",
+        "Spider Mite",
+        "Cutworm",
+        "Weevil",
+        "Grasshopper",
+        "Leaf Miner"
       ],
       "recommendationReason": "Starter recommendation template for crop-specific pest pressure.",
       "crossSell": [
@@ -518,7 +526,10 @@
         "Alternaria Blight",
         "Bacterial Spot",
         "Bacterial Leaf Blight",
-        "Gummosis"
+        "Gummosis",
+        "Fusarium Wilt",
+        "Collar Rot",
+        "Seedling Blight"
       ],
       "recommendationReason": "Starter recommendation template for microbial-led disease support.",
       "crossSell": [
@@ -852,11 +863,18 @@
       "id": "rec_cotton_rsm",
       "cropId": "crop_cotton",
       "pestId": "pest_red_spider_mite",
-      "priority": 2,
-      "recommendationType": "product",
-      "productId": "prod_margoshine",
-      "recommendationReason": "Botanical support choice for mite-associated stress.",
-      "status": "draft_needs_agronomy_validation"
+      "priority": 1,
+      "recommendationType": "package",
+      "recommendationReason": "Sucking pest package for red spider mite control using botanical and microbial biocontrol.",
+      "status": "draft_needs_agronomy_validation",
+      "packageId": "pkg_whitefly_complex",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery support."
+        }
+      ]
     },
     {
       "id": "rec_cotton_wilt",
@@ -982,11 +1000,18 @@
       "id": "rec_mustard_painted_bug",
       "cropId": "crop_mustard",
       "pestId": "pest_painted_bug",
-      "priority": 2,
-      "recommendationType": "product",
-      "productId": "prod_ecoza_max",
-      "recommendationReason": "Starter botanical support under painted bug pressure.",
-      "status": "draft_needs_agronomy_validation"
+      "priority": 1,
+      "recommendationType": "package",
+      "recommendationReason": "Botanical insect pressure package for painted bug management in mustard and crucifers.",
+      "status": "draft_needs_agronomy_validation",
+      "packageId": "pkg_insect_pressure_botanical",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ]
     },
     {
       "id": "rec_mustard_downy_mildew",
@@ -1012,11 +1037,18 @@
       "id": "rec_chilli_mite",
       "cropId": "crop_chilli",
       "pestId": "pest_mite",
-      "priority": 2,
-      "recommendationType": "product",
-      "productId": "prod_margoshine",
-      "recommendationReason": "Botanical support choice for mite-associated stress.",
-      "status": "draft_needs_agronomy_validation"
+      "priority": 1,
+      "recommendationType": "package",
+      "recommendationReason": "Sucking pest package for mite control with botanical and microbial agents.",
+      "status": "draft_needs_agronomy_validation",
+      "packageId": "pkg_whitefly_complex",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery support."
+        }
+      ]
     },
     {
       "id": "rec_chilli_fruit_borer",
@@ -1112,11 +1144,18 @@
       "id": "rec_okra_mite",
       "cropId": "crop_okra",
       "pestId": "pest_mite",
-      "priority": 2,
-      "recommendationType": "product",
-      "productId": "prod_margoshine",
-      "recommendationReason": "Botanical support choice for mite-associated stress.",
-      "status": "draft_needs_agronomy_validation"
+      "priority": 1,
+      "recommendationType": "package",
+      "recommendationReason": "Sucking pest package for mite control with botanical and microbial agents.",
+      "status": "draft_needs_agronomy_validation",
+      "packageId": "pkg_whitefly_complex",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery support."
+        }
+      ]
     },
     {
       "id": "rec_onion_thrips",
@@ -1262,11 +1301,18 @@
       "id": "rec_grapes_mite",
       "cropId": "crop_grapes",
       "pestId": "pest_mite",
-      "priority": 2,
-      "recommendationType": "product",
-      "productId": "prod_margoshine",
-      "recommendationReason": "Botanical support choice for mite-associated stress.",
-      "status": "draft_needs_agronomy_validation"
+      "priority": 1,
+      "recommendationType": "package",
+      "recommendationReason": "Sucking pest package for mite control with botanical and microbial agents.",
+      "status": "draft_needs_agronomy_validation",
+      "packageId": "pkg_whitefly_complex",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery support."
+        }
+      ]
     },
     {
       "id": "rec_grapes_downy_mildew",
@@ -1292,11 +1338,18 @@
       "id": "rec_mango_fruit_fly",
       "cropId": "crop_mango",
       "pestId": "pest_fruit_fly",
-      "priority": 2,
-      "recommendationType": "product",
-      "productId": "prod_ecoza_max",
-      "recommendationReason": "Starter botanical support under fruit fly pressure.",
-      "status": "draft_needs_agronomy_validation"
+      "priority": 1,
+      "recommendationType": "package",
+      "recommendationReason": "Botanical insect pressure package for fruit fly management.",
+      "status": "draft_needs_agronomy_validation",
+      "packageId": "pkg_insect_pressure_botanical",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ]
     },
     {
       "id": "rec_mango_anthracnose",
@@ -1406,6 +1459,326 @@
       "recommendationType": "package",
       "packageId": "pkg_soil_borne_disease",
       "recommendationReason": "Supportive microbial package for gummosis-associated root and collar stress, root rot-prone citrus orchards.",
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_beetle",
+      "pestId": "pest_beetle",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_insect_pressure_botanical",
+      "recommendationReason": "Botanical insect pressure package for beetle management.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_caterpillar",
+      "pestId": "pest_caterpillar",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Caterpillar and borer management package with microbial biocontrol.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_white_grub",
+      "pestId": "pest_white_grub",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_insect_pressure_botanical",
+      "recommendationReason": "Botanical and microbial approach for soil-dwelling white grub control.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_spider_mite",
+      "pestId": "pest_spider_mite",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Sucking pest package effective against spider mite populations.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_cutworm",
+      "pestId": "pest_cutworm",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Caterpillar management package for cutworm control in early crop stages.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_weevil",
+      "pestId": "pest_weevil",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_insect_pressure_botanical",
+      "recommendationReason": "Botanical insect pressure package for weevil management.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_grasshopper",
+      "pestId": "pest_grasshopper",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_insect_pressure_botanical",
+      "recommendationReason": "Botanical approach for grasshopper and chewing pest pressure.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_leaf_miner",
+      "pestId": "pest_leaf_miner",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_whitefly_complex",
+      "recommendationReason": "Sucking and mining pest management with botanical and microbial agents.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_helicoverpa",
+      "pestId": "pest_helicoverpa",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Caterpillar complex package for Helicoverpa pod/fruit borer management.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_diamondback_moth",
+      "pestId": "pest_diamondback_moth",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_caterpillar_complex",
+      "recommendationReason": "Caterpillar management package for diamondback moth in crucifers.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_root_grub",
+      "pestId": "pest_root_grub",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_insect_pressure_botanical",
+      "recommendationReason": "Botanical and microbial control for soil-dwelling root grub larvae.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Stress recovery and plant vigor support."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_fusarium_wilt",
+      "diseaseId": "disease_fusarium_wilt",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Soil-borne disease management for Fusarium wilt using Trichoderma and Pseudomonas.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_collar_rot",
+      "diseaseId": "disease_collar_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Soil-borne disease package for collar rot prevention with Trichoderma-based biocontrol.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_seedling_blight",
+      "diseaseId": "disease_seedling_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Soil-borne disease management to protect seedlings from blight-causing pathogens.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_sheath_blight",
+      "diseaseId": "disease_sheath_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Foliar disease support for sheath blight management in cereals.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_bacterial_leaf_blight",
+      "diseaseId": "disease_bacterial_leaf_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Foliar disease support for bacterial leaf blight with Pseudomonas and Bacillus.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_stem_rot",
+      "diseaseId": "disease_stem_rot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_soil_borne_disease",
+      "recommendationReason": "Soil-borne and stem disease management using Trichoderma-based biocontrol.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_powdery_mildew",
+      "diseaseId": "disease_powdery_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Foliar disease support for powdery mildew management.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_purple_blotch",
+      "diseaseId": "disease_purple_blotch",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Foliar disease support for purple blotch in onion and garlic.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
+      "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_disease_alternaria_blight",
+      "diseaseId": "disease_alternaria_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_foliar_disease_support",
+      "recommendationReason": "Foliar disease support for Alternaria blight management.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Supports plant recovery from disease stress."
+        }
+      ],
       "status": "draft_needs_agronomy_validation"
     }
   ],
@@ -1532,6 +1905,90 @@
       ],
       "recommendationReason": "Boll development stage support choices from the portfolio.",
       "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "growthStageId": "stage_germination",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_root_establishment",
+      "recommendationReason": "Root establishment package to support healthy germination and early emergence with Trichoderma and mycorrhiza-based biocontrol.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_envicta",
+          "reason": "Humic and amino acid support for seedling vigor."
+        }
+      ]
+    },
+    {
+      "growthStageId": "stage_vegetative",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_nutrient_recovery",
+      "recommendationReason": "Nutrient recovery package to maximize vegetative growth through balanced NPK microbial support and biostimulants.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_blooma",
+          "reason": "Seaweed extract for enhanced vegetative development."
+        }
+      ]
+    },
+    {
+      "growthStageId": "stage_branching",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_nutrient_recovery",
+      "recommendationReason": "Nutrient support during branching stage to promote strong lateral growth and canopy development.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_cropsia",
+          "reason": "Plant growth promoting bacteria for robust branching."
+        }
+      ]
+    },
+    {
+      "growthStageId": "stage_flowering",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_seedling_vigor",
+      "recommendationReason": "Vigor and biostimulant package during flowering to support pollination, flower retention, and fruit set.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_blooma",
+          "reason": "Seaweed-based flowering support and hormonal balance."
+        }
+      ]
+    },
+    {
+      "growthStageId": "stage_fruiting",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_nutrient_recovery",
+      "recommendationReason": "Nutrient recovery package during fruiting to support fruit development, size, and quality through biofertilizers and biostimulants.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_zenita",
+          "reason": "Amino acid complex for fruit quality and maturation."
+        }
+      ]
+    },
+    {
+      "growthStageId": "stage_grain_filling",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_nutrient_recovery",
+      "recommendationReason": "Nutrient support during grain filling for optimal grain weight, quality, and yield through potassium and micronutrient mobilization.",
+      "crossSell": [
+        {
+          "type": "product",
+          "productId": "prod_igreen_k",
+          "reason": "Potassium mobilizing microbes for grain filling support."
+        }
+      ]
     }
   ],
   "weedRecommendations": [

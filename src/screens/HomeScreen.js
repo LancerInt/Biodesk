@@ -7,6 +7,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons as Icon, MaterialIcons as MIcon } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import DatabaseService from '../database/DatabaseService';
 
 // Enable LayoutAnimation on Android
@@ -61,6 +62,7 @@ const TOUCH = 44; // min touch target (dp)
 // ═══════════════════════════════════════════════════════════════
 const HomeScreen = ({ navigation }) => {
   const { width, height } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
   const isLandscape = width > height;
   const isTablet = Math.min(width, height) >= 600;
 
@@ -142,7 +144,7 @@ const HomeScreen = ({ navigation }) => {
       <ScrollView
         contentContainerStyle={{
           paddingHorizontal: PAD,
-          paddingTop: (StatusBar.currentHeight || 0) + (Platform.OS === 'ios' ? 56 : 12),
+          paddingTop: insets.top + 10,
           paddingBottom: 40,
         }}
         showsVerticalScrollIndicator={false}
