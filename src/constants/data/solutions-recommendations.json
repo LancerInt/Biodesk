@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-03-13",
+  "lastUpdated": "2026-04-29",
   "packageTemplates": [
     {
       "id": "pkg_seedling_vigor",
@@ -387,36 +387,6 @@
       "complianceNote": "Validate diagnosis before use."
     },
     {
-      "id": "pkg_stress_orgocare",
-      "name": "Abiotic Stress Support Package",
-      "objective": "Primary support recommendation for abiotic stress conditions",
-      "packageType": "Supportive",
-      "productRoles": [
-        {
-          "productId": "prod_orgocare",
-          "role": "Primary stress support"
-        },
-        {
-          "productId": "prod_envicta",
-          "role": "Additional recovery support"
-        }
-      ],
-      "dosageNote": "Finalize crop-wise and stage-wise dose internally.",
-      "stageRelevance": [
-        "Seedling",
-        "Vegetative",
-        "Flowering",
-        "Fruiting"
-      ],
-      "seasonalRelevance": [
-        "All Seasons"
-      ],
-      "regionRelevance": [
-        "Pan India"
-      ],
-      "complianceNote": "Primary abiotic stress positioning to be validated internally."
-    },
-    {
       "id": "pkg_root_establishment",
       "name": "Root Establishment Package",
       "objective": "Support root development and transplant establishment",
@@ -448,6 +418,1581 @@
         "Pan India"
       ],
       "complianceNote": "Validate crop-stage use before publishing."
+    },
+    {
+      "id": "pkg_pest_aphid",
+      "name": "Aphid Suppression Package",
+      "objective": "Manage aphid colonies on field crops, vegetables, and pulses",
+      "productRoles": [
+        {
+          "role": "Microbial aphid kill (Lecanicillium lecanii)",
+          "productId": "prod_seira"
+        },
+        {
+          "role": "Botanical antifeedant knockdown",
+          "productId": "prod_ecoza_pro"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_brown_planthopper",
+      "name": "Brown Planthopper Outbreak Package",
+      "objective": "Suppress BPH outbreaks at rice tillering and booting stages",
+      "productRoles": [
+        {
+          "role": "Outbreak knockdown at stem base (Spinosad concentrate)",
+          "productId": "prod_spindura_pro"
+        },
+        {
+          "role": "Beauveria residual nymph suppression",
+          "productId": "prod_mycova"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_beetle",
+      "name": "Beetle Defoliator Package",
+      "objective": "Manage hard-bodied beetle pests across field crops",
+      "productRoles": [
+        {
+          "role": "Karanjin antifeedant primary",
+          "productId": "prod_k_guard"
+        },
+        {
+          "role": "Metarhizium for soil-pupating stages",
+          "productId": "prod_rexora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_caterpillar",
+      "name": "Generalist Caterpillar Package",
+      "objective": "Larvicidal control of armyworms, loopers, and webworms",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide (primary)",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Azadirachtin IGR layer",
+          "productId": "prod_ecoza_ace"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_cutworm",
+      "name": "Cutworm Seedling Protection Package",
+      "objective": "Soil-surface cutworm control at seedling stage",
+      "productRoles": [
+        {
+          "role": "Spinosad WP soil drench",
+          "productId": "prod_spindura_rix"
+        },
+        {
+          "role": "Metarhizium for pupating larvae",
+          "productId": "prod_rexora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_diamondback_moth",
+      "name": "DBM Resistance-Management Package",
+      "objective": "Resistance-managed control for cabbage and cauliflower DBM",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide (primary)",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Clove oil oviposition deterrent",
+          "productId": "prod_admira_adove"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_fruit_borer",
+      "name": "Fruit Borer Pre-Entry Package",
+      "objective": "Stop fruit borers at egg-hatch and L1 stage before fruit entry",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide at L1 emergence",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Azadirachtin oviposition deterrence",
+          "productId": "prod_ecoza_ace"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_fruit_fly",
+      "name": "Fruit Fly Repellent Package",
+      "objective": "Repel and disrupt tephritid fruit flies on fruit crops",
+      "productRoles": [
+        {
+          "role": "Clove oil repellent (eugenol)",
+          "productId": "prod_admira_adove"
+        },
+        {
+          "role": "Neem oil ovicidal layer",
+          "productId": "prod_margoshine"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_grasshopper",
+      "name": "Grasshopper Antifeedant Package",
+      "objective": "Manage grasshopper nymphs and adults in dryland field crops",
+      "productRoles": [
+        {
+          "role": "Karanjin antifeedant",
+          "productId": "prod_k_guard"
+        },
+        {
+          "role": "Granular azadirachtin for egg pods",
+          "productId": "prod_ecoza_rix"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_helicoverpa",
+      "name": "Helicoverpa Pod Borer Package",
+      "objective": "Pulse and cotton flowering protection from Helicoverpa armigera",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide at egg threshold",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Combination neem-spinosad for high pressure",
+          "productId": "prod_margospin"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_jassid",
+      "name": "Jassid Hopper-Burn Package",
+      "objective": "Manage cotton, okra, and brinjal jassid hopper-burn",
+      "productRoles": [
+        {
+          "role": "Azadirachtin primary on nymphs",
+          "productId": "prod_ecoza_pro"
+        },
+        {
+          "role": "Lecanicillium soft-body kill",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_leaf_folder",
+      "name": "Leaf Folder Penetration Package",
+      "objective": "Rice leaf folder larval control inside folded leaves",
+      "productRoles": [
+        {
+          "role": "Concentrated spinosad penetrant",
+          "productId": "prod_spindura_pro"
+        },
+        {
+          "role": "Azadirachtin adult moth suppression",
+          "productId": "prod_ecoza_max"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_leaf_miner",
+      "name": "Leaf Miner Translaminar Package",
+      "objective": "Vegetable and citrus leaf miner control",
+      "productRoles": [
+        {
+          "role": "Lemongrass oil translaminar action",
+          "productId": "prod_admira_admon"
+        },
+        {
+          "role": "Lecanicillium adult fly control",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_mealybug",
+      "name": "Mealybug Wax-Penetration Package",
+      "objective": "Penetrate wax-coated mealybug colonies on cotton, citrus, mango",
+      "productRoles": [
+        {
+          "role": "Karanjin wax penetration",
+          "productId": "prod_k_guard"
+        },
+        {
+          "role": "Lecanicillium crawler-stage kill",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_mite",
+      "name": "Mite Acaricidal Essential Oil Package",
+      "objective": "Essential oil acaricidal program with rotation chemistry",
+      "productRoles": [
+        {
+          "role": "Garlic oil acaricide primary",
+          "productId": "prod_admira_adrlic"
+        },
+        {
+          "role": "Thyme oil rotation partner",
+          "productId": "prod_admira_adyme"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_nematode",
+      "name": "Nematode Soil-Bio Package",
+      "objective": "Root-knot nematode soil management",
+      "productRoles": [
+        {
+          "role": "Paecilomyces parasitic on nematode eggs",
+          "productId": "prod_encilo"
+        },
+        {
+          "role": "Pseudomonas root-zone protection",
+          "productId": "prod_neuvita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_painted_bug",
+      "name": "Painted Bug Seedling Defense Package",
+      "objective": "Cotyledon-stage Bagrada hilaris control",
+      "productRoles": [
+        {
+          "role": "Clove oil contact toxicant + repellent",
+          "productId": "prod_admira_adove"
+        },
+        {
+          "role": "Karanjin antifeedant during peak activity",
+          "productId": "prod_k_guard"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_red_spider_mite",
+      "name": "Red Spider Mite Resistance-Management Package",
+      "objective": "Resistance-managed mite control for tea, brinjal, papaya",
+      "productRoles": [
+        {
+          "role": "Garlic oil primary acaricide",
+          "productId": "prod_admira_adrlic"
+        },
+        {
+          "role": "Thyme oil rotation against resistance",
+          "productId": "prod_admira_adyme"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_root_grub",
+      "name": "Root Grub Soil Microbial Package",
+      "objective": "Scarab beetle larval control in soil for sugarcane and groundnut",
+      "productRoles": [
+        {
+          "role": "Metarhizium grub specialist (primary)",
+          "productId": "prod_rexora"
+        },
+        {
+          "role": "Beauveria for adult beetle stages",
+          "productId": "prod_mycova"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_scale_insect",
+      "name": "Scale Smothering Package",
+      "objective": "Wax scale insect management for citrus, mango, ornamentals",
+      "productRoles": [
+        {
+          "role": "Neem oil smothering primary",
+          "productId": "prod_margoshine"
+        },
+        {
+          "role": "Lecanicillium crawler control",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_semilooper",
+      "name": "Semilooper Defoliator Package",
+      "objective": "Castor and pulse semilooper control through ingestion-based larvicide",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide at early instars",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Azadirachtin oviposition deterrence",
+          "productId": "prod_ecoza_max"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_shoot_borer",
+      "name": "Shoot Borer Penetration Package",
+      "objective": "Sugarcane and brinjal shoot borer control before tunnel-feeding",
+      "productRoles": [
+        {
+          "role": "Concentrated spinosad at growing point",
+          "productId": "prod_spindura_pro"
+        },
+        {
+          "role": "Granular azadirachtin for soil-pupating stages",
+          "productId": "prod_ecoza_rix"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_spider_mite",
+      "name": "Spider Mite Webbing Breakdown Package",
+      "objective": "Two-spotted spider mite control with webbing disruption",
+      "productRoles": [
+        {
+          "role": "Garlic oil contact + webbing breakdown",
+          "productId": "prod_admira_adrlic"
+        },
+        {
+          "role": "Beauveria sustained suppression",
+          "productId": "prod_mycova"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_spodoptera",
+      "name": "Spodoptera Whorl Package",
+      "objective": "Maize armyworm control before larvae enter protected whorls",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide directed into whorl",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Neem-spinosad combo for resistance management",
+          "productId": "prod_margospin"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_stem_borer",
+      "name": "Stem Borer Internode Package",
+      "objective": "Rice stem borer dead-heart and white-ear prevention",
+      "productRoles": [
+        {
+          "role": "Spinosad WP stem-base treatment",
+          "productId": "prod_spindura_rix"
+        },
+        {
+          "role": "Granular azadirachtin sustained release",
+          "productId": "prod_ecoza_rix"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_termite",
+      "name": "Termite Subterranean Package",
+      "objective": "Soil-borne termite control for sugarcane and standing crops",
+      "productRoles": [
+        {
+          "role": "Metarhizium spore-spread (primary)",
+          "productId": "prod_rexora"
+        },
+        {
+          "role": "Karanjin granular surface deterrence",
+          "productId": "prod_k_guard"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_thrips",
+      "name": "Thrips Vector Package",
+      "objective": "Thrips and tospovirus management on flowering crops",
+      "productRoles": [
+        {
+          "role": "Spinosad rapid kill on active stages",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Azadirachtin egg suppression",
+          "productId": "prod_ecoza_pro"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_weevil",
+      "name": "Weevil Antifeedant Package",
+      "objective": "Pulse pod weevil, sweet potato weevil, banana weevil control",
+      "productRoles": [
+        {
+          "role": "Karanjin antifeedant + contact toxicant",
+          "productId": "prod_k_guard"
+        },
+        {
+          "role": "Metarhizium for soil-pupating stages",
+          "productId": "prod_rexora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_white_grub",
+      "name": "White Grub Soil Mycosis Package",
+      "objective": "Scarab grub control in roots of sugarcane and groundnut",
+      "productRoles": [
+        {
+          "role": "Metarhizium soil mycosis (primary)",
+          "productId": "prod_rexora"
+        },
+        {
+          "role": "Beauveria adult beetle control",
+          "productId": "prod_mycova"
+        }
+      ]
+    },
+    {
+      "id": "pkg_pest_whitefly",
+      "name": "Whitefly Mycosis Package",
+      "objective": "Bemisia tabaci suppression and tospovirus prevention",
+      "productRoles": [
+        {
+          "role": "Lecanicillium specialist mycosis",
+          "productId": "prod_seira"
+        },
+        {
+          "role": "Neem oil ovicidal layer",
+          "productId": "prod_margoshine"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_nursery",
+      "name": "Nursery Establishment Package",
+      "objective": "Strong root development and disease-free seedling raising in nursery beds",
+      "productRoles": [
+        {
+          "role": "Mycorrhizal root colonization",
+          "productId": "prod_enrhize"
+        },
+        {
+          "role": "Seedling vigor (Seaweed Extract)",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_germination",
+      "name": "Germination & Emergence Package",
+      "objective": "Protect emerging seedlings from damping-off and soil-borne fungi",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride seed/soil protection",
+          "productId": "prod_biota_v"
+        },
+        {
+          "role": "Bacillus subtilis antagonistic coat",
+          "productId": "prod_subtilix"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_seedling",
+      "name": "Seedling Vigor Package",
+      "objective": "Build seedling vigor and stress tolerance through transplanting",
+      "productRoles": [
+        {
+          "role": "Seaweed Extract vigor primer",
+          "productId": "prod_blooma"
+        },
+        {
+          "role": "Humic + Fulvic + Amino tissue support",
+          "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_vegetative",
+      "name": "Vegetative Growth Package",
+      "objective": "Drive balanced canopy development through nutrient mobilization",
+      "productRoles": [
+        {
+          "role": "NPK Microbial consortium",
+          "productId": "prod_igreen_npk"
+        },
+        {
+          "role": "Foliar growth support (Humic-Amino)",
+          "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_tillering",
+      "name": "Tillering Booster Package",
+      "objective": "Maximize productive tiller count in cereals and grasses",
+      "productRoles": [
+        {
+          "role": "Nitrogen-fixing microbes",
+          "productId": "prod_igreen_n"
+        },
+        {
+          "role": "Tiller initiation support (Seaweed)",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_branching",
+      "name": "Branching Stimulation Package",
+      "objective": "Promote lateral shoot development in cotton, pulses, and oilseeds",
+      "productRoles": [
+        {
+          "role": "Amino acid branching primer",
+          "productId": "prod_zenita"
+        },
+        {
+          "role": "Foliar mineral support",
+          "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_flowering",
+      "name": "Flowering Induction Package",
+      "objective": "Support bud-set, pollen viability, and flower retention",
+      "productRoles": [
+        {
+          "role": "Phosphorus-solubilizing microbes",
+          "productId": "prod_igreen_p"
+        },
+        {
+          "role": "Flower induction (Seaweed Extract)",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_boll_development",
+      "name": "Boll Development Package",
+      "objective": "Sustain cotton boll filling and prevent boll-shedding",
+      "productRoles": [
+        {
+          "role": "Potassium-mobilizing microbes",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Boll-vigor recovery support",
+          "productId": "prod_orgocare"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_fruiting",
+      "name": "Fruiting & Sizing Package",
+      "objective": "Improve fruit set, sizing, and quality in vegetables and fruit crops",
+      "productRoles": [
+        {
+          "role": "Potassium-mobilizing microbes",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Fruit metabolism support (Organic Acids)",
+          "productId": "prod_orgocare"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stage_grain_filling",
+      "name": "Grain Filling Package",
+      "objective": "Maximize grain weight and quality in cereals and pulses",
+      "productRoles": [
+        {
+          "role": "Potassium-mobilizing microbes",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Amino acid grain protein support",
+          "productId": "prod_zenita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stress_cold",
+      "name": "Cold Stress Recovery Package",
+      "objective": "Protect cellular membranes and support recovery under cold stress",
+      "productRoles": [
+        {
+          "role": "Cell-membrane protection (Organic Acids)",
+          "productId": "prod_orgocare"
+        },
+        {
+          "role": "Amino-acid cryoprotection",
+          "productId": "prod_zenita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stress_drought",
+      "name": "Drought Tolerance Package",
+      "objective": "Improve water-use efficiency and recovery under drought",
+      "productRoles": [
+        {
+          "role": "Drought-tolerance complex (Humic + Amino)",
+          "productId": "prod_envicta"
+        },
+        {
+          "role": "Stomatal regulation support",
+          "productId": "prod_orgocare"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stress_heat",
+      "name": "Heat Stress Resilience Package",
+      "objective": "Activate heat-shock response and antioxidant defense",
+      "productRoles": [
+        {
+          "role": "Heat-shock response support",
+          "productId": "prod_orgocare"
+        },
+        {
+          "role": "Antioxidant boost (Seaweed Extract)",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stress_salinity",
+      "name": "Salinity Stress Package",
+      "objective": "Manage osmotic and ionic stress under saline conditions",
+      "productRoles": [
+        {
+          "role": "Osmotic balance (Organic Acid Complex)",
+          "productId": "prod_orgocare"
+        },
+        {
+          "role": "Soil aggregation + Na exclusion",
+          "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stress_transplant_shock",
+      "name": "Transplant Shock Recovery Package",
+      "objective": "Rapid root re-establishment and shoot recovery after transplanting",
+      "productRoles": [
+        {
+          "role": "Mycorrhizal root colonization",
+          "productId": "prod_enrhize"
+        },
+        {
+          "role": "Transplant vigor (Seaweed Extract)",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_stress_waterlogging",
+      "name": "Waterlogging Recovery Package",
+      "objective": "Protect roots and recover from anaerobic soil conditions",
+      "productRoles": [
+        {
+          "role": "Pseudomonas root protection",
+          "productId": "prod_neuvita"
+        },
+        {
+          "role": "Hypoxia recovery support",
+          "productId": "prod_orgocare"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_rice_pest",
+      "name": "Rice Pest Pressure Package",
+      "objective": "Manage stem borer, BPH, and leaf folder in rice",
+      "productRoles": [
+        {
+          "role": "Concentrated spinosad for borer/BPH",
+          "productId": "prod_spindura_pro"
+        },
+        {
+          "role": "Beauveria for hopper nymph suppression",
+          "productId": "prod_mycova"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_rice_vigor",
+      "name": "Rice Tillering & Grain Package",
+      "objective": "Maximize tillering and grain filling in rice",
+      "productRoles": [
+        {
+          "role": "Nitrogen-fixing microbes for tillers",
+          "productId": "prod_igreen_n"
+        },
+        {
+          "role": "Potassium for grain filling",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_rice_disease",
+      "name": "Rice Foliar Disease Package",
+      "objective": "Suppress blast, sheath blight, and bacterial leaf blight",
+      "productRoles": [
+        {
+          "role": "Bacillus subtilis antagonist",
+          "productId": "prod_subtilix"
+        },
+        {
+          "role": "Pseudomonas root and foliar protection",
+          "productId": "prod_neuvita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_cotton_pest",
+      "name": "Cotton Bollworm & Sucking Pest Package",
+      "objective": "Manage bollworm and jassid pressure in cotton",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide for bollworm",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Azadirachtin for jassid nymphs",
+          "productId": "prod_ecoza_pro"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_cotton_vigor",
+      "name": "Cotton Boll & Branching Package",
+      "objective": "Sustain boll filling and branching in cotton",
+      "productRoles": [
+        {
+          "role": "Potassium for boll filling",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Amino acid branching primer",
+          "productId": "prod_zenita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_wheat_pest",
+      "name": "Wheat Aphid & Termite Package",
+      "objective": "Manage wheat aphid and termite pressure",
+      "productRoles": [
+        {
+          "role": "Lecanicillium for aphid mycosis",
+          "productId": "prod_seira"
+        },
+        {
+          "role": "Metarhizium for termite control",
+          "productId": "prod_rexora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_wheat_vigor",
+      "name": "Wheat Grain Fill Package",
+      "objective": "Maximize wheat grain weight and quality",
+      "productRoles": [
+        {
+          "role": "Potassium for grain filling",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Amino acid for grain protein",
+          "productId": "prod_zenita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_tomato_pest",
+      "name": "Tomato Fruit Borer & Whitefly Package",
+      "objective": "Manage fruit borer and whitefly virus vector",
+      "productRoles": [
+        {
+          "role": "Spinosad for fruit borer L1",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Lecanicillium for whitefly mycosis",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_tomato_vigor",
+      "name": "Tomato Flowering & Fruiting Package",
+      "objective": "Sustain flowering and fruit sizing in tomato",
+      "productRoles": [
+        {
+          "role": "Seaweed for flower retention",
+          "productId": "prod_blooma"
+        },
+        {
+          "role": "Potassium for fruit sizing",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_tomato_disease",
+      "name": "Tomato Wilt & Blight Package",
+      "objective": "Suppress fusarium wilt and late blight in tomato",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride wilt suppression",
+          "productId": "prod_biota_v"
+        },
+        {
+          "role": "Bacillus amyloliquefaciens foliar antagonist",
+          "productId": "prod_elixora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_brinjal_pest",
+      "name": "Brinjal Shoot/Fruit Borer & Jassid Package",
+      "objective": "Manage shoot borer and jassid in brinjal",
+      "productRoles": [
+        {
+          "role": "Concentrated spinosad for shoot borer",
+          "productId": "prod_spindura_pro"
+        },
+        {
+          "role": "Azadirachtin for jassid nymphs",
+          "productId": "prod_ecoza_pro"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_brinjal_vigor",
+      "name": "Brinjal Branching & Fruiting Package",
+      "objective": "Sustain branching and fruit set in brinjal",
+      "productRoles": [
+        {
+          "role": "Amino acid branching primer",
+          "productId": "prod_zenita"
+        },
+        {
+          "role": "Potassium for fruit set",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_chilli_pest",
+      "name": "Chilli Thrips & Mite Package",
+      "objective": "Manage thrips virus vectors and broad mite in chilli",
+      "productRoles": [
+        {
+          "role": "Spinosad for thrips knockdown",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Garlic oil acaricide for mites",
+          "productId": "prod_admira_adrlic"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_chilli_vigor",
+      "name": "Chilli Flowering & Fruit Package",
+      "objective": "Support chilli flowering and fruit retention",
+      "productRoles": [
+        {
+          "role": "Seaweed for flower retention",
+          "productId": "prod_blooma"
+        },
+        {
+          "role": "Phosphorus for flowering",
+          "productId": "prod_igreen_p"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_chilli_disease",
+      "name": "Chilli Anthracnose & Wilt Package",
+      "objective": "Manage anthracnose and wilt complex in chilli",
+      "productRoles": [
+        {
+          "role": "Trichoderma harzianum root protection",
+          "productId": "prod_biota_h"
+        },
+        {
+          "role": "Pseudomonas foliar protection",
+          "productId": "prod_neuvita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_cabbage_pest",
+      "name": "Cabbage DBM & Aphid Package",
+      "objective": "Manage diamondback moth and aphid in cole crops",
+      "productRoles": [
+        {
+          "role": "Spinosad for DBM (resistance-managed)",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Lecanicillium for aphid mycosis",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_cabbage_vigor",
+      "name": "Cabbage Head Formation Package",
+      "objective": "Sustain head density and quality",
+      "productRoles": [
+        {
+          "role": "NPK microbial consortium",
+          "productId": "prod_igreen_npk"
+        },
+        {
+          "role": "Humic-amino tissue support",
+          "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_maize_pest",
+      "name": "Maize Spodoptera & Grub Package",
+      "objective": "Manage fall armyworm and root grub in maize",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide into whorl",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Metarhizium for soil grubs",
+          "productId": "prod_rexora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_maize_vigor",
+      "name": "Maize Vegetative & Grain Package",
+      "objective": "Drive vegetative growth and grain fill in maize",
+      "productRoles": [
+        {
+          "role": "NPK microbial consortium",
+          "productId": "prod_igreen_npk"
+        },
+        {
+          "role": "Amino acid grain protein",
+          "productId": "prod_zenita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_soybean_pest",
+      "name": "Soybean Helicoverpa & Semilooper Package",
+      "objective": "Manage pod borer and semilooper in soybean",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide at egg threshold",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Neem-spinosad combo for sustained pressure",
+          "productId": "prod_margospin"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_soybean_vigor",
+      "name": "Soybean Pod Fill & Flowering Package",
+      "objective": "Sustain flowering and pod-fill in soybean",
+      "productRoles": [
+        {
+          "role": "Phosphorus for flowering",
+          "productId": "prod_igreen_p"
+        },
+        {
+          "role": "Seaweed for pod retention",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_okra_pest",
+      "name": "Okra Jassid & Fruit Borer Package",
+      "objective": "Manage jassid and shoot/fruit borer in okra",
+      "productRoles": [
+        {
+          "role": "Azadirachtin for jassid nymphs",
+          "productId": "prod_ecoza_pro"
+        },
+        {
+          "role": "Spinosad for fruit/shoot borer",
+          "productId": "prod_spindura_plus"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_okra_vigor",
+      "name": "Okra Flowering & Fruiting Package",
+      "objective": "Sustain flowering and fruit retention in okra",
+      "productRoles": [
+        {
+          "role": "Seaweed for flower retention",
+          "productId": "prod_blooma"
+        },
+        {
+          "role": "Potassium for fruit fill",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_mustard_pest",
+      "name": "Mustard Aphid & Painted Bug Package",
+      "objective": "Manage mustard aphid and painted bug at seedling",
+      "productRoles": [
+        {
+          "role": "Lecanicillium for aphid mycosis",
+          "productId": "prod_seira"
+        },
+        {
+          "role": "Clove oil for painted bug control",
+          "productId": "prod_admira_adove"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_mustard_vigor",
+      "name": "Mustard Oilseed Development Package",
+      "objective": "Support oilseed fill and quality in mustard",
+      "productRoles": [
+        {
+          "role": "Sulfur-oxidizing microbes",
+          "productId": "prod_igreen_s"
+        },
+        {
+          "role": "Humic-amino tissue support",
+          "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_sugarcane_pest",
+      "name": "Sugarcane Shoot Borer & Termite Package",
+      "objective": "Manage shoot borer and termite in sugarcane",
+      "productRoles": [
+        {
+          "role": "Concentrated spinosad for shoot borer",
+          "productId": "prod_spindura_pro"
+        },
+        {
+          "role": "Metarhizium for termite control",
+          "productId": "prod_rexora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_sugarcane_vigor",
+      "name": "Sugarcane Tillering & Cane Package",
+      "objective": "Maximize tillering and cane weight in sugarcane",
+      "productRoles": [
+        {
+          "role": "Nitrogen-fixing microbes for tillers",
+          "productId": "prod_igreen_n"
+        },
+        {
+          "role": "Potassium for cane sucrose",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_groundnut_pest",
+      "name": "Groundnut White Grub & Thrips Package",
+      "objective": "Manage white grub and thrips in groundnut",
+      "productRoles": [
+        {
+          "role": "Metarhizium for soil grubs",
+          "productId": "prod_rexora"
+        },
+        {
+          "role": "Spinosad for thrips",
+          "productId": "prod_spindura_plus"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_groundnut_vigor",
+      "name": "Groundnut Pegging & Pod Fill Package",
+      "objective": "Support pegging and pod development in groundnut",
+      "productRoles": [
+        {
+          "role": "Seaweed for pegging vigor",
+          "productId": "prod_blooma"
+        },
+        {
+          "role": "Potassium for pod fill",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_mango_pest",
+      "name": "Mango Fruit Fly & Scale Package",
+      "objective": "Manage fruit fly and scale insects on mango",
+      "productRoles": [
+        {
+          "role": "Clove oil fruit fly repellent",
+          "productId": "prod_admira_adove"
+        },
+        {
+          "role": "Neem oil for scale smothering",
+          "productId": "prod_margoshine"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_mango_vigor",
+      "name": "Mango Flowering & Fruit Package",
+      "objective": "Support flowering and fruit set in mango",
+      "productRoles": [
+        {
+          "role": "Seaweed for flower retention",
+          "productId": "prod_blooma"
+        },
+        {
+          "role": "Organic acid for fruit metabolism",
+          "productId": "prod_orgocare"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_banana_pest",
+      "name": "Banana Weevil & Aphid Package",
+      "objective": "Manage banana pseudostem weevil and aphid",
+      "productRoles": [
+        {
+          "role": "Karanjin for weevil antifeedant",
+          "productId": "prod_k_guard"
+        },
+        {
+          "role": "Lecanicillium for aphid mycosis",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_banana_vigor",
+      "name": "Banana Bunching & Fruit Package",
+      "objective": "Support bunching and finger development",
+      "productRoles": [
+        {
+          "role": "Potassium for fruit fill",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Seaweed for finger development",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_citrus_pest",
+      "name": "Citrus Scale & Leaf Miner Package",
+      "objective": "Manage citrus scale and leaf miner damage",
+      "productRoles": [
+        {
+          "role": "Neem oil for scale smothering",
+          "productId": "prod_margoshine"
+        },
+        {
+          "role": "Lemongrass oil for leaf miner",
+          "productId": "prod_admira_admon"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_citrus_vigor",
+      "name": "Citrus Fruit Set & Flush Package",
+      "objective": "Support fruit set and new flush development",
+      "productRoles": [
+        {
+          "role": "Seaweed for flush vigor",
+          "productId": "prod_blooma"
+        },
+        {
+          "role": "Potassium for fruit sizing",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_grapes_pest",
+      "name": "Grape Thrips & Mealybug Package",
+      "objective": "Manage thrips and mealybug colonies on grapes",
+      "productRoles": [
+        {
+          "role": "Spinosad for thrips knockdown",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Karanjin wax penetration on mealybug",
+          "productId": "prod_k_guard"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_grapes_vigor",
+      "name": "Grape Berry Set & Sizing Package",
+      "objective": "Support berry set and sizing in grapes",
+      "productRoles": [
+        {
+          "role": "Potassium for berry sizing",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Organic acid for berry quality",
+          "productId": "prod_orgocare"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_grapes_disease",
+      "name": "Grape Mildew Resistance Package",
+      "objective": "Manage powdery and downy mildew resistance",
+      "productRoles": [
+        {
+          "role": "Bacillus subtilis for powdery mildew",
+          "productId": "prod_subtilix"
+        },
+        {
+          "role": "Bacillus amyloliquefaciens for downy mildew",
+          "productId": "prod_elixora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_pomegranate_pest",
+      "name": "Pomegranate Fruit Borer & Thrips Package",
+      "objective": "Manage anar butterfly and thrips on pomegranate",
+      "productRoles": [
+        {
+          "role": "Spinosad for fruit borer L1",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Azadirachtin for thrips eggs",
+          "productId": "prod_ecoza_pro"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_pomegranate_vigor",
+      "name": "Pomegranate Fruit Set & Sizing Package",
+      "objective": "Support fruit set and sizing in pomegranate",
+      "productRoles": [
+        {
+          "role": "Potassium for fruit sizing",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Seaweed for flower retention",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_onion_pest",
+      "name": "Onion Thrips & Maggot Package",
+      "objective": "Manage onion thrips and onion fly maggot",
+      "productRoles": [
+        {
+          "role": "Spinosad for thrips active stages",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Thyme oil for fly oviposition deterrence",
+          "productId": "prod_admira_adyme"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_onion_vigor",
+      "name": "Onion Bulb Development Package",
+      "objective": "Support bulb sizing and storage quality",
+      "productRoles": [
+        {
+          "role": "Phosphorus for bulb initiation",
+          "productId": "prod_igreen_p"
+        },
+        {
+          "role": "Potassium for bulb storage",
+          "productId": "prod_igreen_k"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_potato_pest",
+      "name": "Potato Cutworm & Aphid Package",
+      "objective": "Manage cutworm at seedling and aphid virus vectors",
+      "productRoles": [
+        {
+          "role": "Spinosad WP for cutworm soil drench",
+          "productId": "prod_spindura_rix"
+        },
+        {
+          "role": "Lecanicillium for aphid mycosis",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_potato_vigor",
+      "name": "Potato Tuberization Package",
+      "objective": "Support tuberization and bulking",
+      "productRoles": [
+        {
+          "role": "Potassium for tuber bulking",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Seaweed for tuberization vigor",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_potato_disease",
+      "name": "Potato Late Blight & Scab Package",
+      "objective": "Suppress late blight and common scab in potato",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride soil colonization",
+          "productId": "prod_biota_v"
+        },
+        {
+          "role": "Bacillus amyloliquefaciens foliar antagonist",
+          "productId": "prod_elixora"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_tea_pest",
+      "name": "Tea Mite & Thrips Package",
+      "objective": "Manage tea mite and thrips on tea bushes",
+      "productRoles": [
+        {
+          "role": "Garlic oil acaricide for mites",
+          "productId": "prod_admira_adrlic"
+        },
+        {
+          "role": "Spinosad for thrips",
+          "productId": "prod_spindura_plus"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_tea_vigor",
+      "name": "Tea Flush & Quality Package",
+      "objective": "Support new flush and leaf quality in tea",
+      "productRoles": [
+        {
+          "role": "Amino acid for flush quality",
+          "productId": "prod_zenita"
+        },
+        {
+          "role": "Seaweed for flush vigor",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_coffee_pest",
+      "name": "Coffee Berry Borer & Scale Package",
+      "objective": "Manage berry borer and scale insects on coffee",
+      "productRoles": [
+        {
+          "role": "Karanjin antifeedant for berry borer",
+          "productId": "prod_k_guard"
+        },
+        {
+          "role": "Neem oil for scale smothering",
+          "productId": "prod_margoshine"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_coffee_vigor",
+      "name": "Coffee Bean Development Package",
+      "objective": "Support bean fill and quality in coffee",
+      "productRoles": [
+        {
+          "role": "Potassium for bean development",
+          "productId": "prod_igreen_k"
+        },
+        {
+          "role": "Organic acid for cup quality",
+          "productId": "prod_orgocare"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_garlic_pest",
+      "name": "Garlic Thrips & Onion Fly Package",
+      "objective": "Manage thrips and onion fly in garlic",
+      "productRoles": [
+        {
+          "role": "Spinosad for thrips active stages",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Thyme oil for fly oviposition deterrence",
+          "productId": "prod_admira_adyme"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_garlic_vigor",
+      "name": "Garlic Bulb & Clove Package",
+      "objective": "Support bulb formation and clove quality",
+      "productRoles": [
+        {
+          "role": "Phosphorus for bulb initiation",
+          "productId": "prod_igreen_p"
+        },
+        {
+          "role": "Amino acid for clove quality",
+          "productId": "prod_zenita"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_chickpea_pest",
+      "name": "Chickpea Pod Borer Package",
+      "objective": "Manage Helicoverpa pod borer in chickpea",
+      "productRoles": [
+        {
+          "role": "Spinosad larvicide at egg threshold",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Combination neem-spinosad for sustained pressure",
+          "productId": "prod_margospin"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_chickpea_vigor",
+      "name": "Chickpea Pod Fill Package",
+      "objective": "Support pod fill and protein content",
+      "productRoles": [
+        {
+          "role": "Phosphorus for pod fill",
+          "productId": "prod_igreen_p"
+        },
+        {
+          "role": "Seaweed for pod retention",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_pulses_pest",
+      "name": "Pulses Pod Borer Package",
+      "objective": "Manage pod borer complex across pulses",
+      "productRoles": [
+        {
+          "role": "Spinosad for pod borer L1",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Combination neem-spinosad for sustained pressure",
+          "productId": "prod_margospin"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_pulses_vigor",
+      "name": "Pulses Pod Development Package",
+      "objective": "Support pod development across pulses",
+      "productRoles": [
+        {
+          "role": "Phosphorus for pod fill",
+          "productId": "prod_igreen_p"
+        },
+        {
+          "role": "Seaweed for pod retention",
+          "productId": "prod_blooma"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_oilseeds_pest",
+      "name": "Oilseeds Aphid & Painted Bug Package",
+      "objective": "Manage aphid and painted bug across oilseeds",
+      "productRoles": [
+        {
+          "role": "Lecanicillium for aphid mycosis",
+          "productId": "prod_seira"
+        },
+        {
+          "role": "Clove oil for painted bug",
+          "productId": "prod_admira_adove"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_oilseeds_vigor",
+      "name": "Oilseeds Seed Fill Package",
+      "objective": "Support oil content and seed fill",
+      "productRoles": [
+        {
+          "role": "Sulfur-oxidizing microbes",
+          "productId": "prod_igreen_s"
+        },
+        {
+          "role": "Humic-amino tissue support",
+          "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_cauliflower_pest",
+      "name": "Cauliflower DBM & Aphid Package",
+      "objective": "Manage DBM and aphid in cauliflower",
+      "productRoles": [
+        {
+          "role": "Spinosad for DBM (resistance-managed)",
+          "productId": "prod_spindura_plus"
+        },
+        {
+          "role": "Lecanicillium for aphid mycosis",
+          "productId": "prod_seira"
+        }
+      ]
+    },
+    {
+      "id": "pkg_crop_cauliflower_vigor",
+      "name": "Cauliflower Curd Formation Package",
+      "objective": "Sustain curd formation and quality",
+      "productRoles": [
+        {
+          "role": "NPK microbial consortium",
+          "productId": "prod_igreen_npk"
+        },
+        {
+          "role": "Humic-amino tissue support",
+          "productId": "prod_envicta"
+        }
+      ]
     }
   ],
   "recommendationTemplates": [
@@ -1462,182 +3007,6 @@
       "status": "draft_needs_agronomy_validation"
     },
     {
-      "id": "rec_general_pest_beetle",
-      "pestId": "pest_beetle",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_insect_pressure_botanical",
-      "recommendationReason": "Botanical insect pressure package for beetle management.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_caterpillar",
-      "pestId": "pest_caterpillar",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_caterpillar_complex",
-      "recommendationReason": "Caterpillar and borer management package with microbial biocontrol.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_white_grub",
-      "pestId": "pest_white_grub",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_insect_pressure_botanical",
-      "recommendationReason": "Botanical and microbial approach for soil-dwelling white grub control.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_spider_mite",
-      "pestId": "pest_spider_mite",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_whitefly_complex",
-      "recommendationReason": "Sucking pest package effective against spider mite populations.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_cutworm",
-      "pestId": "pest_cutworm",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_caterpillar_complex",
-      "recommendationReason": "Caterpillar management package for cutworm control in early crop stages.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_weevil",
-      "pestId": "pest_weevil",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_insect_pressure_botanical",
-      "recommendationReason": "Botanical insect pressure package for weevil management.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_grasshopper",
-      "pestId": "pest_grasshopper",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_insect_pressure_botanical",
-      "recommendationReason": "Botanical approach for grasshopper and chewing pest pressure.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_leaf_miner",
-      "pestId": "pest_leaf_miner",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_whitefly_complex",
-      "recommendationReason": "Sucking and mining pest management with botanical and microbial agents.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_helicoverpa",
-      "pestId": "pest_helicoverpa",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_caterpillar_complex",
-      "recommendationReason": "Caterpillar complex package for Helicoverpa pod/fruit borer management.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_diamondback_moth",
-      "pestId": "pest_diamondback_moth",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_caterpillar_complex",
-      "recommendationReason": "Caterpillar management package for diamondback moth in crucifers.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_pest_root_grub",
-      "pestId": "pest_root_grub",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_insect_pressure_botanical",
-      "recommendationReason": "Botanical and microbial control for soil-dwelling root grub larvae.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Stress recovery and plant vigor support."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
       "id": "rec_general_disease_fusarium_wilt",
       "diseaseId": "disease_fusarium_wilt",
       "priority": 1,
@@ -1780,6 +3149,718 @@
         }
       ],
       "status": "draft_needs_agronomy_validation"
+    },
+    {
+      "id": "rec_general_pest_aphid",
+      "pestId": "pest_aphid",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_aphid",
+      "recommendationReason": "Aphid colonies build rapidly through parthenogenetic reproduction on cotton, mustard, and pulses. This package combines entomopathogenic fungal infection of soft-bodied stages with azadirachtin antifeedant action."
+    },
+    {
+      "id": "rec_general_pest_brown_planthopper",
+      "pestId": "pest_brown_planthopper",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_brown_planthopper",
+      "recommendationReason": "BPH causes catastrophic hopper-burn through phloem feeding at the rice stem base. Concentrated spinosad delivers rapid adult and nymph mortality, while Beauveria provides sustained microbial pressure on next-generation nymphs."
+    },
+    {
+      "id": "rec_general_pest_beetle",
+      "pestId": "pest_beetle",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_beetle",
+      "recommendationReason": "Hard-bodied beetles resist contact insecticides through their sclerotized cuticle. Karanjin disrupts digestive enzymes in feeding adults while Metarhizium attacks soil-pupating larval stages -- breaking the generation cycle."
+    },
+    {
+      "id": "rec_general_pest_caterpillar",
+      "pestId": "pest_caterpillar",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_caterpillar",
+      "recommendationReason": "Generalist caterpillars feed extensively on foliage causing economic defoliation. Spinosad delivers rapid stomach-poison action while azadirachtin disrupts the molting cycle and reduces oviposition."
+    },
+    {
+      "id": "rec_general_pest_cutworm",
+      "pestId": "pest_cutworm",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_cutworm",
+      "recommendationReason": "Cutworm larvae feed at night on stem bases and shelter in soil during the day. Spinosad WP soil drench targets daytime soil-resting larvae and Metarhizium attacks pupae for generational suppression."
+    },
+    {
+      "id": "rec_general_pest_diamondback_moth",
+      "pestId": "pest_diamondback_moth",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_diamondback_moth",
+      "recommendationReason": "DBM populations across cole crops have developed resistance to many synthetics. Spinosad larvicide combined with clove oil oviposition deterrence reduces selection pressure and slows resistance development."
+    },
+    {
+      "id": "rec_general_pest_fruit_borer",
+      "pestId": "pest_fruit_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_fruit_borer",
+      "recommendationReason": "Helicoverpa armigera and Earias spp. become impossible to control once larvae enter fruits. This package targets eggs (azadirachtin) and L1 emergence (spinosad) before tunnel-feeding establishes."
+    },
+    {
+      "id": "rec_general_pest_fruit_fly",
+      "pestId": "pest_fruit_fly",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_fruit_fly",
+      "recommendationReason": "Tephritid fruit flies cause economic damage by ovipositing in developing fruits. Clove oil repels female adults from landing on fruits and neem oil provides ovicidal coverage of egg-laden surfaces."
+    },
+    {
+      "id": "rec_general_pest_grasshopper",
+      "pestId": "pest_grasshopper",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_grasshopper",
+      "recommendationReason": "Grasshopper outbreaks in dryland regions cause patchy defoliation. Karanjin disrupts adult and nymph feeding while granular azadirachtin attacks soil-stage egg pods."
+    },
+    {
+      "id": "rec_general_pest_helicoverpa",
+      "pestId": "pest_helicoverpa",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_helicoverpa",
+      "recommendationReason": "Helicoverpa armigera larvae bore into pods and fruits where contact insecticides cannot reach. Spinosad timed at peak egg-hatch combined with neem-spinosad combination chemistry sustains pressure across overlapping flights."
+    },
+    {
+      "id": "rec_general_pest_jassid",
+      "pestId": "pest_jassid",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_jassid",
+      "recommendationReason": "Jassid phytotoxic saliva causes hopper-burn on leaf undersides. Azadirachtin disrupts nymph development as IGR while Lecanicillium kills soft-bodied life stages through fungal mycosis."
+    },
+    {
+      "id": "rec_general_pest_leaf_folder",
+      "pestId": "pest_leaf_folder",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_leaf_folder",
+      "recommendationReason": "Leaf folder larvae feed inside folded leaves where contact insecticides fail. Concentrated spinosad penetrates the leaf fold and azadirachtin suppresses adult moth oviposition for next-generation control."
+    },
+    {
+      "id": "rec_general_pest_leaf_miner",
+      "pestId": "pest_leaf_miner",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_leaf_miner",
+      "recommendationReason": "Leaf miner larvae feed inside leaf tissue, protected from contact sprays. Lemongrass oil delivers translaminar penetration to mining larvae and Lecanicillium kills emerging adult flies before re-infestation."
+    },
+    {
+      "id": "rec_general_pest_mealybug",
+      "pestId": "pest_mealybug",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_mealybug",
+      "recommendationReason": "Mealybug colonies are protected by waxy coatings that block contact insecticides. Karanjin EC penetrates the wax to contact the soft body and Lecanicillium kills exposed crawlers during emergence."
+    },
+    {
+      "id": "rec_general_pest_mite",
+      "pestId": "pest_mite",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_mite",
+      "recommendationReason": "Agricultural mites develop rapid resistance to chemical acaricides. Rotating garlic oil and thyme oil with different modes of action prevents cross-resistance and maintains efficacy across the mite population."
+    },
+    {
+      "id": "rec_general_pest_nematode",
+      "pestId": "pest_nematode",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_nematode",
+      "recommendationReason": "Root-knot nematodes parasitize root systems and reduce yields. Paecilomyces parasitizes nematode eggs and females in soil while Pseudomonas protects the root zone from secondary infections."
+    },
+    {
+      "id": "rec_general_pest_painted_bug",
+      "pestId": "pest_painted_bug",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_painted_bug",
+      "recommendationReason": "Painted bug aggregates on cotyledons of late Rabi-sown oilseeds and cole crops. Clove oil repels adult feeding aggregations and karanjin disrupts feeding during peak activity windows."
+    },
+    {
+      "id": "rec_general_pest_red_spider_mite",
+      "pestId": "pest_red_spider_mite",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_red_spider_mite",
+      "recommendationReason": "Tetranychus urticae develops cross-resistance to chemical acaricides rapidly. Botanical garlic and thyme oils provide alternative modes of action with no cross-resistance to chemical miticides."
+    },
+    {
+      "id": "rec_general_pest_root_grub",
+      "pestId": "pest_root_grub",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_root_grub",
+      "recommendationReason": "Root grubs feed on roots in soil. Metarhizium specializes in scarab grub mycosis with proven field efficacy and Beauveria targets above-ground adult beetles -- breaking the egg-larva-adult cycle."
+    },
+    {
+      "id": "rec_general_pest_scale_insect",
+      "pestId": "pest_scale_insect",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_scale_insect",
+      "recommendationReason": "Scale insects protect themselves with wax shields that block contact sprays. Neem oil smothers scales by physical coating and spiracular blockage, while Lecanicillium kills emerging crawlers during their vulnerable stage."
+    },
+    {
+      "id": "rec_general_pest_semilooper",
+      "pestId": "pest_semilooper",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_semilooper",
+      "recommendationReason": "Semilooper larvae cause severe defoliation in castor and pulses. Spinosad targets early instars by ingestion before mature defoliating stages and azadirachtin disrupts adult oviposition."
+    },
+    {
+      "id": "rec_general_pest_shoot_borer",
+      "pestId": "pest_shoot_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_shoot_borer",
+      "recommendationReason": "Shoot borer larvae enter soft growing shoots and feed internally. Concentrated spinosad timed at egg-hatch catches L1 before stem entry and granular azadirachtin attacks soil-pupating stages."
+    },
+    {
+      "id": "rec_general_pest_spider_mite",
+      "pestId": "pest_spider_mite",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_spider_mite",
+      "recommendationReason": "Spider mites build dense webbing that protects colonies from contact sprays. Garlic oil breaks webbing and contacts active stages while Beauveria provides sustained microbial kill across the egg-to-adult cycle."
+    },
+    {
+      "id": "rec_general_pest_spodoptera",
+      "pestId": "pest_spodoptera",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_spodoptera",
+      "recommendationReason": "Spodoptera frugiperda and S. litura larvae enter maize whorls within days of hatching. Spinosad directed into the whorl at L1-L3 followed by neem-spinosad combo rotation manages resistance while sustaining pressure."
+    },
+    {
+      "id": "rec_general_pest_stem_borer",
+      "pestId": "pest_stem_borer",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_stem_borer",
+      "recommendationReason": "Yellow stem borer and pink stem borer cause dead-heart and white-ear in rice. Spinosad WP at stem base catches larvae before they tunnel into internodes and granular azadirachtin provides sustained release across the tillering window."
+    },
+    {
+      "id": "rec_general_pest_termite",
+      "pestId": "pest_termite",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_termite",
+      "recommendationReason": "Subterranean termites attack sugarcane setts, groundnut pods, and crop bases. Metarhizium spores spread by termite-to-termite contact within colonies, providing colony-wide kill, while karanjin granular deters surface foraging."
+    },
+    {
+      "id": "rec_general_pest_thrips",
+      "pestId": "pest_thrips",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_thrips",
+      "recommendationReason": "Thrips cause direct feeding damage and transmit tospoviruses. Spinosad delivers fast kill of active stages on leaf undersides and within flower whorls, while azadirachtin suppresses egg viability for next-generation control."
+    },
+    {
+      "id": "rec_general_pest_weevil",
+      "pestId": "pest_weevil",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_weevil",
+      "recommendationReason": "Weevils cause structural damage through adult and larval feeding on pods, tubers, and stems. Karanjin disrupts adult feeding and digestion while Metarhizium attacks soil-pupating life stages to break the generation cycle."
+    },
+    {
+      "id": "rec_general_pest_white_grub",
+      "pestId": "pest_white_grub",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_white_grub",
+      "recommendationReason": "White grub larvae devour roots and reduce stand density. Metarhizium spores germinate on grub cuticle in moist soil and cause systemic mycosis, while Beauveria targets emerging adult beetles for generational control."
+    },
+    {
+      "id": "rec_general_pest_whitefly",
+      "pestId": "pest_whitefly",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_pest_whitefly",
+      "recommendationReason": "Whiteflies cause direct sap-loss damage and transmit begomoviruses. Lecanicillium specializes in whitefly mycosis through cuticle penetration and neem oil provides ovicidal coverage on egg-laden leaf undersides."
+    },
+    {
+      "id": "rec_crop_rice_pest_general",
+      "cropId": "crop_rice",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_rice_pest",
+      "recommendationReason": "Rice faces overlapping pressure from stem borer, brown planthopper, and leaf folder. Concentrated spinosad delivers rapid knockdown across all three and Beauveria provides residual microbial suppression on next-generation hoppers."
+    },
+    {
+      "id": "rec_crop_rice_vigor_general",
+      "cropId": "crop_rice",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_rice_vigor",
+      "recommendationReason": "Productive tillers and grain weight set during distinct windows. N-fixing microbes sustain tillering nitrogen and K-mobilizing microbes deliver potassium for grain filling and test weight."
+    },
+    {
+      "id": "rec_crop_rice_disease_general",
+      "cropId": "crop_rice",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_rice_disease",
+      "recommendationReason": "Rice diseases build under humid Kharif conditions. Bacillus subtilis produces antifungal lipopeptides and Pseudomonas fluorescens protects both root zone and foliage with antimicrobial metabolites."
+    },
+    {
+      "id": "rec_crop_cotton_pest_general",
+      "cropId": "crop_cotton",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_cotton_pest",
+      "recommendationReason": "Cotton faces lepidopteran bollworms and sap-sucking jassids simultaneously. Spinosad targets early bollworm instars before pod entry and azadirachtin disrupts jassid nymph development."
+    },
+    {
+      "id": "rec_crop_cotton_vigor_general",
+      "cropId": "crop_cotton",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_cotton_vigor",
+      "recommendationReason": "Cotton yield depends on branching and boll retention. K-mobilizing microbes ensure potassium supply during peak boll fill and amino acid complex stimulates lateral branching for additional reproductive sites."
+    },
+    {
+      "id": "rec_crop_wheat_pest_general",
+      "cropId": "crop_wheat",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_wheat_pest",
+      "recommendationReason": "Wheat aphids and termites pressure both foliage and roots. Lecanicillium kills aphids through cuticle penetration and Metarhizium provides specialist soil-borne termite control."
+    },
+    {
+      "id": "rec_crop_wheat_vigor_general",
+      "cropId": "crop_wheat",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_wheat_vigor",
+      "recommendationReason": "Wheat grain weight and protein content peak during the flag-leaf to milk-stage window. K microbes deliver potassium for sugar loading and amino-acid complex enhances grain protein deposition."
+    },
+    {
+      "id": "rec_crop_tomato_pest_general",
+      "cropId": "crop_tomato",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_tomato_pest",
+      "recommendationReason": "Tomato fruit borer (Helicoverpa) and whitefly (begomovirus vector) cause both direct yield loss and indirect virus transmission. Spinosad targets borer L1 before fruit entry and Lecanicillium kills whitefly nymphs."
+    },
+    {
+      "id": "rec_crop_tomato_vigor_general",
+      "cropId": "crop_tomato",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_tomato_vigor",
+      "recommendationReason": "Tomato fruiting requires sustained flower retention and potassium-driven fruit sizing. Seaweed extract reduces flower drop through cytokinins and K microbes deliver potassium during peak fruit-fill demand."
+    },
+    {
+      "id": "rec_crop_tomato_disease_general",
+      "cropId": "crop_tomato",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_tomato_disease",
+      "recommendationReason": "Fusarium wilt and late blight are major tomato yield-limiters. Trichoderma viride colonizes the root zone and competes with wilt pathogens, while Bacillus amyloliquefaciens delivers foliar disease antagonism."
+    },
+    {
+      "id": "rec_crop_brinjal_pest_general",
+      "cropId": "crop_brinjal",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_brinjal_pest",
+      "recommendationReason": "Brinjal suffers from shoot and fruit borer (Leucinodes) and jassid sap loss together. Concentrated spinosad reaches borer larvae before stem entry and azadirachtin disrupts jassid nymph populations."
+    },
+    {
+      "id": "rec_crop_brinjal_vigor_general",
+      "cropId": "crop_brinjal",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_brinjal_vigor",
+      "recommendationReason": "Brinjal yield depends on lateral branching and sustained fruit set. Amino acid complex stimulates new meristem activity and K microbes support potassium supply through extended fruiting."
+    },
+    {
+      "id": "rec_crop_chilli_pest_general",
+      "cropId": "crop_chilli",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_chilli_pest",
+      "recommendationReason": "Chilli yield collapses under thrips (virus vectors) and broad mite (leaf curl) pressure. Spinosad delivers fast thrips kill and garlic oil provides botanical mite control with no chemical cross-resistance."
+    },
+    {
+      "id": "rec_crop_chilli_vigor_general",
+      "cropId": "crop_chilli",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_chilli_vigor",
+      "recommendationReason": "Chilli flowering and fruit retention drive marketable yield. Seaweed extract delivers natural cytokinins for flower retention and P-solubilizing microbes ensure phosphorus supply at the reproductive switch."
+    },
+    {
+      "id": "rec_crop_chilli_disease_general",
+      "cropId": "crop_chilli",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_chilli_disease",
+      "recommendationReason": "Chilli anthracnose and wilt complex destroy fruits and entire plants. Trichoderma harzianum colonizes the rhizosphere against soil-borne wilt pathogens and Pseudomonas protects foliage and fruit surfaces."
+    },
+    {
+      "id": "rec_crop_cabbage_pest_general",
+      "cropId": "crop_cabbage",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_cabbage_pest",
+      "recommendationReason": "Cabbage suffers from resistance-prone diamondback moth and aphid colonies on leaf undersides. Spinosad remains effective on DBM where chemicals fail and Lecanicillium provides microbial aphid mortality."
+    },
+    {
+      "id": "rec_crop_cabbage_vigor_general",
+      "cropId": "crop_cabbage",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_cabbage_vigor",
+      "recommendationReason": "Cabbage head formation requires balanced N-P-K and tissue-density support. NPK microbial consortium delivers all three macronutrients and humic-amino complex enhances cellular thickness for compact heads."
+    },
+    {
+      "id": "rec_crop_maize_pest_general",
+      "cropId": "crop_maize",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_maize_pest",
+      "recommendationReason": "Maize faces fall armyworm (Spodoptera frugiperda) in whorls and root grubs in soil. Spinosad directed into whorls catches L1-L3 larvae and Metarhizium provides specialist soil grub mycosis."
+    },
+    {
+      "id": "rec_crop_maize_vigor_general",
+      "cropId": "crop_maize",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_maize_vigor",
+      "recommendationReason": "Maize is a heavy feeder requiring strong vegetative biomass and grain fill. NPK microbial consortium meets bulk nutrient demand and amino acid complex supports cob fill and grain protein."
+    },
+    {
+      "id": "rec_crop_soybean_pest_general",
+      "cropId": "crop_soybean",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_soybean_pest",
+      "recommendationReason": "Soybean faces Helicoverpa pod borer and Bihar hairy caterpillar / semilooper defoliation. Spinosad timed at peak egg-hatch combined with neem-spinosad combo sustains pressure across overlapping flights."
+    },
+    {
+      "id": "rec_crop_soybean_vigor_general",
+      "cropId": "crop_soybean",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_soybean_vigor",
+      "recommendationReason": "Soybean yield depends on flower set and pod retention. P-solubilizing microbes deliver phosphorus at flowering and seaweed extract reduces flower and pod drop through natural growth regulators."
+    },
+    {
+      "id": "rec_crop_okra_pest_general",
+      "cropId": "crop_okra",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_okra_pest",
+      "recommendationReason": "Okra suffers hopper-burn from jassid and fruit destruction from shoot/fruit borer. Azadirachtin disrupts jassid nymph development and spinosad targets borer larvae before fruit entry."
+    },
+    {
+      "id": "rec_crop_okra_vigor_general",
+      "cropId": "crop_okra",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_okra_vigor",
+      "recommendationReason": "Okra produces continuously, demanding sustained flower retention and fruit fill. Seaweed extract supports flower retention and K microbes deliver potassium across the long picking window."
+    },
+    {
+      "id": "rec_crop_mustard_pest_general",
+      "cropId": "crop_mustard",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_mustard_pest",
+      "recommendationReason": "Mustard faces mustard aphid colonies at flowering and painted bug aggregations at seedling. Lecanicillium delivers specialist aphid mycosis and clove oil repels and kills painted bug at cotyledon stage."
+    },
+    {
+      "id": "rec_crop_mustard_vigor_general",
+      "cropId": "crop_mustard",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_mustard_vigor",
+      "recommendationReason": "Mustard oil content depends on sulfur availability and tissue metabolism. Sulfur-oxidizing microbes release plant-available sulfate and humic-amino complex enhances cellular oil-seed deposition."
+    },
+    {
+      "id": "rec_crop_sugarcane_pest_general",
+      "cropId": "crop_sugarcane",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_sugarcane_pest",
+      "recommendationReason": "Sugarcane setts and tillers face shoot borer attack and subterranean termite damage. Concentrated spinosad reaches early borer larvae and Metarhizium provides soil-borne termite mycosis with colony spread."
+    },
+    {
+      "id": "rec_crop_sugarcane_vigor_general",
+      "cropId": "crop_sugarcane",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_sugarcane_vigor",
+      "recommendationReason": "Sugarcane yield builds through tiller count and cane sucrose. N-fixing microbes maintain nitrogen for tillering and K microbes deliver potassium for sucrose accumulation and cane weight."
+    },
+    {
+      "id": "rec_crop_groundnut_pest_general",
+      "cropId": "crop_groundnut",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_groundnut_pest",
+      "recommendationReason": "Groundnut faces destructive root-feeding white grubs in soil and thrips on foliage during flowering. Metarhizium provides specialist scarab grub mycosis and spinosad delivers fast thrips kill."
+    },
+    {
+      "id": "rec_crop_groundnut_vigor_general",
+      "cropId": "crop_groundnut",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_groundnut_vigor",
+      "recommendationReason": "Groundnut pod yield depends on pegging success and pod fill. Seaweed extract supports peg penetration into soil and K microbes deliver potassium during the pod-fill phase."
+    },
+    {
+      "id": "rec_crop_mango_pest_general",
+      "cropId": "crop_mango",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_mango_pest",
+      "recommendationReason": "Mango fruit yield is hit by tephritid fruit fly oviposition and scale insect colonies on branches. Clove oil eugenol repels fruit flies and neem oil smothers wax-protected scales."
+    },
+    {
+      "id": "rec_crop_mango_vigor_general",
+      "cropId": "crop_mango",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_mango_vigor",
+      "recommendationReason": "Mango flowering and early fruit set determine yield. Seaweed extract supports panicle retention and organic acid complex sustains cellular metabolism through the fruit set phase."
+    },
+    {
+      "id": "rec_crop_banana_pest_general",
+      "cropId": "crop_banana",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_banana_pest",
+      "recommendationReason": "Banana suffers structural damage from pseudostem weevil and virus transmission from aphid colonies. Karanjin disrupts weevil feeding and Lecanicillium kills aphids through cuticle penetration."
+    },
+    {
+      "id": "rec_crop_banana_vigor_general",
+      "cropId": "crop_banana",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_banana_vigor",
+      "recommendationReason": "Banana bunch weight and finger size depend on potassium and growth regulator supply. K microbes deliver potassium and seaweed extract supports finger elongation through cytokinin-auxin balance."
+    },
+    {
+      "id": "rec_crop_citrus_pest_general",
+      "cropId": "crop_citrus",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_citrus_pest",
+      "recommendationReason": "Citrus is hit by scale colonies on bark and leaf miner tunnels in young flush. Neem oil smothers scales and lemongrass oil delivers translaminar action against mining larvae."
+    },
+    {
+      "id": "rec_crop_citrus_vigor_general",
+      "cropId": "crop_citrus",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_citrus_vigor",
+      "recommendationReason": "Citrus yield builds through new flush growth and sustained fruit sizing. Seaweed extract drives new flush and K microbes deliver potassium for fruit fill."
+    },
+    {
+      "id": "rec_crop_grapes_pest_general",
+      "cropId": "crop_grapes",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_grapes_pest",
+      "recommendationReason": "Grape suffers from thrips (which scar berry skin) and mealybug colonies (which exude honeydew). Spinosad kills thrips actives quickly and karanjin penetrates the mealybug wax coating."
+    },
+    {
+      "id": "rec_crop_grapes_vigor_general",
+      "cropId": "crop_grapes",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_grapes_vigor",
+      "recommendationReason": "Grape berry size and sugar content depend on potassium and metabolic acid balance. K microbes deliver potassium for sugar loading and organic acid complex supports berry quality."
+    },
+    {
+      "id": "rec_crop_grapes_disease_general",
+      "cropId": "crop_grapes",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_grapes_disease",
+      "recommendationReason": "Grape mildews develop resistance to chemical fungicides quickly. Bacillus subtilis lipopeptides target powdery mildew and Bacillus amyloliquefaciens provides downy mildew antagonism."
+    },
+    {
+      "id": "rec_crop_pomegranate_pest_general",
+      "cropId": "crop_pomegranate",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_pomegranate_pest",
+      "recommendationReason": "Pomegranate fruit borer (anar butterfly) and thrips both damage developing fruits. Spinosad targets borer L1 before fruit entry and azadirachtin suppresses thrips egg viability."
+    },
+    {
+      "id": "rec_crop_pomegranate_vigor_general",
+      "cropId": "crop_pomegranate",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_pomegranate_vigor",
+      "recommendationReason": "Pomegranate marketable yield depends on fruit retention and arils-fill. K microbes deliver potassium for sizing and seaweed extract supports flower retention through critical fruit-set window."
+    },
+    {
+      "id": "rec_crop_onion_pest_general",
+      "cropId": "crop_onion",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_onion_pest",
+      "recommendationReason": "Onion suffers thrips feeding on leaf surfaces and maggot damage at the bulb. Spinosad delivers fast thrips kill and thyme oil deters adult fly oviposition near the basal plate."
+    },
+    {
+      "id": "rec_crop_onion_vigor_general",
+      "cropId": "crop_onion",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_onion_vigor",
+      "recommendationReason": "Onion bulb size and storage life depend on phosphorus at initiation and potassium during sizing. P and K microbes deliver both nutrients at the right windows."
+    },
+    {
+      "id": "rec_crop_potato_pest_general",
+      "cropId": "crop_potato",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_potato_pest",
+      "recommendationReason": "Potato faces cutworm damage at emergence and virus-transmitting aphid colonies later. Spinosad WP soil drench targets nocturnal cutworm larvae and Lecanicillium delivers aphid mycosis."
+    },
+    {
+      "id": "rec_crop_potato_vigor_general",
+      "cropId": "crop_potato",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_potato_vigor",
+      "recommendationReason": "Potato tuber yield depends on tuberization signal and potassium for bulking. Seaweed extract triggers tuber initiation and K microbes deliver potassium for tuber sizing."
+    },
+    {
+      "id": "rec_crop_potato_disease_general",
+      "cropId": "crop_potato",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_potato_disease",
+      "recommendationReason": "Late blight (Phytophthora) destroys potato canopies and common scab disfigures tubers. Trichoderma viride colonizes the seed-piece and soil zone, while Bacillus amyloliquefaciens delivers foliar disease antagonism."
+    },
+    {
+      "id": "rec_crop_tea_pest_general",
+      "cropId": "crop_tea",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_tea_pest",
+      "recommendationReason": "Tea quality is destroyed by red spider mite stippling and thrips damage on tender shoots. Garlic oil delivers botanical acaricide action and spinosad provides fast thrips knockdown."
+    },
+    {
+      "id": "rec_crop_tea_vigor_general",
+      "cropId": "crop_tea",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_tea_vigor",
+      "recommendationReason": "Tea quality depends on tender flush and amino-acid content of new leaves. Amino acid complex enhances cellular metabolism and seaweed extract drives new flush emergence."
+    },
+    {
+      "id": "rec_crop_coffee_pest_general",
+      "cropId": "crop_coffee",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_coffee_pest",
+      "recommendationReason": "Coffee berry borer tunnels into beans and scale insects colonize branches. Karanjin disrupts berry borer feeding and neem oil smothers scale colonies on woody parts."
+    },
+    {
+      "id": "rec_crop_coffee_vigor_general",
+      "cropId": "crop_coffee",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_coffee_vigor",
+      "recommendationReason": "Coffee bean size and cup quality depend on potassium availability and metabolic acid balance. K microbes deliver potassium during bean fill and organic acid complex supports cup-quality compounds."
+    },
+    {
+      "id": "rec_crop_garlic_pest_general",
+      "cropId": "crop_garlic",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_garlic_pest",
+      "recommendationReason": "Garlic thrips colonize leaf folds and onion fly maggots damage developing bulbs. Spinosad kills thrips actives and thyme oil deters adult fly oviposition."
+    },
+    {
+      "id": "rec_crop_garlic_vigor_general",
+      "cropId": "crop_garlic",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_garlic_vigor",
+      "recommendationReason": "Garlic bulb size and clove count depend on phosphorus and amino-acid metabolism. P microbes deliver phosphorus and amino acid complex supports clove tissue density."
+    },
+    {
+      "id": "rec_crop_chickpea_pest_general",
+      "cropId": "crop_chickpea",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_chickpea_pest",
+      "recommendationReason": "Chickpea Helicoverpa pod borer is the primary yield-limiter. Spinosad timed at peak egg-hatch combined with neem-spinosad combo sustains pressure across the flowering and pod-fill window."
+    },
+    {
+      "id": "rec_crop_chickpea_vigor_general",
+      "cropId": "crop_chickpea",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_chickpea_vigor",
+      "recommendationReason": "Chickpea pod yield depends on pod retention and phosphorus-driven seed fill. P microbes deliver phosphorus at flowering and seaweed extract reduces pod abortion."
+    },
+    {
+      "id": "rec_crop_pulses_pest_general",
+      "cropId": "crop_pulses",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_pulses_pest",
+      "recommendationReason": "Pulses across pigeonpea, blackgram, and greengram suffer from pod borer complex. Spinosad targets early instars and neem-spinosad combo sustains pressure across overlapping flights."
+    },
+    {
+      "id": "rec_crop_pulses_vigor_general",
+      "cropId": "crop_pulses",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_pulses_vigor",
+      "recommendationReason": "Pulse pod yield is set by flowering retention and pod-fill. P microbes deliver phosphorus and seaweed extract reduces flower and pod abscission."
+    },
+    {
+      "id": "rec_crop_oilseeds_pest_general",
+      "cropId": "crop_oilseeds",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_oilseeds_pest",
+      "recommendationReason": "Oilseeds across mustard, sesamum, and sunflower suffer from aphid colonies and painted bug at seedling. Lecanicillium provides aphid mycosis and clove oil targets painted bug aggregations."
+    },
+    {
+      "id": "rec_crop_oilseeds_vigor_general",
+      "cropId": "crop_oilseeds",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_oilseeds_vigor",
+      "recommendationReason": "Oilseed crops require sulfur for oil synthesis and tissue metabolism for seed fill. S-oxidizing microbes release sulfate and humic-amino complex enhances cellular oil-seed deposition."
+    },
+    {
+      "id": "rec_crop_cauliflower_pest_general",
+      "cropId": "crop_cauliflower",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_cauliflower_pest",
+      "recommendationReason": "Cauliflower suffers resistance-prone diamondback moth larvae and aphid colonies on undersides. Spinosad remains effective on DBM where chemicals fail and Lecanicillium delivers microbial aphid kill."
+    },
+    {
+      "id": "rec_crop_cauliflower_vigor_general",
+      "cropId": "crop_cauliflower",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_crop_cauliflower_vigor",
+      "recommendationReason": "Cauliflower curd density depends on balanced N-P-K and tissue support. NPK microbial consortium and humic-amino complex together drive compact, marketable curd development."
     }
   ],
   "deficiencyRecommendations": [
@@ -1840,155 +3921,134 @@
   ],
   "stressRecommendations": [
     {
+      "id": "rec_stress_cold",
+      "abioticStressId": "stress_cold",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stress_cold",
+      "recommendationReason": "Cold stress damages cell membranes and disrupts enzyme function. Organic acid complex stabilizes membrane integrity and free amino acids act as natural cryoprotectants supporting cellular function below optimal temperatures."
+    },
+    {
+      "id": "rec_stress_drought",
+      "abioticStressId": "stress_drought",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stress_drought",
+      "recommendationReason": "Drought triggers stomatal closure and oxidative stress. Humic-fulvic-amino complex improves root water uptake and water-use efficiency while organic acid complex supports stomatal recovery and protects against oxidative damage."
+    },
+    {
+      "id": "rec_stress_heat",
+      "abioticStressId": "stress_heat",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stress_heat",
+      "recommendationReason": "Heat stress denatures proteins and generates reactive oxygen species. Organic acid complex supports heat-shock protein induction and seaweed extract delivers natural antioxidants that neutralize ROS during thermal extremes."
+    },
+    {
       "id": "rec_stress_salinity",
       "abioticStressId": "stress_salinity",
       "priority": 1,
-      "recommendationType": "product",
-      "productId": "prod_orgocare",
-      "recommendationReason": "Primary recommendation for salinity stress support.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Additional recovery support under severe stress."
-        }
-      ],
-      "status": "approved_internal_rule"
+      "recommendationType": "package",
+      "packageId": "pkg_stress_salinity",
+      "recommendationReason": "Salinity creates osmotic stress and sodium toxicity. Organic acid complex helps cellular osmoregulation and humic-fulvic-amino complex improves soil structure and supports selective root sodium exclusion."
+    },
+    {
+      "id": "rec_stress_transplant_shock",
+      "abioticStressId": "stress_transplant_shock",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stress_transplant_shock",
+      "recommendationReason": "Transplant shock breaks fine roots and disrupts water uptake. Mycorrhiza extends the effective root surface within days and seaweed extract triggers shoot recovery through natural cytokinin-auxin balance."
+    },
+    {
+      "id": "rec_stress_waterlogging",
+      "abioticStressId": "stress_waterlogging",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stress_waterlogging",
+      "recommendationReason": "Waterlogged soil becomes anaerobic and triggers root rot pathogens. Pseudomonas fluorescens protects the root zone with antimicrobial metabolites while organic acid complex supports cellular respiration through low-oxygen episodes."
     }
   ],
   "stageRecommendations": [
-    {
-      "id": "rec_stage_seed_treatment",
-      "growthStageId": "stage_seed_treatment",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_soil_borne_disease",
-      "recommendationReason": "Primary starter package for seed treatment and early microbial support.",
-      "status": "draft_needs_agronomy_validation"
-    },
     {
       "id": "rec_stage_nursery",
       "growthStageId": "stage_nursery",
       "priority": 1,
       "recommendationType": "package",
-      "packageId": "pkg_root_establishment",
-      "recommendationReason": "Primary starter package for nursery establishment and root support.",
-      "status": "draft_needs_agronomy_validation"
+      "packageId": "pkg_stage_nursery",
+      "recommendationReason": "Nursery seedlings need rapid root colonization and protection from soil-borne pathogens. Mycorrhiza forms a symbiotic root network and seaweed extract triggers early shoot vigor for healthy transplants."
+    },
+    {
+      "id": "rec_stage_germination",
+      "growthStageId": "stage_germination",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stage_germination",
+      "recommendationReason": "Germination is the most disease-vulnerable phase. Trichoderma colonizes the seed surface and rhizosphere while Bacillus subtilis produces antifungal metabolites against damping-off, root rot, and pre-emergence pathogens."
     },
     {
       "id": "rec_stage_seedling",
       "growthStageId": "stage_seedling",
       "priority": 1,
       "recommendationType": "package",
-      "packageId": "pkg_seedling_vigor",
-      "recommendationReason": "Supportive microbial package for early crop vigor and establishment, vegetative growth support.",
-      "status": "draft_needs_agronomy_validation"
+      "packageId": "pkg_stage_seedling",
+      "recommendationReason": "Young seedlings need cytokinin, auxin, and amino-acid building blocks for rapid foliage development. Seaweed extract delivers natural growth promoters while humic-fulvic-amino complex enhances cellular metabolism."
+    },
+    {
+      "id": "rec_stage_vegetative",
+      "growthStageId": "stage_vegetative",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stage_vegetative",
+      "recommendationReason": "Vegetative growth demands balanced N-P-K supply. NPK microbial consortium fixes atmospheric nitrogen, solubilizes phosphorus, and mobilizes potassium, while humic-amino complex boosts foliar metabolism."
     },
     {
       "id": "rec_stage_tillering",
       "growthStageId": "stage_tillering",
       "priority": 1,
       "recommendationType": "package",
-      "packageId": "pkg_nutrient_recovery",
-      "recommendationReason": "Primary starter package for tillering-stage nutrient and vigor support.",
-      "status": "draft_needs_agronomy_validation"
+      "packageId": "pkg_stage_tillering",
+      "recommendationReason": "Productive tiller count is set during the tillering window. Nitrogen-fixing microbes ensure sustained N supply at the critical phase while seaweed cytokinins trigger lateral bud break and additional tillers."
+    },
+    {
+      "id": "rec_stage_branching",
+      "growthStageId": "stage_branching",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stage_branching",
+      "recommendationReason": "Lateral branching determines reproductive site count. Amino acid complex provides building blocks for new meristem activity and humic-fulvic complex sustains foliar mineral availability through active growth."
+    },
+    {
+      "id": "rec_stage_flowering",
+      "growthStageId": "stage_flowering",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_stage_flowering",
+      "recommendationReason": "Flowering demands phosphorus for energy transfer and seaweed-derived growth regulators for bud differentiation. P-solubilizing microbes release locked soil phosphorus while seaweed cytokinins reduce flower drop."
     },
     {
       "id": "rec_stage_boll_development",
       "growthStageId": "stage_boll_development",
       "priority": 1,
-      "recommendationType": "productGroup",
-      "recommendedProductIds": [
-        "prod_envicta",
-        "prod_blooma",
-        "prod_orgocare"
-      ],
-      "recommendationReason": "Boll development stage support choices from the portfolio.",
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "growthStageId": "stage_germination",
-      "priority": 1,
       "recommendationType": "package",
-      "packageId": "pkg_root_establishment",
-      "recommendationReason": "Root establishment package to support healthy germination and early emergence with Trichoderma and mycorrhiza-based biocontrol.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Humic and amino acid support for seedling vigor."
-        }
-      ]
+      "packageId": "pkg_stage_boll_development",
+      "recommendationReason": "Cotton boll filling requires sustained potassium for sugar translocation. K-mobilizing microbes maintain plant K supply through canopy peak demand while organic acid complex supports boll metabolism and reduces shedding."
     },
     {
-      "growthStageId": "stage_vegetative",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_nutrient_recovery",
-      "recommendationReason": "Nutrient recovery package to maximize vegetative growth through balanced NPK microbial support and biostimulants.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_blooma",
-          "reason": "Seaweed extract for enhanced vegetative development."
-        }
-      ]
-    },
-    {
-      "growthStageId": "stage_branching",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_nutrient_recovery",
-      "recommendationReason": "Nutrient support during branching stage to promote strong lateral growth and canopy development.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_cropsia",
-          "reason": "Plant growth promoting bacteria for robust branching."
-        }
-      ]
-    },
-    {
-      "growthStageId": "stage_flowering",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_seedling_vigor",
-      "recommendationReason": "Vigor and biostimulant package during flowering to support pollination, flower retention, and fruit set.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_blooma",
-          "reason": "Seaweed-based flowering support and hormonal balance."
-        }
-      ]
-    },
-    {
+      "id": "rec_stage_fruiting",
       "growthStageId": "stage_fruiting",
       "priority": 1,
       "recommendationType": "package",
-      "packageId": "pkg_nutrient_recovery",
-      "recommendationReason": "Nutrient recovery package during fruiting to support fruit development, size, and quality through biofertilizers and biostimulants.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_zenita",
-          "reason": "Amino acid complex for fruit quality and maturation."
-        }
-      ]
+      "packageId": "pkg_stage_fruiting",
+      "recommendationReason": "Fruit sizing is potassium-driven and metabolism-intensive. K-mobilizing microbes ensure nutrient supply at peak demand and organic acid complex supports cellular respiration during the rapid sink-filling phase."
     },
     {
+      "id": "rec_stage_grain_filling",
       "growthStageId": "stage_grain_filling",
       "priority": 1,
       "recommendationType": "package",
-      "packageId": "pkg_nutrient_recovery",
-      "recommendationReason": "Nutrient support during grain filling for optimal grain weight, quality, and yield through potassium and micronutrient mobilization.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_igreen_k",
-          "reason": "Potassium mobilizing microbes for grain filling support."
-        }
-      ]
+      "packageId": "pkg_stage_grain_filling",
+      "recommendationReason": "Grain filling demands sustained potassium for sugar loading and amino acids for protein deposition. K microbes maintain K supply at flag-leaf stage and amino-acid complex enhances grain protein content and test weight."
     }
   ],
   "weedRecommendations": [

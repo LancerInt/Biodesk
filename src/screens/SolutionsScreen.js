@@ -1,7 +1,9 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import {
   getCrops, getGrowthStages, getCategories, getAbioticStresses,
@@ -131,7 +133,11 @@ const SolutionsScreen = ({ navigation }) => {
               onPress={() => handleSearchSelect(r)}>
               <Icon name={getSearchIcon(r.type)} size={18} color={theme.colors.primary} />
               <View style={styles.searchResultText}>
-                <Text style={styles.searchResultName}>{r.item.name || r.item.brandName}</Text>
+                {r.type === 'product' ? (
+                  <ProductName name={r.item.brandName || r.item.name} style={styles.searchResultName} />
+                ) : (
+                  <Text style={styles.searchResultName}>{r.item.name || r.item.brandName}</Text>
+                )}
                 <Text style={styles.searchResultType}>{formatType(r.type)}</Text>
               </View>
               <Icon name="chevron-right" size={16} color={theme.colors.textLight} />
@@ -201,7 +207,14 @@ const SolutionsScreen = ({ navigation }) => {
           onPress={() => selectItem(filterKey, item.id, item.name)}>
           <View style={[styles.itemIconWrap, { backgroundColor: item.image ? 'transparent' : browseSection.color + '12' }]}>
             {item.image ? (
-              <Image source={item.image} style={styles.itemImage} resizeMode="contain" />
+              <ExpoImage
+                source={item.image}
+                style={styles.itemImage}
+                contentFit="contain"
+                cachePolicy="memory-disk"
+                transition={0}
+                recyclingKey={item.id}
+              />
             ) : (
               <Icon name={item.icon || fallbackIcon} size={28} color={browseSection.color} />
             )}
@@ -248,8 +261,19 @@ const SolutionsScreen = ({ navigation }) => {
                 style={styles.itemCard}
                 activeOpacity={0.7}
                 onPress={() => selectItem(filterKey, item.id, item.name)}>
-                <View style={[styles.itemIconWrap, { backgroundColor: sectionColor + '12' }]}>
-                  <Icon name={item.icon || PROBLEM_ICONS[section.id] || 'alert'} size={28} color={sectionColor} />
+                <View style={[styles.itemIconWrap, { backgroundColor: item.image ? 'transparent' : sectionColor + '12' }]}>
+                  {item.image ? (
+                    <ExpoImage
+                      source={item.image}
+                      style={styles.itemImage}
+                      contentFit="contain"
+                      cachePolicy="memory-disk"
+                      transition={0}
+                      recyclingKey={item.id}
+                    />
+                  ) : (
+                    <Icon name={item.icon || PROBLEM_ICONS[section.id] || 'alert'} size={28} color={sectionColor} />
+                  )}
                 </View>
                 <Text style={styles.itemName}>{item.name}</Text>
               </TouchableOpacity>
@@ -356,7 +380,11 @@ const SolutionsScreen = ({ navigation }) => {
           )}
         </View>
 
-        <Text style={styles.resultName}>{name}</Text>
+        {isPackage ? (
+          <Text style={styles.resultName}>{name}</Text>
+        ) : (
+          <ProductName name={name} style={styles.resultName} />
+        )}
         <Text style={styles.resultSubtitle}>{subtitle}</Text>
 
         {/* Reason */}
@@ -373,11 +401,15 @@ const SolutionsScreen = ({ navigation }) => {
             <Text style={styles.rolesSectionTitle}>Products in Package</Text>
             {resolved.productRoles.map((role, ri) => (
               <View key={ri} style={styles.roleRow}>
-                <View style={styles.roleDot} />
+                <View style={styles.roleIconWrap}>
+                  <Icon name={role.product?.icon || 'leaf'} size={18} color={theme.colors.primary} />
+                </View>
                 <View style={styles.roleInfo}>
-                  <Text style={styles.roleName}>
-                    {role.product ? role.product.brandName : role.productId}
-                  </Text>
+                  {role.product ? (
+                    <ProductName name={role.product.brandName} style={styles.roleName} />
+                  ) : (
+                    <Text style={styles.roleName}>{role.productId}</Text>
+                  )}
                   <Text style={styles.roleDesc}>{role.role}</Text>
                   {role.dosage && (
                     <Text style={styles.roleDosage}>Dosage: {role.dosage}</Text>
@@ -549,7 +581,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 8,
   },
-  itemImage: { width: 44, height: 44 },
+  itemImage: { width: 42, height: 45, transform: [{ scale: 1.5 }] },
   itemName: { fontSize: 14, fontWeight: '600', color: theme.colors.text, textAlign: 'center' },
 
   // ─── Problem Section Headers ────────────────────────────────
@@ -647,13 +679,15 @@ const styles = StyleSheet.create({
   },
   rolesSectionTitle: { fontSize: 13, fontWeight: '700', color: theme.colors.text, marginBottom: 8 },
   roleRow: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 8 },
-  roleDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: theme.colors.primary,
-    marginTop: 6,
+  roleIconWrap: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: theme.colors.primary + '15',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginRight: 10,
+    marginTop: 2,
   },
   roleInfo: { flex: 1 },
   roleName: { fontSize: 14, fontWeight: '600', color: theme.colors.text },

@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from
 import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import { getPortfolioVariants } from '../constants/productData';
 import { getCategoryColor, getFormulationColor } from '../utils/helpers';
@@ -33,10 +34,10 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         <View style={[styles.heroAccent, { backgroundColor: family.color }]} />
         <View style={styles.heroCardInner}>
           <View style={styles.heroCardLeft}>
-            <View style={styles.nameRow}>
-              <Text style={styles.heroName}>{family.name}</Text>
-              <Text style={styles.tmSymbol}>{'\u2122'}</Text>
-            </View>
+            <ProductName
+              name={family.name}
+              style={styles.heroName}
+            />
             <Text style={styles.heroIngredient}>{family.activeIngredient}</Text>
             <Text style={styles.heroTagline}>{family.tagline}</Text>
             <View style={styles.heroBadges}>
@@ -91,12 +92,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
               activeOpacity={0.7}
               onPress={() => setSelectedIndex(i)}
             >
-              <Text
+              <ProductName
+                name={v.name}
                 style={[styles.variantName, isActive && { color: family.color }]}
                 numberOfLines={1}
-              >
-                {v.name}
-              </Text>
+              />
               <View style={[styles.formBadge, { backgroundColor: formColor + '10' }]}>
                 <Text style={[styles.formBadgeText, { color: formColor }]}>{v.formulation}</Text>
               </View>
@@ -200,9 +200,10 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Variant indicator */}
         <View style={styles.variantIndicator}>
           <Icon name="information-outline" size={16} color={family.color} />
-          <Text style={[styles.variantIndicatorText, { color: family.color }]}>
-            Showing data for {v.name}
-          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+            <Text style={[styles.variantIndicatorText, { color: family.color }]}>Showing data for </Text>
+            <ProductName name={v.name} style={[styles.variantIndicatorText, { color: family.color }]} />
+          </View>
         </View>
 
         {/* Target Crops */}
@@ -328,9 +329,10 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Variant indicator */}
         <View style={styles.variantIndicator}>
           <Icon name="information-outline" size={16} color={family.color} />
-          <Text style={[styles.variantIndicatorText, { color: family.color }]}>
-            Showing data for {v.name}
-          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+            <Text style={[styles.variantIndicatorText, { color: family.color }]}>Showing data for </Text>
+            <ProductName name={v.name} style={[styles.variantIndicatorText, { color: family.color }]} />
+          </View>
         </View>
 
         {/* Key Benefits */}
@@ -460,7 +462,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                 <Icon name={meta.icon} size={22} color={meta.color} />
               </View>
               <View style={styles.docInfo}>
-                <Text style={styles.docTitle}>{displayName} - {doc.docType === 'SDS/MSDS' ? 'SDS / MSDS' : doc.docType}</Text>
+                <ProductName
+                  name={displayName}
+                  style={styles.docTitle}
+                  suffix={` - ${doc.docType === 'SDS/MSDS' ? 'SDS / MSDS' : doc.docType}`}
+                />
                 <Text style={styles.docMeta}>PDF document</Text>
               </View>
               <View style={styles.docBadge}>
@@ -478,7 +484,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                 <Icon name={meta.icon} size={22} color={meta.color} />
               </View>
               <View style={styles.docInfo}>
-                <Text style={styles.docTitle}>{displayName} - {type}</Text>
+                <ProductName
+                  name={displayName}
+                  style={styles.docTitle}
+                  suffix={` - ${type}`}
+                />
                 <Text style={styles.docMeta}>PDF document</Text>
               </View>
               <View style={styles.docBadge}>

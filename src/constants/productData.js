@@ -3,6 +3,7 @@ import microbialRaw from './data/microbial.json';
 import biostimulantRaw from './data/biostimulant.json';
 import biofertilizerRaw from './data/biofertilizer.json';
 import productContentRaw from './data/product-content.json';
+import { TECHNICAL_PROFILES } from './productTechnicalProfiles';
 
 // ═══════════════════════════════════════════════════════════════
 // CATEGORY ARCHITECTURE
@@ -354,6 +355,7 @@ function transformProduct(raw) {
     problemSolutions: raw.problem_solution || [],
     storageSafety: raw.storage_safety || '',
     technicalSummary: raw.technical_positioning_summary || '',
+    technicalProfile: TECHNICAL_PROFILES[name] || [],
     // Backward-compatible aliases
     description: raw.product_overview,
     targetPests: raw.targets || [],
@@ -436,6 +438,13 @@ PRODUCTS.push(
     technicalSummary: 'Karanja cake substrate for soil amendment and organic nutrition.',
   },
 );
+
+// Backfill technicalProfile for any products missing it (e.g. substrates)
+PRODUCTS.forEach(p => {
+  if (!p.technicalProfile || p.technicalProfile.length === 0) {
+    p.technicalProfile = TECHNICAL_PROFILES[p.name] || [];
+  }
+});
 
 // ═══════════════════════════════════════════════════════════════
 // APPLY CONTENT DATA OVERRIDES

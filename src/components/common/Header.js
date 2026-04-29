@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, StatusBar, Platform} from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import ProductName from './ProductName';
 
 const Header = ({title, onBack, rightIcon, onRightPress, showBack = true}) => {
   return (
@@ -16,7 +17,16 @@ const Header = ({title, onBack, rightIcon, onRightPress, showBack = true}) => {
           ) : (<View style={styles.backPlaceholder} />)}
         </View>
         <View style={styles.titleSection}>
-          <Text style={styles.title} numberOfLines={1}>{title}</Text>
+          {typeof title === 'string' && title.endsWith('™') ? (
+            <ProductName
+              name={title.slice(0, -1)}
+              style={styles.title}
+              numberOfLines={1}
+              tmStyle={styles.titleTm}
+            />
+          ) : (
+            <Text style={styles.title} numberOfLines={1}>{title}</Text>
+          )}
         </View>
         <View style={styles.rightSection}>
           {rightIcon && onRightPress ? (
@@ -46,6 +56,7 @@ const styles = StyleSheet.create({
   titleSection: {flex: 1, alignItems: 'center', justifyContent: 'center'},
   rightSection: {width: 48, alignItems: 'flex-end', justifyContent: 'center'},
   title: {fontSize: 18, fontWeight: '600', color: '#FFFFFF', textAlign: 'center'},
+  titleTm: {fontSize: 10, fontWeight: '400', color: '#FFFFFF', lineHeight: 11, marginTop: 1},
   backButton: {padding: 8, borderRadius: 20},
   backPlaceholder: {width: 40},
   rightButton: {padding: 8, borderRadius: 20},

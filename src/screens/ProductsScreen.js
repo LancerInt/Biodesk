@@ -12,6 +12,7 @@ import {
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import Header from '../components/common/Header';
+import ProductName from '../components/common/ProductName';
 import SearchBar from '../components/common/SearchBar';
 import theme from '../constants/theme';
 import {
@@ -126,10 +127,11 @@ const ProductsScreen = ({ navigation }) => {
 
           {/* Info */}
           <View style={styles.cardInfo}>
-            <View style={styles.nameRow}>
-              <Text style={styles.cardName} numberOfLines={1}>{item.name}</Text>
-              <Text style={styles.tmSymbol}>{'\u2122'}</Text>
-            </View>
+            <ProductName
+              name={item.name}
+              style={styles.cardName}
+              numberOfLines={1}
+            />
             <Text style={[styles.cardIngredient, item.subcategory === 'Microbial Pesticide' && { fontStyle: 'italic', fontFamily: Platform.OS === 'android' ? 'serif' : undefined }]} numberOfLines={1}>
               {item.activeIngredient}
             </Text>

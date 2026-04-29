@@ -5,11 +5,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import ImageViewer from '../components/common/ImageViewer';
+import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import { getCategoryColor, getFormulationColor } from '../utils/helpers';
 import { getPortfolioForProduct, getRelatedProducts } from '../constants/productData';
 import { getHeroImage, getMoaImage } from '../constants/productImages';
 import { getProductDocuments } from '../constants/documentData';
+import { getInfoIconForLabel } from '../constants/productTechnicalProfiles';
 
 const TABS = ['Overview', 'Agronomy', 'Highlights', 'Documents'];
 
@@ -69,10 +71,10 @@ const ProductDetailScreen = ({ route, navigation }) => {
             width: isLandscape ? '60%' : undefined,
             paddingRight: isLandscape ? 28 : (isTablet ? 16 : 0),
           }]}>
-            <View style={styles.nameRow}>
-              <Text style={[styles.heroName, { fontSize: isTablet ? (isLandscape ? 32 : 28) : 24 }]}>{product.name}</Text>
-              <Text style={styles.tmSymbol}>{'\u2122'}</Text>
-            </View>
+            <ProductName
+              name={product.name}
+              style={[styles.heroName, { fontSize: isTablet ? (isLandscape ? 32 : 28) : 24 }]}
+            />
             <Text style={styles.heroIngredient}>{product.activeIngredient}</Text>
             <View style={styles.heroBadges}>
               <View style={[styles.heroPill, { backgroundColor: catColor + '10', borderColor: catColor + '30' }]}>
@@ -158,14 +160,13 @@ const ProductDetailScreen = ({ route, navigation }) => {
           <Text style={styles.specCardTitle}>Technical Profile</Text>
         </View>
         <View style={styles.specCardBody}>
-          <InfoRow icon="flask" label="Active Ingredient" value={product.activeIngredient} />
-          {product.concentration ? (
-            <InfoRow icon="percent" label="Concentration" value={product.concentration} />
-          ) : null}
-          <InfoRow icon="beaker" label="Formulation" value={product.formulation} />
-          {product.strainStrength ? (
-            <InfoRow icon="dna" label="Strain / Active Strength" value={product.strainStrength} />
-          ) : null}
+          {product.technicalProfile && product.technicalProfile.length > 0 ? (
+            product.technicalProfile.map((spec, i) => (
+              <InfoRow key={i} icon={getInfoIconForLabel(spec.label)} label={spec.label} value={spec.value} />
+            ))
+          ) : (
+            <InfoRow icon="flask" label="Active Ingredient" value={product.activeIngredient} />
+          )}
         </View>
       </View>
 
@@ -240,7 +241,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
                       <Icon name="leaf" size={32} color={rpColor} />
                     )}
                   </View>
-                  <Text style={styles.relatedName} numberOfLines={2}>{rp.name}</Text>
+                  <ProductName name={rp.name} style={styles.relatedName} numberOfLines={2} />
                   <Text style={styles.relatedFormulation}>{rp.formulation}</Text>
                 </Pressable>
               );
@@ -515,7 +516,11 @@ const ProductDetailScreen = ({ route, navigation }) => {
                 <Icon name={meta.icon} size={22} color={meta.color} />
               </View>
               <View style={styles.docInfo}>
-                <Text style={styles.docTitle}>{product.name} - {doc.docType === 'SDS/MSDS' ? 'SDS / MSDS' : doc.docType}</Text>
+                <ProductName
+                  name={product.name}
+                  style={styles.docTitle}
+                  suffix={` - ${doc.docType === 'SDS/MSDS' ? 'SDS / MSDS' : doc.docType}`}
+                />
                 <Text style={styles.docMeta}>PDF document</Text>
               </View>
               <View style={styles.docBadge}>
@@ -533,7 +538,11 @@ const ProductDetailScreen = ({ route, navigation }) => {
                 <Icon name={meta.icon} size={22} color={meta.color} />
               </View>
               <View style={styles.docInfo}>
-                <Text style={styles.docTitle}>{product.name} - {type}</Text>
+                <ProductName
+                  name={product.name}
+                  style={styles.docTitle}
+                  suffix={` - ${type}`}
+                />
                 <Text style={styles.docMeta}>PDF document</Text>
               </View>
               <View style={styles.docBadge}>
@@ -595,7 +604,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
                     </View>
                   )}
                   <View style={styles.previewInfo}>
-                    <Text style={styles.previewName}>{previewProduct.name}</Text>
+                    <ProductName name={previewProduct.name} style={styles.previewName} />
                     <Text style={styles.previewDetail}>{previewProduct.activeIngredient}</Text>
                     {previewProduct.concentration ? (
                       <Text style={styles.previewDetail}>{previewProduct.concentration}</Text>

@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, Keyboard } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import { PRODUCTS, PORTFOLIO_FAMILIES, getPortfolioForProduct, getPortfolioVariants } from '../constants/productData';
 import { SOLUTIONS } from '../constants/solutionsData';
@@ -99,7 +100,11 @@ const SearchScreen = ({ navigation }) => {
         <Icon name={item.icon} size={22} color={item.badgeColor} />
       </View>
       <View style={styles.resultInfo}>
-        <Text style={styles.resultTitle}>{item.title}</Text>
+        {(item.type === 'Product' || item.type === 'Portfolio') ? (
+          <ProductName name={item.title} style={styles.resultTitle} />
+        ) : (
+          <Text style={styles.resultTitle}>{item.title}</Text>
+        )}
         <Text style={styles.resultSub} numberOfLines={1}>{item.subtitle}</Text>
       </View>
       <View style={[styles.typeBadge, { backgroundColor: item.badgeColor + '15' }]}>
