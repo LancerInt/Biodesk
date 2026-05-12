@@ -12,6 +12,7 @@ import { getPortfolioForProduct, getRelatedProducts } from '../constants/product
 import { getHeroImage, getMoaImage } from '../constants/productImages';
 import { getProductDocuments } from '../constants/documentData';
 import { getInfoIconForLabel } from '../constants/productTechnicalProfiles';
+import SwipeableTabs from '../components/common/SwipeableTabs';
 
 const TABS = ['Overview', 'Agronomy', 'Highlights', 'Documents'];
 
@@ -576,9 +577,14 @@ const ProductDetailScreen = ({ route, navigation }) => {
         </ScrollView>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {tabContent[activeTab]()}
-      </ScrollView>
+      <SwipeableTabs
+        activeTab={activeTab}
+        tabCount={TABS.length}
+        onTabChange={setActiveTab}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {tabContent[activeTab]()}
+        </ScrollView>
+      </SwipeableTabs>
 
       {/* Product Preview Modal (long press) */}
       <Modal

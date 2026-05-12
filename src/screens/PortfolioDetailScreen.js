@@ -4,6 +4,7 @@ import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
+import SwipeableTabs from '../components/common/SwipeableTabs';
 import theme from '../constants/theme';
 import { getPortfolioVariants } from '../constants/productData';
 import { getCategoryColor, getFormulationColor } from '../utils/helpers';
@@ -535,9 +536,14 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         </ScrollView>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {tabContent[activeTab]()}
-      </ScrollView>
+      <SwipeableTabs
+        activeTab={activeTab}
+        tabCount={TABS.length}
+        onTabChange={setActiveTab}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {tabContent[activeTab]()}
+        </ScrollView>
+      </SwipeableTabs>
     </View>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, Alert, FlatList, Dimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import SwipeableTabs from '../components/common/SwipeableTabs';
 import theme from '../constants/theme';
 import { PROFILE_SECTIONS } from '../constants/profileData';
 import { getTechnologyById } from '../constants/technologyData';
@@ -370,9 +371,14 @@ const ProfileScreen = ({ navigation, route }) => {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        {(rendererMap[section.id] || renderAbout)()}
-      </ScrollView>
+      <SwipeableTabs
+        activeTab={activeSection}
+        tabCount={PROFILE_SECTIONS.length}
+        onTabChange={setActiveSection}>
+        <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+          {(rendererMap[section.id] || renderAbout)()}
+        </ScrollView>
+      </SwipeableTabs>
     </View>
   );
 };

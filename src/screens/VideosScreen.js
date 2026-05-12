@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, useWindowDimensions, ScrollView } from 'react-native';
+import Animated, { FadeIn } from 'react-native-reanimated';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import ImageViewer from '../components/common/ImageViewer';
@@ -277,21 +278,26 @@ const VideosScreen = ({ navigation }) => {
       </View>
 
       {/* ═══ Media Grid ════════════════════════════════════════ */}
-      <FlatList
-        data={filtered}
-        renderItem={renderPhoto}
-        keyExtractor={item => item.id}
-        numColumns={COLS}
-        contentContainerStyle={styles.grid}
-        columnWrapperStyle={COLS > 1 ? styles.row : null}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={
-          <View style={styles.empty}>
-            <Icon name="image-off-outline" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyText}>No photos in this category</Text>
-          </View>
-        }
-      />
+      <Animated.View
+        key={`${activeCategory}-${clientVisitFolder || ''}`}
+        entering={FadeIn.duration(220)}
+        style={{ flex: 1 }}>
+        <FlatList
+          data={filtered}
+          renderItem={renderPhoto}
+          keyExtractor={item => item.id}
+          numColumns={COLS}
+          contentContainerStyle={styles.grid}
+          columnWrapperStyle={COLS > 1 ? styles.row : null}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={
+            <View style={styles.empty}>
+              <Icon name="image-off-outline" size={64} color={theme.colors.textLight} />
+              <Text style={styles.emptyText}>No photos in this category</Text>
+            </View>
+          }
+        />
+      </Animated.View>
       <ImageViewer
         visible={!!viewerImage}
         imageSource={viewerImage}

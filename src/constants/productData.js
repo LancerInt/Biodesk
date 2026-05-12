@@ -3,7 +3,31 @@ import microbialRaw from './data/microbial.json';
 import biostimulantRaw from './data/biostimulant.json';
 import biofertilizerRaw from './data/biofertilizer.json';
 import productContentRaw from './data/product-content.json';
+import dosageFinalRaw from './data/dosage-final.json';
 import { TECHNICAL_PROFILES } from './productTechnicalProfiles';
+
+// ─── Per-product Dosage & Application Schedule data ──────────
+// Sourced from "Dosage final.json"; overrides any dosageTable / repeatability
+// values produced by transformProduct so the Agronomy tab shows a single
+// curated row instead of multiple inferred ones.
+const DOSAGE_TIMING_BY_CATEGORY = {
+  biocontrol: 'At first appearance of nymphs or early larval stages',
+  botanical: 'At first appearance of pest pressure',
+  biostimulant: 'From early vegetative through reproductive stages',
+  substrate: 'Pre-sowing soil incorporation or basal application',
+  adjuvant: 'Tank-mixed with each foliar application',
+};
+
+const DOSAGE_NOTE_BY_CATEGORY = {
+  biocontrol: 'Use the lower dose as a preventive treatment and the upper dose under rising pest pressure.',
+  botanical: 'Use the lower dose as a preventive treatment and the upper dose under rising pest pressure.',
+  biostimulant: 'Apply at sensitive growth stages and repeat for sustained vigor and stress recovery.',
+  substrate: 'Mix uniformly with the root zone or FYM at sowing for best establishment.',
+  adjuvant: 'Add to the tank mix to improve coverage, wetting, and active ingredient uptake.',
+};
+
+const DOSAGE_BY_PRODUCT = {};
+dosageFinalRaw.forEach(d => { DOSAGE_BY_PRODUCT[d.product] = d; });
 
 // ═══════════════════════════════════════════════════════════════
 // CATEGORY ARCHITECTURE
@@ -444,6 +468,23 @@ PRODUCTS.forEach(p => {
   if (!p.technicalProfile || p.technicalProfile.length === 0) {
     p.technicalProfile = TECHNICAL_PROFILES[p.name] || [];
   }
+});
+
+// Override Dosage & Application + Application Schedule from curated JSON
+PRODUCTS.forEach(p => {
+  const d = DOSAGE_BY_PRODUCT[p.name];
+  if (!d) return;
+  p.dosageTable = [{
+    crop_stage: 'Recommended Dosage',
+    water_volume: d.dosage,
+    dose_per_acre: d.application_rate,
+    application_method: d.method,
+  }];
+  p.repeatability = [{
+    application_timing: DOSAGE_TIMING_BY_CATEGORY[d.category] || 'Recommended timing',
+    frequency: d.interval,
+    recommendation: DOSAGE_NOTE_BY_CATEGORY[d.category] || 'Apply as per crop and pest pressure conditions.',
+  }];
 });
 
 // ═══════════════════════════════════════════════════════════════

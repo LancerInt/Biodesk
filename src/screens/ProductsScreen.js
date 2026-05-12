@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { Image } from 'expo-image';
+import Animated, { FadeIn } from 'react-native-reanimated';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
 import SearchBar from '../components/common/SearchBar';
@@ -169,26 +170,31 @@ const ProductsScreen = ({ navigation }) => {
       </View>
 
       {/* Product Sections */}
-      <SectionList
-        sections={sections}
-        keyExtractor={(item) => item.id}
-        renderItem={renderProductCard}
-        renderSectionHeader={renderSectionHeader}
-        contentContainerStyle={styles.list}
-        showsVerticalScrollIndicator={false}
-        stickySectionHeadersEnabled={false}
-        initialNumToRender={10}
-        maxToRenderPerBatch={8}
-        windowSize={5}
-        removeClippedSubviews={true}
-        ListEmptyComponent={
-          <View style={styles.empty}>
-            <Icon name="magnify-close" size={48} color={theme.colors.textLight} />
-            <Text style={styles.emptyTitle}>No products found</Text>
-            <Text style={styles.emptySub}>Try a different search or category</Text>
-          </View>
-        }
-      />
+      <Animated.View
+        key={activeCategory}
+        entering={FadeIn.duration(220)}
+        style={{ flex: 1 }}>
+        <SectionList
+          sections={sections}
+          keyExtractor={(item) => item.id}
+          renderItem={renderProductCard}
+          renderSectionHeader={renderSectionHeader}
+          contentContainerStyle={styles.list}
+          showsVerticalScrollIndicator={false}
+          stickySectionHeadersEnabled={false}
+          initialNumToRender={10}
+          maxToRenderPerBatch={8}
+          windowSize={5}
+          removeClippedSubviews={true}
+          ListEmptyComponent={
+            <View style={styles.empty}>
+              <Icon name="magnify-close" size={48} color={theme.colors.textLight} />
+              <Text style={styles.emptyTitle}>No products found</Text>
+              <Text style={styles.emptySub}>Try a different search or category</Text>
+            </View>
+          }
+        />
+      </Animated.View>
     </View>
   );
 };
