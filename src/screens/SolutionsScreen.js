@@ -1,6 +1,8 @@
-import React, { useState, useMemo, useRef } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import React, { useState, useMemo, useRef, useCallback } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput, BackHandler } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import { Image as ExpoImage } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
@@ -23,6 +25,15 @@ const PROBLEM_ICONS = {
   nutrientDeficiencies: 'flask-round-bottom-empty',
   weeds: 'grass',
   abioticStresses: 'weather-lightning',
+};
+
+// One-line subtitles shown on the browse cards
+const BROWSE_SUBTITLES = {
+  crop: 'Find solutions for a specific crop',
+  problem: 'Pests, diseases & deficiencies',
+  growthStage: 'Stage-specific recommendations',
+  stress: 'Drought, heat, salinity & more',
+  category: 'Explore by product category',
 };
 
 const SolutionsScreen = ({ navigation }) => {
@@ -72,6 +83,21 @@ const SolutionsScreen = ({ navigation }) => {
     }
   };
 
+  // Hook Android hardware back button into our in-screen goBack
+  useFocusEffect(
+    useCallback(() => {
+      const onHardwareBack = () => {
+        if (view !== VIEW.LANDING) {
+          goBack();
+          return true; // consume the event so RN doesn't pop the screen
+        }
+        return false; // at landing → let RN pop back to the previous screen
+      };
+      const sub = BackHandler.addEventListener('hardwareBackPress', onHardwareBack);
+      return () => sub.remove();
+    }, [view])
+  );
+
   const selectItem = (filterKey, id, label) => {
     setFilters({ [filterKey]: [id] });
     setSelectedLabel(label);
@@ -96,7 +122,7 @@ const SolutionsScreen = ({ navigation }) => {
 
   // ─── Header title ────────────────────────────────────────────
   const headerTitle = view === VIEW.LANDING
-    ? 'Solutions'
+    ? 'BioIntel'
     : view === VIEW.BROWSE
       ? browseSection?.title || 'Browse'
       : selectedLabel || 'Recommendations';
@@ -106,6 +132,21 @@ const SolutionsScreen = ({ navigation }) => {
   // ═══════════════════════════════════════════════════════════════
   const renderLanding = () => (
     <ScrollView contentContainerStyle={styles.landingContent} showsVerticalScrollIndicator={false}>
+      {/* Hero */}
+      <LinearGradient
+        colors={['#2E7D32', '#1B5E20']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.hero}>
+        <View style={styles.heroLeft}>
+          <Text style={styles.heroTitle}>Find your solution</Text>
+          <Text style={styles.heroSub}>Crop, problem, stage or stress — start here.</Text>
+        </View>
+        <View style={styles.heroIconWrap}>
+          <Icon name="leaf-circle" size={42} color="#FFF" />
+        </View>
+      </LinearGradient>
+
       {/* Search */}
       <View style={styles.searchWrap}>
         <Icon name="magnify" size={20} color={theme.colors.textLight} />
@@ -158,19 +199,35 @@ const SolutionsScreen = ({ navigation }) => {
         <>
           <Text style={styles.sectionTitle}>Browse by</Text>
           <View style={styles.browseGrid}>
-            {browseSections.map((section) => (
-              <TouchableOpacity
-                key={section.id}
-                style={[styles.browseCard, { borderLeftColor: section.color }]}
-                activeOpacity={0.7}
-                onPress={() => { setBrowseSection(section); setView(VIEW.BROWSE); browseScrollPos.current = 0; }}>
-                <View style={[styles.browseIconCircle, { backgroundColor: section.color + '15' }]}>
-                  <Icon name={section.icon} size={28} color={section.color} />
-                </View>
-                <Text style={styles.browseTitle}>{section.title}</Text>
-                <Text style={styles.browseCount}>{section.count} items</Text>
-              </TouchableOpacity>
-            ))}
+            {browseSections.map((section) => {
+              const sub = BROWSE_SUBTITLES[section.id] || '';
+              return (
+                <TouchableOpacity
+                  key={section.id}
+                  style={styles.browseCard}
+                  activeOpacity={0.85}
+                  onPress={() => { setBrowseSection(section); setView(VIEW.BROWSE); browseScrollPos.current = 0; }}>
+                  <LinearGradient
+                    colors={[section.color + '14', section.color + '02']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.browseGradient}
+                  />
+                  <View style={[styles.browseAccent, { backgroundColor: section.color }]} />
+                  <View style={[styles.browseIconCircle, { backgroundColor: section.color + '18' }]}>
+                    <Icon name={section.icon} size={26} color={section.color} />
+                  </View>
+                  <Text style={styles.browseTitle}>{section.title}</Text>
+                  <Text style={styles.browseSubtitle} numberOfLines={2}>{sub}</Text>
+                  <View style={styles.browseFooter}>
+                    <View style={[styles.browseCountChip, { backgroundColor: section.color + '15' }]}>
+                      <Text style={[styles.browseCountText, { color: section.color }]}>{section.count}</Text>
+                    </View>
+                    <Icon name="arrow-right" size={16} color={section.color} />
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
           </View>
         </>
       )}
@@ -401,11 +458,17 @@ const SolutionsScreen = ({ navigation }) => {
             <Text style={styles.rolesSectionTitle}>Products in Package</Text>
             {resolved.productRoles.map((role, ri) => (
               <View key={ri} style={styles.roleRow}>
-                <View style={styles.roleIconWrap}>
-                  <Icon name={role.product?.icon || 'leaf'} size={18} color={theme.colors.primary} />
-                </View>
                 <View style={styles.roleInfo}>
-                  {role.product ? (
+                  {role.products && role.products.length > 0 ? (
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                      {role.products.map((p, pi) => (
+                        <React.Fragment key={p.id}>
+                          {pi > 0 && <Text style={styles.roleName}>{' + '}</Text>}
+                          <ProductName name={p.brandName} style={styles.roleName} />
+                        </React.Fragment>
+                      ))}
+                    </View>
+                  ) : role.product ? (
                     <ProductName name={role.product.brandName} style={styles.roleName} />
                   ) : (
                     <Text style={styles.roleName}>{role.productId}</Text>
@@ -523,12 +586,34 @@ const styles = StyleSheet.create({
   noResultsTitle: { fontSize: 16, fontWeight: '700', color: theme.colors.text, marginTop: 12 },
   noResultsText: { fontSize: 14, color: theme.colors.textLight, marginTop: 4 },
 
+  // ─── Hero ──────────────────────────────────────────────────
+  hero: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 18,
+    padding: 18,
+    marginBottom: 16,
+    ...theme.shadows.sm,
+  },
+  heroLeft: { flex: 1 },
+  heroTitle: { fontSize: 20, fontWeight: '700', color: '#FFF' },
+  heroSub: { fontSize: 13, color: 'rgba(255,255,255,0.85)', marginTop: 4 },
+  heroIconWrap: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 12,
+  },
+
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700',
     color: theme.colors.text,
     marginBottom: 14,
-    marginTop: 8,
+    marginTop: 6,
   },
   browseGrid: {
     flexDirection: 'row',
@@ -536,25 +621,47 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   browseCard: {
-    width: '47%',
+    width: '48%',
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 18,
+    borderRadius: 18,
+    padding: 16,
+    paddingTop: 18,
     marginBottom: 14,
-    borderLeftWidth: 4,
-    alignItems: 'center',
+    overflow: 'hidden',
     ...theme.shadows.sm,
   },
+  browseGradient: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  browseAccent: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 4,
+  },
   browseIconCircle: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 52,
+    height: 52,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   browseTitle: { fontSize: 16, fontWeight: '700', color: theme.colors.text },
-  browseCount: { fontSize: 12, color: theme.colors.textLight, marginTop: 3 },
+  browseSubtitle: { fontSize: 11.5, color: theme.colors.textLight, marginTop: 4, lineHeight: 16, minHeight: 32 },
+  browseFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 12,
+  },
+  browseCountChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  browseCountText: { fontSize: 12, fontWeight: '700' },
 
   // ─── Browse Item Grid ─────────────────────────────────────
   itemGrid: {

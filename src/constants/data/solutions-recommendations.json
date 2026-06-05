@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-04-29",
+  "lastUpdated": "2026-06-05",
   "packageTemplates": [
     {
       "id": "pkg_seedling_vigor",
@@ -227,6 +227,10 @@
         {
           "productId": "prod_blooma",
           "role": "Growth recovery support"
+        },
+        {
+          "role": "Trichoderma viride for soil-biology recovery and balanced nutrient uptake",
+          "productId": "prod_biota_v"
         }
       ],
       "dosageNote": "Refine combinations based on diagnosis.",
@@ -256,6 +260,10 @@
         {
           "productId": "prod_blooma",
           "role": "Recovery support"
+        },
+        {
+          "role": "Trichoderma viride for rhizosphere health and improved nitrogen uptake efficiency",
+          "productId": "prod_biota_v"
         }
       ],
       "dosageNote": "Use where N deficiency is confirmed.",
@@ -285,6 +293,10 @@
         {
           "productId": "prod_enrhize",
           "role": "Root support"
+        },
+        {
+          "role": "Trichoderma viride for phosphorus solubilization support in the root zone",
+          "productId": "prod_biota_v"
         }
       ],
       "dosageNote": "Use where P deficiency is confirmed.",
@@ -313,6 +325,10 @@
         {
           "productId": "prod_envicta",
           "role": "Stress support"
+        },
+        {
+          "role": "Trichoderma viride for rhizosphere conditioning and improved potassium uptake",
+          "productId": "prod_biota_v"
         }
       ],
       "dosageNote": "Use where K deficiency is confirmed.",
@@ -342,6 +358,10 @@
         {
           "productId": "prod_blooma",
           "role": "Recovery support"
+        },
+        {
+          "role": "Trichoderma viride for rhizosphere activity supporting zinc availability",
+          "productId": "prod_biota_v"
         }
       ],
       "dosageNote": "Use where Zn deficiency is confirmed.",
@@ -371,6 +391,10 @@
         {
           "productId": "prod_envicta",
           "role": "Stress support"
+        },
+        {
+          "role": "Trichoderma viride for rhizosphere colonization and silicon uptake support",
+          "productId": "prod_biota_v"
         }
       ],
       "dosageNote": "Use where silicon deficiency or weak stem expression is observed.",
@@ -476,6 +500,10 @@
         {
           "role": "Azadirachtin IGR layer",
           "productId": "prod_ecoza_ace"
+        },
+        {
+          "role": "Beauveria bassiana for sustained microbial caterpillar suppression",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -491,6 +519,10 @@
         {
           "role": "Metarhizium for pupating larvae",
           "productId": "prod_rexora"
+        },
+        {
+          "role": "Beauveria bassiana for soil-stage cutworm mycosis and pupal suppression",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -506,6 +538,10 @@
         {
           "role": "Clove oil oviposition deterrent",
           "productId": "prod_admira_adove"
+        },
+        {
+          "role": "Beauveria bassiana for residual microbial DBM larval control",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -521,6 +557,10 @@
         {
           "role": "Azadirachtin oviposition deterrence",
           "productId": "prod_ecoza_ace"
+        },
+        {
+          "role": "Beauveria bassiana for sustained fruit borer egg and larval suppression",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -551,6 +591,10 @@
         {
           "role": "Granular azadirachtin for egg pods",
           "productId": "prod_ecoza_rix"
+        },
+        {
+          "role": "Beauveria bassiana for nymphal grasshopper microbial infection",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -566,6 +610,10 @@
         {
           "role": "Combination neem-spinosad for high pressure",
           "productId": "prod_margospin"
+        },
+        {
+          "role": "Beauveria bassiana for sustained Helicoverpa larval mycosis between sprays",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -581,6 +629,10 @@
         {
           "role": "Lecanicillium soft-body kill",
           "productId": "prod_seira"
+        },
+        {
+          "role": "Beauveria bassiana for jassid nymph microbial suppression on leaf undersides",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -596,6 +648,10 @@
         {
           "role": "Azadirachtin adult moth suppression",
           "productId": "prod_ecoza_max"
+        },
+        {
+          "role": "Beauveria bassiana for residual leaf folder larval mycosis inside folds",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -611,6 +667,10 @@
         {
           "role": "Lecanicillium adult fly control",
           "productId": "prod_seira"
+        },
+        {
+          "role": "Beauveria bassiana for adult fly suppression and reduced re-infestation",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -626,6 +686,10 @@
         {
           "role": "Lecanicillium crawler-stage kill",
           "productId": "prod_seira"
+        },
+        {
+          "role": "Beauveria bassiana for crawler-stage microbial mealybug suppression",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -641,6 +705,10 @@
         {
           "role": "Thyme oil rotation partner",
           "productId": "prod_admira_adyme"
+        },
+        {
+          "role": "Beauveria bassiana for sustained mite egg and active-stage suppression",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -686,6 +754,10 @@
         {
           "role": "Thyme oil rotation against resistance",
           "productId": "prod_admira_adyme"
+        },
+        {
+          "role": "Beauveria bassiana for sustained red spider mite microbial suppression",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -731,6 +803,10 @@
         {
           "role": "Azadirachtin oviposition deterrence",
           "productId": "prod_ecoza_max"
+        },
+        {
+          "role": "Beauveria bassiana for sustained semilooper larval mycosis between sprays",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -791,6 +867,10 @@
         {
           "role": "Granular azadirachtin sustained release",
           "productId": "prod_ecoza_rix"
+        },
+        {
+          "role": "Beauveria bassiana for residual stem borer larval mycosis at stem base",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -821,6 +901,10 @@
         {
           "role": "Azadirachtin egg suppression",
           "productId": "prod_ecoza_pro"
+        },
+        {
+          "role": "Beauveria bassiana for sustained thrips microbial suppression on leaf undersides",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -836,6 +920,10 @@
         {
           "role": "Metarhizium for soil-pupating stages",
           "productId": "prod_rexora"
+        },
+        {
+          "role": "Beauveria bassiana for adult weevil microbial infection and population suppression",
+          "productId": "prod_mycova"
         }
       ]
     },
@@ -1116,7 +1204,10 @@
       "productRoles": [
         {
           "role": "Concentrated spinosad for borer/BPH",
-          "productId": "prod_spindura_pro"
+          "productIds": [
+            "prod_spindura_pro",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Beauveria for hopper nymph suppression",
@@ -1146,7 +1237,10 @@
       "productRoles": [
         {
           "role": "Bacillus subtilis antagonist",
-          "productId": "prod_subtilix"
+          "productIds": [
+            "prod_subtilix",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Pseudomonas root and foliar protection",
@@ -1161,11 +1255,17 @@
       "productRoles": [
         {
           "role": "Spinosad larvicide for bollworm",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Azadirachtin for jassid nymphs",
-          "productId": "prod_ecoza_pro"
+          "productIds": [
+            "prod_ecoza_pro",
+            "prod_seira"
+          ]
         }
       ]
     },
@@ -1221,7 +1321,10 @@
       "productRoles": [
         {
           "role": "Spinosad for fruit borer L1",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Lecanicillium for whitefly mycosis",
@@ -1265,12 +1368,12 @@
       "objective": "Manage shoot borer and jassid in brinjal",
       "productRoles": [
         {
-          "role": "Concentrated spinosad for shoot borer",
-          "productId": "prod_spindura_pro"
+          "role": "Biopesticide for sucking pest control",
+          "productId": "prod_seira"
         },
         {
-          "role": "Azadirachtin for jassid nymphs",
-          "productId": "prod_ecoza_pro"
+          "role": "Biopesticide for borer control",
+          "productId": "prod_rexora"
         }
       ]
     },
@@ -1296,7 +1399,10 @@
       "productRoles": [
         {
           "role": "Spinosad for thrips knockdown",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Garlic oil acaricide for mites",
@@ -1341,7 +1447,10 @@
       "productRoles": [
         {
           "role": "Spinosad for DBM (resistance-managed)",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Lecanicillium for aphid mycosis",
@@ -1371,7 +1480,10 @@
       "productRoles": [
         {
           "role": "Spinosad larvicide into whorl",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Metarhizium for soil grubs",
@@ -1401,7 +1513,10 @@
       "productRoles": [
         {
           "role": "Spinosad larvicide at egg threshold",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Neem-spinosad combo for sustained pressure",
@@ -1435,7 +1550,10 @@
         },
         {
           "role": "Spinosad for fruit/shoot borer",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         }
       ]
     },
@@ -1491,7 +1609,10 @@
       "productRoles": [
         {
           "role": "Concentrated spinosad for shoot borer",
-          "productId": "prod_spindura_pro"
+          "productIds": [
+            "prod_spindura_pro",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Metarhizium for termite control",
@@ -1525,7 +1646,10 @@
         },
         {
           "role": "Spinosad for thrips",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         }
       ]
     },
@@ -1584,8 +1708,11 @@
           "productId": "prod_k_guard"
         },
         {
-          "role": "Lecanicillium for aphid mycosis",
-          "productId": "prod_seira"
+          "role": "Biopesticide for effective weevil management",
+          "productIds": [
+            "prod_rexora",
+            "prod_mycova"
+          ]
         }
       ]
     },
@@ -1615,7 +1742,10 @@
         },
         {
           "role": "Lemongrass oil for leaf miner",
-          "productId": "prod_admira_admon"
+          "productIds": [
+            "prod_admira_admon",
+            "prod_mycova"
+          ]
         }
       ]
     },
@@ -1641,11 +1771,17 @@
       "productRoles": [
         {
           "role": "Spinosad for thrips knockdown",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Karanjin wax penetration on mealybug",
-          "productId": "prod_k_guard"
+          "productIds": [
+            "prod_k_guard",
+            "prod_mycova"
+          ]
         }
       ]
     },
@@ -1670,12 +1806,18 @@
       "objective": "Manage powdery and downy mildew resistance",
       "productRoles": [
         {
-          "role": "Bacillus subtilis for powdery mildew",
-          "productId": "prod_subtilix"
+          "role": "Bacillus Subtilix along with Trichoderma harzianum for powdery mildew",
+          "productIds": [
+            "prod_subtilix",
+            "prod_mycova"
+          ]
         },
         {
-          "role": "Bacillus amyloliquefaciens for downy mildew",
-          "productId": "prod_elixora"
+          "role": "Bacillus Amyloliquefaciens along with Trichoderma harzianum for downy mildew",
+          "productIds": [
+            "prod_elixora",
+            "prod_mycova"
+          ]
         }
       ]
     },
@@ -1686,7 +1828,10 @@
       "productRoles": [
         {
           "role": "Spinosad for fruit borer L1",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Azadirachtin for thrips eggs",
@@ -1716,7 +1861,10 @@
       "productRoles": [
         {
           "role": "Spinosad for thrips active stages",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Thyme oil for fly oviposition deterrence",
@@ -1746,7 +1894,10 @@
       "productRoles": [
         {
           "role": "Spinosad WP for cutworm soil drench",
-          "productId": "prod_spindura_rix"
+          "productIds": [
+            "prod_spindura_rix",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Lecanicillium for aphid mycosis",
@@ -1795,7 +1946,10 @@
         },
         {
           "role": "Spinosad for thrips",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         }
       ]
     },
@@ -1821,7 +1975,10 @@
       "productRoles": [
         {
           "role": "Karanjin antifeedant for berry borer",
-          "productId": "prod_k_guard"
+          "productIds": [
+            "prod_k_guard",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Neem oil for scale smothering",
@@ -1851,7 +2008,10 @@
       "productRoles": [
         {
           "role": "Spinosad for thrips active stages",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Thyme oil for fly oviposition deterrence",
@@ -1881,7 +2041,10 @@
       "productRoles": [
         {
           "role": "Spinosad larvicide at egg threshold",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Combination neem-spinosad for sustained pressure",
@@ -1911,7 +2074,10 @@
       "productRoles": [
         {
           "role": "Spinosad for pod borer L1",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Combination neem-spinosad for sustained pressure",
@@ -1971,7 +2137,10 @@
       "productRoles": [
         {
           "role": "Spinosad for DBM (resistance-managed)",
-          "productId": "prod_spindura_plus"
+          "productIds": [
+            "prod_spindura_plus",
+            "prod_mycova"
+          ]
         },
         {
           "role": "Lecanicillium for aphid mycosis",
@@ -1991,6 +2160,213 @@
         {
           "role": "Humic-amino tissue support",
           "productId": "prod_envicta"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_alternaria_blight",
+      "name": "Alternaria Blight Management Package",
+      "objective": "Manage Alternaria leaf blight pressure and support canopy recovery",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride for early Alternaria blight rhizosphere suppression",
+          "productId": "prod_biota_v"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_anthracnose",
+      "name": "Anthracnose Management Package",
+      "objective": "Manage anthracnose lesions on fruits and foliage",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride for anthracnose pathogen antagonism in the canopy",
+          "productId": "prod_biota_v"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_blast",
+      "name": "Rice Blast Management Package",
+      "objective": "Manage rice blast and panicle blast under humid Kharif conditions",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride for rice blast antagonism and seedling protection",
+          "productId": "prod_biota_v"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_downy_mildew",
+      "name": "Downy Mildew Management Package",
+      "objective": "Manage downy mildew pressure on grapes, cole crops, and cucurbits",
+      "productRoles": [
+        {
+          "role": "Trichoderma harzianum for downy mildew antagonism and recovery support",
+          "productId": "prod_biota_h"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_early_blight",
+      "name": "Early Blight Management Package",
+      "objective": "Manage early blight on tomato, potato and Solanaceous crops",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride for early blight pathogen suppression and recovery",
+          "productId": "prod_biota_v"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_leaf_spot",
+      "name": "Leaf Spot Management Package",
+      "objective": "Manage leaf spot diseases across vegetables, oilseeds, and fruit crops",
+      "productRoles": [
+        {
+          "role": "Trichoderma viride for leaf spot pathogen antagonism and canopy protection",
+          "productId": "prod_biota_v"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_powdery_mildew",
+      "name": "Powdery Mildew Management Package",
+      "objective": "Manage powdery mildew on grapes, cucurbits, cole crops and ornamentals",
+      "productRoles": [
+        {
+          "role": "Trichoderma harzianum for powdery mildew antagonism and canopy recovery",
+          "productId": "prod_biota_h"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_purple_blotch",
+      "name": "Purple Blotch Management Package",
+      "objective": "Manage purple blotch on onion, garlic and Allium crops",
+      "productRoles": [
+        {
+          "role": "Trichoderma harzianum for purple blotch antagonism and bulb canopy protection",
+          "productId": "prod_biota_h"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
+        }
+      ]
+    },
+    {
+      "id": "pkg_disease_sheath_blight",
+      "name": "Sheath Blight Management Package",
+      "objective": "Manage sheath blight in rice and cereal crops",
+      "productRoles": [
+        {
+          "role": "Trichoderma harzianum for sheath blight rhizosphere antagonism",
+          "productId": "prod_biota_h"
+        },
+        {
+          "productId": "prod_neuvita",
+          "role": "Microbial support"
+        },
+        {
+          "productId": "prod_orgocare",
+          "role": "Stress recovery"
+        },
+        {
+          "productId": "prod_envicta",
+          "role": "Canopy vigor support"
         }
       ]
     }
@@ -3055,22 +3431,6 @@
       "status": "draft_needs_agronomy_validation"
     },
     {
-      "id": "rec_general_disease_sheath_blight",
-      "diseaseId": "disease_sheath_blight",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_foliar_disease_support",
-      "recommendationReason": "Foliar disease support for sheath blight management in cereals.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Supports plant recovery from disease stress."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
       "id": "rec_general_disease_bacterial_leaf_blight",
       "diseaseId": "disease_bacterial_leaf_blight",
       "priority": 1,
@@ -3093,54 +3453,6 @@
       "recommendationType": "package",
       "packageId": "pkg_soil_borne_disease",
       "recommendationReason": "Soil-borne and stem disease management using Trichoderma-based biocontrol.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Supports plant recovery from disease stress."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_disease_powdery_mildew",
-      "diseaseId": "disease_powdery_mildew",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_foliar_disease_support",
-      "recommendationReason": "Foliar disease support for powdery mildew management.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Supports plant recovery from disease stress."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_disease_purple_blotch",
-      "diseaseId": "disease_purple_blotch",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_foliar_disease_support",
-      "recommendationReason": "Foliar disease support for purple blotch in onion and garlic.",
-      "crossSell": [
-        {
-          "type": "product",
-          "productId": "prod_envicta",
-          "reason": "Supports plant recovery from disease stress."
-        }
-      ],
-      "status": "draft_needs_agronomy_validation"
-    },
-    {
-      "id": "rec_general_disease_alternaria_blight",
-      "diseaseId": "disease_alternaria_blight",
-      "priority": 1,
-      "recommendationType": "package",
-      "packageId": "pkg_foliar_disease_support",
-      "recommendationReason": "Foliar disease support for Alternaria blight management.",
       "crossSell": [
         {
           "type": "product",
@@ -3861,6 +4173,78 @@
       "recommendationType": "package",
       "packageId": "pkg_crop_cauliflower_vigor",
       "recommendationReason": "Cauliflower curd density depends on balanced N-P-K and tissue support. NPK microbial consortium and humic-amino complex together drive compact, marketable curd development."
+    },
+    {
+      "id": "rec_general_disease_alternaria_blight",
+      "diseaseId": "disease_alternaria_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_alternaria_blight",
+      "recommendationReason": "Alternaria blight causes leaf necrosis and defoliation across vegetables and oilseeds. Trichoderma viride competes with the pathogen in the rhizosphere, supported by Pseudomonas, Orgocare and Envicta for sustained canopy vigor."
+    },
+    {
+      "id": "rec_general_disease_anthracnose",
+      "diseaseId": "disease_anthracnose",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_anthracnose",
+      "recommendationReason": "Anthracnose destroys fruit and leaf tissue under humid conditions. Trichoderma viride colonizes the surface and antagonizes the pathogen, supported by microbial and biostimulant recovery products."
+    },
+    {
+      "id": "rec_general_disease_blast",
+      "diseaseId": "disease_blast",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_blast",
+      "recommendationReason": "Rice blast (Pyricularia oryzae) causes leaf, neck and panicle lesions in humid lowland rice. Trichoderma viride provides early antagonism, while Pseudomonas and biostimulants support recovery and canopy resilience."
+    },
+    {
+      "id": "rec_general_disease_downy_mildew",
+      "diseaseId": "disease_downy_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_downy_mildew",
+      "recommendationReason": "Downy mildew sporulates rapidly under cool humid conditions and damages leaf undersides. Trichoderma harzianum provides microbial antagonism, complemented by Pseudomonas, Orgocare, and Envicta for canopy recovery."
+    },
+    {
+      "id": "rec_general_disease_early_blight",
+      "diseaseId": "disease_early_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_early_blight",
+      "recommendationReason": "Early blight (Alternaria solani) causes characteristic concentric leaf spots on Solanaceous crops. Trichoderma viride antagonizes the pathogen, while Pseudomonas and biostimulants support canopy recovery."
+    },
+    {
+      "id": "rec_general_disease_leaf_spot",
+      "diseaseId": "disease_leaf_spot",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_leaf_spot",
+      "recommendationReason": "Leaf spot pathogens cause yield loss through reduced photosynthetic area. Trichoderma viride colonizes leaf surface and antagonizes the pathogen, while supporting microbials and biostimulants restore canopy vigor."
+    },
+    {
+      "id": "rec_general_disease_powdery_mildew",
+      "diseaseId": "disease_powdery_mildew",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_powdery_mildew",
+      "recommendationReason": "Powdery mildew thrives in warm humid conditions and forms white colonies on leaf surfaces. Trichoderma harzianum antagonizes the pathogen and supporting microbials and biostimulants restore canopy vigor."
+    },
+    {
+      "id": "rec_general_disease_purple_blotch",
+      "diseaseId": "disease_purple_blotch",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_purple_blotch",
+      "recommendationReason": "Purple blotch (Alternaria porri) destroys onion and garlic leaf area and reduces bulb yield. Trichoderma harzianum antagonizes the pathogen and supporting microbials and biostimulants restore foliar vigor."
+    },
+    {
+      "id": "rec_general_disease_sheath_blight",
+      "diseaseId": "disease_sheath_blight",
+      "priority": 1,
+      "recommendationType": "package",
+      "packageId": "pkg_disease_sheath_blight",
+      "recommendationReason": "Sheath blight (Rhizoctonia solani) thrives in dense rice canopies under humid conditions. Trichoderma harzianum colonizes the rhizosphere and antagonizes the pathogen, while supporting microbials and biostimulants restore canopy vigor."
     }
   ],
   "deficiencyRecommendations": [

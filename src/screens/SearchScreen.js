@@ -73,7 +73,7 @@ const SearchScreen = ({ navigation }) => {
         id: 'c-' + s.id, type: 'Crop Solution',
         title: s.crop,
         subtitle: s.problems.map(p => p.name).join(', '),
-        badge: 'Solutions',
+        badge: 'BioIntel',
         badgeColor: theme.colors.secondary,
         icon: s.icon,
         data: s,

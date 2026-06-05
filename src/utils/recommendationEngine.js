@@ -170,7 +170,6 @@ const PRODUCTS = [
   { id: 'prod_encilo', brandName: 'EnCilo', activeIngredient: 'Paecilomyces lilacinus', categoryId: 'cat_microbial_pesticide', icon: 'mushroom-off' },
   { id: 'prod_subtilix', brandName: 'Subtilix', activeIngredient: 'Bacillus subtilis', categoryId: 'cat_microbial_pesticide', icon: 'bacteria-outline' },
   { id: 'prod_elixora', brandName: 'Elixora', activeIngredient: 'Bacillus amyloliquefaciens', categoryId: 'cat_microbial_pesticide', icon: 'dna' },
-  { id: 'prod_metaera', brandName: 'Metaera', activeIngredient: 'Metarhizium spp.', categoryId: 'cat_microbial_pesticide', icon: 'shield-bug-outline' },
   // Biostimulants
   { id: 'prod_zenita', brandName: 'Zenita', activeIngredient: 'Amino Acid Complex', categoryId: 'cat_biostimulant', icon: 'atom' },
   { id: 'prod_cropsia', brandName: 'Cropsia', activeIngredient: 'Plant Growth Promoting Bacteria', categoryId: 'cat_biostimulant', icon: 'sprout' },
@@ -178,8 +177,6 @@ const PRODUCTS = [
   { id: 'prod_enrhize', brandName: 'EnRhize', activeIngredient: 'Mycorrhiza', categoryId: 'cat_biostimulant', icon: 'pine-tree-variant' },
   { id: 'prod_envicta', brandName: 'Envicta', activeIngredient: 'Humic + Fulvic + Amino Complex', categoryId: 'cat_biostimulant', icon: 'molecule' },
   { id: 'prod_orgocare', brandName: 'Orgocare', activeIngredient: 'Organic Acid Complex', categoryId: 'cat_biostimulant', icon: 'test-tube' },
-  { id: 'prod_flora', brandName: 'Flora', activeIngredient: 'Botanical Growth Enhancer', categoryId: 'cat_biostimulant', icon: 'flower-poppy' },
-  { id: 'prod_zynerx', brandName: 'Zynerx', activeIngredient: 'Growth Response Complex', categoryId: 'cat_biostimulant', icon: 'chart-line-variant' },
   // Biofertilizers
   { id: 'prod_igreen_npk', brandName: 'IGreen NPK', activeIngredient: 'NPK Microbial Consortium', categoryId: 'cat_biofertilizer', icon: 'atom-variant' },
   { id: 'prod_igreen_shield', brandName: 'IGreen SHIELD', activeIngredient: 'Rhizosphere Conditioner', categoryId: 'cat_biofertilizer', icon: 'shield-check' },
@@ -189,11 +186,6 @@ const PRODUCTS = [
   { id: 'prod_igreen_zn', brandName: 'IGreen Zn', activeIngredient: 'Zn-solubilizing Microbes', categoryId: 'cat_biofertilizer', icon: 'alpha-z-circle' },
   { id: 'prod_igreen_s', brandName: 'IGreen S', activeIngredient: 'S-oxidizing Microbes', categoryId: 'cat_biofertilizer', icon: 'alpha-s-circle' },
   { id: 'prod_igreen_si', brandName: 'IGreen Si', activeIngredient: 'Si-solubilizing Microbes', categoryId: 'cat_biofertilizer', icon: 'alpha-s-box' },
-  { id: 'prod_igreen_az', brandName: 'IGreen Az', activeIngredient: 'Azotobacter', categoryId: 'cat_biofertilizer', icon: 'alpha-a-circle' },
-  { id: 'prod_igreen_psb', brandName: 'IGreen PSB', activeIngredient: 'Phosphate Solubilizing Bacteria', categoryId: 'cat_biofertilizer', icon: 'alpha-p-box' },
-  { id: 'prod_igreen_ksb', brandName: 'IGreen KSB', activeIngredient: 'Potash Solubilizing Bacteria', categoryId: 'cat_biofertilizer', icon: 'alpha-k-box' },
-  { id: 'prod_igreen_cons', brandName: 'IGreen Cons', activeIngredient: 'Microbial Consortium', categoryId: 'cat_biofertilizer', icon: 'atom-variant' },
-  { id: 'prod_rhizobio', brandName: 'Rhizobio', activeIngredient: 'Rhizobium', categoryId: 'cat_biofertilizer', icon: 'bacteria' },
 ];
 
 const PRODUCT_MAP = {};
@@ -246,10 +238,18 @@ export const resolvePackage = (pkg) => {
   if (!pkg) return null;
   return {
     ...pkg,
-    productRoles: (pkg.productRoles || []).map(role => ({
-      ...role,
-      product: getProductById(role.productId),
-    })),
+    productRoles: (pkg.productRoles || []).map(role => {
+      if (Array.isArray(role.productIds) && role.productIds.length > 0) {
+        return {
+          ...role,
+          products: role.productIds.map(id => getProductById(id)).filter(Boolean),
+        };
+      }
+      return {
+        ...role,
+        product: getProductById(role.productId),
+      };
+    }),
   };
 };
 
