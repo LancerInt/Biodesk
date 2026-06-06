@@ -69,26 +69,26 @@ const PESTS = [
 ];
 
 const DISEASES = [
-  { id: 'disease_alternaria_blight', name: 'Alternaria Blight', icon: 'leaf-off' },
-  { id: 'disease_anthracnose', name: 'Anthracnose', icon: 'fruit-cherries-off' },
-  { id: 'disease_bacterial_leaf_blight', name: 'Bacterial Leaf Blight', icon: 'bacteria' },
-  { id: 'disease_bacterial_spot', name: 'Bacterial Spot', icon: 'bacteria-outline' },
-  { id: 'disease_blast', name: 'Blast', icon: 'fire' },
-  { id: 'disease_collar_rot', name: 'Collar Rot', icon: 'shape-circle-plus' },
-  { id: 'disease_damping_off', name: 'Damping Off', icon: 'sprout-outline' },
-  { id: 'disease_downy_mildew', name: 'Downy Mildew', icon: 'water-percent' },
-  { id: 'disease_early_blight', name: 'Early Blight', icon: 'weather-cloudy-alert' },
-  { id: 'disease_fusarium_wilt', name: 'Fusarium Wilt', icon: 'flower-tulip-outline' },
-  { id: 'disease_gummosis', name: 'Gummosis', icon: 'water-alert' },
-  { id: 'disease_late_blight', name: 'Late Blight', icon: 'virus' },
-  { id: 'disease_leaf_spot', name: 'Leaf Spot', icon: 'circle-double' },
-  { id: 'disease_powdery_mildew', name: 'Powdery Mildew', icon: 'snowflake-variant' },
-  { id: 'disease_purple_blotch', name: 'Purple Blotch', icon: 'invert-colors' },
-  { id: 'disease_root_rot', name: 'Root Rot', icon: 'pine-tree-variant-outline' },
-  { id: 'disease_seedling_blight', name: 'Seedling Blight', icon: 'sprout' },
-  { id: 'disease_sheath_blight', name: 'Sheath Blight', icon: 'virus-outline' },
-  { id: 'disease_stem_rot', name: 'Stem Rot', icon: 'mushroom' },
-  { id: 'disease_wilt', name: 'Wilt', icon: 'flower-outline' },
+  { id: 'disease_alternaria_blight', name: 'Alternaria Blight', icon: 'leaf-off', image: require('../assets/images/DiseaseIcons/alternaria_blight.png') },
+  { id: 'disease_anthracnose', name: 'Anthracnose', icon: 'fruit-cherries-off', image: require('../assets/images/DiseaseIcons/anthracnose.jpg') },
+  { id: 'disease_bacterial_leaf_blight', name: 'Bacterial Leaf Blight', icon: 'bacteria', image: require('../assets/images/DiseaseIcons/bacterial_leaf_blight.png') },
+  { id: 'disease_bacterial_spot', name: 'Bacterial Spot', icon: 'bacteria-outline', image: require('../assets/images/DiseaseIcons/bacterial_spot.png') },
+  { id: 'disease_blast', name: 'Blast', icon: 'fire', image: require('../assets/images/DiseaseIcons/blast.jpg') },
+  { id: 'disease_collar_rot', name: 'Collar Rot', icon: 'shape-circle-plus', image: require('../assets/images/DiseaseIcons/collar_rot.png') },
+  { id: 'disease_damping_off', name: 'Damping Off', icon: 'sprout-outline', image: require('../assets/images/DiseaseIcons/damping_off.png') },
+  { id: 'disease_downy_mildew', name: 'Downy Mildew', icon: 'water-percent', image: require('../assets/images/DiseaseIcons/downy_mildew.png') },
+  { id: 'disease_early_blight', name: 'Early Blight', icon: 'weather-cloudy-alert', image: require('../assets/images/DiseaseIcons/early_blight.png') },
+  { id: 'disease_fusarium_wilt', name: 'Fusarium Wilt', icon: 'flower-tulip-outline', image: require('../assets/images/DiseaseIcons/fusarium_wilt.png') },
+  { id: 'disease_gummosis', name: 'Gummosis', icon: 'water-alert', image: require('../assets/images/DiseaseIcons/gummosis.png') },
+  { id: 'disease_late_blight', name: 'Late Blight', icon: 'virus', image: require('../assets/images/DiseaseIcons/late_blight.png') },
+  { id: 'disease_leaf_spot', name: 'Leaf Spot', icon: 'circle-double', image: require('../assets/images/DiseaseIcons/leaf_spot.jpg') },
+  { id: 'disease_powdery_mildew', name: 'Powdery Mildew', icon: 'snowflake-variant', image: require('../assets/images/DiseaseIcons/powdery_mildew.png') },
+  { id: 'disease_purple_blotch', name: 'Purple Blotch', icon: 'invert-colors', image: require('../assets/images/DiseaseIcons/purple_blotch.jpg') },
+  { id: 'disease_root_rot', name: 'Root Rot', icon: 'pine-tree-variant-outline', image: require('../assets/images/DiseaseIcons/root_rot.png') },
+  { id: 'disease_seedling_blight', name: 'Seedling Blight', icon: 'sprout', image: require('../assets/images/DiseaseIcons/seedling_blight.png') },
+  { id: 'disease_sheath_blight', name: 'Sheath Blight', icon: 'virus-outline', image: require('../assets/images/DiseaseIcons/sheath_blight.png') },
+  { id: 'disease_stem_rot', name: 'Stem Rot', icon: 'mushroom', image: require('../assets/images/DiseaseIcons/stem_rot.png') },
+  { id: 'disease_wilt', name: 'Wilt', icon: 'flower-outline', image: require('../assets/images/DiseaseIcons/wilt.png') },
 ];
 
 const NUTRIENT_DEFICIENCIES = [
@@ -102,25 +102,25 @@ const NUTRIENT_DEFICIENCIES = [
 ];
 
 const GROWTH_STAGES = [
-  { id: 'stage_nursery', name: 'Nursery', icon: 'flower-pollen' },
-  { id: 'stage_germination', name: 'Germination / Emergence', icon: 'sprout' },
-  { id: 'stage_seedling', name: 'Seedling', icon: 'sprout-outline' },
-  { id: 'stage_vegetative', name: 'Vegetative', icon: 'leaf' },
-  { id: 'stage_tillering', name: 'Tillering', icon: 'grass' },
-  { id: 'stage_branching', name: 'Branching', icon: 'tree' },
-  { id: 'stage_flowering', name: 'Flowering', icon: 'flower' },
-  { id: 'stage_boll_development', name: 'Boll Development', icon: 'circle-outline' },
-  { id: 'stage_fruiting', name: 'Fruiting', icon: 'food-apple' },
-  { id: 'stage_grain_filling', name: 'Grain Filling', icon: 'grain' },
+  { id: 'stage_nursery', name: 'Nursery', icon: 'flower-pollen', image: require('../assets/images/StageIcons/nursery.png') },
+  { id: 'stage_germination', name: 'Germination / Emergence', icon: 'sprout', image: require('../assets/images/StageIcons/germination.png') },
+  { id: 'stage_seedling', name: 'Seedling', icon: 'sprout-outline', image: require('../assets/images/StageIcons/seedling.jpg'), imageZoom: 'medium' },
+  { id: 'stage_vegetative', name: 'Vegetative', icon: 'leaf', image: require('../assets/images/StageIcons/vegetative.jpg') },
+  { id: 'stage_tillering', name: 'Tillering', icon: 'grass', image: require('../assets/images/StageIcons/tillering.jpg'), imageZoom: 'medium' },
+  { id: 'stage_branching', name: 'Branching', icon: 'tree', image: require('../assets/images/StageIcons/branching.jpg') },
+  { id: 'stage_flowering', name: 'Flowering', icon: 'flower', image: require('../assets/images/StageIcons/flowering.jpg') },
+  { id: 'stage_boll_development', name: 'Boll Development', icon: 'circle-outline', image: require('../assets/images/StageIcons/boll_development.png') },
+  { id: 'stage_fruiting', name: 'Fruiting', icon: 'food-apple', image: require('../assets/images/StageIcons/fruiting.jpg') },
+  { id: 'stage_grain_filling', name: 'Grain Filling', icon: 'grain', image: require('../assets/images/StageIcons/grain_filling.png') },
 ];
 
 const ABIOTIC_STRESSES = [
-  { id: 'stress_cold', name: 'Cold Stress', icon: 'snowflake' },
-  { id: 'stress_drought', name: 'Drought Stress', icon: 'weather-sunny' },
-  { id: 'stress_heat', name: 'Heat Stress', icon: 'fire' },
-  { id: 'stress_salinity', name: 'Salinity Stress', icon: 'water-alert' },
-  { id: 'stress_transplant_shock', name: 'Transplant Shock', icon: 'flash-alert' },
-  { id: 'stress_waterlogging', name: 'Waterlogging', icon: 'waves' },
+  { id: 'stress_cold', name: 'Cold Stress', icon: 'snowflake', image: require('../assets/images/StressIcons/cold.png') },
+  { id: 'stress_drought', name: 'Drought Stress', icon: 'weather-sunny', image: require('../assets/images/StressIcons/drought.png') },
+  { id: 'stress_heat', name: 'Heat Stress', icon: 'fire', image: require('../assets/images/StressIcons/heat.png') },
+  { id: 'stress_salinity', name: 'Salinity Stress', icon: 'water-alert', image: require('../assets/images/StressIcons/salinity.png') },
+  { id: 'stress_transplant_shock', name: 'Transplant Shock', icon: 'flash-alert', image: require('../assets/images/StressIcons/transplant_shock.png') },
+  { id: 'stress_waterlogging', name: 'Waterlogging', icon: 'waves', image: require('../assets/images/StressIcons/waterlogging.png') },
 ];
 
 const WEEDS = [
@@ -131,10 +131,10 @@ const WEEDS = [
 ];
 
 const CATEGORIES = [
-  { id: 'cat_biofertilizer', name: 'Biofertilizer', icon: 'earth', color: '#4b653e', description: 'Microbial consortium for nutrient fixation and solubilization' },
-  { id: 'cat_biostimulant', name: 'Biostimulant', icon: 'flask-round-bottom', color: '#415d34', description: 'Seaweed, humic, amino, and organic acid-based growth enhancers' },
-  { id: 'cat_botanical_pesticide', name: 'Botanical Pesticide', icon: 'tree', color: '#16416c', description: 'Neem, Spinosad, Karanjin, and essential oil-based crop protection' },
-  { id: 'cat_microbial_pesticide', name: 'Microbial Pesticide', icon: 'microscope', color: '#2196F3', description: 'Beauveria, Trichoderma, Pseudomonas, and Bacillus-based biocontrol' },
+  { id: 'cat_biofertilizer', name: 'Biofertilizer', icon: 'earth', color: '#4b653e', description: 'Microbial consortium for nutrient fixation and solubilization', image: require('../assets/images/CategoryIcons/biofertilizer.png') },
+  { id: 'cat_biostimulant', name: 'Biostimulant', icon: 'flask-round-bottom', color: '#415d34', description: 'Seaweed, humic, amino, and organic acid-based growth enhancers', image: require('../assets/images/CategoryIcons/biostimulant.png') },
+  { id: 'cat_botanical_pesticide', name: 'Botanical Pesticide', icon: 'tree', color: '#16416c', description: 'Neem, Spinosad, Karanjin, and essential oil-based crop protection', image: require('../assets/images/CategoryIcons/botanical_pesticide.png') },
+  { id: 'cat_microbial_pesticide', name: 'Microbial Pesticide', icon: 'microscope', color: '#2196F3', description: 'Beauveria, Trichoderma, Pseudomonas, and Bacillus-based biocontrol', image: require('../assets/images/CategoryIcons/microbial_pesticide.png') },
 ];
 
 // ═══════════════════════════════════════════════════════════════

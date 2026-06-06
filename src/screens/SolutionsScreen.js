@@ -243,13 +243,13 @@ const SolutionsScreen = ({ navigation }) => {
       case 'crop': return renderItemGrid(crops, 'cropIds', 'sprout');
       case 'problem': return renderProblemBrowse();
       case 'growthStage': return renderItemGrid(growthStages, 'growthStageIds', 'flower');
-      case 'stress': return renderItemGrid(abioticStresses, 'abioticStressIds', 'weather-sunny-alert');
+      case 'stress': return renderItemGrid(abioticStresses, 'abioticStressIds', 'weather-sunny-alert', styles.itemImageStress);
       case 'category': return renderCategoryList();
       default: return null;
     }
   };
 
-  const renderItemGrid = (items, filterKey, fallbackIcon) => (
+  const renderItemGrid = (items, filterKey, fallbackIcon, imageStyle) => (
     <ScrollView
       ref={browseScrollRef}
       contentContainerStyle={styles.itemGrid}
@@ -266,7 +266,7 @@ const SolutionsScreen = ({ navigation }) => {
             {item.image ? (
               <ExpoImage
                 source={item.image}
-                style={styles.itemImage}
+                style={[styles.itemImage, imageStyle, item.imageZoom === 'medium' && styles.itemImageMedium]}
                 contentFit="contain"
                 cachePolicy="memory-disk"
                 transition={0}
@@ -284,7 +284,7 @@ const SolutionsScreen = ({ navigation }) => {
 
   const PROBLEM_COLORS = {
     pests: '#D32F2F',
-    diseases: '#7B1FA2',
+    diseases: '#f4c39a',
     nutrientDeficiencies: '#E65100',
     weeds: '#2E7D32',
   };
@@ -354,8 +354,19 @@ const SolutionsScreen = ({ navigation }) => {
           style={styles.itemCard}
           activeOpacity={0.7}
           onPress={() => selectItem('categoryIds', cat.id, cat.name)}>
-          <View style={[styles.itemIconWrap, { backgroundColor: (cat.color || '#7B1FA2') + '12' }]}>
-            <Icon name={cat.icon || 'shape'} size={28} color={cat.color || '#7B1FA2'} />
+          <View style={[styles.itemIconWrap, { backgroundColor: cat.image ? 'transparent' : (cat.color || '#7B1FA2') + '12' }]}>
+            {cat.image ? (
+              <ExpoImage
+                source={cat.image}
+                style={styles.itemImage}
+                contentFit="contain"
+                cachePolicy="memory-disk"
+                transition={0}
+                recyclingKey={cat.id}
+              />
+            ) : (
+              <Icon name={cat.icon || 'shape'} size={28} color={cat.color || '#7B1FA2'} />
+            )}
           </View>
           <Text style={styles.itemName}>{cat.name}</Text>
         </TouchableOpacity>
@@ -689,6 +700,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   itemImage: { width: 42, height: 45, transform: [{ scale: 1.5 }] },
+  itemImageStress: { width: 55, height: 55, transform: [{ scale: 1.9 }] },
+  itemImageMedium: { width: 47, height: 47 },
   itemName: { fontSize: 14, fontWeight: '600', color: theme.colors.text, textAlign: 'center' },
 
   // ─── Problem Section Headers ────────────────────────────────
