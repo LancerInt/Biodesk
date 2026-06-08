@@ -132,7 +132,7 @@
   {
     "product": "Mycova",
     "category": "biocontrol",
-    "active": "Beauveria bassiana (1 x 10^9 CFU/g)",
+    "active": "Beauveria bassiana (1 × 10¹⁰ CFU/g)",
     "dosage": "2-3 g/L",
     "application_rate": "500-1000 g/acre in 200-250 L water",
     "method": "Foliar spray or root-zone drench",
@@ -142,7 +142,7 @@
   {
     "product": "Rexora",
     "category": "biocontrol",
-    "active": "Metarhizium anisopliae (1 x 10^9 CFU/g)",
+    "active": "Metarhizium anisopliae (2 × 10⁹ CFU/g)",
     "dosage": "2-3 g/L",
     "application_rate": "500-1000 g/acre in 200-250 L water; 1-2 kg/acre for soil application",
     "method": "Foliar spray, soil drench, or drip application",
@@ -152,7 +152,7 @@
   {
     "product": "Biota-V",
     "category": "biocontrol",
-    "active": "Trichoderma viride (1 x 10^8 CFU/g)",
+    "active": "Trichoderma viride (3 × 10⁸ CFU/g)",
     "dosage": "5-10 g/L for drench; 10 g/kg seed for seed treatment",
     "application_rate": "1-2 kg/acre for soil application",
     "method": "Seed treatment, nursery dip, soil drench, or drip",
@@ -162,7 +162,7 @@
   {
     "product": "Biota-H",
     "category": "biocontrol",
-    "active": "Trichoderma harzianum (1 x 10^8 CFU/g)",
+    "active": "Trichoderma harzianum (3 × 10⁸ CFU/g)",
     "dosage": "5-10 g/L for drench; 10 g/kg seed for seed treatment",
     "application_rate": "1-2 kg/acre for soil application",
     "method": "Seed treatment, nursery dip, soil drench, or drip",
@@ -252,7 +252,7 @@
   {
     "product": "EnRhize",
     "category": "biostimulant",
-    "active": "Arbuscular Mycorrhiza (>=1500 propagules/g)",
+    "active": "Arbuscular Mycorrhiza (≥1500 propagules/g)",
     "dosage": "5-10 g/plant for transplanting; 10 g/kg seed for seed treatment",
     "application_rate": "2-4 kg/acre",
     "method": "Root-zone placement, seed treatment, nursery mix, or transplant dip",
@@ -402,7 +402,7 @@
   {
     "product": "Admira Adyme",
     "category": "botanical",
-    "active": "Thyme Oil Capsule",
+    "active": "Thyme Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",
@@ -412,7 +412,7 @@
   {
     "product": "Admira Admon",
     "category": "botanical",
-    "active": "Cinnamon Oil Capsule",
+    "active": "Cinnamon Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",
@@ -422,7 +422,7 @@
   {
     "product": "Admira Adrlic",
     "category": "botanical",
-    "active": "Garlic Oil Capsule",
+    "active": "Garlic Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",
@@ -432,7 +432,7 @@
   {
     "product": "Admira Adove",
     "category": "botanical",
-    "active": "Clove Oil Capsule",
+    "active": "Clove Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
     "method": "Foliar spray",

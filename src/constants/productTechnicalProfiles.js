@@ -66,13 +66,13 @@ export const TECHNICAL_PROFILES = {
   'Admira Adove': BOTANICAL('Clove Oil', 'Syzygium aromaticum', 'Emulsifiable Concentrate (EC)', 'Clear Brown liquid'),
 
   // ─── Microbial Pesticides ────────────────────────────────────
-  'Biota-H': MICROBIAL('Trichoderma harzianum', '≥1 × 10⁸ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
-  'Biota-V': MICROBIAL('Trichoderma viride', '≥1 × 10⁸ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
+  'Biota-H': MICROBIAL('Trichoderma harzianum', '≥3 × 10⁸ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
+  'Biota-V': MICROBIAL('Trichoderma viride', '≥3 × 10⁸ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
   'Elixora': MICROBIAL('Bacillus amyloliquefaciens', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
-  'EnCilo': MICROBIAL('Verticillium chlamydosporium', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
-  'Mycova': MICROBIAL('Beauveria bassiana', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
+  'EnCilo': MICROBIAL('Purpureocillium lilacinum', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
+  'Mycova': MICROBIAL('Beauveria bassiana', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
   'Neuvita': MICROBIAL('Pseudomonas fluorescens', '≥1 × 10⁹ CFU/g', '≤ 8%', '5.5 - 7.5'),
-  'Rexora': MICROBIAL('Metarhizium anisopliae', '≥1 × 10⁹ CFU/g', '≤ 8%', '5.5 - 7.5'),
+  'Rexora': MICROBIAL('Metarhizium anisopliae', '≥2 × 10⁹ CFU/g', '≤ 8%', '5.5 - 7.5'),
   'Seira': MICROBIAL('Verticillium lecanii', '≥1 × 10⁹ CFU/g', '≤ 8%', '5.5 - 7.5'),
   'Subtilix': MICROBIAL('Bacillus subtilis', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
 
@@ -103,9 +103,9 @@ export const TECHNICAL_PROFILES = {
     row('Shelf Life', '24 months under recommended storage'),
   ],
   'EnRhize': [
-    row('Active Microorganism', 'Vesicular Arbuscular Mycorrhiza (VAM)'),
+    row('Active Microorganism', 'Arbuscular Mycorrhiza'),
     row('Formulation Type', 'Wettable Powder'),
-    row('Spore Count', '≥ 500 spores per gram'),
+    row('Spore Count', '≥ 1500 propagules / g'),
     row('Solubility', 'Dispersible in water'),
     row('Moisture Content', '≤ 10%'),
     row('Shelf Life', '12 months under recommended storage'),

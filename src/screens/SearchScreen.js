@@ -1,10 +1,12 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, Keyboard } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import { PRODUCTS, PORTFOLIO_FAMILIES, getPortfolioForProduct, getPortfolioVariants } from '../constants/productData';
+import { getHeroImage, getFamilyIconImage } from '../constants/productImages';
 import { SOLUTIONS } from '../constants/solutionsData';
 import { getCategoryColor, debounce } from '../utils/helpers';
 
@@ -37,6 +39,7 @@ const SearchScreen = ({ navigation }) => {
           if (!seenFamilies.has(portfolio.id)) {
             seenFamilies.add(portfolio.id);
             const variants = getPortfolioVariants(portfolio.id);
+            const firstVariant = variants[0];
             acc.push({
               id: 'pf-' + portfolio.id, type: 'Portfolio',
               title: portfolio.name,
@@ -44,6 +47,7 @@ const SearchScreen = ({ navigation }) => {
               badge: portfolio.category,
               badgeColor: getCategoryColor(portfolio.category),
               icon: portfolio.icon || 'leaf',
+              image: getFamilyIconImage(portfolio.id) || (firstVariant ? getHeroImage(firstVariant.name) : null),
               data: portfolio,
               screen: 'PortfolioDetail',
               params: { family: portfolio },
@@ -58,6 +62,7 @@ const SearchScreen = ({ navigation }) => {
             badge: p.category,
             badgeColor: getCategoryColor(p.category),
             icon: 'leaf',
+            image: getHeroImage(p.name),
             data: p,
             screen: 'ProductDetail',
             params: { product: p },
@@ -96,8 +101,19 @@ const SearchScreen = ({ navigation }) => {
       style={styles.resultCard}
       activeOpacity={0.7}
       onPress={() => { Keyboard.dismiss(); navigation.navigate(item.screen, item.params); }}>
-      <View style={[styles.resultIcon, { backgroundColor: item.badgeColor + '15' }]}>
-        <Icon name={item.icon} size={22} color={item.badgeColor} />
+      <View style={[styles.resultIcon, { backgroundColor: item.image ? 'transparent' : item.badgeColor + '15' }]}>
+        {item.image ? (
+          <ExpoImage
+            source={item.image}
+            style={styles.resultImage}
+            contentFit="contain"
+            cachePolicy="memory-disk"
+            transition={0}
+            recyclingKey={item.id}
+          />
+        ) : (
+          <Icon name={item.icon} size={22} color={item.badgeColor} />
+        )}
       </View>
       <View style={styles.resultInfo}>
         {(item.type === 'Product' || item.type === 'Portfolio') ? (
@@ -219,6 +235,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   resultIcon: { width: 42, height: 42, borderRadius: 21, alignItems: 'center', justifyContent: 'center' },
+  resultImage: { width: 38, height: 38 },
   resultInfo: { flex: 1 },
   resultTitle: { fontSize: 14, fontWeight: '700', color: theme.colors.text },
   resultSub: { fontSize: 12, color: theme.colors.textSecondary, marginTop: 2 },
