@@ -172,7 +172,18 @@ const SolutionsScreen = ({ navigation }) => {
               key={`${r.type}-${r.item.id}-${i}`}
               style={styles.searchResultItem}
               onPress={() => handleSearchSelect(r)}>
-              <Icon name={getSearchIcon(r.type)} size={18} color={theme.colors.primary} />
+              {r.item.image ? (
+                <ExpoImage
+                  source={r.item.image}
+                  style={styles.searchResultImage}
+                  contentFit="contain"
+                  cachePolicy="memory-disk"
+                  transition={0}
+                  recyclingKey={`${r.type}-${r.item.id}`}
+                />
+              ) : (
+                <Icon name={getSearchIcon(r.type)} size={18} color={theme.colors.primary} />
+              )}
               <View style={styles.searchResultText}>
                 {r.type === 'product' ? (
                   <ProductName name={r.item.brandName || r.item.name} style={styles.searchResultName} />
@@ -591,6 +602,7 @@ const styles = StyleSheet.create({
     borderBottomColor: theme.colors.divider,
   },
   searchResultText: { flex: 1, marginLeft: 12 },
+  searchResultImage: { width: 28, height: 28 },
   searchResultName: { fontSize: 15, fontWeight: '600', color: theme.colors.text },
   searchResultType: { fontSize: 12, color: theme.colors.textLight, marginTop: 2 },
   noResults: { alignItems: 'center', paddingVertical: 40 },

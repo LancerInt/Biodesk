@@ -92,13 +92,13 @@ const DISEASES = [
 ];
 
 const NUTRIENT_DEFICIENCIES = [
-  { id: 'def_multi_nutrient', name: 'General Nutrient Imbalance', icon: 'scale-unbalanced' },
-  { id: 'def_nitrogen', name: 'Nitrogen Deficiency', icon: 'alpha-n-circle' },
-  { id: 'def_phosphorus', name: 'Phosphorus Deficiency', icon: 'alpha-p-circle' },
-  { id: 'def_potassium', name: 'Potassium Deficiency', icon: 'alpha-k-circle' },
-  { id: 'def_silicon', name: 'Silicon Deficiency', icon: 'diamond-stone' },
-  { id: 'def_sulphur', name: 'Sulphur Deficiency', icon: 'alpha-s-circle' },
-  { id: 'def_zinc', name: 'Zinc Deficiency', icon: 'alpha-z-circle' },
+  { id: 'def_multi_nutrient', name: 'General Nutrient Imbalance', icon: 'scale-unbalanced', image: require('../assets/images/NutrientIcons/multi_nutrient.png') },
+  { id: 'def_nitrogen', name: 'Nitrogen Deficiency', icon: 'alpha-n-circle', image: require('../assets/images/NutrientIcons/nitrogen.png') },
+  { id: 'def_phosphorus', name: 'Phosphorus Deficiency', icon: 'alpha-p-circle', image: require('../assets/images/NutrientIcons/phosphorus.png') },
+  { id: 'def_potassium', name: 'Potassium Deficiency', icon: 'alpha-k-circle', image: require('../assets/images/NutrientIcons/potassium.png') },
+  { id: 'def_silicon', name: 'Silicon Deficiency', icon: 'diamond-stone', image: require('../assets/images/NutrientIcons/silicon.png') },
+  { id: 'def_sulphur', name: 'Sulphur Deficiency', icon: 'alpha-s-circle', image: require('../assets/images/NutrientIcons/sulphur.png') },
+  { id: 'def_zinc', name: 'Zinc Deficiency', icon: 'alpha-z-circle', image: require('../assets/images/NutrientIcons/zinc.png') },
 ];
 
 const GROWTH_STAGES = [
