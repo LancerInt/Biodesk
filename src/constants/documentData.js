@@ -190,6 +190,7 @@ const DOC_FILES = {
   'EnCilo_TDS': require('../assets/documents/EnCilo_TDS.pdf'),
   'Subtilix_TDS': require('../assets/documents/Subtilix_TDS.pdf'),
   'Elixora_TDS': require('../assets/documents/Elixora_TDS.pdf'),
+  'Ecoviz_TDS': require('../assets/documents/Ecoviz_TDS.pdf'),
   // Biostimulants
   'Zenita_TDS': require('../assets/documents/Zenita_TDS.pdf'),
   'Cropsia_TDS': require('../assets/documents/Cropsia_TDS.pdf'),
