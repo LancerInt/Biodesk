@@ -43,11 +43,18 @@ const CLIENT_VISIT_IMAGES = {
     require('../assets/images/ClientVisit/germany_greenshof/germany_greenshof_04.jpeg'),
     require('../assets/images/ClientVisit/germany_greenshof/germany_greenshof_05.jpeg'),
   ],
-  'Glover Ghana': [
-    require('../assets/images/ClientVisit/glover_ghana/glover_ghana_01.jpeg'),
-    require('../assets/images/ClientVisit/glover_ghana/glover_ghana_02.jpeg'),
-    require('../assets/images/ClientVisit/glover_ghana/glover_ghana_03.jpeg'),
-  ],
+  'Glover Ghana': {
+    '2025': [
+      require('../assets/images/ClientVisit/glover_ghana/glover_ghana_01.jpeg'),
+      require('../assets/images/ClientVisit/glover_ghana/glover_ghana_02.jpeg'),
+      require('../assets/images/ClientVisit/glover_ghana/glover_ghana_03.jpeg'),
+    ],
+    '2026': [
+      require('../assets/images/ClientVisit/glover_ghana/2026/glover_ghana_2026_01.jpeg'),
+      require('../assets/images/ClientVisit/glover_ghana/2026/glover_ghana_2026_02.jpeg'),
+      require('../assets/images/ClientVisit/glover_ghana/2026/glover_ghana_2026_03.jpeg'),
+    ],
+  },
   'Kenya Osho': [
     require('../assets/images/ClientVisit/kenya_osho/kenya_osho_01.jpeg'),
     require('../assets/images/ClientVisit/kenya_osho/kenya_osho_02.jpeg'),

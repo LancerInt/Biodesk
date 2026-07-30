@@ -112,7 +112,7 @@
   {
     "product": "MargoSpin",
     "category": "biocontrol",
-    "active": "Neem Oil 70% + Spinosad 1.2%",
+    "active": "Neem Oil 70% + Spinosad 1.6%",
     "dosage": "1.5-2 ml/L",
     "application_rate": "350-500 ml/acre in 180-250 L water",
     "method": "Foliar spray",
@@ -142,7 +142,7 @@
   {
     "product": "Rexora",
     "category": "biocontrol",
-    "active": "Metarhizium anisopliae (2 × 10⁹ CFU/g)",
+    "active": "Metarhizium anisopliae (1 × 10¹⁰ CFU/g)",
     "dosage": "2-3 g/L",
     "application_rate": "500-1000 g/acre in 200-250 L water; 1-2 kg/acre for soil application",
     "method": "Foliar spray, soil drench, or drip application",
@@ -150,9 +150,9 @@
     "source": "inferred"
   },
   {
-    "product": "Biota-V",
+    "product": "Biota",
     "category": "biocontrol",
-    "active": "Trichoderma viride (3 × 10⁸ CFU/g)",
+    "active": "Trichoderma asperellum (1 × 10⁹ CFU/g)",
     "dosage": "5-10 g/L for drench; 10 g/kg seed for seed treatment",
     "application_rate": "1-2 kg/acre for soil application",
     "method": "Seed treatment, nursery dip, soil drench, or drip",
@@ -162,7 +162,7 @@
   {
     "product": "Biota-H",
     "category": "biocontrol",
-    "active": "Trichoderma harzianum (3 × 10⁸ CFU/g)",
+    "active": "Trichoderma harzianum (1 × 10⁹ CFU/g)",
     "dosage": "5-10 g/L for drench; 10 g/kg seed for seed treatment",
     "application_rate": "1-2 kg/acre for soil application",
     "method": "Seed treatment, nursery dip, soil drench, or drip",
@@ -170,19 +170,9 @@
     "source": "inferred"
   },
   {
-    "product": "Neuvita",
-    "category": "biocontrol",
-    "active": "Pseudomonas fluorescens (1 x 10^9 CFU/g)",
-    "dosage": "2-3 g/L",
-    "application_rate": "500-1000 g/acre in 200-250 L water",
-    "method": "Foliar spray targeting powdery mildew onset",
-    "interval": "7 days",
-    "source": "inferred"
-  },
-  {
     "product": "Seira",
     "category": "biocontrol",
-    "active": "Verticillium lecanii (1 x 10^9 CFU/g)",
+    "active": "Verticillium lecanii (1 × 10¹⁰ CFU/g)",
     "dosage": "2-3 g/L",
     "application_rate": "500-1000 g/acre in 200-250 L water",
     "method": "Foliar spray for sucking pests",
@@ -192,7 +182,7 @@
   {
     "product": "EnCilo",
     "category": "biocontrol",
-    "active": "verticillium chlamydosporium (1 x 10^9 CFU/g)",
+    "active": "Verticillium chlamydosporium (1 × 10¹⁰ CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
     "method": "Soil application, root-zone drench, or drip for nematode suppression",
@@ -202,7 +192,7 @@
   {
     "product": "Elixora",
     "category": "biocontrol",
-    "active": "Bacillus amyloliquefaciens (1 x 10^9 CFU/g)",
+    "active": "Bacillus amyloliquefaciens (1 × 10⁹ CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
     "method": "Soil application, root-zone drench, or drip for nematode suppression",
@@ -212,11 +202,21 @@
   {
     "product": "Subtilix",
     "category": "biocontrol",
-    "active": "Bacillus subtilis (1 x 10^9 CFU/g)",
+    "active": "Bacillus subtilis (1 × 10⁹ CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
     "method": "Soil application, root-zone drench, or drip for nematode suppression",
     "interval": "20-30 days",
+    "source": "inferred"
+  },
+  {
+    "product": "Neuvita",
+    "category": "biocontrol",
+    "active": "Pseudomonas fluorescens (1 × 10⁹ CFU/g)",
+    "dosage": "5 g/L for drench; 10 g/kg seed for seed treatment",
+    "application_rate": "1-2 kg/acre",
+    "method": "Seed treatment, root dip, soil drench, or drip application",
+    "interval": "15-20 days",
     "source": "inferred"
   },
   {
@@ -282,70 +282,10 @@
   {
     "product": "IGreen NPK",
     "category": "biostimulant",
-    "active": "Azotobacter chroococcum + Bacillus megaterium + Frateuria aurantia",
+    "active": "Bacillus polymyxa + Bacillus megaterium + Bacillus mucilaginosus",
     "dosage": "2-3 ml/L or 2-3 g/L",
     "application_rate": "500 ml-g to 1 kg-L/acre",
     "method": "Soil drench, drip, or seedling root dip",
-    "interval": "15-20 days",
-    "source": "inferred"
-  },
-  {
-    "product": "IGreen N",
-    "category": "biostimulant",
-    "active": "Azotobacter chroococcum + Azospirillum brasilense + Rhizobium sp. ",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
-    "method": "Soil drench, drip, or seed treatment",
-    "interval": "15-20 days",
-    "source": "inferred"
-  },
-  {
-    "product": "IGreen P",
-    "category": "biostimulant",
-    "active": "Bacillus megaterium + Bacillus polymyxa",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
-    "method": "Soil drench, drip, or basal soil application",
-    "interval": "15-20 days",
-    "source": "inferred"
-  },
-  {
-    "product": "IGreen K",
-    "category": "biostimulant",
-    "active": "Frateuria aurantia + Bacillus mucilaginosus",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
-    "method": "Soil drench, drip, or basal soil application",
-    "interval": "15-20 days",
-    "source": "inferred"
-  },
-  {
-    "product": "IGreen Zn",
-    "category": "biostimulant",
-    "active": "Bacillus megaterium + Bacillus subtilis",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
-    "method": "Soil drench, drip, or basal soil application",
-    "interval": "15-20 days",
-    "source": "inferred"
-  },
-  {
-    "product": "IGreen S",
-    "category": "biostimulant",
-    "active": "Acidothiobacillus ferroxidans",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
-    "method": "Soil drench, drip, or foliar-biological support spray",
-    "interval": "15-20 days",
-    "source": "inferred"
-  },
-  {
-    "product": "IGreen Si",
-    "category": "biostimulant",
-    "active": "Bacillus mycoides",
-    "dosage": "2-3 ml/L or 2-3 g/L",
-    "application_rate": "500 ml-g to 1 kg-L/acre",
-    "method": "Soil drench, drip, or basal soil application",
     "interval": "15-20 days",
     "source": "inferred"
   },
@@ -356,6 +296,66 @@
     "dosage": "2-3 ml/L or 2-3 g/L",
     "application_rate": "500 ml-g to 1 kg-L/acre",
     "method": "Soil drench, drip, or basal soil application",
+    "interval": "15-20 days",
+    "source": "inferred"
+  },
+  {
+    "product": "IGreen N",
+    "category": "biostimulant",
+    "active": "Azotobacter chroococcum (1 × 10⁹ CFU/g)",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g-1 kg/acre",
+    "method": "Soil drench, drip, seedling root dip, or seed treatment",
+    "interval": "15-20 days",
+    "source": "inferred"
+  },
+  {
+    "product": "IGreen P",
+    "category": "biostimulant",
+    "active": "Bacillus megaterium (1 × 10⁹ CFU/g)",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g-1 kg/acre",
+    "method": "Soil drench, drip, seedling root dip, or basal soil application",
+    "interval": "15-20 days",
+    "source": "inferred"
+  },
+  {
+    "product": "IGreen K",
+    "category": "biostimulant",
+    "active": "Frateuria aurantia (1 × 10⁹ CFU/g)",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g-1 kg/acre",
+    "method": "Soil drench, drip, or root-zone application",
+    "interval": "15-20 days",
+    "source": "inferred"
+  },
+  {
+    "product": "IGreen S",
+    "category": "biostimulant",
+    "active": "Thiobacillus thiooxidans (1 × 10⁹ CFU/g)",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g-1 kg/acre",
+    "method": "Soil drench, drip, or root-zone application",
+    "interval": "15-20 days",
+    "source": "inferred"
+  },
+  {
+    "product": "IGreen Si",
+    "category": "biostimulant",
+    "active": "Bacillus mucilaginosus (1 × 10⁹ CFU/g)",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g-1 kg/acre",
+    "method": "Soil drench, drip, or foliar spray",
+    "interval": "15-20 days",
+    "source": "inferred"
+  },
+  {
+    "product": "IGreen Zn",
+    "category": "biostimulant",
+    "active": "Bacillus aryabhattai (1 × 10⁹ CFU/g)",
+    "dosage": "2-3 g/L",
+    "application_rate": "500 g-1 kg/acre",
+    "method": "Soil drench, drip, or root-zone application",
     "interval": "15-20 days",
     "source": "inferred"
   },
@@ -435,6 +435,16 @@
     "active": "Clove Oil Formulation",
     "dosage": "1-2 ml/L or 1-2 g/L equivalent",
     "application_rate": "250-500 ml-g/acre in 180-250 L water",
+    "method": "Foliar spray",
+    "interval": "7-10 days",
+    "source": "inferred"
+  },
+  {
+    "product": "Ecoviz",
+    "category": "biocontrol",
+    "active": "Isaria fumosorosea (1 × 10¹⁰ CFU/g)",
+    "dosage": "2 g/L",
+    "application_rate": "400-500 g/acre in 200-250 L water",
     "method": "Foliar spray",
     "interval": "7-10 days",
     "source": "inferred"

@@ -8,11 +8,13 @@ import theme from '../constants/theme';
 import { PRODUCTS } from '../constants/productData';
 import { getHeroImage, getMoaImage } from '../constants/productImages';
 import CLIENT_VISIT_IMAGES from '../constants/clientVisitImages';
+import FACTORY_IMAGES from '../constants/factoryImages';
+import LAB_IMAGES from '../constants/labImages';
 
 // ═══════════════════════════════════════════════════════════════
 // MEDIA DATA
 // ═══════════════════════════════════════════════════════════════
-const CATEGORIES = ['Product', 'Manufacturing', 'Mode of Action', 'Client Visit', 'Shipping'];
+const CATEGORIES = ['Manufacturing', 'Client Visit', 'Shipping'];
 
 // ─── Build complete photo gallery from all product images ─────
 const buildPhotos = () => {
@@ -51,72 +53,81 @@ const buildPhotos = () => {
 
   // Manufacturing & Technology images
   photos.push(
-    { id: `mfg-${idx++}`, title: 'Manufacturing Facility', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/manufacturing.jpeg'), navTarget: 'Profile', navParams: { sectionIndex: 2 } },
-    { id: `mfg-${idx++}`, title: 'R&D Laboratory', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/rnd.jpeg'), navTarget: 'Profile', navParams: { sectionIndex: 3 } },
-    { id: `mfg-${idx++}`, title: 'Quality Control Lab', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/quality.jpeg'), navTarget: 'Profile', navParams: { sectionIndex: 4 } },
+    { id: `mfg-${idx++}`, title: 'Manufacturing Facility', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/manufacturing.jpeg'), _isFolder: true, _isManufacturing: true, _folderName: 'factories', _folderCount: Object.keys(FACTORY_IMAGES).length },
+    { id: `mfg-${idx++}`, title: 'R&D Laboratory', category: 'Manufacturing', image: require('../assets/images/KriyaProfile/rnd.jpeg'), _isFolder: true, _isLab: true, _folderName: 'lab', _folderCount: LAB_IMAGES.length },
   );
 
-  // Client Visit — folder entries (one per client)
-  Object.entries(CLIENT_VISIT_IMAGES).forEach(([clientName, images]) => {
+  // Client Visit — folder entries (one per client). Some clients use a
+  // nested { year: images[] } shape; flatten for cover image / count.
+  Object.entries(CLIENT_VISIT_IMAGES).forEach(([clientName, entry]) => {
+    const isNested = entry && !Array.isArray(entry) && typeof entry === 'object';
+    const allImages = isNested ? Object.values(entry).flat() : entry;
     photos.push({
       id: `cvf-${idx++}`,
       title: clientName,
       category: 'Client Visit',
-      image: images[0],
+      image: allImages[0],
       _isFolder: true,
       _folderName: clientName,
-      _folderCount: images.length,
+      _folderCount: isNested ? Object.keys(entry).length : allImages.length,
+      _isNestedClient: isNested,
     });
   });
 
-  // Shipping photos
-  photos.push(
-    { id: `shp-${idx++}`, title: 'Product Packaging', category: 'Shipping', image: require('../assets/images/shipping/shipping01.jpeg') },
-    { id: `shp-${idx++}`, title: 'Warehouse Dispatch', category: 'Shipping', image: require('../assets/images/shipping/shipping02.jpeg') },
-    { id: `shp-${idx++}`, title: 'Export Shipment', category: 'Shipping', image: require('../assets/images/shipping/shipping03.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipping Logistics', category: 'Shipping', image: require('../assets/images/shipping/shipping04.jpeg') },
-    { id: `shp-${idx++}`, title: 'Dispatch Ready', category: 'Shipping', image: require('../assets/images/shipping/shipping05.jpeg') },
-    { id: `shp-${idx++}`, title: 'BioTrop 1L Packing (1)', category: 'Shipping', image: require('../assets/images/shipping/shipping06.jpeg') },
-    { id: `shp-${idx++}`, title: 'BioTrop 1L Packing (2)', category: 'Shipping', image: require('../assets/images/shipping/shipping07.jpeg') },
-    { id: `shp-${idx++}`, title: 'BioTrop 1L Packing (3)', category: 'Shipping', image: require('../assets/images/shipping/shipping08.jpeg') },
-    { id: `shp-${idx++}`, title: 'BioTrop 5L Packing (1)', category: 'Shipping', image: require('../assets/images/shipping/shipping09.jpeg') },
-    { id: `shp-${idx++}`, title: 'BioTrop 5L Packing (2)', category: 'Shipping', image: require('../assets/images/shipping/shipping10.jpeg') },
-    { id: `shp-${idx++}`, title: 'BioTrop 5L Packing (3)', category: 'Shipping', image: require('../assets/images/shipping/shipping11.jpeg') },
-    { id: `shp-${idx++}`, title: 'Esnad 1L Packing (1)', category: 'Shipping', image: require('../assets/images/shipping/shipping12.jpeg') },
-    { id: `shp-${idx++}`, title: 'Esnad 1L Packing (2)', category: 'Shipping', image: require('../assets/images/shipping/shipping13.jpeg') },
-    { id: `shp-${idx++}`, title: 'Esnad 1L Packing (3)', category: 'Shipping', image: require('../assets/images/shipping/shipping14.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 1', category: 'Shipping', image: require('../assets/images/shipping/shipping15.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 2', category: 'Shipping', image: require('../assets/images/shipping/shipping16.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 3', category: 'Shipping', image: require('../assets/images/shipping/shipping17.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 4', category: 'Shipping', image: require('../assets/images/shipping/shipping18.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 5', category: 'Shipping', image: require('../assets/images/shipping/shipping19.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 6', category: 'Shipping', image: require('../assets/images/shipping/shipping20.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 7', category: 'Shipping', image: require('../assets/images/shipping/shipping21.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 8', category: 'Shipping', image: require('../assets/images/shipping/shipping22.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 9', category: 'Shipping', image: require('../assets/images/shipping/shipping23.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 10', category: 'Shipping', image: require('../assets/images/shipping/shipping24.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 11', category: 'Shipping', image: require('../assets/images/shipping/shipping25.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 12', category: 'Shipping', image: require('../assets/images/shipping/shipping26.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 13', category: 'Shipping', image: require('../assets/images/shipping/shipping27.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 14', category: 'Shipping', image: require('../assets/images/shipping/shipping28.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 15', category: 'Shipping', image: require('../assets/images/shipping/shipping29.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 16', category: 'Shipping', image: require('../assets/images/shipping/shipping30.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 17', category: 'Shipping', image: require('../assets/images/shipping/shipping31.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 18', category: 'Shipping', image: require('../assets/images/shipping/shipping32.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 19', category: 'Shipping', image: require('../assets/images/shipping/shipping33.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 20', category: 'Shipping', image: require('../assets/images/shipping/shipping34.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 21', category: 'Shipping', image: require('../assets/images/shipping/shipping35.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 22', category: 'Shipping', image: require('../assets/images/shipping/shipping36.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 23', category: 'Shipping', image: require('../assets/images/shipping/shipping37.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 24', category: 'Shipping', image: require('../assets/images/shipping/shipping38.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 25', category: 'Shipping', image: require('../assets/images/shipping/shipping39.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 26', category: 'Shipping', image: require('../assets/images/shipping/shipping40.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 27', category: 'Shipping', image: require('../assets/images/shipping/shipping41.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 28', category: 'Shipping', image: require('../assets/images/shipping/shipping42.jpeg') },
-    { id: `shp-${idx++}`, title: 'Shipment Photo 29', category: 'Shipping', image: require('../assets/images/shipping/shipping43.jpeg') },
-  );
-
   return photos;
+};
+
+// ─── Shipping sub-folders (drill-down from "Shipping Photos" chip) ─
+const SHIPPING_FOLDERS = {
+  'BioTrop Packing': [
+    require('../assets/images/shipping/shipping06.jpeg'),
+    require('../assets/images/shipping/shipping07.jpeg'),
+    require('../assets/images/shipping/shipping08.jpeg'),
+    require('../assets/images/shipping/shipping09.jpeg'),
+    require('../assets/images/shipping/shipping10.jpeg'),
+    require('../assets/images/shipping/shipping11.jpeg'),
+  ],
+  'Esnad Packing': [
+    require('../assets/images/shipping/shipping12.jpeg'),
+    require('../assets/images/shipping/shipping13.jpeg'),
+    require('../assets/images/shipping/shipping14.jpeg'),
+  ],
+  'Shipment Photos': [
+    require('../assets/images/shipping/shipping01.jpeg'),
+    require('../assets/images/shipping/shipping02.jpeg'),
+    require('../assets/images/shipping/shipping03.jpeg'),
+    require('../assets/images/shipping/shipping04.jpeg'),
+    require('../assets/images/shipping/shipping05.jpeg'),
+    require('../assets/images/shipping/shipping15.jpeg'),
+    require('../assets/images/shipping/shipping16.jpeg'),
+    require('../assets/images/shipping/shipping17.jpeg'),
+    require('../assets/images/shipping/shipping18.jpeg'),
+    require('../assets/images/shipping/shipping19.jpeg'),
+    require('../assets/images/shipping/shipping20.jpeg'),
+    require('../assets/images/shipping/shipping21.jpeg'),
+    require('../assets/images/shipping/shipping22.jpeg'),
+    require('../assets/images/shipping/shipping23.jpeg'),
+    require('../assets/images/shipping/shipping24.jpeg'),
+    require('../assets/images/shipping/shipping25.jpeg'),
+    require('../assets/images/shipping/shipping26.jpeg'),
+    require('../assets/images/shipping/shipping27.jpeg'),
+    require('../assets/images/shipping/shipping28.jpeg'),
+    require('../assets/images/shipping/shipping29.jpeg'),
+    require('../assets/images/shipping/shipping30.jpeg'),
+    require('../assets/images/shipping/shipping31.jpeg'),
+    require('../assets/images/shipping/shipping32.jpeg'),
+    require('../assets/images/shipping/shipping33.jpeg'),
+    require('../assets/images/shipping/shipping34.jpeg'),
+    require('../assets/images/shipping/shipping35.jpeg'),
+    require('../assets/images/shipping/shipping36.jpeg'),
+    require('../assets/images/shipping/shipping37.jpeg'),
+    require('../assets/images/shipping/shipping38.jpeg'),
+    require('../assets/images/shipping/shipping39.jpeg'),
+    require('../assets/images/shipping/shipping40.jpeg'),
+    require('../assets/images/shipping/shipping41.jpeg'),
+    require('../assets/images/shipping/shipping42.jpeg'),
+    require('../assets/images/shipping/shipping43.jpeg'),
+  ],
 };
 
 const PHOTOS = buildPhotos();
@@ -137,31 +148,20 @@ const VideosScreen = ({ navigation }) => {
   const COLS = 3;
   const THUMB_W = (winW - 48) / COLS;
 
-  const [activeCategory, setActiveCategory] = useState('Product');
+  const [activeCategory, setActiveCategory] = useState('Manufacturing');
   const [viewerImage, setViewerImage] = useState(null);
   const [clientVisitFolder, setClientVisitFolder] = useState(null); // null = show folders, string = show that folder's images
+  // Manufacturing drill-down:
+  //   null            -> top-level Manufacturing grid (3 cards)
+  //   'factories'     -> show factory folder cards (SEP + TVP)
+  //   <factory-slug>  -> show that factory's images
+  const [manufacturingFolder, setManufacturingFolder] = useState(null);
+  // Shipping drill-down: null -> show folder tiles, string -> that folder's photos
+  const [shippingFolder, setShippingFolder] = useState(null);
+  // Optional 3rd level for client visits that have year sub-folders (e.g. Glover Ghana)
+  const [clientYearFolder, setClientYearFolder] = useState(null);
 
-  const filtered = useMemo(() => {
-    // When inside a client visit folder, show that folder's images
-    if (activeCategory === 'Client Visit' && clientVisitFolder) {
-      const images = CLIENT_VISIT_IMAGES[clientVisitFolder] || [];
-      const data = images.map((img, i) => ({
-        id: `cvi-${clientVisitFolder}-${i}`,
-        title: `${clientVisitFolder} (${i + 1})`,
-        category: 'Client Visit',
-        image: img,
-      }));
-      const remainder = data.length % COLS;
-      if (remainder === 0) return data;
-      const fillers = Array.from({ length: COLS - remainder }, (_, i) => ({
-        id: `filler-${i}`,
-        _filler: true,
-      }));
-      return [...data, ...fillers];
-    }
-
-    const data = activeCategory === 'All' ? PHOTOS : PHOTOS.filter(item => item.category === activeCategory);
-    // Pad incomplete last row with invisible fillers so space-between doesn't leave gaps
+  const padWithFillers = (data) => {
     const remainder = data.length % COLS;
     if (remainder === 0) return data;
     const fillers = Array.from({ length: COLS - remainder }, (_, i) => ({
@@ -169,13 +169,147 @@ const VideosScreen = ({ navigation }) => {
       _filler: true,
     }));
     return [...data, ...fillers];
-  }, [activeCategory, clientVisitFolder]);
+  };
+
+  const filtered = useMemo(() => {
+    // When inside a client visit folder
+    if (activeCategory === 'Client Visit' && clientVisitFolder) {
+      const entry = CLIENT_VISIT_IMAGES[clientVisitFolder];
+
+      // Nested object → first show year sub-folder tiles, then photos for the picked year
+      if (entry && !Array.isArray(entry) && typeof entry === 'object') {
+        if (!clientYearFolder) {
+          const data = Object.keys(entry).map((year) => ({
+            id: `cv-year-${clientVisitFolder}-${year}`,
+            title: year,
+            category: 'Client Visit',
+            image: entry[year][0],
+            _isFolder: true,
+            _isClientYear: true,
+            _folderName: year,
+            _folderCount: entry[year].length,
+          }));
+          return padWithFillers(data);
+        }
+        const images = entry[clientYearFolder] || [];
+        const data = images.map((img, i) => ({
+          id: `cvi-${clientVisitFolder}-${clientYearFolder}-${i}`,
+          title: `${clientVisitFolder} ${clientYearFolder}`,
+          category: 'Client Visit',
+          image: img,
+        }));
+        return padWithFillers(data);
+      }
+
+      // Flat array → just show the photos
+      const images = Array.isArray(entry) ? entry : [];
+      const data = images.map((img, i) => ({
+        id: `cvi-${clientVisitFolder}-${i}`,
+        title: clientVisitFolder,
+        category: 'Client Visit',
+        image: img,
+      }));
+      return padWithFillers(data);
+    }
+
+    // Manufacturing > Manufacturing Facility > factory selector
+    if (activeCategory === 'Manufacturing' && manufacturingFolder === 'factories') {
+      const data = Object.keys(FACTORY_IMAGES).map((slug) => ({
+        id: `factory-folder-${slug}`,
+        title: slug,
+        category: 'Manufacturing',
+        image: FACTORY_IMAGES[slug][0],
+        _isFolder: true,
+        _isFactory: true,
+        _folderName: slug,
+        _folderCount: FACTORY_IMAGES[slug].length,
+      }));
+      return padWithFillers(data);
+    }
+
+    // Manufacturing > Manufacturing Facility > <factory> photos
+    if (activeCategory === 'Manufacturing' && manufacturingFolder && FACTORY_IMAGES[manufacturingFolder]) {
+      const data = FACTORY_IMAGES[manufacturingFolder].map((img, i) => ({
+        id: `fac-${manufacturingFolder}-${i}`,
+        title: `${manufacturingFolder} Facility`,
+        category: 'Manufacturing',
+        image: img,
+      }));
+      return padWithFillers(data);
+    }
+
+    // Manufacturing > R&D Laboratory photos
+    if (activeCategory === 'Manufacturing' && manufacturingFolder === 'lab') {
+      const data = LAB_IMAGES.map((img, i) => ({
+        id: `lab-${i}`,
+        title: 'R&D Laboratory',
+        category: 'Manufacturing',
+        image: img,
+      }));
+      return padWithFillers(data);
+    }
+
+    // Shipping > folder selector
+    if (activeCategory === 'Shipping' && !shippingFolder) {
+      const data = Object.keys(SHIPPING_FOLDERS).map((name) => ({
+        id: `shipping-folder-${name}`,
+        title: name,
+        category: 'Shipping',
+        image: SHIPPING_FOLDERS[name][0],
+        _isFolder: true,
+        _isShipping: true,
+        _folderName: name,
+        _folderCount: SHIPPING_FOLDERS[name].length,
+      }));
+      return padWithFillers(data);
+    }
+
+    // Shipping > <folder> photos
+    if (activeCategory === 'Shipping' && shippingFolder && SHIPPING_FOLDERS[shippingFolder]) {
+      const data = SHIPPING_FOLDERS[shippingFolder].map((img, i) => ({
+        id: `shp-${shippingFolder}-${i}`,
+        title: shippingFolder,
+        category: 'Shipping',
+        image: img,
+      }));
+      return padWithFillers(data);
+    }
+
+    const data = activeCategory === 'All' ? PHOTOS : PHOTOS.filter(item => item.category === activeCategory);
+    return padWithFillers(data);
+  }, [activeCategory, clientVisitFolder, clientYearFolder, manufacturingFolder, shippingFolder]);
 
   // Navigate to relevant page or open image viewer
   const handlePhotoPress = (item) => {
-    // Client Visit folder — drill into it
+    // Manufacturing Facility tile -> show factory selector
+    if (item._isManufacturing && item._isFolder) {
+      setManufacturingFolder('factories');
+      return;
+    }
+    // Factory folder tile -> show that factory's photos
+    if (item._isFactory && item._isFolder) {
+      setManufacturingFolder(item._folderName);
+      return;
+    }
+    // R&D Laboratory tile -> show all lab photos
+    if (item._isLab && item._isFolder) {
+      setManufacturingFolder('lab');
+      return;
+    }
+    // Shipping folder tile -> drill into it
+    if (item._isShipping && item._isFolder) {
+      setShippingFolder(item._folderName);
+      return;
+    }
+    // Client visit year folder (e.g. Glover Ghana > 2025/2026)
+    if (item._isClientYear && item._isFolder) {
+      setClientYearFolder(item._folderName);
+      return;
+    }
+    // Client Visit folder — drill into it (reset any prior year-folder selection)
     if (item._isFolder) {
       setClientVisitFolder(item._folderName);
+      setClientYearFolder(null);
       return;
     }
     if (item.productName) {
@@ -232,7 +366,7 @@ const VideosScreen = ({ navigation }) => {
       onPress={() => handlePhotoPress(item)}>
       <View style={[styles.thumbnail, { height: thumbH, backgroundColor: (CAT_COLORS[item.category] || '#455') + '15' }]}>
         {item.image ? (
-          <Image source={item.image} style={styles.photoImage} resizeMode="contain" />
+          <Image source={item.image} style={styles.photoImage} resizeMode="cover" />
         ) : (
           <Icon name={item.icon || 'image'} size={32} color={CAT_COLORS[item.category] || theme.colors.primary} />
         )}
@@ -249,10 +383,36 @@ const VideosScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Gallery" subtitle={clientVisitFolder ? `${clientVisitFolder} — ${filtered.filter(i => !i._filler).length} photos` : `${filtered.filter(i => !i._filler).length} photos`} onBack={() => {
-        if (clientVisitFolder) { setClientVisitFolder(null); }
-        else { navigation.goBack(); }
-      }} />
+      <Header
+        title="Gallery"
+        subtitle={(() => {
+          const count = filtered.filter(i => !i._filler).length;
+          if (clientYearFolder) return `${clientVisitFolder} ${clientYearFolder} — ${count} photos`;
+          if (clientVisitFolder) return `${clientVisitFolder} — ${count} ${count === 1 ? 'item' : 'photos'}`;
+          if (manufacturingFolder === 'factories') return `Manufacturing Facility — ${count} factories`;
+          if (manufacturingFolder === 'lab') return `R&D Laboratory — ${count} photos`;
+          if (manufacturingFolder) return `${manufacturingFolder} — ${count} photos`;
+          if (shippingFolder) return `${shippingFolder} — ${count} photos`;
+          return `${count} photos`;
+        })()}
+        onBack={() => {
+          if (clientYearFolder) {
+            setClientYearFolder(null);
+          } else if (shippingFolder) {
+            setShippingFolder(null);
+          } else if (manufacturingFolder === 'lab') {
+            setManufacturingFolder(null);
+          } else if (manufacturingFolder && manufacturingFolder !== 'factories') {
+            setManufacturingFolder('factories');
+          } else if (manufacturingFolder === 'factories') {
+            setManufacturingFolder(null);
+          } else if (clientVisitFolder) {
+            setClientVisitFolder(null);
+          } else {
+            navigation.goBack();
+          }
+        }}
+      />
 
       {/* ═══ Category Filter ══════════════════════════════════ */}
       <View style={styles.catListWrap}>
@@ -268,7 +428,7 @@ const VideosScreen = ({ navigation }) => {
               <TouchableOpacity
                 key={cat}
                 style={[styles.catTab, active && { backgroundColor: color, borderColor: color }]}
-                onPress={() => { setActiveCategory(cat); setClientVisitFolder(null); }}
+                onPress={() => { setActiveCategory(cat); setClientVisitFolder(null); setClientYearFolder(null); setManufacturingFolder(null); setShippingFolder(null); }}
                 activeOpacity={0.7}>
                 <Text style={[styles.catTabText, active && styles.catTabTextActive]}>{label}</Text>
               </TouchableOpacity>
@@ -279,7 +439,7 @@ const VideosScreen = ({ navigation }) => {
 
       {/* ═══ Media Grid ════════════════════════════════════════ */}
       <Animated.View
-        key={`${activeCategory}-${clientVisitFolder || ''}`}
+        key={`${activeCategory}-${clientVisitFolder || ''}-${clientYearFolder || ''}-${manufacturingFolder || ''}-${shippingFolder || ''}`}
         entering={FadeIn.duration(220)}
         style={{ flex: 1 }}>
         <FlatList

@@ -9,13 +9,40 @@ import {
   PanResponder,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
+const MIN_SCALE = 1;
+const MAX_SCALE = 4;
+const IMAGE_HEIGHT = SCREEN_HEIGHT * 0.8;
 
 const ImageViewer = React.memo(({visible, imageUri, imageSource, onClose}) => {
+  const insets = useSafeAreaInsets();
   const [scale, setScale] = useState(1);
+  const [translate, setTranslate] = useState({x: 0, y: 0});
+
+  // Refs mirror state so gesture callbacks always see the latest values
+  const scaleRef = useRef(1);
+  const translateRef = useRef({x: 0, y: 0});
   const baseScale = useRef(1);
   const lastDistance = useRef(0);
+  const panStart = useRef({x: 0, y: 0});
+
+  const applyScale = (next) => {
+    scaleRef.current = next;
+    setScale(next);
+  };
+  const applyTranslate = (t) => {
+    translateRef.current = t;
+    setTranslate(t);
+  };
+
+  const reset = () => {
+    applyScale(1);
+    applyTranslate({x: 0, y: 0});
+    baseScale.current = 1;
+    lastDistance.current = 0;
+  };
 
   const getDistance = (touches) => {
     const dx = touches[0].pageX - touches[1].pageX;
@@ -23,77 +50,108 @@ const ImageViewer = React.memo(({visible, imageUri, imageSource, onClose}) => {
     return Math.sqrt(dx * dx + dy * dy);
   };
 
+  // Clamp pan so the image can't be dragged completely off-screen
+  const clampTranslate = (t, s) => {
+    if (s <= 1) return {x: 0, y: 0};
+    const overflowX = (SCREEN_WIDTH * (s - 1)) / 2;
+    const overflowY = (IMAGE_HEIGHT * (s - 1)) / 2;
+    return {
+      x: Math.max(-overflowX, Math.min(overflowX, t.x)),
+      y: Math.max(-overflowY, Math.min(overflowY, t.y)),
+    };
+  };
+
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: (_, gestureState) => {
-        return gestureState.numberActiveTouches === 2;
+        if (gestureState.numberActiveTouches === 2) return true;
+        if (gestureState.numberActiveTouches === 1 && scaleRef.current > 1) {
+          const moved = Math.hypot(gestureState.dx, gestureState.dy);
+          return moved > 4;
+        }
+        return false;
       },
       onPanResponderGrant: (evt) => {
-        if (evt.nativeEvent.touches.length === 2) {
-          lastDistance.current = getDistance(evt.nativeEvent.touches);
-          baseScale.current = scale;
+        const touches = evt.nativeEvent.touches;
+        if (touches.length === 2) {
+          lastDistance.current = getDistance(touches);
+          baseScale.current = scaleRef.current;
+        } else {
+          panStart.current = {...translateRef.current};
         }
       },
-      onPanResponderMove: (evt) => {
-        if (evt.nativeEvent.touches.length === 2) {
-          const distance = getDistance(evt.nativeEvent.touches);
+      onPanResponderMove: (evt, gestureState) => {
+        const touches = evt.nativeEvent.touches;
+        if (touches.length === 2) {
+          const distance = getDistance(touches);
           if (lastDistance.current > 0) {
-            const newScale = baseScale.current * (distance / lastDistance.current);
-            const clampedScale = Math.min(Math.max(newScale, 0.5), 4);
-            setScale(clampedScale);
+            const ratio = distance / lastDistance.current;
+            const next = Math.min(
+              Math.max(baseScale.current * ratio, 0.5),
+              MAX_SCALE,
+            );
+            applyScale(next);
+            applyTranslate(clampTranslate(translateRef.current, next));
           }
+        } else if (scaleRef.current > 1) {
+          applyTranslate(
+            clampTranslate(
+              {
+                x: panStart.current.x + gestureState.dx,
+                y: panStart.current.y + gestureState.dy,
+              },
+              scaleRef.current,
+            ),
+          );
         }
       },
       onPanResponderRelease: () => {
         lastDistance.current = 0;
-        if (scale < 1) {
-          setScale(1);
-          baseScale.current = 1;
+        if (scaleRef.current < MIN_SCALE) {
+          reset();
         } else {
-          baseScale.current = scale;
+          baseScale.current = scaleRef.current;
+          applyTranslate(clampTranslate(translateRef.current, scaleRef.current));
         }
+      },
+      onPanResponderTerminate: () => {
+        lastDistance.current = 0;
+        baseScale.current = scaleRef.current;
       },
     }),
   ).current;
 
   const handleClose = useCallback(() => {
-    setScale(1);
-    baseScale.current = 1;
-    lastDistance.current = 0;
-    if (onClose) {
-      onClose();
-    }
+    reset();
+    if (onClose) onClose();
   }, [onClose]);
-
-  const handleDoubleTap = useCallback(() => {
-    if (scale > 1) {
-      setScale(1);
-      baseScale.current = 1;
-    } else {
-      setScale(2);
-      baseScale.current = 2;
-    }
-  }, [scale]);
 
   const lastTap = useRef(0);
   const handleTap = useCallback(() => {
     const now = Date.now();
     if (now - lastTap.current < 300) {
-      handleDoubleTap();
+      if (scaleRef.current > 1) {
+        reset();
+      } else {
+        applyScale(2);
+        baseScale.current = 2;
+      }
     }
     lastTap.current = now;
-  }, [handleDoubleTap]);
+  }, []);
 
   return (
     <Modal
       visible={visible}
       transparent
       animationType="fade"
+      statusBarTranslucent
+      navigationBarTranslucent
       onRequestClose={handleClose}>
       <View style={styles.container}>
         <TouchableOpacity
-          style={styles.closeButton}
+          style={[styles.closeButton, {top: insets.top + 12, right: insets.right + 16}]}
           onPress={handleClose}
           hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
           <View style={styles.closeCircle}>
@@ -108,7 +166,13 @@ const ImageViewer = React.memo(({visible, imageUri, imageSource, onClose}) => {
                 source={imageSource || {uri: imageUri}}
                 style={[
                   styles.image,
-                  {transform: [{scale}]},
+                  {
+                    transform: [
+                      {translateX: translate.x},
+                      {translateY: translate.y},
+                      {scale},
+                    ],
+                  },
                 ]}
                 resizeMode="contain"
               />
@@ -129,8 +193,6 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    top: 50,
-    right: 20,
     zIndex: 10,
   },
   closeCircle: {
@@ -149,7 +211,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT * 0.8,
+    height: IMAGE_HEIGHT,
   },
 });
 

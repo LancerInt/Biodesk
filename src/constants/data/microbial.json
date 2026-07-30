@@ -3,8 +3,8 @@
     "product_identity": {
       "brand_name": "Mycova",
       "active_ingredient": "Beauveria bassiana",
-      "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "concentration": "1 × 10¹⁰ CFU/g",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
     "product_overview": "Mycova is a biological insecticide based on the naturally occurring entomopathogenic fungus Beauveria bassiana. The fungus infects insect pests by attaching to their outer cuticle, penetrating the body, and multiplying inside the host, ultimately causing the insect's death. Mycova provides effective control against a wide range of insect pests, including aphids, whiteflies, thrips, beetles, and caterpillars. It is valued for its target-specific action, environmental safety, and minimal impact on beneficial organisms. Due to these advantages, Mycova is widely used in Integrated Pest Management (IPM) and sustainable agricultural practices.",
@@ -56,7 +56,7 @@
       "Beetles",
       "Caterpillars (early stages)"
     ],
-    "strain_or_active_strength": "Viable conidial load: 1 × 10⁹ CFU/g.",
+    "strain_or_active_strength": "Viable conidial load: 1 × 10¹⁰ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -70,14 +70,14 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "WP entomopathogenic fungus positioned for early biological suppression of foliar pest complexes where humidity supports infection."
+    "technical_positioning_summary": "WSP entomopathogenic fungus positioned for early biological suppression of foliar pest complexes where humidity supports infection."
   },
   {
     "product_identity": {
       "brand_name": "Rexora",
       "active_ingredient": "Metarhizium anisopliae",
-      "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "concentration": "1 × 10¹⁰ CFU/g",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
     "product_overview": "Rexora is a biological insecticide based on the naturally occurring entomopathogenic fungus Metarhizium anisopliae. The fungus infects insect pests by attaching to their outer cuticle, penetrating the body, and proliferating inside the host, ultimately leading to the insect's death. Rexora is effective against a wide range of soil and foliar insect pests, including termites, beetles, and other soil-dwelling insects. It is valued for its target-specific action, environmental safety, and minimal impact on beneficial organisms. Due to these properties, Rexora is suitable for Integrated Pest Management (IPM) and sustainable agricultural practices.",
@@ -129,7 +129,7 @@
       "Weevils",
       "Grasshoppers"
     ],
-    "strain_or_active_strength": "Viable conidial load: 1 × 10⁹ CFU/g.",
+    "strain_or_active_strength": "Viable conidial load: 1 × 10¹⁰ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -143,17 +143,17 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "Metarhizium WP positioned for biological management of persistent insect populations, particularly where soil-associated stages are important."
+    "technical_positioning_summary": "Metarhizium WSP positioned for biological management of persistent insect populations, particularly where soil-associated stages are important."
   },
   {
     "product_identity": {
-      "brand_name": "Biota-V",
-      "active_ingredient": "Trichoderma viride",
-      "concentration": "1 × 10⁸ CFU/g",
-      "formulation_type": "WP",
+      "brand_name": "Biota",
+      "active_ingredient": "Trichoderma asperellum",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Biota-V is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma viride. It works by colonizing the plant root zone and suppressing soil-borne fungal pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Biota-V helps control diseases caused by pathogens like Fusarium, Rhizoctonia, Pythium, and Sclerotium. In addition to disease suppression, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in sustainable agriculture and Integrated Disease Management (IDM) programs due to its environmental safety and compatibility with organic farming practices.",
+    "product_overview": "Biota is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma asperellum. It works by colonizing the plant root zone and suppressing soil-borne fungal pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Biota helps control diseases caused by pathogens like Fusarium, Rhizoctonia, Pythium, and Sclerotium. In addition to disease suppression, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in sustainable agriculture and Integrated Disease Management (IDM) programs due to its environmental safety and compatibility with organic farming practices.",
     "key_product_highlights": [
       "Acts as a biological fungicide against soil pathogens",
       "Produces antifungal compounds to suppress harmful fungi",
@@ -200,7 +200,7 @@
       "Collar rot",
       "Seedling blight"
     ],
-    "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
+    "strain_or_active_strength": "Viable propagule load: 1 × 10⁹ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -214,14 +214,14 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "T. viride WP positioned as a preventive soil biocontrol input for nursery protection, basal application, and early root-zone disease suppression."
+    "technical_positioning_summary": "T. asperellum WSP positioned as a preventive soil biocontrol input for nursery protection, basal application, and early root-zone disease suppression."
   },
   {
     "product_identity": {
       "brand_name": "Biota-H",
       "active_ingredient": "Trichoderma harzianum",
-      "concentration": "1 × 10⁸ CFU/g",
-      "formulation_type": "WP",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
     "product_overview": "Biota-H is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma harzianum. It colonizes the plant rhizosphere and suppresses soil-borne plant pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Biota-H helps manage diseases caused by pathogens like Fusarium, Pythium, Rhizoctonia, and Sclerotium. In addition to disease control, it enhances root growth, improves nutrient availability, and promotes overall plant health and vigor. It is widely used in sustainable agriculture, Integrated Disease Management (IDM), and organic farming systems.",
@@ -271,7 +271,7 @@
       "Collar rot",
       "Seedling blight"
     ],
-    "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
+    "strain_or_active_strength": "Viable propagule load: 1 × 10⁹ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -285,91 +285,14 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "T. harzianum WP positioned for preventive rhizosphere occupation and sustained suppression of soil-borne disease complexes."
-  },
-  {
-    "product_identity": {
-      "brand_name": "Neuvita",
-      "active_ingredient": "Pseudomonas fluorescens",
-      "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
-      "category": "Microbial Pesticide"
-    },
-    "product_overview": "Neuvita is a biological plant protection product based on the beneficial bacterium Pseudomonas fluorescens, which colonizes the plant rhizosphere and helps suppress soil-borne pathogens while promoting plant growth, improving nutrient uptake, and enhancing overall plant health in sustainable agricultural systems.",
-    "key_product_highlights": [
-      "Acts as a biological control agent (biofungicide)",
-      "Produces antibiotics and siderophores to suppress pathogens",
-      "Promotes root growth and plant vigor (PGPR effect)",
-      "Enhances nutrient uptake and soil health",
-      "Induces systemic resistance (ISR) in plants",
-      "Reduces dependency on chemical fungicides",
-      "Suitable for organic farming and IPM programs",
-      "Improves crop yield and quality"
-    ],
-    "mechanism_of_action": {
-      "description": "Pseudomonas fluorescens colonizes the rhizosphere and root surface, competes for iron through siderophore production, and suppresses pathogens via antibiotics, lytic enzymes, and other secondary metabolites. This microbial occupation also primes plant defense responses and reduces the activity of root-zone pathogens."
-    },
-    "dilution_dosage_per_acre": [
-      {
-        "crop_stage": "Basal soil application or transplant stage",
-        "dose_per_acre": "1.0-2.0 kg/acre",
-        "water_volume": "NA; 25-50 kg compost carrier or drip water",
-        "application_method": "Soil incorporation, furrow application, or root-zone drench"
-      },
-      {
-        "crop_stage": "Nursery or early crop establishment",
-        "dose_per_acre": "500-750 g/acre",
-        "water_volume": "100-150 L",
-        "application_method": "Root-zone drench around seedlings or transplant lines"
-      }
-    ],
-    "application_repeatability": [
-      {
-        "application_timing": "At sowing, transplanting, or root-zone preparation",
-        "frequency": "One preventive application",
-        "recommendation": "Apply before the root zone becomes pathogen dominated."
-      },
-      {
-        "application_timing": "During extended wet conditions or recurring nursery disease",
-        "frequency": "Repeat after 20-30 days if needed",
-        "recommendation": "Reinforce colonization where irrigation or stress favors pathogen resurgence."
-      }
-    ],
-    "targets": [
-      "Damping-off",
-      "Root rot",
-      "Wilt diseases",
-      "Leaf spot",
-      "Blight (early stage)",
-      "Fusarium spp.",
-      "Rhizoctonia solani",
-      "Pythium spp.",
-      "Phytophthora spp.",
-      "Sclerotium rolfsii",
-      "Alternaria spp."
-    ],
-    "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
-    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
-    "problem_solution": [
-      {
-        "problem": "Soil-borne pathogens are reducing root establishment and early stand.",
-        "solution": "Apply to establish a competitive rhizosphere that suppresses pathogen development."
-      },
-      {
-        "problem": "Nursery disease pressure remains high under repeated wetting cycles.",
-        "solution": "Use a follow-up drench to sustain beneficial colonization around the young root system."
-      }
-    ],
-    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "P. fluorescens WP positioned for nursery, transplant, and rhizosphere health programs where preventive biological root-zone suppression is required."
+    "technical_positioning_summary": "T. harzianum WSP positioned for preventive rhizosphere occupation and sustained suppression of soil-borne disease complexes."
   },
   {
     "product_identity": {
       "brand_name": "Seira",
       "active_ingredient": "Verticillium lecanii",
-      "concentration": "1 × 10⁸ CFU/g",
-      "formulation_type": "WP",
+      "concentration": "1 × 10¹⁰ CFU/g",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
     "product_overview": "Seira is a biological insecticide based on the entomopathogenic fungus Verticillium lecanii, which infects and controls soft-bodied insect pests by penetrating the cuticle, multiplying within the host, and causing pest mortality, thereby supporting sustainable and environmentally responsible crop protection. Seira is widely used in Integrated Pest Management (IPM) and sustainable agriculture systems.",
@@ -419,7 +342,7 @@
       "Mealybugs",
       "Scale insects"
     ],
-    "strain_or_active_strength": "Viable conidial load: 1 × 10⁸ CFU/g.",
+    "strain_or_active_strength": "Viable conidial load: 1 × 10¹⁰ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -433,14 +356,14 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "V. lecanii WP positioned for biological suppression of sucking pest colonies in humid canopy environments."
+    "technical_positioning_summary": "V. lecanii WSP positioned for biological suppression of sucking pest colonies in humid canopy environments."
   },
   {
     "product_identity": {
       "brand_name": "EnCilo",
       "active_ingredient": "Purpureocillium lilacinum (1 × 10¹⁰ CFU/g)",
-      "concentration": "1 × 10⁸ CFU/g",
-      "formulation_type": "WP",
+      "concentration": "1 × 10¹⁰ CFU/g",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
     "product_overview": "EnCilo is a biological nematicide formulated with the beneficial fungus Verticillium chlamydosporium. It acts by parasitizing and degrading the eggs and reproductive structures of plant-parasitic nematodes. This activity helps disrupt the nematode life cycle and reduce soil infestation levels. EnCilo supports healthier root development and improved plant vigor. It is widely used in sustainable agriculture and Integrated Nematode Management (INM) programs.",
@@ -489,7 +412,7 @@
       "Lesion nematodes (Pratylenchus spp.)",
       "Burrowing nematodes"
     ],
-    "strain_or_active_strength": "Viable propagule load: 1 × 10⁸ CFU/g.",
+    "strain_or_active_strength": "Viable propagule load: 1 × 10¹⁰ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -503,14 +426,14 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "Nematophagous fungal WP positioned for preventive management of root-zone nematodes where egg parasitism is agronomically important."
+    "technical_positioning_summary": "Nematophagous fungal WSP positioned for preventive management of root-zone nematodes where egg parasitism is agronomically important."
   },
   {
     "product_identity": {
       "brand_name": "Subtilix",
       "active_ingredient": "Bacillus subtilis",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
     "product_overview": "Subtilix is a biological fungicide and plant growth–promoting agent based on the beneficial bacterium Bacillus subtilis. It suppresses a wide range of soil-borne and foliar fungal pathogens through the production of natural antibiotics, lipopeptides, and competitive colonization. Subtilix helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. In addition to disease control, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in Integrated Disease Management (IDM) and sustainable agriculture systems.",
@@ -575,14 +498,85 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "B. subtilis WP positioned for preventive foliar and root-zone disease management where rapid surface colonization and metabolite production are needed."
+    "technical_positioning_summary": "B. subtilis WSP positioned for preventive foliar and root-zone disease management where rapid surface colonization and metabolite production are needed."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Neuvita",
+      "active_ingredient": "Pseudomonas fluorescens",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WSP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Neuvita is a biological plant protection product based on the beneficial bacterium Pseudomonas fluorescens, which colonizes the plant rhizosphere and helps suppress soil-borne pathogens while promoting plant growth, improving nutrient uptake, and enhancing overall plant health in sustainable agricultural systems.",
+    "key_product_highlights": [
+      "Acts as a biological control agent for soil-borne pathogens",
+      "Colonizes the rhizosphere and forms protective microbial shield",
+      "Produces siderophores that limit iron availability to pathogens",
+      "Induces systemic resistance in plants (ISR)",
+      "Enhances root growth and nutrient uptake efficiency",
+      "Improves soil microbial balance and plant vigor",
+      "Reduces dependency on chemical fungicides",
+      "Compatible with organic farming and IPM programs"
+    ],
+    "mechanism_of_action": {
+      "description": "Pseudomonas fluorescens colonizes plant roots and the rhizosphere, forming a protective microbial shield on root surfaces. It suppresses fungal pathogens through the production of antimicrobial metabolites and siderophores that bind iron and limit its availability to competing pathogens. It also induces systemic resistance in the plant, strengthening its natural defense response."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Seed treatment or nursery stage",
+        "dose_per_acre": "10 g/kg seed",
+        "water_volume": "As slurry for seed coating",
+        "application_method": "Seed treatment or seedling root dip before sowing/transplanting"
+      },
+      {
+        "crop_stage": "Established crop with root-zone disease risk",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "150-200 L",
+        "application_method": "Soil drench, drip application, or root-zone delivery"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or early crop establishment",
+        "frequency": "Foundational application",
+        "recommendation": "Apply early to establish rhizosphere colonization before pathogen pressure builds."
+      },
+      {
+        "application_timing": "During active vegetative growth under disease risk",
+        "frequency": "Repeat every 15-20 days if required",
+        "recommendation": "Reapply to sustain protective microbial populations in the root zone."
+      }
+    ],
+    "targets": [
+      "Fusarium spp.",
+      "Rhizoctonia solani",
+      "Pythium spp.",
+      "Sclerotium rolfsii",
+      "Macrophomina phaseolina"
+    ],
+    "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
+    "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
+    "problem_solution": [
+      {
+        "problem": "Soil-borne diseases recur despite crop rotation and sanitation.",
+        "solution": "Establish P. fluorescens early to occupy the root zone and antagonize pathogens through competition and siderophore activity."
+      },
+      {
+        "problem": "Nutrient uptake efficiency drops in high-pressure disease environments.",
+        "solution": "Use follow-up applications to sustain rhizosphere colonization and support root health."
+      }
+    ],
+    "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
+    "technical_positioning_summary": "Rhizosphere-active Pseudomonas WSP positioned for preventive soil-borne disease management and plant growth promotion where early root-zone establishment is critical."
   },
   {
     "product_identity": {
       "brand_name": "Elixora",
       "active_ingredient": "Bacillus amyloliquefaciens",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
     "product_overview": "Elixora is a biological fungicide and plant growth–promoting bioagent based on the beneficial bacterium Bacillus amyloliquefaciens. It suppresses a wide range of soil-borne and foliar fungal pathogens through the production of antimicrobial compounds, enzymes, and competitive colonization of the root zone. Elixora helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. It also enhances root development, nutrient uptake, and overall plant vigor. It is widely used in Integrated Disease Management (IDM) and sustainable agricultural practices.",
@@ -646,6 +640,42 @@
       }
     ],
     "storage_safety": "Store sealed in a cool, dry, shaded place and avoid heat, sunlight, and moisture that reduce viability.",
-    "technical_positioning_summary": "B. amyloliquefaciens WP positioned for preventive, broad-spectrum biological disease management where metabolite-producing Bacillus strains are preferred."
+    "technical_positioning_summary": "B. amyloliquefaciens WSP positioned for preventive, broad-spectrum biological disease management where metabolite-producing Bacillus strains are preferred."
+  },
+  {
+    "product_identity": {
+      "brand_name": "Ecoviz",
+      "active_ingredient": "Isaria fumosorosea",
+      "concentration": "1 × 10¹⁰ CFU/g",
+      "formulation_type": "WSP",
+      "category": "Microbial Pesticide"
+    },
+    "product_overview": "Ecoviz™ harnesses Isaria fumosorosea to biologically control a broad range of damaging insect pests for sustainable crop protection.\n\nEcoviz™ is a biological insect-control solution containing Isaria fumosorosea, a naturally occurring entomopathogenic fungus. It infects susceptible insect pests by attaching to their outer surface, penetrating the cuticle and multiplying within the host. Ecoviz™ helps manage whiteflies, aphids, thrips, mealybugs and other soft-bodied pests, supporting healthy crops and sustainable pest-management practices.",
+    "key_product_highlights": [
+      "Entomopathogenic fungus (Isaria fumosorosea) at 1 × 10¹⁰ CFU/g",
+      "Effective against whitefly, aphids, thrips, mites, and other soft-bodied pests",
+      "Colonises the insect via cuticle penetration and internal mycosis",
+      "Compatible with most biological IPM programs",
+      "Safe for beneficial insects and pollinators",
+      "Approved for organic and residue-free cultivation"
+    ],
+    "mechanism_of_action": {
+      "description": "Isaria fumosorosea conidia adhere to the insect cuticle, germinate under favourable humidity, penetrate through the exoskeleton via mechanical pressure and enzyme activity, and multiply inside the haemocoel until the host dies of mycosis. Sporulation on the cadaver produces secondary inoculum for continued suppression."
+    },
+    "dilution_dosage_per_acre": [],
+    "application_repeatability": [],
+    "targets": [
+      "Whitefly",
+      "Aphid",
+      "Thrips",
+      "Mealybug",
+      "Mite"
+    ],
+    "strain_or_active_strength": "Isaria fumosorosea, minimum 1 × 10¹⁰ CFU/g",
+    "shelf_life_statement": "Best used within 12 months of manufacture. Store in a cool, dry place away from direct sunlight.",
+    "compatibility_statement": "Compatible with most biopesticides and biostimulants. Avoid tank-mixing with chemical fungicides.",
+    "problem_solution": [],
+    "storage_safety": "Store in a cool, dry place below 30 °C, away from direct sunlight and chemical fertilisers.",
+    "technical_positioning_summary": "A powerful biological solution derived from nature, providing effective control of key insect pests while supporting healthier crops and sustainable agriculture."
   }
 ]

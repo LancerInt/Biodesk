@@ -33,8 +33,8 @@ const isTablet = screenWidth >= 768;
 // Category-based listing from Excel "List of Products"
 // ═══════════════════════════════════════════════════════════════
 
-const ProductsScreen = ({ navigation }) => {
-  const [activeCategory, setActiveCategory] = useState('All');
+const ProductsScreen = ({ navigation, route }) => {
+  const [activeCategory, setActiveCategory] = useState(route?.params?.initialCategory || 'All');
   const [searchQuery, setSearchQuery] = useState('');
 
   // ─── Filtered + grouped data ─────────────────────────────────
@@ -148,7 +148,7 @@ const ProductsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Products"
+        title="Portfolio"
         subtitle={`${totalCount} product${totalCount !== 1 ? 's' : ''}`}
         onBack={() => navigation.goBack()}
       />

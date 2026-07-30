@@ -227,6 +227,43 @@ const CertificateViewerScreen = ({ route, navigation }) => {
     document.getElementById('zoom-in').addEventListener('click', function() { applyZoom(currentZoom + 0.25); });
     document.getElementById('zoom-out').addEventListener('click', function() { applyZoom(currentZoom - 0.25); });
 
+    // ── Pinch-to-zoom (two-finger gesture) ─────────────────────
+    var lastTouchDistance = 0;
+    var initialZoomOnPinch = 1;
+    function dist(touches) {
+      var dx = touches[0].pageX - touches[1].pageX;
+      var dy = touches[0].pageY - touches[1].pageY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+    document.body.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        lastTouchDistance = dist(e.touches);
+        initialZoomOnPinch = currentZoom;
+      }
+    }, { passive: false });
+    document.body.addEventListener('touchmove', function(e) {
+      if (e.touches.length === 2 && lastTouchDistance > 0) {
+        e.preventDefault();
+        var d = dist(e.touches);
+        applyZoom(initialZoomOnPinch * (d / lastTouchDistance));
+      }
+    }, { passive: false });
+    document.body.addEventListener('touchend', function(e) {
+      if (e.touches.length < 2) lastTouchDistance = 0;
+    });
+
+    // ── Double-tap to toggle zoom ──────────────────────────────
+    var lastTap = 0;
+    document.body.addEventListener('touchend', function(e) {
+      if (e.touches.length > 0) return;
+      var now = Date.now();
+      if (now - lastTap < 300) {
+        applyZoom(currentZoom > 1 ? 1 : 2);
+      }
+      lastTap = now;
+    });
+
     // Load PDF via XHR — works because this HTML is loaded from file:// origin
     var xhr = new XMLHttpRequest();
     xhr.open('GET', PDF_FILE_URI, true);
@@ -358,6 +395,7 @@ const CertificateViewerScreen = ({ route, navigation }) => {
         scalesPageToFit
         setBuiltInZoomControls
         setDisplayZoomControls={false}
+        useWideViewPort
         nestedScrollEnabled
       />
     );

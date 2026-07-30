@@ -4,10 +4,10 @@
       "brand_name": "IGreen NPK",
       "active_ingredient": "Microbial consortium",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen NPK is a microbial consortium-based biofertilizer containing beneficial bacteria Azotobacter chroococcum, Bacillus megaterium, and Frateuria aurantia. It enhances nitrogen fixation, phosphorus solubilization, and potassium mobilization in soil. The formulation improves nutrient availability and uptake efficiency for better plant growth and yield. It also promotes root development and soil microbial activity. IGreen NPK is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
+    "product_overview": "IGreen NPK is a microbial consortium-based biofertilizer containing beneficial bacteria Bacillus polymyxa, Bacillus megaterium, and Bacillus mucilaginosus. It enhances nitrogen fixation, phosphorus solubilization, and potassium mobilization in soil. The formulation improves nutrient availability and uptake efficiency for better plant growth and yield. It also promotes root development and soil microbial activity. IGreen NPK is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
     "key_product_highlights": [
       "Enhances availability of nitrogen, phosphorus, and potassium",
       "Improves nutrient uptake and use efficiency",
@@ -67,7 +67,7 @@
       "brand_name": "IGreen SHIELD",
       "active_ingredient": "Microbial consortium",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Biofertilizer"
     },
     "product_overview": "IGreen SHIELD is a biological plant protection product formulated with a consortium of beneficial bacteria, including Bacillus licheniformis, Bacillus amyloliquefaciens, and Bacillus subtilis. It acts through antagonism, competitive colonization, and production of antimicrobial compounds to suppress a wide range of soil-borne and foliar pathogens. The formulation helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. It also enhances root health, plant vigor, and natural defense mechanisms.",
@@ -127,22 +127,22 @@
   {
     "product_identity": {
       "brand_name": "IGreen N",
-      "active_ingredient": "Microbial consortium",
+      "active_ingredient": "Azotobacter chroococcum",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen N is a microbial nitrogen-fixing biofertilizer formulated with beneficial bacterial strains Azotobacter chroococcum, Azospirillum brasilense, and Rhizobium spp. It enhances biological nitrogen fixation in soil and within the plant rhizosphere. The formulation improves nitrogen availability, root development, and overall plant growth performance. It also supports better nutrient uptake efficiency and soil microbial activity. IGreen N is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
+    "product_overview": "IGreen N is a single-nutrient biofertilizer based on the beneficial bacterium Azotobacter chroococcum, formulated for targeted nitrogen management. It fixes atmospheric nitrogen and makes it available to the plant, reducing dependence on synthetic urea and boosting vegetative growth. It is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
     "key_product_highlights": [
-      "Enhances biological nitrogen fixation naturally",
-      "Improves nitrogen availability in the soil",
-      "Promotes strong root and shoot growth",
-      "Boosts soil microbial activity and fertility",
-      "Reduces dependency on chemical fertilizers",
-      "Improves crop yield and overall productivity"
+      "Delivers targeted nitrogen nutrition through biological atmospheric nitrogen fixation",
+      "Improves nutrient uptake efficiency and crop response",
+      "Reduces dependence on synthetic fertilizers",
+      "Enhances root development and rhizosphere activity",
+      "Compatible with organic farming and INM programs",
+      "Improves crop yield and produce quality"
     ],
     "mechanism_of_action": {
-      "description": "The consortium colonizes the rhizosphere and root surface, fixes atmospheric nitrogen through associative diazotrophic members, and supports microbial nutrient cycling that improves nitrogen conversion and uptake. Supportive nutrient solubilization in the root zone further enhances the efficiency of applied fertilizer nitrogen."
+      "description": "Azotobacter chroococcum colonizes the rhizosphere and non-symbiotically fixes atmospheric N2 into plant-available ammonia through nitrogenase enzyme activity. It also secretes plant growth-promoting substances including auxins, gibberellins, and vitamins that stimulate root development and shoot vigor."
     },
     "dilution_dosage_per_acre": [
       {
@@ -152,7 +152,7 @@
         "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
       },
       {
-        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "crop_stage": "Active vegetative or reproductive stage",
         "dose_per_acre": "1.0 kg/acre",
         "water_volume": "100-150 L",
         "application_method": "Root-zone drench or drip application near feeder roots"
@@ -162,12 +162,12 @@
       {
         "application_timing": "At sowing, transplanting, or basal land preparation",
         "frequency": "One foundational application",
-        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+        "recommendation": "Introduce the nitrogen-active strain early so rhizosphere colonization aligns with nutrient demand."
       },
       {
         "application_timing": "During active vegetative growth or after heavy leaching",
         "frequency": "Repeat after 20-30 days if required",
-        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+        "recommendation": "Reapply to sustain nitrogen mobilization when crop demand or nutrient loss remains high."
       }
     ],
     "targets": [],
@@ -176,36 +176,36 @@
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
-        "problem": "The crop shows pale canopy color and weak vegetative response despite fertilization.",
-        "solution": "Use the nitrogen-focused consortium to improve biological N contribution and root uptake efficiency."
+        "problem": "Applied nitrogen fertilizer is not being fully absorbed by the crop.",
+        "solution": "Introduce Azotobacter chroococcum to improve biological nitrogen availability and root uptake efficiency."
       },
       {
-        "problem": "Nitrogen losses reduce the return from applied fertilizers.",
-        "solution": "Apply early and repeat if needed to strengthen rhizosphere cycling and nitrogen availability."
+        "problem": "Soil biological activity is low and nutrient release is slow.",
+        "solution": "Apply early to establish rhizosphere colonization and support sustained nutrient cycling."
       }
     ],
     "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
-    "technical_positioning_summary": "Nitrogen-oriented consortium positioned to improve biological N supply, canopy vigor, and total nitrogen-use efficiency."
+    "technical_positioning_summary": "Nitrogen-fixing biofertilizer positioned as a base biological input for crops with high N demand where synthetic nitrogen use needs to be reduced."
   },
   {
     "product_identity": {
       "brand_name": "IGreen P",
-      "active_ingredient": "Microbial consortium",
+      "active_ingredient": "Bacillus megaterium",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen P is a phosphate-solubilizing biofertilizer formulated with beneficial bacterial strains Bacillus megaterium and Bacillus polymyxa. It enhances the solubilization of insoluble soil phosphates, making phosphorus more available to plants. The formulation improves root development, nutrient uptake efficiency, and overall plant growth performance. It also supports better soil microbial activity and soil fertility improvement. IGreen P is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
+    "product_overview": "IGreen P is a single-nutrient biofertilizer based on the beneficial bacterium Bacillus megaterium, formulated for targeted phosphorus management. It solubilizes bound and insoluble soil phosphorus, releasing it into forms the plant can absorb — improving root development and fruit/grain formation. It is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
     "key_product_highlights": [
-      "Enhances phosphorus availability in the soil",
-      "Improves nutrient uptake and utilization efficiency",
-      "Promotes strong root growth and development",
-      "Stimulates beneficial soil microbial activity",
-      "Improves soil fertility and structure",
-      "Increases crop yield and overall productivity"
+      "Delivers targeted phosphorus nutrition through biological phosphorus solubilization",
+      "Improves nutrient uptake efficiency and crop response",
+      "Reduces dependence on synthetic fertilizers",
+      "Enhances root development and rhizosphere activity",
+      "Compatible with organic farming and INM programs",
+      "Improves crop yield and produce quality"
     ],
     "mechanism_of_action": {
-      "description": "The consortium colonizes the rhizosphere and solubilizes insoluble phosphorus through organic acid production and allied microbial nutrient cycling processes. Supportive associative nitrogen fixation and root-zone colonization improve total nutrient capture, while released phosphate becomes more available for root uptake."
+      "description": "Bacillus megaterium secretes organic acids and phosphatase enzymes in the rhizosphere that solubilize fixed inorganic phosphates and mineralize organic phosphorus compounds. This releases plant-available orthophosphate ions, enhancing P uptake efficiency and reducing dependence on chemical phosphate fertilizers."
     },
     "dilution_dosage_per_acre": [
       {
@@ -215,7 +215,7 @@
         "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
       },
       {
-        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "crop_stage": "Active vegetative or reproductive stage",
         "dose_per_acre": "1.0 kg/acre",
         "water_volume": "100-150 L",
         "application_method": "Root-zone drench or drip application near feeder roots"
@@ -225,12 +225,12 @@
       {
         "application_timing": "At sowing, transplanting, or basal land preparation",
         "frequency": "One foundational application",
-        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+        "recommendation": "Introduce the phosphorus-active strain early so rhizosphere colonization aligns with nutrient demand."
       },
       {
         "application_timing": "During active vegetative growth or after heavy leaching",
         "frequency": "Repeat after 20-30 days if required",
-        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+        "recommendation": "Reapply to sustain phosphorus mobilization when crop demand or nutrient loss remains high."
       }
     ],
     "targets": [],
@@ -239,37 +239,36 @@
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
-        "problem": "Soil tests indicate phosphorus reserves but crop response remains weak.",
-        "solution": "Apply the consortium to convert fixed phosphate into more plant-available forms."
+        "problem": "Applied phosphorus fertilizer is not being fully absorbed by the crop.",
+        "solution": "Introduce Bacillus megaterium to improve biological phosphorus availability and root uptake efficiency."
       },
       {
-        "problem": "Root growth is slow in P-fixing or calcareous soils.",
-        "solution": "Use as a basal and early vegetative input to improve rhizosphere P availability."
+        "problem": "Soil biological activity is low and nutrient release is slow.",
+        "solution": "Apply early to establish rhizosphere colonization and support sustained nutrient cycling."
       }
     ],
     "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
-    "technical_positioning_summary": "Phosphorus-solubilizing consortium positioned for low-P efficiency soils and stronger root establishment."
+    "technical_positioning_summary": "Phosphorus-solubilizing biofertilizer positioned for soils with high fixed P reserves or where synthetic phosphate efficiency needs to be improved."
   },
   {
     "product_identity": {
       "brand_name": "IGreen K",
-      "active_ingredient": "Microbial consortium",
+      "active_ingredient": "Frateuria aurantia",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen K is a potassium-mobilizing biofertilizer formulated with beneficial bacterial strains Frateuria aurantia and Bacillus mucilaginosus. It enhances the release and solubilization of fixed soil potassium, making it more available for plant uptake. The formulation improves nutrient efficiency, root growth, and overall crop development. It also supports better soil fertility and microbial activity in the rhizosphere. IGreen K is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
+    "product_overview": "IGreen K is a single-nutrient biofertilizer based on the beneficial bacterium Frateuria aurantia, formulated for targeted potassium management. It mobilizes bound soil potassium from silicate minerals and clay, improving plant K uptake for stronger stalks, better yield, and enhanced quality parameters. It is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
     "key_product_highlights": [
-      "Enhances availability of soil-bound potassium to plants",
-      "Improves nutrient uptake and utilization efficiency",
-      "Promotes strong root and shoot development",
-      "Increases crop yield and quality",
-      "Stimulates beneficial soil microbial activity",
-      "Improves plant tolerance to stress conditions",
-      "Supports sustainable and eco-friendly farming practices"
+      "Delivers targeted potassium nutrition through biological potassium mobilization",
+      "Improves nutrient uptake efficiency and crop response",
+      "Reduces dependence on synthetic fertilizers",
+      "Enhances root development and rhizosphere activity",
+      "Compatible with organic farming and INM programs",
+      "Improves crop yield and produce quality"
     ],
     "mechanism_of_action": {
-      "description": "The consortium colonizes the rhizosphere, mobilizes potassium from mineral fractions through organic acid and chelation-mediated processes, and supports microbial nutrient cycling around roots. Supportive nitrogen-fixing and nutrient-solubilizing members improve total nutrient capture while increasing access to plant-available potassium."
+      "description": "Frateuria aurantia produces organic acids and exopolysaccharides that weather potassium-bearing silicate minerals and release K+ ions from clay lattices into the soil solution. This mobilized potassium becomes readily available for root uptake, improving crop tolerance to drought and disease."
     },
     "dilution_dosage_per_acre": [
       {
@@ -279,7 +278,7 @@
         "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
       },
       {
-        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "crop_stage": "Active vegetative or reproductive stage",
         "dose_per_acre": "1.0 kg/acre",
         "water_volume": "100-150 L",
         "application_method": "Root-zone drench or drip application near feeder roots"
@@ -289,12 +288,12 @@
       {
         "application_timing": "At sowing, transplanting, or basal land preparation",
         "frequency": "One foundational application",
-        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+        "recommendation": "Introduce the potassium-active strain early so rhizosphere colonization aligns with nutrient demand."
       },
       {
         "application_timing": "During active vegetative growth or after heavy leaching",
         "frequency": "Repeat after 20-30 days if required",
-        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+        "recommendation": "Reapply to sustain potassium mobilization when crop demand or nutrient loss remains high."
       }
     ],
     "targets": [],
@@ -303,99 +302,36 @@
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
-        "problem": "The crop shows weak K response despite moderate soil potassium reserves.",
-        "solution": "Use the consortium to mobilize mineral-bound K and improve root access."
+        "problem": "Applied potassium fertilizer is not being fully absorbed by the crop.",
+        "solution": "Introduce Frateuria aurantia to improve biological potassium availability and root uptake efficiency."
       },
       {
-        "problem": "Fruit, tuber, or grain quality traits are constrained by poor K efficiency.",
-        "solution": "Apply as a root-zone biofertility input to improve potassium cycling and uptake."
+        "problem": "Soil biological activity is low and nutrient release is slow.",
+        "solution": "Apply early to establish rhizosphere colonization and support sustained nutrient cycling."
       }
     ],
     "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
-    "technical_positioning_summary": "Potassium-mobilizing consortium positioned for soils where native K is present but poorly available to crops."
-  },
-  {
-    "product_identity": {
-      "brand_name": "IGreen Zn",
-      "active_ingredient": "Microbial consortium",
-      "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
-      "category": "Biofertilizer"
-    },
-    "product_overview": "IGreen Zn is a zinc-solubilizing biofertilizer formulated with beneficial bacterial strains Bacillus subtilis and Bacillus megaterium. It enhances the conversion of insoluble soil zinc into plant-available forms. The formulation improves zinc uptake efficiency, root development, and overall plant growth performance. It also supports better enzyme activity, chlorophyll formation, and crop productivity. IGreen Zn is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
-    "key_product_highlights": [
-      "Enhances zinc availability in the soil",
-      "Corrects zinc deficiency in crops",
-      "Improves nutrient uptake and utilization",
-      "Promotes strong root growth and development",
-      "Boosts crop yield and quality",
-      "Supports sustainable and eco-friendly farming"
-    ],
-    "mechanism_of_action": {
-      "description": "The consortium colonizes the rhizosphere and solubilizes zinc-bearing compounds through acidification, chelation, and active microbial nutrient cycling. Supportive nitrogen-fixing and nutrient-mobilizing members maintain root-zone activity, resulting in improved zinc availability and more efficient plant uptake."
-    },
-    "dilution_dosage_per_acre": [
-      {
-        "crop_stage": "Basal soil application or early crop establishment",
-        "dose_per_acre": "1.0-2.0 kg/acre",
-        "water_volume": "NA; 25-50 kg compost carrier or drip water",
-        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
-      },
-      {
-        "crop_stage": "Active vegetative stage or nutrient top-up",
-        "dose_per_acre": "1.0 kg/acre",
-        "water_volume": "100-150 L",
-        "application_method": "Root-zone drench or drip application near feeder roots"
-      }
-    ],
-    "application_repeatability": [
-      {
-        "application_timing": "At sowing, transplanting, or basal land preparation",
-        "frequency": "One foundational application",
-        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
-      },
-      {
-        "application_timing": "During active vegetative growth or after heavy leaching",
-        "frequency": "Repeat after 20-30 days if required",
-        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
-      }
-    ],
-    "targets": [],
-    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
-    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
-    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
-    "problem_solution": [
-      {
-        "problem": "The crop shows zinc-related chlorosis or weak early growth in high-pH soils.",
-        "solution": "Apply the consortium to improve Zn solubilization and root uptake."
-      },
-      {
-        "problem": "Micronutrient applications are giving inconsistent response.",
-        "solution": "Use a root-zone microbial program to improve Zn availability and retention near feeder roots."
-      }
-    ],
-    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
-    "technical_positioning_summary": "Zinc-solubilizing consortium positioned for high-pH or Zn-deficient soils where root access to micronutrients is limited."
+    "technical_positioning_summary": "Potassium-mobilizing biofertilizer positioned for K-hungry crops like banana, sugarcane, and horticultural produce where mineral K reserves are locked up."
   },
   {
     "product_identity": {
       "brand_name": "IGreen S",
-      "active_ingredient": "Microbial consortium",
+      "active_ingredient": "Thiobacillus thiooxidans",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen S is a biological sulfur-oxidizing biofertilizer formulated with the beneficial bacterium Acidithiobacillus ferrooxidans. It enhances the oxidation of elemental sulfur and conversion into plant-available sulfate forms in the soil. The formulation helps improve sulfur nutrition, chlorophyll synthesis, and overall plant metabolic activity. It also supports better soil fertility and microbial balance in the rhizosphere. IGreen S is widely used in Integrated Nutrient Management (INM) and sustainable agricultural systems.",
+    "product_overview": "IGreen S is a single-nutrient biofertilizer based on the beneficial bacterium Thiobacillus thiooxidans, formulated for targeted sulfur management. It oxidizes elemental and reduced sulfur compounds into plant-available sulfate, essential for protein synthesis, oil formation in oilseeds, and pungency in bulb crops. It is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
     "key_product_highlights": [
-      "Converts elemental sulfur into plant-available sulfate",
-      "Enhances sulfur availability and nutrient uptake",
-      "Promotes strong root growth and development",
-      "Improves soil microbial activity and soil health",
-      "Increases crop yield and quality",
-      "Supports sustainable and eco-friendly farming"
+      "Delivers targeted sulfur nutrition through biological sulfur oxidation",
+      "Improves nutrient uptake efficiency and crop response",
+      "Reduces dependence on synthetic fertilizers",
+      "Enhances root development and rhizosphere activity",
+      "Compatible with organic farming and INM programs",
+      "Improves crop yield and produce quality"
     ],
     "mechanism_of_action": {
-      "description": "The consortium colonizes the rhizosphere and promotes sulfur oxidation or mobilization into plant-available sulfate forms while sustaining active microbial nutrient cycling around roots. Supportive nitrogen-fixing and nutrient-solubilizing members improve the overall efficiency of nutrient capture and utilization in the crop."
+      "description": "Thiobacillus thiooxidans is a chemoautotrophic bacterium that oxidizes elemental sulfur (S0) and reduced sulfur compounds into sulfate (SO4 2-) — the primary plant-available form of sulfur. It also lowers soil pH locally, improving micronutrient availability in alkaline soils."
     },
     "dilution_dosage_per_acre": [
       {
@@ -405,7 +341,7 @@
         "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
       },
       {
-        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "crop_stage": "Active vegetative or reproductive stage",
         "dose_per_acre": "1.0 kg/acre",
         "water_volume": "100-150 L",
         "application_method": "Root-zone drench or drip application near feeder roots"
@@ -415,12 +351,12 @@
       {
         "application_timing": "At sowing, transplanting, or basal land preparation",
         "frequency": "One foundational application",
-        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+        "recommendation": "Introduce the sulfur-active strain early so rhizosphere colonization aligns with nutrient demand."
       },
       {
         "application_timing": "During active vegetative growth or after heavy leaching",
         "frequency": "Repeat after 20-30 days if required",
-        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+        "recommendation": "Reapply to sustain sulfur mobilization when crop demand or nutrient loss remains high."
       }
     ],
     "targets": [],
@@ -429,36 +365,36 @@
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
-        "problem": "Crops show poor response to nitrogen where sulfur supply is inadequate.",
-        "solution": "Apply the sulfur-oriented consortium to improve sulfate generation and root uptake."
+        "problem": "Applied sulfur fertilizer is not being fully absorbed by the crop.",
+        "solution": "Introduce Thiobacillus thiooxidans to improve biological sulfur availability and root uptake efficiency."
       },
       {
-        "problem": "Low organic matter soils provide inconsistent sulfur release.",
-        "solution": "Use the consortium as a root-zone biological input to stabilize sulfur cycling."
+        "problem": "Soil biological activity is low and nutrient release is slow.",
+        "solution": "Apply early to establish rhizosphere colonization and support sustained nutrient cycling."
       }
     ],
     "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
-    "technical_positioning_summary": "Sulfur-mobilizing consortium positioned where sulfate generation and sulfur-use efficiency are limiting crop performance."
+    "technical_positioning_summary": "Sulfur-oxidizing biofertilizer positioned for oilseeds, pulses, and Allium crops where sulfur nutrition drives yield and quality."
   },
   {
     "product_identity": {
       "brand_name": "IGreen Si",
-      "active_ingredient": "Microbial consortium",
+      "active_ingredient": "Bacillus mucilaginosus",
       "concentration": "1 × 10⁹ CFU/g",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Biofertilizer"
     },
-    "product_overview": "IGreen Si is a biological silicon-solubilizing biofertilizer formulated with the beneficial bacterium Bacillus mycoides. It enhances the availability of plant-available silicic acid by mobilizing insoluble silicon compounds in the soil. The formulation strengthens plant cell walls, improves structural integrity, and increases resistance to biotic and abiotic stresses. It also supports better root development, nutrient uptake, and overall crop vigor. IGreen Si is widely used in Integrated Nutrient Management (INM) and sustainable agriculture systems.",
+    "product_overview": "IGreen Si is a single-nutrient biofertilizer based on the beneficial bacterium Bacillus mucilaginosus, formulated for targeted silicon management. It solubilizes silicate minerals and releases bio-available silicon, strengthening cell walls and improving plant tolerance to pests, diseases, and abiotic stresses. It is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
     "key_product_highlights": [
-      "Enhances availability of plant-usable silicon",
-      "Strengthens plant cell walls and structure",
-      "Improves tolerance to drought and disease stress",
-      "Promotes strong root growth and development",
-      "Boosts crop vigor, yield, and quality",
-      "Supports sustainable and eco-friendly farming"
+      "Delivers targeted silicon nutrition through biological silicon solubilization",
+      "Improves nutrient uptake efficiency and crop response",
+      "Reduces dependence on synthetic fertilizers",
+      "Enhances root development and rhizosphere activity",
+      "Compatible with organic farming and INM programs",
+      "Improves crop yield and produce quality"
     ],
     "mechanism_of_action": {
-      "description": "The consortium colonizes the rhizosphere and mobilizes soluble silicon from silicate-bearing minerals through microbial weathering, acidification, and nutrient cycling processes. Supportive nitrogen-fixing and nutrient-solubilizing activity improves root-zone function, allowing better access to silicon and associated nutrients."
+      "description": "Bacillus mucilaginosus produces organic acids and polysaccharides that dissolve silicate minerals, releasing plant-available silicic acid. Absorbed silicon deposits in cell walls to reinforce structural integrity, reducing insect penetration, fungal infection, and lodging in cereals."
     },
     "dilution_dosage_per_acre": [
       {
@@ -468,7 +404,7 @@
         "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
       },
       {
-        "crop_stage": "Active vegetative stage or nutrient top-up",
+        "crop_stage": "Active vegetative or reproductive stage",
         "dose_per_acre": "1.0 kg/acre",
         "water_volume": "100-150 L",
         "application_method": "Root-zone drench or drip application near feeder roots"
@@ -478,12 +414,12 @@
       {
         "application_timing": "At sowing, transplanting, or basal land preparation",
         "frequency": "One foundational application",
-        "recommendation": "Introduce the consortium early so rhizosphere colonization starts before nutrient demand peaks."
+        "recommendation": "Introduce the silicon-active strain early so rhizosphere colonization aligns with nutrient demand."
       },
       {
         "application_timing": "During active vegetative growth or after heavy leaching",
         "frequency": "Repeat after 20-30 days if required",
-        "recommendation": "Reapply to sustain microbial nutrient cycling when crop demand or nutrient loss remains high."
+        "recommendation": "Reapply to sustain silicon mobilization when crop demand or nutrient loss remains high."
       }
     ],
     "targets": [],
@@ -492,15 +428,78 @@
     "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
     "problem_solution": [
       {
-        "problem": "Plants are under recurrent abiotic stress and need stronger structural resilience.",
-        "solution": "Use the consortium to improve root access to plant-available silicon in the soil."
+        "problem": "Applied silicon fertilizer is not being fully absorbed by the crop.",
+        "solution": "Introduce Bacillus mucilaginosus to improve biological silicon availability and root uptake efficiency."
       },
       {
-        "problem": "Silicate-rich soils are not translating into consistent crop benefit.",
-        "solution": "Apply as a microbial weathering input to mobilize soluble Si near feeder roots."
+        "problem": "Soil biological activity is low and nutrient release is slow.",
+        "solution": "Apply early to establish rhizosphere colonization and support sustained nutrient cycling."
       }
     ],
     "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
-    "technical_positioning_summary": "Silicate-mobilizing consortium positioned for stress-prone systems where improved silicon availability can strengthen crop resilience."
+    "technical_positioning_summary": "Silicon-solubilizing biofertilizer positioned for cereals and horticultural crops where structural strength, stress tolerance, and pest/disease resistance are priorities."
+  },
+  {
+    "product_identity": {
+      "brand_name": "IGreen Zn",
+      "active_ingredient": "Bacillus aryabhattai",
+      "concentration": "1 × 10⁹ CFU/g",
+      "formulation_type": "WSP",
+      "category": "Biofertilizer"
+    },
+    "product_overview": "IGreen Zn is a single-nutrient biofertilizer based on the beneficial bacterium Bacillus aryabhattai, formulated for targeted zinc management. It solubilizes fixed and insoluble zinc compounds in soil, releasing plant-available Zn ions that support enzyme function, chlorophyll formation, and grain filling. It is widely used in sustainable agriculture and Integrated Nutrient Management (INM) systems.",
+    "key_product_highlights": [
+      "Delivers targeted zinc nutrition through biological zinc solubilization",
+      "Improves nutrient uptake efficiency and crop response",
+      "Reduces dependence on synthetic fertilizers",
+      "Enhances root development and rhizosphere activity",
+      "Compatible with organic farming and INM programs",
+      "Improves crop yield and produce quality"
+    ],
+    "mechanism_of_action": {
+      "description": "Bacillus aryabhattai secretes organic acids (gluconic and 2-keto-gluconic acid) that chelate and solubilize insoluble zinc compounds such as ZnO, ZnCO3, and Zn3(PO4)2. The released Zn2+ ions become available for root uptake, correcting the widespread zinc deficiency that limits yield across staple crops."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "Basal soil application or early crop establishment",
+        "dose_per_acre": "1.0-2.0 kg/acre",
+        "water_volume": "NA; 25-50 kg compost carrier or drip water",
+        "application_method": "Soil incorporation, furrow placement, or drip-supported root-zone delivery"
+      },
+      {
+        "crop_stage": "Active vegetative or reproductive stage",
+        "dose_per_acre": "1.0 kg/acre",
+        "water_volume": "100-150 L",
+        "application_method": "Root-zone drench or drip application near feeder roots"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "At sowing, transplanting, or basal land preparation",
+        "frequency": "One foundational application",
+        "recommendation": "Introduce the zinc-active strain early so rhizosphere colonization aligns with nutrient demand."
+      },
+      {
+        "application_timing": "During active vegetative growth or after heavy leaching",
+        "frequency": "Repeat after 20-30 days if required",
+        "recommendation": "Reapply to sustain zinc mobilization when crop demand or nutrient loss remains high."
+      }
+    ],
+    "targets": [],
+    "strain_or_active_strength": "Consortium strength: 1 × 10⁹ CFU/g.",
+    "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
+    "compatibility_statement": "Do not mix with antimicrobial dressers, strong fungicides, bactericides, or highly saline concentrates.",
+    "problem_solution": [
+      {
+        "problem": "Applied zinc fertilizer is not being fully absorbed by the crop.",
+        "solution": "Introduce Bacillus aryabhattai to improve biological zinc availability and root uptake efficiency."
+      },
+      {
+        "problem": "Soil biological activity is low and nutrient release is slow.",
+        "solution": "Apply early to establish rhizosphere colonization and support sustained nutrient cycling."
+      }
+    ],
+    "storage_safety": "Store sealed in the original pack away from direct sunlight, heat, and moisture.",
+    "technical_positioning_summary": "Zinc-solubilizing biofertilizer positioned for zinc-deficient soils where staple crops like rice, wheat, and maize suffer yield loss from micronutrient limitation."
   }
 ]

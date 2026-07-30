@@ -1,14 +1,16 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, Keyboard } from 'react-native';
+import React, { useState, useRef, useCallback, useMemo } from 'react';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, Keyboard, ScrollView } from 'react-native';
 import { Image as ExpoImage } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
-import { PRODUCTS, PORTFOLIO_FAMILIES, getPortfolioForProduct, getPortfolioVariants } from '../constants/productData';
+import { PRODUCTS, PORTFOLIO_FAMILIES, EXCEL_CATEGORY_INFO, getPortfolioForProduct, getPortfolioVariants, getProductsByExcelCategory } from '../constants/productData';
 import { getHeroImage, getFamilyIconImage } from '../constants/productImages';
 import { SOLUTIONS } from '../constants/solutionsData';
 import { getCategoryColor, debounce } from '../utils/helpers';
+
+const BROWSE_CATEGORIES = ['Botanical Pesticides', 'Microbial Pesticides', 'Bio Stimulants', 'Microbial Fertilizer'];
 
 const SearchScreen = ({ navigation }) => {
   const [query, setQuery] = useState('');
@@ -131,6 +133,17 @@ const SearchScreen = ({ navigation }) => {
 
   const SUGGESTIONS = ['Azadirachtin', 'Beauveria', 'Biocontrol', 'Ecoza', 'Spinosad', 'Trichoderma', 'Biostimulant', 'Home & Garden'];
 
+  const browseTiles = useMemo(() =>
+    BROWSE_CATEGORIES.map(cat => ({
+      key: cat,
+      info: EXCEL_CATEGORY_INFO[cat],
+      count: getProductsByExcelCategory(cat).length,
+    })),
+    []
+  );
+
+  const shortLabel = (name) => name.replace('Microbial Fertilizer', 'Biofertilizers');
+
   return (
     <View style={styles.container}>
       <Header title="Search" onBack={() => navigation.goBack()} />
@@ -156,19 +169,40 @@ const SearchScreen = ({ navigation }) => {
       </View>
 
       {query.length === 0 ? (
-        <View style={styles.suggestions}>
-          <Text style={styles.suggestLabel}>Quick Searches</Text>
-          <View style={styles.suggestRow}>
-            {SUGGESTIONS.map(s => (
-              <TouchableOpacity
-                key={s}
-                style={styles.suggestChip}
-                onPress={() => { setQuery(s); doSearch(s); }}>
-                <Text style={styles.suggestText}>{s}</Text>
-              </TouchableOpacity>
-            ))}
+        <ScrollView contentContainerStyle={styles.emptyState} showsVerticalScrollIndicator={false}>
+          <View style={styles.suggestions}>
+            <Text style={styles.suggestLabel}>Quick Searches</Text>
+            <View style={styles.suggestRow}>
+              {SUGGESTIONS.map(s => (
+                <TouchableOpacity
+                  key={s}
+                  style={styles.suggestChip}
+                  onPress={() => { setQuery(s); doSearch(s); }}>
+                  <Text style={styles.suggestText}>{s}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
           </View>
-        </View>
+
+          <View style={styles.browseWrap}>
+            <Text style={styles.suggestLabel}>Browse by Category</Text>
+            <View style={styles.browseGrid}>
+              {browseTiles.map(({ key, info, count }) => (
+                <TouchableOpacity
+                  key={key}
+                  style={[styles.browseTile, { borderColor: info.color + '33' }]}
+                  activeOpacity={0.85}
+                  onPress={() => { Keyboard.dismiss(); navigation.navigate('Products', { initialCategory: key }); }}>
+                  <View style={[styles.browseIconWrap, { backgroundColor: info.color + '18' }]}>
+                    <Icon name={info.icon} size={26} color={info.color} />
+                  </View>
+                  <Text style={styles.browseTitle} numberOfLines={2}>{shortLabel(key)}</Text>
+                  <Text style={[styles.browseCount, { color: info.color }]}>{count} products</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        </ScrollView>
       ) : (
         <FlatList
           data={results}
@@ -210,6 +244,7 @@ const styles = StyleSheet.create({
     ...theme.shadows.sm,
   },
   input: { flex: 1, fontSize: 16, color: theme.colors.text },
+  emptyState: { paddingBottom: 24 },
   suggestions: { paddingHorizontal: 16 },
   suggestLabel: { fontSize: 13, fontWeight: '600', color: theme.colors.textSecondary, marginBottom: 10 },
   suggestRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
@@ -222,6 +257,28 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.border,
   },
   suggestText: { fontSize: 13, color: theme.colors.textSecondary, fontWeight: '500' },
+  browseWrap: { paddingHorizontal: 16, marginTop: 22 },
+  browseGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
+  browseTile: {
+    width: '48%',
+    backgroundColor: '#FFF',
+    borderRadius: 14,
+    paddingVertical: 18,
+    paddingHorizontal: 14,
+    marginBottom: 12,
+    borderWidth: 1,
+    ...theme.shadows.sm,
+  },
+  browseIconWrap: {
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
+  },
+  browseTitle: { fontSize: 14, fontWeight: '700', color: theme.colors.text, minHeight: 36 },
+  browseCount: { fontSize: 12, fontWeight: '600', marginTop: 6 },
   resultCount: { fontSize: 13, color: theme.colors.textLight, marginBottom: 8, paddingHorizontal: 4 },
   list: { paddingHorizontal: 16, paddingBottom: 20 },
   resultCard: {

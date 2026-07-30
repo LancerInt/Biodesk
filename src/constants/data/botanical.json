@@ -217,10 +217,10 @@
       "brand_name": "Ecoza Rix",
       "active_ingredient": "Azadirachtin",
       "concentration": "1.2%",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "Ecoza Rix is a neem-derived botanical insecticide formulated as a Water Soluble Powder (WP) containing 1.2% Azadirachtin extracted from neem seed kernels. The formulation is designed to readily dissolve in water, ensuring uniform dispersion and ease of application. It functions primarily as an insect growth regulator (IGR), antifeedant, and oviposition deterrent, disrupting the hormonal balance of insect pests and thereby inhibiting their feeding, molting, and reproduction. Ecoza Rix is suitable for use in sustainable crop protection programs, integrated pest management (IPM), and environmentally responsible agricultural practices.",
+    "product_overview": "Ecoza Rix is a neem-derived botanical insecticide formulated as a Water Soluble Powder (WSP) containing 1.2% Azadirachtin extracted from neem seed kernels. The formulation is designed to readily dissolve in water, ensuring uniform dispersion and ease of application. It functions primarily as an insect growth regulator (IGR), antifeedant, and oviposition deterrent, disrupting the hormonal balance of insect pests and thereby inhibiting their feeding, molting, and reproduction. Ecoza Rix is suitable for use in sustainable crop protection programs, integrated pest management (IPM), and environmentally responsible agricultural practices.",
     "key_product_highlights": [
       "Multiple modes of action: antifeedant, repellent, sterilant, insect growth regulator, and oviposition deterrent.",
       "Minimal impact on natural predators and pollinators.",
@@ -281,7 +281,7 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Azadirachtin WP positioned for users who prefer a dry formulation while retaining neem-derived insect growth regulatory activity."
+    "technical_positioning_summary": "Azadirachtin WSP positioned for users who prefer a dry formulation while retaining neem-derived insect growth regulatory activity."
   },
   {
     "product_identity": {
@@ -360,7 +360,7 @@
       "brand_name": "MargoRix",
       "active_ingredient": "Neem Oil",
       "concentration": "35%",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Botanical Pesticide"
     },
     "product_overview": "MargoRix is a water-soluble neem oil formulation developed for the broad-spectrum management of sucking pests and soft-bodied insects in agricultural and horticultural crops. It functions as an antifeedant, repellent, insect growth regulator, and contact suppressant, disrupting pest feeding and development. The formulation is designed to readily dissolve in water, ensuring easy tank mixing, uniform spray dispersion, and reliable field performance. MargoRix offers convenient handling and consistent application under both open-field and greenhouse cultivation systems, supporting sustainable and environmentally responsible crop protection programs.",
@@ -424,7 +424,7 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Neem oil WP positioned where a dry botanical formulation is preferred for contact smothering and neem limonoid activity."
+    "technical_positioning_summary": "Neem oil WSP positioned where a dry botanical formulation is preferred for contact smothering and neem limonoid activity."
   },
   {
     "product_identity": {
@@ -501,10 +501,10 @@
       "brand_name": "K-Rix",
       "active_ingredient": "Karanjin",
       "concentration": "5%",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Botanical Pesticide"
     },
-    "product_overview": "K-Rix is a water-soluble powder (WP) formulation of karanja oil developed for the effective management of sucking pests and soft-bodied insects in agricultural and horticultural crops. It functions as an antifeedant, repellent, insect growth regulator, and contact suppressant, disrupting pest feeding and development while helping to reduce pest populations. The formulation is designed to dissolve readily in water, ensuring easy tank mixing, uniform spray coverage, and consistent performance in both field and greenhouse cultivation systems.",
+    "product_overview": "K-Rix is a water-soluble powder (WSP) formulation of karanja oil developed for the effective management of sucking pests and soft-bodied insects in agricultural and horticultural crops. It functions as an antifeedant, repellent, insect growth regulator, and contact suppressant, disrupting pest feeding and development while helping to reduce pest populations. The formulation is designed to dissolve readily in water, ensuring easy tank mixing, uniform spray coverage, and consistent performance in both field and greenhouse cultivation systems.",
     "key_product_highlights": [
       "Dual action against insect pests and fungal pathogens.",
       "Water-soluble and easy to mix for uniform spray coverage.",
@@ -563,7 +563,7 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Karanjin WP positioned as a dry botanical option for preventive and early-curative pest suppression."
+    "technical_positioning_summary": "Karanjin WSP positioned as a dry botanical option for preventive and early-curative pest suppression."
   },
   {
     "product_identity": {
@@ -636,7 +636,7 @@
       "brand_name": "Spindura Rix",
       "active_ingredient": "Spinosad",
       "concentration": "12%",
-      "formulation_type": "WP",
+      "formulation_type": "WSP",
       "category": "Botanical Pesticide"
     },
     "product_overview": "Spindura Rix is a naturally derived bio-insecticide obtained through the fermentation of Saccharopolyspora spinosa. It provides rapid knockdown and long-lasting control of a wide range of lepidopteran pests, thrips, and leaf miners. Spinosad acts both by ingestion and contact, targeting the insect's nervous system while remaining safe for beneficial insects and the environment. It is ideal for use in organic and integrated pest management (IPM) systems.",
@@ -696,7 +696,7 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Spinosad WP positioned where a dry formulation is preferred for larval knockdown and feeding cessation."
+    "technical_positioning_summary": "Spinosad WSP positioned where a dry formulation is preferred for larval knockdown and feeding cessation."
   },
   {
     "product_identity": {
@@ -768,7 +768,7 @@
   {
     "product_identity": {
       "brand_name": "MargoSpin",
-      "active_ingredient": "Neem Oil 70% + Spinosad 0.8%",
+      "active_ingredient": "Neem Oil 70% + Spinosad 1.6%",
       "concentration": "Combined",
       "formulation_type": "EC",
       "category": "Botanical Pesticide"
@@ -909,7 +909,7 @@
       "brand_name": "Admira Adyme",
       "active_ingredient": "Thyme Oil",
       "concentration": null,
-      "formulation_type": "EC & WP",
+      "formulation_type": "EC & WSP",
       "category": "Botanical Pesticide"
     },
     "product_overview": "Admira Adyme is a plant-based botanical bio-insecticide formulated with thyme oil extracted from Thymus species. It contains naturally occurring compounds such as thymol, which provide strong insecticidal, antimicrobial, and repellent properties. It acts primarily through contact and fumigant action, disrupting pests and affecting their respiration and cellular functions. It is effective against a wide range of insect pests and mites in agricultural crops. Due to its natural origin, biodegradability, and low environmental impact, Admira Adyme is well suited for sustainable crop protection and Integrated Pest Management (IPM) programs.",
@@ -975,14 +975,14 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Thyme oil WP positioned as a volatile botanical for early-stage pest deterrence and contact suppression."
+    "technical_positioning_summary": "Thyme oil WSP positioned as a volatile botanical for early-stage pest deterrence and contact suppression."
   },
   {
     "product_identity": {
       "brand_name": "Admira Admon",
       "active_ingredient": "Cinnamon Oil",
       "concentration": null,
-      "formulation_type": "EC & WP",
+      "formulation_type": "EC & WSP",
       "category": "Botanical Pesticide"
     },
     "product_overview": "Admira Admon is a plant-based botanical bio-insecticide formulated with cinnamon oil extracted from Cinnamomum species. It contains naturally occurring compounds such as cinnamaldehyde, which provide strong insecticidal, repellent, and antimicrobial properties. Admira Admon works primarily through contact and fumigant action, disrupting pest activity and affecting their respiration and cellular functions. It is effective against a wide range of insect pests, mites, and certain fungal pathogens in agricultural and horticultural crops. Due to its natural origin, biodegradability, and low environmental impact, it is well suited for sustainable crop protection and Integrated Pest Management (IPM) programs.",
@@ -1048,14 +1048,14 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Cinnamon oil WP positioned for early canopy intervention where repellent and contact botanical action is required."
+    "technical_positioning_summary": "Cinnamon oil WSP positioned for early canopy intervention where repellent and contact botanical action is required."
   },
   {
     "product_identity": {
       "brand_name": "Admira Adrlic",
       "active_ingredient": "Garlic Oil",
       "concentration": null,
-      "formulation_type": "EC & WP",
+      "formulation_type": "EC & WSP",
       "category": "Botanical Pesticide"
     },
     "product_overview": "Admira Adrlic is a plant-based botanical bio-insecticide formulated with garlic oil extracted from Allium sativum. It contains naturally occurring sulfur compounds such as allicin, known for their insecticidal, repellent, and antimicrobial properties. Admira Adrlic works primarily through contact and repellent action, disrupting pest feeding and activity. It is effective against a wide range of insect pests and mites in agricultural and horticultural crops. Due to its natural origin, biodegradability, and low environmental impact, it supports sustainable crop protection and Integrated Pest Management (IPM) programs.",
@@ -1118,14 +1118,14 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Garlic oil WP positioned for repellent canopy protection and early-stage suppression in botanical spray programs."
+    "technical_positioning_summary": "Garlic oil WSP positioned for repellent canopy protection and early-stage suppression in botanical spray programs."
   },
   {
     "product_identity": {
       "brand_name": "Admira Adove",
       "active_ingredient": "Clove Oil",
       "concentration": null,
-      "formulation_type": "EC & WP",
+      "formulation_type": "EC & WSP",
       "category": "Botanical Pesticide"
     },
     "product_overview": "Admira Adove is a plant-based botanical bio-insecticide formulated with clove oil extracted from Syzygium aromaticum. It contains naturally occurring compounds such as eugenol, known for their insecticidal, repellent, and antimicrobial properties. Admira Adove acts primarily through contact action, disrupting pest cell membranes and physiological processes. It is effective against a broad range of insect pests and mites in agricultural and horticultural crops. Due to its natural origin, biodegradability, and low environmental impact, it is suitable for sustainable crop protection and Integrated Pest Management (IPM) programs.",
@@ -1187,6 +1187,6 @@
       }
     ],
     "storage_safety": "Store sealed in the original pack away from heat, direct sunlight, and moisture.",
-    "technical_positioning_summary": "Clove oil WP positioned for contact and behavioral suppression of exposed pest stages in botanical programs."
+    "technical_positioning_summary": "Clove oil WSP positioned for contact and behavioral suppression of exposed pest stages in botanical programs."
   }
 ]

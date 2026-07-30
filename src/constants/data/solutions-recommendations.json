@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-06-05",
+  "lastUpdated": "2026-07-30",
   "packageTemplates": [
     {
       "id": "pkg_seedling_vigor",
@@ -183,7 +183,7 @@
       "packageType": "Supportive",
       "productRoles": [
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -229,7 +229,7 @@
           "role": "Growth recovery support"
         },
         {
-          "role": "Trichoderma viride for soil-biology recovery and balanced nutrient uptake",
+          "role": "Trichoderma asperellum for soil-biology recovery and balanced nutrient uptake",
           "productId": "prod_biota_v"
         }
       ],
@@ -254,7 +254,7 @@
       "packageType": "Nutritional",
       "productRoles": [
         {
-          "productId": "prod_igreen_n",
+          "productId": "prod_igreen_npk",
           "role": "Nitrogen support"
         },
         {
@@ -262,7 +262,7 @@
           "role": "Recovery support"
         },
         {
-          "role": "Trichoderma viride for rhizosphere health and improved nitrogen uptake efficiency",
+          "role": "Trichoderma asperellum for rhizosphere health and improved nitrogen uptake efficiency",
           "productId": "prod_biota_v"
         }
       ],
@@ -287,7 +287,7 @@
       "packageType": "Nutritional",
       "productRoles": [
         {
-          "productId": "prod_igreen_p",
+          "productId": "prod_igreen_npk",
           "role": "Phosphorus support"
         },
         {
@@ -295,7 +295,7 @@
           "role": "Root support"
         },
         {
-          "role": "Trichoderma viride for phosphorus solubilization support in the root zone",
+          "role": "Trichoderma asperellum for phosphorus solubilization support in the root zone",
           "productId": "prod_biota_v"
         }
       ],
@@ -319,7 +319,7 @@
       "packageType": "Nutritional",
       "productRoles": [
         {
-          "productId": "prod_igreen_k",
+          "productId": "prod_igreen_npk",
           "role": "Potassium support"
         },
         {
@@ -327,7 +327,7 @@
           "role": "Stress support"
         },
         {
-          "role": "Trichoderma viride for rhizosphere conditioning and improved potassium uptake",
+          "role": "Trichoderma asperellum for rhizosphere conditioning and improved potassium uptake",
           "productId": "prod_biota_v"
         }
       ],
@@ -352,7 +352,7 @@
       "packageType": "Nutritional",
       "productRoles": [
         {
-          "productId": "prod_igreen_zn",
+          "productId": "prod_igreen_shield",
           "role": "Zinc support"
         },
         {
@@ -360,7 +360,7 @@
           "role": "Recovery support"
         },
         {
-          "role": "Trichoderma viride for rhizosphere activity supporting zinc availability",
+          "role": "Trichoderma asperellum for rhizosphere activity supporting zinc availability",
           "productId": "prod_biota_v"
         }
       ],
@@ -385,7 +385,7 @@
       "packageType": "Nutritional",
       "productRoles": [
         {
-          "productId": "prod_igreen_si",
+          "productId": "prod_igreen_shield",
           "role": "Silicon support"
         },
         {
@@ -393,7 +393,7 @@
           "role": "Stress support"
         },
         {
-          "role": "Trichoderma viride for rhizosphere colonization and silicon uptake support",
+          "role": "Trichoderma asperellum for rhizosphere colonization and silicon uptake support",
           "productId": "prod_biota_v"
         }
       ],
@@ -513,7 +513,7 @@
       "objective": "Soil-surface cutworm control at seedling stage",
       "productRoles": [
         {
-          "role": "Spinosad WP soil drench",
+          "role": "Spinosad WSP soil drench",
           "productId": "prod_spindura_rix"
         },
         {
@@ -723,7 +723,7 @@
         },
         {
           "role": "Pseudomonas root-zone protection",
-          "productId": "prod_neuvita"
+          "productId": "prod_subtilix"
         }
       ]
     },
@@ -861,7 +861,7 @@
       "objective": "Rice stem borer dead-heart and white-ear prevention",
       "productRoles": [
         {
-          "role": "Spinosad WP stem-base treatment",
+          "role": "Spinosad WSP stem-base treatment",
           "productId": "prod_spindura_rix"
         },
         {
@@ -978,7 +978,7 @@
       "objective": "Protect emerging seedlings from damping-off and soil-borne fungi",
       "productRoles": [
         {
-          "role": "Trichoderma viride seed/soil protection",
+          "role": "Trichoderma asperellum seed/soil protection",
           "productId": "prod_biota_v"
         },
         {
@@ -1024,7 +1024,7 @@
       "productRoles": [
         {
           "role": "Nitrogen-fixing microbes",
-          "productId": "prod_igreen_n"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Tiller initiation support (Seaweed)",
@@ -1054,7 +1054,7 @@
       "productRoles": [
         {
           "role": "Phosphorus-solubilizing microbes",
-          "productId": "prod_igreen_p"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Flower induction (Seaweed Extract)",
@@ -1069,7 +1069,7 @@
       "productRoles": [
         {
           "role": "Potassium-mobilizing microbes",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Boll-vigor recovery support",
@@ -1084,7 +1084,7 @@
       "productRoles": [
         {
           "role": "Potassium-mobilizing microbes",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Fruit metabolism support (Organic Acids)",
@@ -1099,7 +1099,7 @@
       "productRoles": [
         {
           "role": "Potassium-mobilizing microbes",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Amino acid grain protein support",
@@ -1189,7 +1189,7 @@
       "productRoles": [
         {
           "role": "Pseudomonas root protection",
-          "productId": "prod_neuvita"
+          "productId": "prod_subtilix"
         },
         {
           "role": "Hypoxia recovery support",
@@ -1222,11 +1222,7 @@
       "productRoles": [
         {
           "role": "Nitrogen-fixing microbes for tillers",
-          "productId": "prod_igreen_n"
-        },
-        {
-          "role": "Potassium for grain filling",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1244,7 +1240,7 @@
         },
         {
           "role": "Pseudomonas root and foliar protection",
-          "productId": "prod_neuvita"
+          "productId": "prod_subtilix"
         }
       ]
     },
@@ -1276,7 +1272,7 @@
       "productRoles": [
         {
           "role": "Potassium for boll filling",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Amino acid branching primer",
@@ -1306,7 +1302,7 @@
       "productRoles": [
         {
           "role": "Potassium for grain filling",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Amino acid for grain protein",
@@ -1343,7 +1339,7 @@
         },
         {
           "role": "Potassium for fruit sizing",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1353,7 +1349,7 @@
       "objective": "Suppress fusarium wilt and late blight in tomato",
       "productRoles": [
         {
-          "role": "Trichoderma viride wilt suppression",
+          "role": "Trichoderma asperellum wilt suppression",
           "productId": "prod_biota_v"
         },
         {
@@ -1388,7 +1384,7 @@
         },
         {
           "role": "Potassium for fruit set",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1421,7 +1417,7 @@
         },
         {
           "role": "Phosphorus for flowering",
-          "productId": "prod_igreen_p"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1436,7 +1432,7 @@
         },
         {
           "role": "Pseudomonas foliar protection",
-          "productId": "prod_neuvita"
+          "productId": "prod_subtilix"
         }
       ]
     },
@@ -1531,7 +1527,7 @@
       "productRoles": [
         {
           "role": "Phosphorus for flowering",
-          "productId": "prod_igreen_p"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Seaweed for pod retention",
@@ -1568,7 +1564,7 @@
         },
         {
           "role": "Potassium for fruit fill",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1594,7 +1590,7 @@
       "productRoles": [
         {
           "role": "Sulfur-oxidizing microbes",
-          "productId": "prod_igreen_s"
+          "productId": "prod_igreen_shield"
         },
         {
           "role": "Humic-amino tissue support",
@@ -1627,11 +1623,7 @@
       "productRoles": [
         {
           "role": "Nitrogen-fixing microbes for tillers",
-          "productId": "prod_igreen_n"
-        },
-        {
-          "role": "Potassium for cane sucrose",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1664,7 +1656,7 @@
         },
         {
           "role": "Potassium for pod fill",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1723,7 +1715,7 @@
       "productRoles": [
         {
           "role": "Potassium for fruit fill",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Seaweed for finger development",
@@ -1760,7 +1752,7 @@
         },
         {
           "role": "Potassium for fruit sizing",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1792,7 +1784,7 @@
       "productRoles": [
         {
           "role": "Potassium for berry sizing",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Organic acid for berry quality",
@@ -1846,7 +1838,7 @@
       "productRoles": [
         {
           "role": "Potassium for fruit sizing",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Seaweed for flower retention",
@@ -1879,11 +1871,7 @@
       "productRoles": [
         {
           "role": "Phosphorus for bulb initiation",
-          "productId": "prod_igreen_p"
-        },
-        {
-          "role": "Potassium for bulb storage",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         }
       ]
     },
@@ -1893,7 +1881,7 @@
       "objective": "Manage cutworm at seedling and aphid virus vectors",
       "productRoles": [
         {
-          "role": "Spinosad WP for cutworm soil drench",
+          "role": "Spinosad WSP for cutworm soil drench",
           "productIds": [
             "prod_spindura_rix",
             "prod_mycova"
@@ -1912,7 +1900,7 @@
       "productRoles": [
         {
           "role": "Potassium for tuber bulking",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Seaweed for tuberization vigor",
@@ -1926,7 +1914,7 @@
       "objective": "Suppress late blight and common scab in potato",
       "productRoles": [
         {
-          "role": "Trichoderma viride soil colonization",
+          "role": "Trichoderma asperellum soil colonization",
           "productId": "prod_biota_v"
         },
         {
@@ -1993,7 +1981,7 @@
       "productRoles": [
         {
           "role": "Potassium for bean development",
-          "productId": "prod_igreen_k"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Organic acid for cup quality",
@@ -2026,7 +2014,7 @@
       "productRoles": [
         {
           "role": "Phosphorus for bulb initiation",
-          "productId": "prod_igreen_p"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Amino acid for clove quality",
@@ -2059,7 +2047,7 @@
       "productRoles": [
         {
           "role": "Phosphorus for pod fill",
-          "productId": "prod_igreen_p"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Seaweed for pod retention",
@@ -2092,7 +2080,7 @@
       "productRoles": [
         {
           "role": "Phosphorus for pod fill",
-          "productId": "prod_igreen_p"
+          "productId": "prod_igreen_npk"
         },
         {
           "role": "Seaweed for pod retention",
@@ -2122,7 +2110,7 @@
       "productRoles": [
         {
           "role": "Sulfur-oxidizing microbes",
-          "productId": "prod_igreen_s"
+          "productId": "prod_igreen_shield"
         },
         {
           "role": "Humic-amino tissue support",
@@ -2169,11 +2157,11 @@
       "objective": "Manage Alternaria leaf blight pressure and support canopy recovery",
       "productRoles": [
         {
-          "role": "Trichoderma viride for early Alternaria blight rhizosphere suppression",
+          "role": "Trichoderma asperellum for early Alternaria blight rhizosphere suppression",
           "productId": "prod_biota_v"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2192,11 +2180,11 @@
       "objective": "Manage anthracnose lesions on fruits and foliage",
       "productRoles": [
         {
-          "role": "Trichoderma viride for anthracnose pathogen antagonism in the canopy",
+          "role": "Trichoderma asperellum for anthracnose pathogen antagonism in the canopy",
           "productId": "prod_biota_v"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2215,11 +2203,11 @@
       "objective": "Manage rice blast and panicle blast under humid Kharif conditions",
       "productRoles": [
         {
-          "role": "Trichoderma viride for rice blast antagonism and seedling protection",
+          "role": "Trichoderma asperellum for rice blast antagonism and seedling protection",
           "productId": "prod_biota_v"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2242,7 +2230,7 @@
           "productId": "prod_biota_h"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2261,11 +2249,11 @@
       "objective": "Manage early blight on tomato, potato and Solanaceous crops",
       "productRoles": [
         {
-          "role": "Trichoderma viride for early blight pathogen suppression and recovery",
+          "role": "Trichoderma asperellum for early blight pathogen suppression and recovery",
           "productId": "prod_biota_v"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2284,11 +2272,11 @@
       "objective": "Manage leaf spot diseases across vegetables, oilseeds, and fruit crops",
       "productRoles": [
         {
-          "role": "Trichoderma viride for leaf spot pathogen antagonism and canopy protection",
+          "role": "Trichoderma asperellum for leaf spot pathogen antagonism and canopy protection",
           "productId": "prod_biota_v"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2311,7 +2299,7 @@
           "productId": "prod_biota_h"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2334,7 +2322,7 @@
           "productId": "prod_biota_h"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2357,7 +2345,7 @@
           "productId": "prod_biota_h"
         },
         {
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "role": "Microbial support"
         },
         {
@@ -2463,7 +2451,7 @@
       "upSell": [
         {
           "type": "product",
-          "productId": "prod_neuvita",
+          "productId": "prod_subtilix",
           "reason": "Broader microbial support option"
         }
       ],
@@ -2495,7 +2483,7 @@
       "upSell": [
         {
           "type": "product",
-          "productId": "prod_igreen_n",
+          "productId": "prod_igreen_npk",
           "reason": "More focused nutrient support where N deficiency is confirmed"
         }
       ],
@@ -2607,7 +2595,6 @@
         "prod_mycova",
         "prod_biota_v",
         "prod_biota_h",
-        "prod_neuvita",
         "prod_subtilix",
         "prod_seira",
         "prod_metaera"
@@ -2640,19 +2627,9 @@
       "recommendationType": "productGroup",
       "categoryId": "cat_biofertilizer",
       "recommendedProductIds": [
-        "prod_rhizobio",
-        "prod_igreen_az",
-        "prod_igreen_psb",
-        "prod_igreen_ksb",
-        "prod_igreen_zn",
-        "prod_igreen_si",
         "prod_igreen_npk",
         "prod_igreen_shield",
-        "prod_enrhize",
-        "prod_igreen_n",
-        "prod_igreen_p",
-        "prod_igreen_k",
-        "prod_igreen_cons"
+        "prod_enrhize"
       ],
       "recommendationReason": "Portfolio browse view for biofertilizer range.",
       "status": "approved_for_catalog_browse"
@@ -3500,7 +3477,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_cutworm",
-      "recommendationReason": "Cutworm larvae feed at night on stem bases and shelter in soil during the day. Spinosad WP soil drench targets daytime soil-resting larvae and Metarhizium attacks pupae for generational suppression."
+      "recommendationReason": "Cutworm larvae feed at night on stem bases and shelter in soil during the day. Spinosad WSP soil drench targets daytime soil-resting larvae and Metarhizium attacks pupae for generational suppression."
     },
     {
       "id": "rec_general_pest_diamondback_moth",
@@ -3660,7 +3637,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_stem_borer",
-      "recommendationReason": "Yellow stem borer and pink stem borer cause dead-heart and white-ear in rice. Spinosad WP at stem base catches larvae before they tunnel into internodes and granular azadirachtin provides sustained release across the tillering window."
+      "recommendationReason": "Yellow stem borer and pink stem borer cause dead-heart and white-ear in rice. Spinosad WSP at stem base catches larvae before they tunnel into internodes and granular azadirachtin provides sustained release across the tillering window."
     },
     {
       "id": "rec_general_pest_termite",
@@ -3780,7 +3757,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_tomato_disease",
-      "recommendationReason": "Fusarium wilt and late blight are major tomato yield-limiters. Trichoderma viride colonizes the root zone and competes with wilt pathogens, while Bacillus amyloliquefaciens delivers foliar disease antagonism."
+      "recommendationReason": "Fusarium wilt and late blight are major tomato yield-limiters. Trichoderma asperellum colonizes the root zone and competes with wilt pathogens, while Bacillus amyloliquefaciens delivers foliar disease antagonism."
     },
     {
       "id": "rec_crop_brinjal_pest_general",
@@ -4044,7 +4021,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_potato_pest",
-      "recommendationReason": "Potato faces cutworm damage at emergence and virus-transmitting aphid colonies later. Spinosad WP soil drench targets nocturnal cutworm larvae and Lecanicillium delivers aphid mycosis."
+      "recommendationReason": "Potato faces cutworm damage at emergence and virus-transmitting aphid colonies later. Spinosad WSP soil drench targets nocturnal cutworm larvae and Lecanicillium delivers aphid mycosis."
     },
     {
       "id": "rec_crop_potato_vigor_general",
@@ -4060,7 +4037,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_potato_disease",
-      "recommendationReason": "Late blight (Phytophthora) destroys potato canopies and common scab disfigures tubers. Trichoderma viride colonizes the seed-piece and soil zone, while Bacillus amyloliquefaciens delivers foliar disease antagonism."
+      "recommendationReason": "Late blight (Phytophthora) destroys potato canopies and common scab disfigures tubers. Trichoderma asperellum colonizes the seed-piece and soil zone, while Bacillus amyloliquefaciens delivers foliar disease antagonism."
     },
     {
       "id": "rec_crop_tea_pest_general",
@@ -4180,7 +4157,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_disease_alternaria_blight",
-      "recommendationReason": "Alternaria blight causes leaf necrosis and defoliation across vegetables and oilseeds. Trichoderma viride competes with the pathogen in the rhizosphere, supported by Pseudomonas, Orgocare and Envicta for sustained canopy vigor."
+      "recommendationReason": "Alternaria blight causes leaf necrosis and defoliation across vegetables and oilseeds. Trichoderma asperellum competes with the pathogen in the rhizosphere, supported by Pseudomonas, Orgocare and Envicta for sustained canopy vigor."
     },
     {
       "id": "rec_general_disease_anthracnose",
@@ -4188,7 +4165,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_disease_anthracnose",
-      "recommendationReason": "Anthracnose destroys fruit and leaf tissue under humid conditions. Trichoderma viride colonizes the surface and antagonizes the pathogen, supported by microbial and biostimulant recovery products."
+      "recommendationReason": "Anthracnose destroys fruit and leaf tissue under humid conditions. Trichoderma asperellum colonizes the surface and antagonizes the pathogen, supported by microbial and biostimulant recovery products."
     },
     {
       "id": "rec_general_disease_blast",
@@ -4196,7 +4173,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_disease_blast",
-      "recommendationReason": "Rice blast (Pyricularia oryzae) causes leaf, neck and panicle lesions in humid lowland rice. Trichoderma viride provides early antagonism, while Pseudomonas and biostimulants support recovery and canopy resilience."
+      "recommendationReason": "Rice blast (Pyricularia oryzae) causes leaf, neck and panicle lesions in humid lowland rice. Trichoderma asperellum provides early antagonism, while Pseudomonas and biostimulants support recovery and canopy resilience."
     },
     {
       "id": "rec_general_disease_downy_mildew",
@@ -4212,7 +4189,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_disease_early_blight",
-      "recommendationReason": "Early blight (Alternaria solani) causes characteristic concentric leaf spots on Solanaceous crops. Trichoderma viride antagonizes the pathogen, while Pseudomonas and biostimulants support canopy recovery."
+      "recommendationReason": "Early blight (Alternaria solani) causes characteristic concentric leaf spots on Solanaceous crops. Trichoderma asperellum antagonizes the pathogen, while Pseudomonas and biostimulants support canopy recovery."
     },
     {
       "id": "rec_general_disease_leaf_spot",
@@ -4220,7 +4197,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_disease_leaf_spot",
-      "recommendationReason": "Leaf spot pathogens cause yield loss through reduced photosynthetic area. Trichoderma viride colonizes leaf surface and antagonizes the pathogen, while supporting microbials and biostimulants restore canopy vigor."
+      "recommendationReason": "Leaf spot pathogens cause yield loss through reduced photosynthetic area. Trichoderma asperellum colonizes leaf surface and antagonizes the pathogen, while supporting microbials and biostimulants restore canopy vigor."
     },
     {
       "id": "rec_general_disease_powdery_mildew",

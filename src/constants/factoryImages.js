@@ -1,0 +1,40 @@
+// Auto-generated factory image requires
+const FACTORY_IMAGES = {
+  'sellappampatti': [
+    require('../assets/images/Factory/sellappampatti/sellappampatti_01.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_02.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_03.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_04.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_05.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_06.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_07.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_08.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_09.jpeg'),
+    require('../assets/images/Factory/sellappampatti/sellappampatti_10.jpeg'),
+  ],
+  'teevattipatti': [
+    require('../assets/images/Factory/teevattipatti/teevattipatti_01.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_02.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_03.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_04.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_05.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_06.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_07.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_08.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_09.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_10.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_11.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_12.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_13.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_14.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_15.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_16.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_17.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_18.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_19.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_20.jpeg'),
+    require('../assets/images/Factory/teevattipatti/teevattipatti_21.jpeg'),
+  ],
+};
+
+export default FACTORY_IMAGES;

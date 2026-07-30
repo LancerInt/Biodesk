@@ -34,7 +34,7 @@ const theme = {
     },
     formulation: {
       EC: '#E91E63',
-      WP: '#3F51B5',
+      WSP: '#3F51B5',
       SC: '#009688',
     },
   },

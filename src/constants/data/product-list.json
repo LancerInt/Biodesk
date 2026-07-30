@@ -24,7 +24,7 @@
     "brand_name": "Ecoza Rix",
     "active_ingredient": "Azadirachtin",
     "concentration": "1.2%",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Botanical Pesticide"
   },
   {
@@ -38,7 +38,7 @@
     "brand_name": "MargoRix",
     "active_ingredient": "Neem Oil",
     "concentration": "35%",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Botanical Pesticide"
   },
   {
@@ -52,7 +52,7 @@
     "brand_name": "K-Rix",
     "active_ingredient": "Karanjin",
     "concentration": "5%",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Botanical Pesticide"
   },
   {
@@ -66,7 +66,7 @@
     "brand_name": "Spindura Rix",
     "active_ingredient": "Spinosad",
     "concentration": "12%",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Botanical Pesticide"
   },
   {
@@ -78,7 +78,7 @@
   },
   {
     "brand_name": "MargoSpin",
-    "active_ingredient": "Neem Oil 70% + Spinosad 0.8%",
+    "active_ingredient": "Neem Oil 70% + Spinosad 1.6%",
     "concentration": "Combined",
     "formulation_type": "EC",
     "category": "Botanical Pesticide"
@@ -94,91 +94,91 @@
     "brand_name": "Admira Adyme",
     "active_ingredient": "Thyme Oil",
     "concentration": null,
-    "formulation_type": "EC & WP",
+    "formulation_type": "EC & WSP",
     "category": "Botanical Pesticide"
   },
   {
     "brand_name": "Admira Admon",
     "active_ingredient": "Cinnamon Oil",
     "concentration": null,
-    "formulation_type": "EC & WP",
+    "formulation_type": "EC & WSP",
     "category": "Botanical Pesticide"
   },
   {
     "brand_name": "Admira Adrlic",
     "active_ingredient": "Garlic Oil",
     "concentration": null,
-    "formulation_type": "EC & WP",
+    "formulation_type": "EC & WSP",
     "category": "Botanical Pesticide"
   },
   {
     "brand_name": "Admira Adove",
     "active_ingredient": "Clove Oil",
     "concentration": null,
-    "formulation_type": "EC & WP",
+    "formulation_type": "EC & WSP",
     "category": "Botanical Pesticide"
   },
   {
     "brand_name": "Mycova",
     "active_ingredient": "Beauveria bassiana",
-    "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "concentration": "1 × 10¹⁰ CFU/g",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
     "brand_name": "Rexora",
     "active_ingredient": "Metarhizium anisopliae",
-    "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "concentration": "1 × 10¹⁰ CFU/g",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
-    "brand_name": "Biota-V",
-    "active_ingredient": "Trichoderma viride",
-    "concentration": "1 × 10⁸ CFU/g",
-    "formulation_type": "WP",
+    "brand_name": "Biota",
+    "active_ingredient": "Trichoderma asperellum",
+    "concentration": "1 × 10⁹ CFU/g",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
     "brand_name": "Biota-H",
     "active_ingredient": "Trichoderma harzianum",
-    "concentration": "1 × 10⁸ CFU/g",
-    "formulation_type": "WP",
-    "category": "Microbial Pesticide"
-  },
-  {
-    "brand_name": "Neuvita",
-    "active_ingredient": "Pseudomonas fluorescens",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
     "brand_name": "Seira",
     "active_ingredient": "Verticillium lecanii",
-    "concentration": "1 × 10⁸ CFU/g",
-    "formulation_type": "WP",
+    "concentration": "1 × 10¹⁰ CFU/g",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
     "brand_name": "EnCilo",
     "active_ingredient": "Verticillium chlamydosporium",
-    "concentration": "1 × 10⁸ CFU/g",
-    "formulation_type": "WP",
+    "concentration": "1 × 10¹⁰ CFU/g",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
     "brand_name": "Subtilix",
     "active_ingredient": "Bacillus subtilis",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
+    "category": "Microbial Pesticide"
+  },
+  {
+    "brand_name": "Neuvita",
+    "active_ingredient": "Pseudomonas fluorescens",
+    "concentration": "1 × 10⁹ CFU/g",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
     "brand_name": "Elixora",
     "active_ingredient": "Bacillus amyloliquefaciens",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
@@ -206,7 +206,7 @@
     "brand_name": "EnRhize",
     "active_ingredient": "Mycorrhizal Fungi",
     "concentration": ">500 spores/gram",
-    "formulation_type": "WP & EC",
+    "formulation_type": "WSP & EC",
     "category": "Biostimulant"
   },
   {
@@ -227,56 +227,63 @@
     "brand_name": "IGreen NPK",
     "active_ingredient": "Microbial consortium",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Biofertilizer"
   },
   {
     "brand_name": "IGreen SHIELD",
     "active_ingredient": "Microbial consortium",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Biofertilizer"
   },
   {
     "brand_name": "IGreen N",
-    "active_ingredient": "Microbial consortium",
+    "active_ingredient": "Azotobacter chroococcum",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Biofertilizer"
   },
   {
     "brand_name": "IGreen P",
-    "active_ingredient": "Microbial consortium",
+    "active_ingredient": "Bacillus megaterium",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Biofertilizer"
   },
   {
     "brand_name": "IGreen K",
-    "active_ingredient": "Microbial consortium",
+    "active_ingredient": "Frateuria aurantia",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
-    "category": "Biofertilizer"
-  },
-  {
-    "brand_name": "IGreen Zn",
-    "active_ingredient": "Microbial consortium",
-    "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Biofertilizer"
   },
   {
     "brand_name": "IGreen S",
-    "active_ingredient": "Microbial consortium",
+    "active_ingredient": "Thiobacillus thiooxidans",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Biofertilizer"
   },
   {
     "brand_name": "IGreen Si",
-    "active_ingredient": "Microbial consortium",
+    "active_ingredient": "Bacillus mucilaginosus",
     "concentration": "1 × 10⁹ CFU/g",
-    "formulation_type": "WP",
+    "formulation_type": "WSP",
     "category": "Biofertilizer"
+  },
+  {
+    "brand_name": "IGreen Zn",
+    "active_ingredient": "Bacillus aryabhattai",
+    "concentration": "1 × 10⁹ CFU/g",
+    "formulation_type": "WSP",
+    "category": "Biofertilizer"
+  },
+  {
+    "brand_name": "Ecoviz",
+    "active_ingredient": "Isaria fumosorosea",
+    "concentration": "1 × 10¹⁰ CFU/g",
+    "formulation_type": "WSP",
+    "category": "Microbial Pesticide"
   }
 ]

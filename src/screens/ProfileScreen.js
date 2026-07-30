@@ -3,23 +3,28 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, Alert, Fla
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import SwipeableTabs from '../components/common/SwipeableTabs';
+import ImageViewer from '../components/common/ImageViewer';
+import PinchableView from '../components/common/PinchableView';
 import theme from '../constants/theme';
 import { PROFILE_SECTIONS } from '../constants/profileData';
 import { getTechnologyById } from '../constants/technologyData';
 
-const SectionImage = React.memo(({ source }) => {
+const SectionImage = React.memo(({ source, onPress }) => {
   if (!source) return null;
   return (
-    <View style={styles.sectionImageCard}>
+    <TouchableOpacity
+      style={styles.sectionImageCard}
+      activeOpacity={0.85}
+      onPress={() => onPress && onPress(source)}>
       <Image source={source} style={styles.sectionImage} resizeMode="cover" />
-    </View>
+    </TouchableOpacity>
   );
 });
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const CAROUSEL_WIDTH = SCREEN_WIDTH - 32; // 16px padding each side
 
-const ImageCarousel = React.memo(({ images }) => {
+const ImageCarousel = React.memo(({ images, onPress, resizeMode = 'cover', aspectRatio }) => {
   const flatListRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const autoPlayRef = useRef(null);
@@ -75,7 +80,11 @@ const ImageCarousel = React.memo(({ images }) => {
         keyExtractor={(_, i) => String(i)}
         getItemLayout={(_, index) => ({ length: CAROUSEL_WIDTH, offset: CAROUSEL_WIDTH * index, index })}
         renderItem={({ item }) => (
-          <Image source={item} style={styles.carouselImage} resizeMode="cover" />
+          <TouchableOpacity
+            activeOpacity={0.95}
+            onPress={() => onPress && onPress(item)}>
+            <Image source={item} style={[styles.carouselImage, aspectRatio && { aspectRatio }]} resizeMode={resizeMode} />
+          </TouchableOpacity>
         )}
       />
       <TouchableOpacity style={[styles.carouselArrow, styles.carouselArrowLeft]} onPress={() => goTo('prev')}>
@@ -97,6 +106,7 @@ const ProfileScreen = ({ navigation, route }) => {
   const initialTab = route?.params?.sectionIndex ?? 0;
   const [activeSection, setActiveSection] = useState(initialTab);
   const [expandedRegion, setExpandedRegion] = useState(null);
+  const [zoomImage, setZoomImage] = useState(null);
   const section = PROFILE_SECTIONS[activeSection];
 
   // Preload all section images on mount for instant tab switching
@@ -111,7 +121,7 @@ const ProfileScreen = ({ navigation, route }) => {
 
   const renderAbout = () => (
     <View>
-      <SectionImage source={section.image} />
+      <SectionImage source={section.image} onPress={setZoomImage} />
       <Text style={styles.headline}>{section.content.headline}</Text>
       <Text style={styles.bodyText}>{section.content.description}</Text>
 
@@ -147,7 +157,7 @@ const ProfileScreen = ({ navigation, route }) => {
 
   const renderExpertise = () => (
     <View>
-      <SectionImage source={section.image} />
+      <SectionImage source={section.image} onPress={setZoomImage} />
       <Text style={styles.bodyText}>{section.content.description}</Text>
 
       {section.content.areas.map((area, i) => (
@@ -188,7 +198,7 @@ const ProfileScreen = ({ navigation, route }) => {
 
   const renderManufacturing = () => (
     <View>
-      {section.carouselImages ? <ImageCarousel images={section.carouselImages} /> : <SectionImage source={section.image} />}
+      {section.carouselImages ? <ImageCarousel images={section.carouselImages} onPress={setZoomImage} /> : <SectionImage source={section.image} onPress={setZoomImage} />}
       <Text style={styles.bodyText}>{section.content.description}</Text>
       <Text style={styles.subTitle}>Capabilities</Text>
       {section.content.capabilities.map((c, i) => (
@@ -207,7 +217,7 @@ const ProfileScreen = ({ navigation, route }) => {
 
   const renderRnD = () => (
     <View>
-      {section.carouselImages ? <ImageCarousel images={section.carouselImages} /> : <SectionImage source={section.image} />}
+      {section.carouselImages ? <ImageCarousel images={section.carouselImages} onPress={setZoomImage} /> : <SectionImage source={section.image} onPress={setZoomImage} />}
       <Text style={styles.bodyText}>{section.content.description}</Text>
       <Text style={styles.subTitle}>Research Areas</Text>
       {section.content.areas.map((a, i) => (
@@ -226,7 +236,7 @@ const ProfileScreen = ({ navigation, route }) => {
 
   const renderQuality = () => (
     <View>
-      <SectionImage source={section.image} />
+      {section.carouselImages ? <ImageCarousel images={section.carouselImages} onPress={setZoomImage} aspectRatio={3} /> : <SectionImage source={section.image} onPress={setZoomImage} />}
       <Text style={styles.bodyText}>{section.content.description}</Text>
       <Text style={styles.subTitle}>Quality Pillars</Text>
       {section.content.pillars.map((p, i) => (
@@ -245,7 +255,7 @@ const ProfileScreen = ({ navigation, route }) => {
 
   const renderGlobal = () => (
     <View>
-      <SectionImage source={section.image} />
+      <SectionImage source={section.image} onPress={setZoomImage} />
       <Text style={styles.bodyText}>{section.content.description}</Text>
       <View style={styles.statsRow}>
         {section.content.stats.map((s, i) => (
@@ -329,7 +339,7 @@ const ProfileScreen = ({ navigation, route }) => {
     const certsWithLogos = section.content.certifications.filter(c => c.logo);
     return (
       <View>
-        <SectionImage source={section.image} />
+        <SectionImage source={section.image} onPress={setZoomImage} />
         <Text style={styles.bodyText}>{section.content.description}</Text>
         {certsWithLogos.map((c, i) => (
           <TouchableOpacity key={i} style={styles.certCard} activeOpacity={0.7} onPress={() => openCertificatePdf(c)}>
@@ -376,9 +386,17 @@ const ProfileScreen = ({ navigation, route }) => {
         tabCount={PROFILE_SECTIONS.length}
         onTabChange={setActiveSection}>
         <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-          {(rendererMap[section.id] || renderAbout)()}
+          <PinchableView key={section.id}>
+            {(rendererMap[section.id] || renderAbout)()}
+          </PinchableView>
         </ScrollView>
       </SwipeableTabs>
+
+      <ImageViewer
+        visible={!!zoomImage}
+        imageSource={zoomImage}
+        onClose={() => setZoomImage(null)}
+      />
     </View>
   );
 };

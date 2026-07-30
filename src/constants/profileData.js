@@ -18,6 +18,13 @@ const RND_IMAGES = [
   require('../assets/images/Manufacturing/manufacturing_8.jpg'),
 ];
 
+const QUALITY_IMAGES = [
+  require('../assets/images/QC/qc_1.jpeg'),
+  require('../assets/images/QC/qc_2.jpeg'),
+  require('../assets/images/QC/qc_3.jpeg'),
+  require('../assets/images/QC/qc_4.jpeg'),
+];
+
 const SECTION_IMAGES = {
   about: require('../assets/images/KriyaProfile/about.jpeg'),
   manufacturing: require('../assets/images/KriyaProfile/manufacturing.jpeg'),
@@ -183,6 +190,7 @@ export const PROFILE_SECTIONS = [
     title: 'Quality Control',
     icon: 'shield-check',
     image: SECTION_IMAGES.quality,
+    carouselImages: QUALITY_IMAGES,
     content: {
       description: 'At Kriya Biosys, quality is at the forefront. Our advanced QC lab and expert team ensure every product meets stringent standards. Our sophisticated Quality Control laboratory ensures that every product meets defined specifications and international standards. Through rigorous testing, monitoring, and process control, we guarantee consistent product performance and reliability.',
       pillars: [

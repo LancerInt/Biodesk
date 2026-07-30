@@ -57,6 +57,6 @@ export const getCategoryColor = (category) => {
 };
 
 export const getFormulationColor = (formulation) => {
-  const colors = { EC: '#E91E63', WP: '#3F51B5', SC: '#009688' };
+  const colors = { EC: '#E91E63', WSP: '#3F51B5', SC: '#009688' };
   return colors[formulation] || '#757575';
 };
