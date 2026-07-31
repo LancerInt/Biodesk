@@ -190,8 +190,8 @@
   {
     "product_identity": {
       "brand_name": "EnRhize",
-      "active_ingredient": "Mycorrhizal Fungi",
-      "concentration": ">500 spores/gram",
+      "active_ingredient": "Vesicular Arbuscular Mycorrhiza",
+      "concentration": "> 500 spores/g",
       "formulation_type": "WSP & EC",
       "category": "Biostimulant"
     },
@@ -233,7 +233,7 @@
       }
     ],
     "targets": [],
-    "strain_or_active_strength": "Mycorrhizal inoculum strength: >500 spores/gram.",
+    "strain_or_active_strength": "Mycorrhizal inoculum strength: > 500 spores/g.",
     "shelf_life_statement": "Typical shelf life: 24 months in the unopened original container under cool, dry, shaded storage.",
     "compatibility_statement": "Generally compatible with neutral-pH fertilizers and crop inputs; avoid highly alkaline or strongly acidic concentrates.",
     "problem_solution": [

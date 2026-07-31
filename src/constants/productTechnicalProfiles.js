@@ -71,7 +71,7 @@ export const TECHNICAL_PROFILES = {
   'Elixora': MICROBIAL('Bacillus amyloliquefaciens', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
   'EnCilo': MICROBIAL('Purpureocillium lilacinum', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
   'Mycova': MICROBIAL('Beauveria bassiana', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
-  'Rexora': MICROBIAL('Metarhizium anisopliae', '≥1 × 10¹⁰ CFU/g', '≤ 8%', '5.5 - 7.5'),
+  'Rexora': MICROBIAL('Metarhizium brunneum', '≥1 × 10¹⁰ CFU/g', '≤ 8%', '5.5 - 7.5'),
   'Seira': MICROBIAL('Verticillium lecanii', '≥1 × 10¹⁰ CFU/g', '≤ 8%', '5.5 - 7.5'),
   'Subtilix': MICROBIAL('Bacillus subtilis', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
   'Neuvita': MICROBIAL('Pseudomonas fluorescens', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
@@ -104,9 +104,9 @@ export const TECHNICAL_PROFILES = {
     row('Shelf Life', '24 months under recommended storage'),
   ],
   'EnRhize': [
-    row('Active Microorganism', 'Arbuscular Mycorrhiza'),
+    row('Active Microorganism', 'Vesicular Arbuscular Mycorrhiza'),
     row('Formulation Type', 'Wettable Powder'),
-    row('Spore Count', '≥ 1500 propagules / g'),
+    row('Spore Count', '> 500 spores / g'),
     row('Solubility', 'Dispersible in water'),
     row('Moisture Content', '≤ 10%'),
     row('Shelf Life', '12 months under recommended storage'),
@@ -121,7 +121,7 @@ export const TECHNICAL_PROFILES = {
   ],
   'Orgocare': [
     row('Product Description', 'Stress Protection Adjuvant'),
-    row('Formulation Type', 'Soluble Liquid (SL)'),
+    row('Formulation Type', 'Emulsifiable Concentrate (EC)'),
     row('Appearance', 'Milky White Colour'),
     row('Solubility', 'Completely soluble in water'),
     row('pH', '6.5'),
@@ -147,7 +147,8 @@ export const TECHNICAL_PROFILES = {
     row('Shelf Life', '12 months'),
   ],
   'K-Mix': [
-    row('Active Ingredient', 'Karanja Cake'),
+    row('Product Description', 'Organic Fertilizer'),
+    row('Active Ingredient', 'Karanjin Cake'),
     row('Moisture Content', '≤ 10%'),
     row('Appearance', 'Brown'),
     row('Solubility', 'Dispersible in water'),
@@ -155,6 +156,7 @@ export const TECHNICAL_PROFILES = {
     row('Shelf Life', '24 months'),
   ],
   'Maxineem': [
+    row('Product Description', 'Organic Fertilizer'),
     row('Active Ingredient', 'Neem Cake'),
     row('Moisture Content', '≤ 10%'),
     row('Appearance', 'Brown'),

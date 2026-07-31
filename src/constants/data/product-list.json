@@ -127,7 +127,7 @@
   },
   {
     "brand_name": "Rexora",
-    "active_ingredient": "Metarhizium anisopliae",
+    "active_ingredient": "Metarhizium brunneum",
     "concentration": "1 × 10¹⁰ CFU/g",
     "formulation_type": "WSP",
     "category": "Microbial Pesticide"
@@ -204,8 +204,8 @@
   },
   {
     "brand_name": "EnRhize",
-    "active_ingredient": "Mycorrhizal Fungi",
-    "concentration": ">500 spores/gram",
+    "active_ingredient": "Vesicular Arbuscular Mycorrhiza",
+    "concentration": "> 500 spores/g",
     "formulation_type": "WSP & EC",
     "category": "Biostimulant"
   },

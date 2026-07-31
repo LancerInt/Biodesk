@@ -67,6 +67,33 @@ const PRESENTATIONS = [
     title: 'Kriya AgNova',
     subtitle: 'AgNova Technology & Innovation Platform',
   },
+  {
+    id: 'pres-5',
+    productName: 'Kriya Biosys',
+    docType: 'Presentation',
+    hasAsset: true,
+    asset: require('../assets/documents/BotanicalBiopesticideRecommendation.pdf'),
+    title: 'Botanical Biopestide Recommendation',
+    subtitle: 'Botanical Pesticide Selection Guide',
+  },
+  {
+    id: 'pres-6',
+    productName: 'Kriya Biosys',
+    docType: 'Presentation',
+    hasAsset: true,
+    asset: require('../assets/documents/MicrobialBiopesticidePestRecommendation.pdf'),
+    title: 'Micobial Biopesticide Recommendation For Pest',
+    subtitle: 'Microbial Pesticide Selection Guide for Pests',
+  },
+  {
+    id: 'pres-7',
+    productName: 'Kriya Biosys',
+    docType: 'Presentation',
+    hasAsset: true,
+    asset: require('../assets/documents/MicrobialBiopesticideDiseaseRecommendation.pdf'),
+    title: 'Microbial Biopesticide Recommendation For Disease',
+    subtitle: 'Microbial Pesticide Selection Guide for Diseases',
+  },
 ];
 
 // Real MSDS/COA documents from bundled PDFs

@@ -216,7 +216,7 @@ const VideosScreen = ({ navigation }) => {
     if (activeCategory === 'Manufacturing' && manufacturingFolder === 'factories') {
       const data = Object.keys(FACTORY_IMAGES).map((slug) => ({
         id: `factory-folder-${slug}`,
-        title: slug,
+        title: slug.charAt(0).toUpperCase() + slug.slice(1),
         category: 'Manufacturing',
         image: FACTORY_IMAGES[slug][0],
         _isFolder: true,
@@ -229,9 +229,10 @@ const VideosScreen = ({ navigation }) => {
 
     // Manufacturing > Manufacturing Facility > <factory> photos
     if (activeCategory === 'Manufacturing' && manufacturingFolder && FACTORY_IMAGES[manufacturingFolder]) {
+      const factoryLabel = manufacturingFolder.charAt(0).toUpperCase() + manufacturingFolder.slice(1);
       const data = FACTORY_IMAGES[manufacturingFolder].map((img, i) => ({
         id: `fac-${manufacturingFolder}-${i}`,
-        title: `${manufacturingFolder} Facility`,
+        title: `${factoryLabel} Facility`,
         category: 'Manufacturing',
         image: img,
       }));

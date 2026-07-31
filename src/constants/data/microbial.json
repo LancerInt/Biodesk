@@ -75,12 +75,12 @@
   {
     "product_identity": {
       "brand_name": "Rexora",
-      "active_ingredient": "Metarhizium anisopliae",
+      "active_ingredient": "Metarhizium brunneum",
       "concentration": "1 × 10¹⁰ CFU/g",
       "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Rexora is a biological insecticide based on the naturally occurring entomopathogenic fungus Metarhizium anisopliae. The fungus infects insect pests by attaching to their outer cuticle, penetrating the body, and proliferating inside the host, ultimately leading to the insect's death. Rexora is effective against a wide range of soil and foliar insect pests, including termites, beetles, and other soil-dwelling insects. It is valued for its target-specific action, environmental safety, and minimal impact on beneficial organisms. Due to these properties, Rexora is suitable for Integrated Pest Management (IPM) and sustainable agricultural practices.",
+    "product_overview": "Rexora is a biological insecticide based on the naturally occurring entomopathogenic fungus Metarhizium brunneum. The fungus infects insect pests by attaching to their outer cuticle, penetrating the body, and proliferating inside the host, ultimately leading to the insect's death. Rexora is effective against a wide range of soil and foliar insect pests, including termites, beetles, and other soil-dwelling insects. It is valued for its target-specific action, environmental safety, and minimal impact on beneficial organisms. Due to these properties, Rexora is suitable for Integrated Pest Management (IPM) and sustainable agricultural practices.",
     "key_product_highlights": [
       "Acts as a biological insecticide (entomopathogenic fungus)",
       "Infects insects through cuticle penetration and sporulation",
@@ -92,7 +92,7 @@
       "Improves crop health and yield"
     ],
     "mechanism_of_action": {
-      "description": "Metarhizium anisopliae conidia colonize the insect cuticle, germinate, and penetrate by enzymatic degradation involving proteases, chitinases, and lipases. The fungus proliferates inside the host, produces toxic secondary metabolites, and suppresses insect survival through systemic fungal colonization and mycosis."
+      "description": "Metarhizium brunneum conidia colonize the insect cuticle, germinate, and penetrate by enzymatic degradation involving proteases, chitinases, and lipases. The fungus proliferates inside the host, produces toxic secondary metabolites, and suppresses insect survival through systemic fungal colonization and mycosis."
     },
     "dilution_dosage_per_acre": [
       {

@@ -162,7 +162,7 @@ const PRODUCTS = [
   { id: 'prod_admira_adove', brandName: 'Admira Adove', activeIngredient: 'Clove Oil', categoryId: 'cat_botanical_pesticide', icon: 'flower-outline' },
   // Microbial Pesticides
   { id: 'prod_mycova', brandName: 'Mycova', activeIngredient: 'Beauveria bassiana', categoryId: 'cat_microbial_pesticide', icon: 'mushroom' },
-  { id: 'prod_rexora', brandName: 'Rexora', activeIngredient: 'Metarhizium anisopliae', categoryId: 'cat_microbial_pesticide', icon: 'mushroom-outline' },
+  { id: 'prod_rexora', brandName: 'Rexora', activeIngredient: 'Metarhizium brunneum', categoryId: 'cat_microbial_pesticide', icon: 'mushroom-outline' },
   { id: 'prod_biota_v', brandName: 'Biota', activeIngredient: 'Trichoderma asperellum', categoryId: 'cat_microbial_pesticide', icon: 'biohazard' },
   { id: 'prod_biota_h', brandName: 'Biota-H', activeIngredient: 'Trichoderma harzianum', categoryId: 'cat_microbial_pesticide', icon: 'shield-bug' },
   { id: 'prod_seira', brandName: 'Seira', activeIngredient: 'Lecanicillium lecanii', categoryId: 'cat_microbial_pesticide', icon: 'spider-web' },
@@ -175,7 +175,7 @@ const PRODUCTS = [
   { id: 'prod_zenita', brandName: 'Zenita', activeIngredient: 'Amino Acid Complex', categoryId: 'cat_biostimulant', icon: 'atom' },
   { id: 'prod_cropsia', brandName: 'Cropsia', activeIngredient: 'Plant Growth Promoting Bacteria', categoryId: 'cat_biostimulant', icon: 'sprout' },
   { id: 'prod_blooma', brandName: 'Blooma', activeIngredient: 'Seaweed Extract', categoryId: 'cat_biostimulant', icon: 'waves' },
-  { id: 'prod_enrhize', brandName: 'EnRhize', activeIngredient: 'Mycorrhiza', categoryId: 'cat_biostimulant', icon: 'pine-tree-variant' },
+  { id: 'prod_enrhize', brandName: 'EnRhize', activeIngredient: 'Vesicular Arbuscular Mycorrhiza', categoryId: 'cat_biostimulant', icon: 'pine-tree-variant' },
   { id: 'prod_envicta', brandName: 'Envicta', activeIngredient: 'Humic + Fulvic + Amino Complex', categoryId: 'cat_biostimulant', icon: 'molecule' },
   { id: 'prod_orgocare', brandName: 'Orgocare', activeIngredient: 'Organic Acid Complex', categoryId: 'cat_biostimulant', icon: 'test-tube' },
   // Biofertilizers

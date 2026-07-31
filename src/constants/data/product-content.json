@@ -142,7 +142,7 @@
   {
     "product": "Rexora",
     "category": "biocontrol",
-    "active": "Metarhizium anisopliae (1 × 10¹⁰ CFU/g)",
+    "active": "Metarhizium brunneum (1 × 10¹⁰ CFU/g)",
     "dosage": "2-3 g/L",
     "application_rate": "500-1000 g/acre in 200-250 L water; 1-2 kg/acre for soil application",
     "method": "Foliar spray, soil drench, or drip application",
@@ -252,7 +252,7 @@
   {
     "product": "EnRhize",
     "category": "biostimulant",
-    "active": "Arbuscular Mycorrhiza (≥1500 propagules/g)",
+    "active": "Vesicular Arbuscular Mycorrhiza (> 500 spores/g)",
     "dosage": "5-10 g/plant for transplanting; 10 g/kg seed for seed treatment",
     "application_rate": "2-4 kg/acre",
     "method": "Root-zone placement, seed treatment, nursery mix, or transplant dip",
