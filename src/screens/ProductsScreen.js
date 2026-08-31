@@ -12,6 +12,7 @@ import {
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import Animated, { FadeIn } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
 import SearchBar from '../components/common/SearchBar';
@@ -33,7 +34,19 @@ const isTablet = screenWidth >= 768;
 // Category-based listing from Excel "List of Products"
 // ═══════════════════════════════════════════════════════════════
 
+// Category → i18n key mapping (matches EXCEL_CATEGORIES values)
+const CATEGORY_KEY_MAP = {
+  'All': 'categories.all',
+  'Botanical Pesticides': 'categories.botanicalPesticides',
+  'Microbial Pesticides': 'categories.microbialPesticides',
+  'Bio Stimulants': 'categories.bioStimulants',
+  'Microbial Fertilizer': 'categories.microbialFertilizer',
+  'Substrates': 'categories.substrates',
+};
+
 const ProductsScreen = ({ navigation, route }) => {
+  const { t } = useTranslation();
+  const translateCategory = (name) => CATEGORY_KEY_MAP[name] ? t(CATEGORY_KEY_MAP[name]) : name;
   const [activeCategory, setActiveCategory] = useState(route?.params?.initialCategory || 'All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -76,7 +89,7 @@ const ProductsScreen = ({ navigation, route }) => {
           <Icon name={info.icon} size={14} color="#FFF" style={{ marginRight: 5 }} />
         ) : null}
         <Text style={[styles.chipText, isActive && styles.chipTextActive]}>
-          {item}
+          {translateCategory(item)}
         </Text>
       </TouchableOpacity>
     );
@@ -91,7 +104,7 @@ const ProductsScreen = ({ navigation, route }) => {
         <View style={[styles.sectionIconCircle, { backgroundColor: catColor + '14' }]}>
           <Icon name={section.icon} size={16} color={catColor} />
         </View>
-        <Text style={[styles.sectionTitle, { color: catColor }]}>{section.title}</Text>
+        <Text style={[styles.sectionTitle, { color: catColor }]}>{translateCategory(section.title)}</Text>
         <View style={[styles.sectionCount, { backgroundColor: catColor + '14' }]}>
           <Text style={[styles.sectionCountText, { color: catColor }]}>
             {section.data.length}
@@ -148,8 +161,8 @@ const ProductsScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Portfolio"
-        subtitle={`${totalCount} product${totalCount !== 1 ? 's' : ''}`}
+        title={t('screens.portfolio')}
+        subtitle={t(totalCount === 1 ? 'products.headerCountSingle' : 'products.headerCount', { count: totalCount })}
         onBack={() => navigation.goBack()}
       />
 
@@ -158,7 +171,7 @@ const ProductsScreen = ({ navigation, route }) => {
         <SearchBar
           value={searchQuery}
           onChangeText={setSearchQuery}
-          placeholder="Search products, ingredients, crops..."
+          placeholder={t('products.searchPlaceholder')}
           onClear={() => setSearchQuery('')}
         />
         <ScrollView
@@ -189,8 +202,8 @@ const ProductsScreen = ({ navigation, route }) => {
           ListEmptyComponent={
             <View style={styles.empty}>
               <Icon name="magnify-close" size={48} color={theme.colors.textLight} />
-              <Text style={styles.emptyTitle}>No products found</Text>
-              <Text style={styles.emptySub}>Try a different search or category</Text>
+              <Text style={styles.emptyTitle}>{t('products.emptyTitle')}</Text>
+              <Text style={styles.emptySub}>{t('products.emptySub')}</Text>
             </View>
           }
         />

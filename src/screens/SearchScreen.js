@@ -2,17 +2,20 @@ import React, { useState, useRef, useCallback, useMemo } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, Keyboard, ScrollView } from 'react-native';
 import { Image as ExpoImage } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import { PRODUCTS, PORTFOLIO_FAMILIES, EXCEL_CATEGORY_INFO, getPortfolioForProduct, getPortfolioVariants, getProductsByExcelCategory } from '../constants/productData';
 import { getHeroImage, getFamilyIconImage } from '../constants/productImages';
-import { SOLUTIONS } from '../constants/solutionsData';
+import { searchAll, getCropCategoryTitle } from '../utils/recommendationEngine';
+import { translateBioTerm } from '../i18n/bioTerms';
 import { getCategoryColor, debounce } from '../utils/helpers';
 
 const BROWSE_CATEGORIES = ['Botanical Pesticides', 'Microbial Pesticides', 'Bio Stimulants', 'Microbial Fertilizer'];
 
 const SearchScreen = ({ navigation }) => {
+  const { t, i18n } = useTranslation();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const inputRef = useRef(null);
@@ -73,24 +76,42 @@ const SearchScreen = ({ navigation }) => {
         return acc;
       }, []);
 
-      const cropMatches = SOLUTIONS.filter(s =>
-        s.crop.toLowerCase().includes(q) ||
-        s.problems.some(p => p.name.toLowerCase().includes(q))
-      ).map(s => ({
-        id: 'c-' + s.id, type: 'Crop Solution',
-        title: s.crop,
-        subtitle: s.problems.map(p => p.name).join(', '),
-        badge: 'BioIntel',
-        badgeColor: theme.colors.secondary,
-        icon: s.icon,
-        data: s,
-        screen: 'Solutions',
-        params: {},
-      }));
+      // BioIntel library — crops, pests, diseases, deficiencies, stages,
+      // weeds and stresses. Each result carries the filter that opens it.
+      const BIO_TYPES = {
+        crop:               { label: 'Crop',                filterKey: 'cropIds',               section: 'crop',        icon: 'sprout' },
+        pest:               { label: 'Pest',                filterKey: 'pestIds',               section: 'problem',     icon: 'bug' },
+        disease:            { label: 'Disease',             filterKey: 'diseaseIds',            section: 'problem',     icon: 'virus' },
+        nutrientDeficiency: { label: 'Nutrient Deficiency', filterKey: 'nutrientDeficiencyIds', section: 'problem',     icon: 'flask-empty' },
+        growthStage:        { label: 'Growth Stage',        filterKey: 'growthStageIds',        section: 'growthStage', icon: 'flower' },
+        weed:               { label: 'Weed',                filterKey: 'weedIds',               section: 'problem',     icon: 'grass' },
+        abioticStress:      { label: 'Abiotic Stress',      filterKey: 'abioticStressIds',      section: 'stress',      icon: 'weather-sunny-alert' },
+      };
 
-      setResults([...productMatches, ...cropMatches]);
+      const bioMatches = searchAll(text, i18n.language)
+        .filter(r => BIO_TYPES[r.type])
+        .map(({ type, item }) => {
+          const meta = BIO_TYPES[type];
+          const name = translateBioTerm(item.name);
+          // Crops say which category they sit in; everything else names its kind
+          const category = type === 'crop' ? getCropCategoryTitle(item.id) : null;
+          return {
+            id: 'bio-' + item.id, type: meta.label,
+            title: name,
+            subtitle: category ? translateBioTerm(category) : meta.label,
+            badge: 'BioIntel',
+            badgeColor: theme.colors.secondary,
+            icon: item.icon || meta.icon,
+            image: item.image || null,
+            data: item,
+            screen: 'Solutions',
+            params: { filterKey: meta.filterKey, filterId: item.id, label: name, section: meta.section },
+          };
+        });
+      setResults([...productMatches, ...bioMatches]);
     }, 300),
-    []
+    // language is a dependency: switching it changes what the query matches
+    [i18n.language]
   );
 
   const handleChange = (text) => {
@@ -146,7 +167,7 @@ const SearchScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Search" onBack={() => navigation.goBack()} />
+      <Header title={t('screens.search')} onBack={() => navigation.goBack()} />
 
       {/* Search input */}
       <View style={styles.inputWrap}>
@@ -156,7 +177,7 @@ const SearchScreen = ({ navigation }) => {
           style={styles.input}
           value={query}
           onChangeText={handleChange}
-          placeholder="Search products, crops, ingredients..."
+          placeholder={t('common.searchPlaceholder')}
           placeholderTextColor={theme.colors.textLight}
           autoFocus
           returnKeyType="search"
@@ -171,7 +192,7 @@ const SearchScreen = ({ navigation }) => {
       {query.length === 0 ? (
         <ScrollView contentContainerStyle={styles.emptyState} showsVerticalScrollIndicator={false}>
           <View style={styles.suggestions}>
-            <Text style={styles.suggestLabel}>Quick Searches</Text>
+            <Text style={styles.suggestLabel}>{t('search.quickSearches')}</Text>
             <View style={styles.suggestRow}>
               {SUGGESTIONS.map(s => (
                 <TouchableOpacity
@@ -185,7 +206,7 @@ const SearchScreen = ({ navigation }) => {
           </View>
 
           <View style={styles.browseWrap}>
-            <Text style={styles.suggestLabel}>Browse by Category</Text>
+            <Text style={styles.suggestLabel}>{t('search.browseByCategory')}</Text>
             <View style={styles.browseGrid}>
               {browseTiles.map(({ key, info, count }) => (
                 <TouchableOpacity
@@ -213,14 +234,14 @@ const SearchScreen = ({ navigation }) => {
           keyboardShouldPersistTaps="handled"
           ListHeaderComponent={
             results.length > 0 ? (
-              <Text style={styles.resultCount}>{results.length} results for "{query}"</Text>
+              <Text style={styles.resultCount}>{t('search.resultsFor', { count: results.length, query })}</Text>
             ) : null
           }
           ListEmptyComponent={
             query.length >= 2 ? (
               <View style={styles.empty}>
                 <Icon name="magnify-remove-outline" size={48} color={theme.colors.textLight} />
-                <Text style={styles.emptyText}>No results for "{query}"</Text>
+                <Text style={styles.emptyText}>{t('common.noResultsFor', { query })}</Text>
               </View>
             ) : null
           }

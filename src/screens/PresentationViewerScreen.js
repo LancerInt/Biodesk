@@ -12,10 +12,12 @@ import { WebView } from 'react-native-webview';
 import { Asset } from 'expo-asset';
 import * as FileSystem from 'expo-file-system/legacy';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import theme from '../constants/theme';
 import { loadPdfJsSources } from '../utils/pdfJsLoader';
 
 const PresentationViewerScreen = ({ route, navigation }) => {
+  const { t } = useTranslation();
   const { title, asset } = route.params;
   const { width: winW, height: winH } = useWindowDimensions();
   const [htmlFileUri, setHtmlFileUri] = useState(null);
@@ -401,7 +403,7 @@ const PresentationViewerScreen = ({ route, navigation }) => {
         <StatusBar hidden />
         <View style={styles.centered}>
           <ActivityIndicator size="large" color={theme.colors.primary} />
-          <Text style={styles.loadingText}>Loading presentation...</Text>
+          <Text style={styles.loadingText}>{t('viewer.loadingPres')}</Text>
         </View>
       </View>
     );
@@ -413,14 +415,14 @@ const PresentationViewerScreen = ({ route, navigation }) => {
         <StatusBar hidden />
         <View style={styles.centered}>
           <Icon name="alert-circle-outline" size={64} color={theme.colors.textLight} />
-          <Text style={styles.errorTitle}>Unable to load presentation</Text>
+          <Text style={styles.errorTitle}>{t('viewer.unableLoadPres')}</Text>
           <Text style={styles.errorText}>{error}</Text>
           <TouchableOpacity style={styles.retryBtn} onPress={loadPdf} activeOpacity={0.7}>
             <Icon name="refresh" size={18} color="#FFF" />
-            <Text style={styles.retryText}>Retry</Text>
+            <Text style={styles.retryText}>{t('actions.retry')}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.closeBtn} onPress={() => navigation.goBack()} activeOpacity={0.7}>
-            <Text style={styles.closeBtnText}>Close</Text>
+            <Text style={styles.closeBtnText}>{t('actions.close')}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -432,7 +434,7 @@ const PresentationViewerScreen = ({ route, navigation }) => {
       <StatusBar hidden />
       <View style={styles.centered}>
         <ActivityIndicator size="large" color={theme.colors.primary} />
-        <Text style={styles.loadingText}>Preparing viewer...</Text>
+        <Text style={styles.loadingText}>{t('viewer.preparing')}</Text>
       </View>
     </View>
   );

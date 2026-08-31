@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { View, Text, ScrollView, TextInput, TouchableOpacity, StyleSheet, Alert, Platform, KeyboardAvoidingView } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import AudioRecorder from '../components/common/AudioRecorder';
 import theme from '../constants/theme';
@@ -29,6 +30,7 @@ const MeetingField = ({ label, icon, value, onChange, placeholder, multiline, ke
 );
 
 const MeetingFormScreen = ({ route, navigation }) => {
+  const { t } = useTranslation();
   const { meeting, mode } = route.params || {};
   const isEdit = mode === 'edit' && meeting;
 
@@ -93,7 +95,7 @@ const MeetingFormScreen = ({ route, navigation }) => {
           createdAt: new Date().toISOString(),
         }, ...prev]);
       } catch (e) {
-        Alert.alert('Error', 'Failed to save recording.');
+        Alert.alert(t('common.error'), t('meetingForm.alerts.recordingFailed'));
       }
     }
   }, [meetingId, isCreate]);
@@ -133,7 +135,7 @@ const MeetingFormScreen = ({ route, navigation }) => {
 
   const handleSave = useCallback(async () => {
     if (!form.title.trim()) {
-      Alert.alert('Required', 'Please enter a meeting title.');
+      Alert.alert(t('common.required'), t('meetingForm.alerts.titleRequired'));
       return;
     }
     // Auto-save any active recording before submitting
@@ -145,7 +147,7 @@ const MeetingFormScreen = ({ route, navigation }) => {
 
       if (isEdit) {
         await DatabaseService.updateMeeting(meeting.id, form);
-        Alert.alert('Updated', 'Meeting updated successfully.');
+        Alert.alert(t('meetingForm.alerts.updated'), t('meetingForm.alerts.updatedBody'));
       } else {
         await DatabaseService.insertMeeting({ ...form, id: meetingId, meeting_number: meetingNumber });
 
@@ -164,19 +166,19 @@ const MeetingFormScreen = ({ route, navigation }) => {
           } catch {}
         }
 
-        Alert.alert('Saved', 'Meeting saved successfully!');
+        Alert.alert(t('meetingForm.alerts.saved'), t('meetingForm.alerts.savedBody'));
       }
       savedRef.current = true;
       navigation.goBack();
     } catch (e) {
-      Alert.alert('Error', e.message);
+      Alert.alert(t('common.error'), e.message);
     }
   }, [form, isEdit, meeting, meetingId, meetingNumber, navigation]);
 
   return (
     <View style={styles.container}>
       <Header
-        title={isEdit ? 'Edit Meeting' : 'New Meeting'}
+        title={isEdit ? t('meetingForm.titleEdit') : t('meetingForm.titleNew')}
         onBack={() => navigation.goBack()}
       />
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -188,20 +190,20 @@ const MeetingFormScreen = ({ route, navigation }) => {
             </View>
           ) : null}
           <View style={styles.card}>
-            <MeetingField label="Meeting Title *" icon="tag-text" value={form.title} onChange={v => set('title', v)} placeholder="e.g. BioFach 2025 Follow-up" />
-            <MeetingField label="Event / Conference" icon="calendar-star" value={form.event} onChange={v => set('event', v)} />
-            <MeetingField label="Date" icon="calendar" value={form.date} onChange={v => set('date', v)} />
-            <MeetingField label="Location / City" icon="map-marker" value={form.location} onChange={v => set('location', v)} />
-            <MeetingField label="Attendees" icon="account-multiple" value={form.attendees} onChange={v => set('attendees', v)} placeholder="Names of attendees..." />
+            <MeetingField label={t('meetingForm.fields.title')} icon="tag-text" value={form.title} onChange={v => set('title', v)} placeholder={t('meetingForm.fields.titlePh')} />
+            <MeetingField label={t('meetingForm.fields.event')} icon="calendar-star" value={form.event} onChange={v => set('event', v)} />
+            <MeetingField label={t('meetingForm.fields.date')} icon="calendar" value={form.date} onChange={v => set('date', v)} />
+            <MeetingField label={t('meetingForm.fields.location')} icon="map-marker" value={form.location} onChange={v => set('location', v)} />
+            <MeetingField label={t('meetingForm.fields.attendees')} icon="account-multiple" value={form.attendees} onChange={v => set('attendees', v)} placeholder={t('meetingForm.fields.attendeesPh')} />
           </View>
 
-          <Text style={styles.notesLabel}>Meeting Notes</Text>
+          <Text style={styles.notesLabel}>{t('meetingForm.fields.notes')}</Text>
           <View style={styles.notesCard}>
             <TextInput
               style={styles.notesInput}
               value={form.notes}
               onChangeText={v => set('notes', v)}
-              placeholder="Record key discussion points, action items, follow-ups..."
+              placeholder={t('meetingForm.fields.notesPh')}
               placeholderTextColor={theme.colors.textLight}
               multiline
               numberOfLines={10}
@@ -210,7 +212,7 @@ const MeetingFormScreen = ({ route, navigation }) => {
           </View>
 
           {/* Audio Recorder */}
-          <Text style={styles.notesLabel}>Audio Notes</Text>
+          <Text style={styles.notesLabel}>{t('meetingForm.fields.audio')}</Text>
           <AudioRecorder
             ref={audioRef}
             parentType="meeting"
@@ -223,7 +225,7 @@ const MeetingFormScreen = ({ route, navigation }) => {
 
           <TouchableOpacity style={styles.saveBtn} onPress={handleSave} activeOpacity={0.85}>
             <Icon name={isEdit ? 'content-save' : 'plus-circle'} size={22} color="#FFF" />
-            <Text style={styles.saveBtnText}>{isEdit ? 'Update Meeting' : 'Save Meeting'}</Text>
+            <Text style={styles.saveBtnText}>{isEdit ? t('meetingForm.buttons.update') : t('meetingForm.buttons.save')}</Text>
           </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>

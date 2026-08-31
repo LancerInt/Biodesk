@@ -12,10 +12,12 @@ import { Asset } from 'expo-asset';
 import * as FileSystem from 'expo-file-system/legacy';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
+import { useTranslation } from 'react-i18next';
 import theme from '../constants/theme';
 import { loadPdfJsSources } from '../utils/pdfJsLoader';
 
 const CertificateViewerScreen = ({ route, navigation }) => {
+  const { t } = useTranslation();
   const { certName, authority, asset } = route.params;
   const [htmlFileUri, setHtmlFileUri] = useState(null);
   const [pdfJs, setPdfJs] = useState(null);
@@ -346,18 +348,18 @@ const CertificateViewerScreen = ({ route, navigation }) => {
   const renderLoading = () => (
     <View style={styles.centered}>
       <ActivityIndicator size="large" color={theme.colors.primary} />
-      <Text style={styles.loadingText}>Loading certificate...</Text>
+      <Text style={styles.loadingText}>{t('viewer.loadingCert')}</Text>
     </View>
   );
 
   const renderError = () => (
     <View style={styles.centered}>
       <Icon name="alert-circle-outline" size={64} color={theme.colors.textLight} />
-      <Text style={styles.errorTitle}>Unable to load certificate</Text>
+      <Text style={styles.errorTitle}>{t('viewer.unableLoadCert')}</Text>
       <Text style={styles.errorText}>{error}</Text>
       <TouchableOpacity style={styles.retryBtn} onPress={loadPdf} activeOpacity={0.7}>
         <Icon name="refresh" size={18} color="#FFF" />
-        <Text style={styles.retryText}>Retry</Text>
+        <Text style={styles.retryText}>{t('actions.retry')}</Text>
       </TouchableOpacity>
     </View>
   );

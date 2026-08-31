@@ -9,11 +9,13 @@ import {
   Dimensions,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import SearchBar from '../components/common/SearchBar';
 import theme from '../constants/theme';
 import { PRODUCTS } from '../constants/productData';
 import { getAllDocuments, getProductDocuments } from '../constants/documentData';
+import { translateBioTerm } from '../i18n/bioTerms';
 
 const { width: screenWidth } = Dimensions.get('window');
 const isTablet = screenWidth >= 768;
@@ -21,12 +23,17 @@ const isTablet = screenWidth >= 768;
 const DOC_TYPES = ['All', 'Presentation', 'Brochure', 'COA', 'TDS', 'Label', 'SDS/MSDS'];
 
 const DOC_META = {
-  Presentation: { icon: 'file-presentation-box', color: '#FF9800', label: 'Company Presentation' },
-  Brochure: { icon: 'file-presentation-box', color: '#FF9800', label: 'Product Brochure' },
-  COA: { icon: 'file-certificate', color: '#4CAF50', label: 'Certificate of Analysis' },
-  TDS: { icon: 'file-document-outline', color: '#2196F3', label: 'Technical Data Sheet' },
-  Label: { icon: 'label', color: '#9C27B0', label: 'Product Label' },
-  'SDS/MSDS': { icon: 'file-alert', color: '#F44336', label: 'Safety Data Sheet' },
+  Presentation: { icon: 'file-presentation-box', color: '#FF9800', labelKey: 'docTypes.presentationDesc' },
+  Brochure: { icon: 'file-presentation-box', color: '#FF9800', labelKey: 'docTypes.brochureDesc' },
+  COA: { icon: 'file-certificate', color: '#4CAF50', labelKey: 'docTypes.coaDesc' },
+  TDS: { icon: 'file-document-outline', color: '#2196F3', labelKey: 'docTypes.tdsDesc' },
+  Label: { icon: 'label', color: '#9C27B0', labelKey: 'docTypes.labelDesc' },
+  'SDS/MSDS': { icon: 'file-alert', color: '#F44336', labelKey: 'docTypes.msdsDesc' },
+};
+
+const chipLabelKey = (type) => {
+  const map = { 'All': 'common.all', 'Presentation': 'docTypes.presentation', 'Brochure': 'docTypes.brochure', 'COA': 'docTypes.coa', 'TDS': 'docTypes.tds', 'Label': 'docTypes.label', 'SDS/MSDS': 'docTypes.msds' };
+  return map[type] || type;
 };
 
 // ─── Presentations (add more entries here for multiple presentations) ────
@@ -46,7 +53,7 @@ const PRESENTATIONS = [
     docType: 'Presentation',
     hasAsset: true,
     asset: require('../assets/documents/KriyaPresentation_v4.pdf'),
-    title: 'Kriya Presentation v4',
+    title: "Kriya's Innovation Technology",
     subtitle: 'Updated Company Overview & Portfolio',
   },
   {
@@ -138,6 +145,7 @@ const buildDocList = () => {
 const ALL_DOCS = buildDocList();
 
 const DocumentsScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [activeType, setActiveType] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -186,7 +194,7 @@ const DocumentsScreen = ({ navigation }) => {
           <Icon name={meta.icon} size={14} color="#FFF" style={{ marginRight: 5 }} />
         ) : null}
         <Text style={[styles.chipText, isActive && styles.chipTextActive]}>
-          {type}
+          {t(chipLabelKey(type))}
         </Text>
       </TouchableOpacity>
     );
@@ -209,24 +217,24 @@ const DocumentsScreen = ({ navigation }) => {
                 <Icon name="file-presentation-box" size={28} color="#FF9800" />
               </View>
               <View style={styles.presInfo}>
-                <Text style={styles.presName}>{item.title || item.productName}</Text>
+                <Text style={styles.presName}>{translateBioTerm(item.title || item.productName)}</Text>
                 {item.subtitle ? (
-                  <Text style={styles.presSubtitle}>{item.subtitle}</Text>
+                  <Text style={styles.presSubtitle}>{translateBioTerm(item.subtitle)}</Text>
                 ) : null}
                 <View style={styles.offlineBadge}>
                   <Icon name="check-circle" size={12} color={theme.colors.success} />
-                  <Text style={styles.offlineText}>Offline</Text>
+                  <Text style={styles.offlineText}>{t('common.offline')}</Text>
                 </View>
               </View>
             </View>
             <View style={styles.presActions}>
               <View style={styles.presFullscreenBtn}>
                 <Icon name="fullscreen" size={18} color="#FFF" />
-                <Text style={styles.presFullscreenText}>Full Screen</Text>
+                <Text style={styles.presFullscreenText}>{t('actions.fullScreen')}</Text>
               </View>
               <View style={styles.presSlideBadge}>
                 <Icon name="gesture-swipe-horizontal" size={14} color={theme.colors.textLight} />
-                <Text style={styles.presSlideText}>Swipe to navigate</Text>
+                <Text style={styles.presSlideText}>{t('documentsPage.swipeHint')}</Text>
               </View>
             </View>
           </View>
@@ -244,17 +252,17 @@ const DocumentsScreen = ({ navigation }) => {
         </View>
         <View style={styles.docInfo}>
           <Text style={styles.docName}>{item.productName}</Text>
-          <Text style={styles.docType}>{meta.label}</Text>
+          <Text style={styles.docType}>{meta.labelKey ? t(meta.labelKey) : meta.label}</Text>
           <View style={styles.docMeta}>
             {item.hasAsset ? (
               <View style={styles.offlineBadge}>
                 <Icon name="check-circle" size={12} color={theme.colors.success} />
-                <Text style={styles.offlineText}>Offline</Text>
+                <Text style={styles.offlineText}>{t('common.offline')}</Text>
               </View>
             ) : (
               <View style={styles.offlineBadge}>
                 <Icon name="clock-outline" size={12} color={theme.colors.textLight} />
-                <Text style={[styles.offlineText, { color: theme.colors.textLight }]}>Pending</Text>
+                <Text style={[styles.offlineText, { color: theme.colors.textLight }]}>{t('common.pending')}</Text>
               </View>
             )}
           </View>
@@ -266,14 +274,14 @@ const DocumentsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Documents" subtitle={`${filtered.length} files`} onBack={() => navigation.goBack()} />
+      <Header title={t('screens.documents')} subtitle={t('documentsPage.headerCount', { count: filtered.length })} onBack={() => navigation.goBack()} />
 
       {/* Search + Filter Bar */}
       <View style={styles.filterSection}>
         <SearchBar
           value={searchQuery}
           onChangeText={setSearchQuery}
-          placeholder="Search documents..."
+          placeholder={t('documentsPage.searchPlaceholder')}
           onClear={() => setSearchQuery('')}
         />
         <ScrollView
@@ -294,7 +302,7 @@ const DocumentsScreen = ({ navigation }) => {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="file-search-outline" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyText}>No documents found</Text>
+            <Text style={styles.emptyText}>{t('documentsPage.emptyTitle')}</Text>
           </View>
         }
       />

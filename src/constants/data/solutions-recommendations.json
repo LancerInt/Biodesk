@@ -449,7 +449,7 @@
       "objective": "Manage aphid colonies on field crops, vegetables, and pulses",
       "productRoles": [
         {
-          "role": "Microbial aphid kill (Lecanicillium lecanii)",
+          "role": "Microbial aphid kill (Verticillium lecanii)",
           "productId": "prod_seira"
         },
         {
@@ -627,7 +627,7 @@
           "productId": "prod_ecoza_pro"
         },
         {
-          "role": "Lecanicillium soft-body kill",
+          "role": "Verticillium soft-body kill",
           "productId": "prod_seira"
         },
         {
@@ -665,7 +665,7 @@
           "productId": "prod_admira_admon"
         },
         {
-          "role": "Lecanicillium adult fly control",
+          "role": "Verticillium adult fly control",
           "productId": "prod_seira"
         },
         {
@@ -684,7 +684,7 @@
           "productId": "prod_k_guard"
         },
         {
-          "role": "Lecanicillium crawler-stage kill",
+          "role": "Verticillium crawler-stage kill",
           "productId": "prod_seira"
         },
         {
@@ -718,7 +718,7 @@
       "objective": "Root-knot nematode soil management",
       "productRoles": [
         {
-          "role": "Paecilomyces parasitic on nematode eggs",
+          "role": "Purpureocillium parasitic on nematode eggs",
           "productId": "prod_encilo"
         },
         {
@@ -786,7 +786,7 @@
           "productId": "prod_margoshine"
         },
         {
-          "role": "Lecanicillium crawler control",
+          "role": "Verticillium crawler control",
           "productId": "prod_seira"
         }
       ]
@@ -948,7 +948,7 @@
       "objective": "Bemisia tabaci suppression and tospovirus prevention",
       "productRoles": [
         {
-          "role": "Lecanicillium specialist mycosis",
+          "role": "Verticillium specialist mycosis",
           "productId": "prod_seira"
         },
         {
@@ -1286,7 +1286,7 @@
       "objective": "Manage wheat aphid and termite pressure",
       "productRoles": [
         {
-          "role": "Lecanicillium for aphid mycosis",
+          "role": "Verticillium for aphid mycosis",
           "productId": "prod_seira"
         },
         {
@@ -1323,7 +1323,7 @@
           ]
         },
         {
-          "role": "Lecanicillium for whitefly mycosis",
+          "role": "Verticillium for whitefly mycosis",
           "productId": "prod_seira"
         }
       ]
@@ -1449,7 +1449,7 @@
           ]
         },
         {
-          "role": "Lecanicillium for aphid mycosis",
+          "role": "Verticillium for aphid mycosis",
           "productId": "prod_seira"
         }
       ]
@@ -1574,7 +1574,7 @@
       "objective": "Manage mustard aphid and painted bug at seedling",
       "productRoles": [
         {
-          "role": "Lecanicillium for aphid mycosis",
+          "role": "Verticillium for aphid mycosis",
           "productId": "prod_seira"
         },
         {
@@ -1798,7 +1798,7 @@
       "objective": "Manage powdery and downy mildew resistance",
       "productRoles": [
         {
-          "role": "Bacillus Subtilix along with Trichoderma harzianum for powdery mildew",
+          "role": "Bacillus Rhiota along with Trichoderma harzianum for powdery mildew",
           "productIds": [
             "prod_subtilix",
             "prod_mycova"
@@ -1888,7 +1888,7 @@
           ]
         },
         {
-          "role": "Lecanicillium for aphid mycosis",
+          "role": "Verticillium for aphid mycosis",
           "productId": "prod_seira"
         }
       ]
@@ -2094,7 +2094,7 @@
       "objective": "Manage aphid and painted bug across oilseeds",
       "productRoles": [
         {
-          "role": "Lecanicillium for aphid mycosis",
+          "role": "Verticillium for aphid mycosis",
           "productId": "prod_seira"
         },
         {
@@ -2131,7 +2131,7 @@
           ]
         },
         {
-          "role": "Lecanicillium for aphid mycosis",
+          "role": "Verticillium for aphid mycosis",
           "productId": "prod_seira"
         }
       ]
@@ -3525,7 +3525,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_jassid",
-      "recommendationReason": "Jassid phytotoxic saliva causes hopper-burn on leaf undersides. Azadirachtin disrupts nymph development as IGR while Lecanicillium kills soft-bodied life stages through fungal mycosis."
+      "recommendationReason": "Jassid phytotoxic saliva causes hopper-burn on leaf undersides. Azadirachtin disrupts nymph development as IGR while Verticillium kills soft-bodied life stages through fungal mycosis."
     },
     {
       "id": "rec_general_pest_leaf_folder",
@@ -3541,7 +3541,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_leaf_miner",
-      "recommendationReason": "Leaf miner larvae feed inside leaf tissue, protected from contact sprays. Lemongrass oil delivers translaminar penetration to mining larvae and Lecanicillium kills emerging adult flies before re-infestation."
+      "recommendationReason": "Leaf miner larvae feed inside leaf tissue, protected from contact sprays. Lemongrass oil delivers translaminar penetration to mining larvae and Verticillium kills emerging adult flies before re-infestation."
     },
     {
       "id": "rec_general_pest_mealybug",
@@ -3549,7 +3549,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_mealybug",
-      "recommendationReason": "Mealybug colonies are protected by waxy coatings that block contact insecticides. Karanjin EC penetrates the wax to contact the soft body and Lecanicillium kills exposed crawlers during emergence."
+      "recommendationReason": "Mealybug colonies are protected by waxy coatings that block contact insecticides. Karanjin EC penetrates the wax to contact the soft body and Verticillium kills exposed crawlers during emergence."
     },
     {
       "id": "rec_general_pest_mite",
@@ -3565,7 +3565,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_nematode",
-      "recommendationReason": "Root-knot nematodes parasitize root systems and reduce yields. Paecilomyces parasitizes nematode eggs and females in soil while Pseudomonas protects the root zone from secondary infections."
+      "recommendationReason": "Root-knot nematodes parasitize root systems and reduce yields. Purpureocillium parasitizes nematode eggs and females in soil while Pseudomonas protects the root zone from secondary infections."
     },
     {
       "id": "rec_general_pest_painted_bug",
@@ -3597,7 +3597,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_scale_insect",
-      "recommendationReason": "Scale insects protect themselves with wax shields that block contact sprays. Neem oil smothers scales by physical coating and spiracular blockage, while Lecanicillium kills emerging crawlers during their vulnerable stage."
+      "recommendationReason": "Scale insects protect themselves with wax shields that block contact sprays. Neem oil smothers scales by physical coating and spiracular blockage, while Verticillium kills emerging crawlers during their vulnerable stage."
     },
     {
       "id": "rec_general_pest_semilooper",
@@ -3677,7 +3677,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_pest_whitefly",
-      "recommendationReason": "Whiteflies cause direct sap-loss damage and transmit begomoviruses. Lecanicillium specializes in whitefly mycosis through cuticle penetration and neem oil provides ovicidal coverage on egg-laden leaf undersides."
+      "recommendationReason": "Whiteflies cause direct sap-loss damage and transmit begomoviruses. Verticillium specializes in whitefly mycosis through cuticle penetration and neem oil provides ovicidal coverage on egg-laden leaf undersides."
     },
     {
       "id": "rec_crop_rice_pest_general",
@@ -3725,7 +3725,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_wheat_pest",
-      "recommendationReason": "Wheat aphids and termites pressure both foliage and roots. Lecanicillium kills aphids through cuticle penetration and Metarhizium provides specialist soil-borne termite control."
+      "recommendationReason": "Wheat aphids and termites pressure both foliage and roots. Verticillium kills aphids through cuticle penetration and Metarhizium provides specialist soil-borne termite control."
     },
     {
       "id": "rec_crop_wheat_vigor_general",
@@ -3741,7 +3741,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_tomato_pest",
-      "recommendationReason": "Tomato fruit borer (Helicoverpa) and whitefly (begomovirus vector) cause both direct yield loss and indirect virus transmission. Spinosad targets borer L1 before fruit entry and Lecanicillium kills whitefly nymphs."
+      "recommendationReason": "Tomato fruit borer (Helicoverpa) and whitefly (begomovirus vector) cause both direct yield loss and indirect virus transmission. Spinosad targets borer L1 before fruit entry and Verticillium kills whitefly nymphs."
     },
     {
       "id": "rec_crop_tomato_vigor_general",
@@ -3805,7 +3805,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_cabbage_pest",
-      "recommendationReason": "Cabbage suffers from resistance-prone diamondback moth and aphid colonies on leaf undersides. Spinosad remains effective on DBM where chemicals fail and Lecanicillium provides microbial aphid mortality."
+      "recommendationReason": "Cabbage suffers from resistance-prone diamondback moth and aphid colonies on leaf undersides. Spinosad remains effective on DBM where chemicals fail and Verticillium provides microbial aphid mortality."
     },
     {
       "id": "rec_crop_cabbage_vigor_general",
@@ -3869,7 +3869,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_mustard_pest",
-      "recommendationReason": "Mustard faces mustard aphid colonies at flowering and painted bug aggregations at seedling. Lecanicillium delivers specialist aphid mycosis and clove oil repels and kills painted bug at cotyledon stage."
+      "recommendationReason": "Mustard faces mustard aphid colonies at flowering and painted bug aggregations at seedling. Verticillium delivers specialist aphid mycosis and clove oil repels and kills painted bug at cotyledon stage."
     },
     {
       "id": "rec_crop_mustard_vigor_general",
@@ -3933,7 +3933,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_banana_pest",
-      "recommendationReason": "Banana suffers structural damage from pseudostem weevil and virus transmission from aphid colonies. Karanjin disrupts weevil feeding and Lecanicillium kills aphids through cuticle penetration."
+      "recommendationReason": "Banana suffers structural damage from pseudostem weevil and virus transmission from aphid colonies. Karanjin disrupts weevil feeding and Verticillium kills aphids through cuticle penetration."
     },
     {
       "id": "rec_crop_banana_vigor_general",
@@ -4021,7 +4021,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_potato_pest",
-      "recommendationReason": "Potato faces cutworm damage at emergence and virus-transmitting aphid colonies later. Spinosad WSP soil drench targets nocturnal cutworm larvae and Lecanicillium delivers aphid mycosis."
+      "recommendationReason": "Potato faces cutworm damage at emergence and virus-transmitting aphid colonies later. Spinosad WSP soil drench targets nocturnal cutworm larvae and Verticillium delivers aphid mycosis."
     },
     {
       "id": "rec_crop_potato_vigor_general",
@@ -4125,7 +4125,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_oilseeds_pest",
-      "recommendationReason": "Oilseeds across mustard, sesamum, and sunflower suffer from aphid colonies and painted bug at seedling. Lecanicillium provides aphid mycosis and clove oil targets painted bug aggregations."
+      "recommendationReason": "Oilseeds across mustard, sesamum, and sunflower suffer from aphid colonies and painted bug at seedling. Verticillium provides aphid mycosis and clove oil targets painted bug aggregations."
     },
     {
       "id": "rec_crop_oilseeds_vigor_general",
@@ -4141,7 +4141,7 @@
       "priority": 1,
       "recommendationType": "package",
       "packageId": "pkg_crop_cauliflower_pest",
-      "recommendationReason": "Cauliflower suffers resistance-prone diamondback moth larvae and aphid colonies on undersides. Spinosad remains effective on DBM where chemicals fail and Lecanicillium delivers microbial aphid kill."
+      "recommendationReason": "Cauliflower suffers resistance-prone diamondback moth larvae and aphid colonies on undersides. Spinosad remains effective on DBM where chemicals fail and Verticillium delivers microbial aphid kill."
     },
     {
       "id": "rec_crop_cauliflower_vigor_general",

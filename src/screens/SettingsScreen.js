@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert, TextInput } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
+import LanguagePicker from '../components/common/LanguagePicker';
 import theme from '../constants/theme';
 import DatabaseService from '../database/DatabaseService';
+import { getLanguage } from '../i18n';
 
 const SettingsScreen = ({ navigation }) => {
+  const { t, i18n } = useTranslation();
   const [pinSection, setPinSection] = useState(false);
   const [oldPin, setOldPin] = useState('');
   const [newPin, setNewPin] = useState('');
   const [confirmPin, setConfirmPin] = useState('');
+  const [langPickerOpen, setLangPickerOpen] = useState(false);
+  const currentLang = getLanguage(i18n.language);
 
   const handleChangePin = async () => {
     const stored = await DatabaseService.getSetting('admin_pin');
@@ -68,8 +74,22 @@ const SettingsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Settings" onBack={() => navigation.goBack()} />
+      <Header title={t('screens.settings')} onBack={() => navigation.goBack()} />
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+
+        <Text style={styles.sectionLabel}>{t('settings.language')}</Text>
+        <View style={styles.card}>
+          <TouchableOpacity style={styles.row} onPress={() => setLangPickerOpen(true)} activeOpacity={0.7}>
+            <View style={[styles.rowIcon, { backgroundColor: '#2E7D32' + '15' }]}>
+              <Icon name="translate" size={22} color="#2E7D32" />
+            </View>
+            <View style={styles.rowText}>
+              <Text style={styles.rowTitle}>{currentLang.nativeName}</Text>
+              <Text style={styles.rowDesc}>{t('settings.languageDesc')}</Text>
+            </View>
+            <Icon name="chevron-right" size={20} color={theme.colors.textLight} />
+          </TouchableOpacity>
+        </View>
 
         <Text style={styles.sectionLabel}>Security</Text>
         <View style={styles.card}>
@@ -129,6 +149,7 @@ const SettingsScreen = ({ navigation }) => {
         </View>
 
       </ScrollView>
+      <LanguagePicker visible={langPickerOpen} onClose={() => setLangPickerOpen(false)} />
     </View>
   );
 };

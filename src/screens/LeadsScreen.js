@@ -8,6 +8,7 @@ import * as FileSystem from 'expo-file-system/legacy';
 import { StorageAccessFramework } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import { useFocusEffect } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import SearchBar from '../components/common/SearchBar';
 import PinModal from '../components/common/PinModal';
@@ -20,6 +21,7 @@ const isTablet = screenWidth >= 768;
 const RECENT_LIMIT = 5;
 
 const LeadsScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [leads, setLeads] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [pinVisible, setPinVisible] = useState(false);
@@ -61,10 +63,10 @@ const LeadsScreen = ({ navigation }) => {
   }, [leads, searchQuery, showAll]);
 
   const handleDelete = (id, name) => {
-    Alert.alert('Delete Lead', `Remove ${name} and all linked images/recordings?`, [
-      { text: 'Cancel', style: 'cancel' },
+    Alert.alert(t('leads.alerts.deleteTitle'), t('leads.alerts.deleteBody', { name }), [
+      { text: t('actions.cancel'), style: 'cancel' },
       {
-        text: 'Delete',
+        text: t('actions.delete'),
         style: 'destructive',
         onPress: async () => {
           try {
@@ -79,11 +81,11 @@ const LeadsScreen = ({ navigation }) => {
   };
 
   const handleExport = () => {
-    Alert.alert('Export Leads', 'What would you like to export?', [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'CSV Data', onPress: () => { setExportType('csv'); setPinVisible(true); } },
-      { text: 'All Images', onPress: () => { setExportType('images'); setPinVisible(true); } },
-      { text: 'All Audio', onPress: () => { setExportType('audio'); setPinVisible(true); } },
+    Alert.alert(t('leads.alerts.exportTitle'), t('leads.alerts.exportBody'), [
+      { text: t('actions.cancel'), style: 'cancel' },
+      { text: t('leads.alerts.exportCsv'), onPress: () => { setExportType('csv'); setPinVisible(true); } },
+      { text: t('leads.alerts.exportImages'), onPress: () => { setExportType('images'); setPinVisible(true); } },
+      { text: t('leads.alerts.exportAudio'), onPress: () => { setExportType('audio'); setPinVisible(true); } },
     ]);
   };
 
@@ -122,17 +124,17 @@ const LeadsScreen = ({ navigation }) => {
       }
 
       if (files.length === 0) {
-        Alert.alert('No Images', 'No lead images found to export.');
+        Alert.alert(t('leads.alerts.noImagesTitle'), t('leads.alerts.noImagesBody'));
         setExporting(false);
         return;
       }
 
       const exported = await saveFilesToDevice(files);
       if (exported > 0) {
-        Alert.alert('Export Complete', `${exported} image${exported !== 1 ? 's' : ''} saved to device.`);
+        Alert.alert(t('leads.alerts.exportCompleteTitle'), t('leads.alerts.exportImagesBody', { count: exported }));
       }
     } catch (e) {
-      Alert.alert('Export Failed', e.message || 'Unknown error');
+      Alert.alert(t('leads.alerts.exportFailedTitle'), e.message || t('leads.alerts.unknownError'));
     }
     setExporting(false);
   };
@@ -162,17 +164,17 @@ const LeadsScreen = ({ navigation }) => {
       }
 
       if (files.length === 0) {
-        Alert.alert('No Audio', 'No audio recordings found to export.');
+        Alert.alert(t('leads.alerts.noAudioTitle'), t('leads.alerts.noAudioBody'));
         setExporting(false);
         return;
       }
 
       const exported = await saveFilesToDevice(files);
       if (exported > 0) {
-        Alert.alert('Export Complete', `${exported} recording${exported !== 1 ? 's' : ''} saved to device.`);
+        Alert.alert(t('leads.alerts.exportCompleteTitle'), t('leads.alerts.exportAudioBody', { count: exported }));
       }
     } catch (e) {
-      Alert.alert('Export Failed', e.message || 'Unknown error');
+      Alert.alert(t('leads.alerts.exportFailedTitle'), e.message || t('leads.alerts.unknownError'));
     }
     setExporting(false);
   };
@@ -225,12 +227,12 @@ const LeadsScreen = ({ navigation }) => {
         const sharable = await Sharing.isAvailableAsync();
         if (sharable) {
           Alert.alert(
-            'Files Ready',
-            `${exported} file${exported !== 1 ? 's' : ''} prepared. Sharing the first file — save to your preferred location.`,
-            [{ text: 'Share', onPress: () => Sharing.shareAsync(firstFile, { mimeType: files[0].mime }) }]
+            t('leads.alerts.filesReadyTitle'),
+            t('leads.alerts.filesReadyBody', { count: exported }),
+            [{ text: t('actions.share'), onPress: () => Sharing.shareAsync(firstFile, { mimeType: files[0].mime }) }]
           );
         } else {
-          Alert.alert('Export Saved', `${exported} file${exported !== 1 ? 's' : ''} saved to app storage.`);
+          Alert.alert(t('leads.alerts.exportSavedTitle'), t('leads.alerts.exportSavedBody', { count: exported }));
         }
       }
       return exported;
@@ -242,7 +244,7 @@ const LeadsScreen = ({ navigation }) => {
     try {
       const csv = await DatabaseService.getLeadsAsCSV();
       if (!csv) {
-        Alert.alert('No Data', 'No leads to export.');
+        Alert.alert(t('leads.alerts.noDataTitle'), t('leads.alerts.noDataBody'));
         return;
       }
       const exportDir = `${FileSystem.documentDirectory}exports/`;
@@ -253,9 +255,9 @@ const LeadsScreen = ({ navigation }) => {
       await FileSystem.writeAsStringAsync(filePath, csv, { encoding: FileSystem.EncodingType.UTF8 });
       const sharingAvailable = await Sharing.isAvailableAsync();
       if (sharingAvailable) {
-        await Sharing.shareAsync(filePath, { mimeType: 'text/csv', dialogTitle: 'Export Leads CSV' });
+        await Sharing.shareAsync(filePath, { mimeType: 'text/csv', dialogTitle: t('leads.alerts.shareTitle') });
       } else {
-        Alert.alert('Export Saved', `${leads.length} leads exported to:\n${filePath}`);
+        Alert.alert(t('leads.alerts.exportSavedTitle'), t('leads.alerts.exportCountBody', { count: leads.length, path: filePath }));
       }
     } catch (e) {
       Alert.alert('Export Failed', e.message || 'Unknown error');
@@ -319,21 +321,21 @@ const LeadsScreen = ({ navigation }) => {
           activeOpacity={0.6}
           onPress={() => navigation.navigate('LeadForm', { lead: item, mode: 'view' })}>
           <Icon name="eye-outline" size={16} color={theme.colors.primary} />
-          <Text style={styles.actionBtnText}>View</Text>
+          <Text style={styles.actionBtnText}>{t('actions.view')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.actionBtn}
           activeOpacity={0.6}
           onPress={() => navigation.navigate('LeadForm', { lead: item, mode: 'edit' })}>
           <Icon name="pencil-outline" size={16} color={theme.colors.info} />
-          <Text style={[styles.actionBtnText, { color: theme.colors.info }]}>Edit</Text>
+          <Text style={[styles.actionBtnText, { color: theme.colors.info }]}>{t('actions.edit')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.actionBtn}
           activeOpacity={0.6}
           onPress={() => handleDelete(item.id, item.name)}>
           <Icon name="trash-can-outline" size={16} color={theme.colors.error} />
-          <Text style={[styles.actionBtnText, { color: theme.colors.error }]}>Delete</Text>
+          <Text style={[styles.actionBtnText, { color: theme.colors.error }]}>{t('actions.delete')}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -348,10 +350,10 @@ const LeadsScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('LeadImages')}>
         <View style={styles.galleryBannerLeft}>
           <Icon name="image-multiple-outline" size={20} color={theme.colors.primary} />
-          <Text style={styles.galleryBannerText}>Lead Image Gallery</Text>
+          <Text style={styles.galleryBannerText}>{t('leads.imageGallery')}</Text>
         </View>
         <View style={styles.galleryBannerRight}>
-          <Text style={styles.galleryBannerHint}>View all photos</Text>
+          <Text style={styles.galleryBannerHint}>{t('leads.viewAllPhotos')}</Text>
           <Icon name="chevron-right" size={18} color={theme.colors.textLight} />
         </View>
       </TouchableOpacity>
@@ -363,10 +365,10 @@ const LeadsScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('LeadAudio')}>
         <View style={styles.galleryBannerLeft}>
           <Icon name="microphone-outline" size={20} color={theme.colors.secondary} />
-          <Text style={[styles.galleryBannerText, { color: theme.colors.secondary }]}>Lead Audio Notes</Text>
+          <Text style={[styles.galleryBannerText, { color: theme.colors.secondary }]}>{t('leads.audioNotes')}</Text>
         </View>
         <View style={styles.galleryBannerRight}>
-          <Text style={styles.galleryBannerHint}>View all recordings</Text>
+          <Text style={styles.galleryBannerHint}>{t('leads.viewAllRecordings')}</Text>
           <Icon name="chevron-right" size={18} color={theme.colors.textLight} />
         </View>
       </TouchableOpacity>
@@ -374,10 +376,10 @@ const LeadsScreen = ({ navigation }) => {
       {/* Section label */}
       <Text style={styles.sectionLabel}>
         {searchQuery.length >= 2
-          ? `Search Results (${displayed.length})`
+          ? t('leads.searchResults', { count: displayed.length })
           : showAll
-            ? `All Leads (${leads.length})`
-            : `Recent Leads (${Math.min(leads.length, RECENT_LIMIT)} of ${leads.length})`}
+            ? t('leads.allLeads', { count: leads.length })
+            : t('leads.recentLeads', { count: Math.min(leads.length, RECENT_LIMIT), total: leads.length })}
       </Text>
     </View>
   );
@@ -397,7 +399,7 @@ const LeadsScreen = ({ navigation }) => {
           color={theme.colors.primary}
         />
         <Text style={styles.toggleBtnText}>
-          {showAll ? 'Show Recent Only' : `Display All Leads (${leads.length} total)`}
+          {showAll ? t('leads.showRecentOnly') : t('leads.displayAllLeads', { count: leads.length })}
         </Text>
       </TouchableOpacity>
     );
@@ -406,8 +408,8 @@ const LeadsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Leads"
-        subtitle={leads.length + ' contacts'}
+        title={t('screens.leads')}
+        subtitle={t('leads.headerCount', { count: leads.length })}
         onBack={() => navigation.goBack()}
         rightIcon="export"
         onRightPress={handleExport}
@@ -417,7 +419,7 @@ const LeadsScreen = ({ navigation }) => {
         <SearchBar
           value={searchQuery}
           onChangeText={setSearchQuery}
-          placeholder="Search leads by name, company, phone..."
+          placeholder={t('leads.searchPlaceholder')}
           onClear={() => setSearchQuery('')}
         />
       </View>
@@ -436,8 +438,8 @@ const LeadsScreen = ({ navigation }) => {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="account-group-outline" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyTitle}>No Leads Yet</Text>
-            <Text style={styles.emptyText}>Tap + to capture your first lead</Text>
+            <Text style={styles.emptyTitle}>{t('leads.emptyTitle')}</Text>
+            <Text style={styles.emptyText}>{t('leads.emptySub')}</Text>
           </View>
         }
       />

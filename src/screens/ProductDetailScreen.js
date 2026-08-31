@@ -3,6 +3,9 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Modal, Pressable,
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import { translateBioTerm } from '../i18n/bioTerms';
+import { useProductText } from '../i18n/useProductText';
 import Header from '../components/common/Header';
 import ImageViewer from '../components/common/ImageViewer';
 import ProductName from '../components/common/ProductName';
@@ -14,9 +17,30 @@ import { getProductDocuments } from '../constants/documentData';
 import { getInfoIconForLabel } from '../constants/productTechnicalProfiles';
 import SwipeableTabs from '../components/common/SwipeableTabs';
 
-const TABS = ['Overview', 'Agronomy', 'Highlights', 'Documents'];
+const TAB_KEYS = ['overview', 'agronomy', 'highlights', 'documents'];
+
+// Maps raw category / subcategory / EXCEL category strings to i18n keys
+const CATEGORY_I18N = {
+  'Biocontrol': 'categories.biocontrol',
+  'Biostimulants & Biofertilizers': 'categories.bioNutrition',
+  'Home & Garden': 'categories.homeGarden',
+  'Botanical Pesticide': 'categories.botanicalPesticide',
+  'Microbial Pesticide': 'categories.microbialPesticide',
+  'Biostimulant': 'categories.biostimulant',
+  'Biofertilizer': 'categories.biofertilizer',
+  'Substrate': 'categories.substrate',
+  'Botanical Pesticides': 'categories.botanicalPesticides',
+  'Microbial Pesticides': 'categories.microbialPesticides',
+  'Bio Stimulants': 'categories.bioStimulants',
+  'Microbial Fertilizer': 'categories.microbialFertilizer',
+  'Substrates': 'categories.substrates',
+};
 
 const ProductDetailScreen = ({ route, navigation }) => {
+  const { t } = useTranslation();
+  const tp = useProductText();
+  const TABS = TAB_KEYS.map(k => t(`portfolio.${k}`));
+  const tCat = (name) => CATEGORY_I18N[name] ? t(CATEGORY_I18N[name]) : name;
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   const isTablet = screenWidth >= 768;
   const isLandscape = screenWidth > screenHeight;
@@ -79,11 +103,11 @@ const ProductDetailScreen = ({ route, navigation }) => {
             <Text style={styles.heroIngredient}>{product.activeIngredient}</Text>
             <View style={styles.heroBadges}>
               <View style={[styles.heroPill, { backgroundColor: catColor + '10', borderColor: catColor + '30' }]}>
-                <Text style={[styles.heroPillText, { color: catColor }]}>{product.category}</Text>
+                <Text style={[styles.heroPillText, { color: catColor }]}>{tCat(product.category)}</Text>
               </View>
               {product.subcategory ? (
                 <View style={[styles.heroPill, { backgroundColor: catColor + '08', borderColor: catColor + '20' }]}>
-                  <Text style={[styles.heroPillText, { color: catColor }]}>{product.subcategory}</Text>
+                  <Text style={[styles.heroPillText, { color: catColor }]}>{tCat(product.subcategory)}</Text>
                 </View>
               ) : null}
               <View style={[styles.heroPill, { backgroundColor: getFormulationColor(product.formulation) + '10', borderColor: getFormulationColor(product.formulation) + '30' }]}>
@@ -116,7 +140,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
 
       {/* Product Overview */}
       {product.overview ? (
-        <Text style={styles.description}>{product.overview}</Text>
+        <Text style={styles.description}>{tp(product.overview)}</Text>
       ) : product.description ? (
         <Text style={styles.description}>{product.description}</Text>
       ) : null}
@@ -124,7 +148,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Choose the Right Variant */}
       {product.portfolioId && !fromPortfolio ? (
         <>
-          <Text style={styles.sectionTitle}>Choose the Right Variant</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.chooseVariant')}</Text>
           <TouchableOpacity
             style={[styles.variantBtn, { borderColor: catColor }]}
             onPress={() => {
@@ -135,14 +159,14 @@ const ProductDetailScreen = ({ route, navigation }) => {
             }}
             activeOpacity={0.7}>
             <Icon name="view-grid-outline" size={20} color={catColor} />
-            <Text style={[styles.variantBtnText, { color: catColor }]}>View Full Range</Text>
+            <Text style={[styles.variantBtnText, { color: catColor }]}>{t('portfolio.viewFullRange')}</Text>
             <Icon name="chevron-right" size={18} color={catColor} />
           </TouchableOpacity>
         </>
       ) : null}
 
       {/* Mode of Action Diagram */}
-      <Text style={styles.sectionTitle}>Mode of Action</Text>
+      <Text style={styles.sectionTitle}>{t('portfolio.modeOfAction')}</Text>
       {moaImage ? (
         <TouchableOpacity style={styles.moaDiagramCard} activeOpacity={0.8} onPress={() => setZoomImage(moaImage)}>
           <Image source={moaImage} style={styles.moaDiagramImage} contentFit="contain" transition={200} />
@@ -150,7 +174,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
       ) : (
         <View style={styles.moaDiagramPlaceholder}>
           <Icon name="cog-outline" size={32} color={theme.colors.textLight} />
-          <Text style={styles.moaDiagramPlaceholderText}>Mode of Action diagram coming soon</Text>
+          <Text style={styles.moaDiagramPlaceholderText}>{t('portfolio.modeOfActionSoon')}</Text>
         </View>
       )}
 
@@ -158,7 +182,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
       <View style={styles.specCard}>
         <View style={styles.specCardHeader}>
           <Icon name="flask-outline" size={18} color={theme.colors.primary} />
-          <Text style={styles.specCardTitle}>Technical Profile</Text>
+          <Text style={styles.specCardTitle}>{t('portfolio.technicalProfile')}</Text>
         </View>
         <View style={styles.specCardBody}>
           {product.technicalProfile && product.technicalProfile.length > 0 ? (
@@ -193,7 +217,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Pack Sizes — Pill Style */}
       {product.packSizes && product.packSizes.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Pack Sizes</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.packSizes')}</Text>
           <View style={styles.packSizes}>
             {product.packSizes.map((size, i) => (
               <View key={i} style={styles.packPill}>
@@ -201,7 +225,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
               </View>
             ))}
             <View style={styles.packPill}>
-              <Text style={styles.packPillText}>Bulk Packing</Text>
+              <Text style={styles.packPillText}>{t('portfolio.bulkPacking')}</Text>
             </View>
           </View>
         </>
@@ -212,16 +236,16 @@ const ProductDetailScreen = ({ route, navigation }) => {
         <View style={styles.insightCard}>
           <View style={styles.insightHeader}>
             <Icon name="bullseye-arrow" size={20} color={theme.colors.secondary} />
-            <Text style={styles.insightTitle}>Technical Positioning</Text>
+            <Text style={styles.insightTitle}>{t('portfolio.technicalPositioning')}</Text>
           </View>
-          <Text style={styles.insightText}>{product.technicalSummary}</Text>
+          <Text style={styles.insightText}>{tp(product.technicalSummary)}</Text>
         </View>
       ) : null}
 
       {/* Related Products — Shopify Style */}
       {relatedProducts.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>You May Also Like</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.youMayAlsoLike')}</Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -259,12 +283,12 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Target Crops */}
       {product.targetCrops && product.targetCrops.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Target Crops</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.targetCrops')}</Text>
           <View style={styles.chipRow}>
             {product.targetCrops.map((crop, i) => (
               <View key={i} style={[styles.chip, { backgroundColor: '#E8F5E9' }]}>
                 <Icon name="sprout" size={14} color="#2E7D32" />
-                <Text style={[styles.chipText, { color: '#2E7D32' }]}>{crop}</Text>
+                <Text style={[styles.chipText, { color: '#2E7D32' }]}>{translateBioTerm(crop)}</Text>
               </View>
             ))}
           </View>
@@ -274,24 +298,24 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Targets (pests/diseases) */}
       {product.targets && product.targets.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Target Pests / Diseases</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.targetPestsDiseases')}</Text>
           <View style={styles.chipRow}>
             {product.targets.map((target, i) => (
               <View key={i} style={[styles.chip, { backgroundColor: '#FFF3E0' }]}>
                 <Icon name="bug" size={14} color="#E65100" />
-                <Text style={[styles.chipText, { color: '#E65100' }]}>{target}</Text>
+                <Text style={[styles.chipText, { color: '#E65100' }]}>{translateBioTerm(target)}</Text>
               </View>
             ))}
           </View>
         </>
       ) : product.targetPests && product.targetPests.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Target Pests / Diseases</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.targetPestsDiseases')}</Text>
           <View style={styles.chipRow}>
             {product.targetPests.map((pest, i) => (
               <View key={i} style={[styles.chip, { backgroundColor: '#FFF3E0' }]}>
                 <Icon name="bug" size={14} color="#E65100" />
-                <Text style={[styles.chipText, { color: '#E65100' }]}>{pest}</Text>
+                <Text style={[styles.chipText, { color: '#E65100' }]}>{translateBioTerm(pest)}</Text>
               </View>
             ))}
           </View>
@@ -301,27 +325,27 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Dosage & Application Table */}
       {product.dosageTable && product.dosageTable.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Dosage & Application</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.dosageApplication')}</Text>
           {product.dosageTable.map((entry, i) => (
             <View key={i} style={styles.dosageCard}>
               <View style={styles.dosageHeader}>
                 <Icon name="leaf-circle-outline" size={18} color={theme.colors.primary} />
-                <Text style={styles.dosageStage}>{entry.crop_stage}</Text>
+                <Text style={styles.dosageStage}>{translateBioTerm(entry.crop_stage)}</Text>
               </View>
               <View style={styles.dosageBody}>
                 <View style={styles.dosageRow}>
-                  <Text style={styles.dosageLabel}>Water</Text>
+                  <Text style={styles.dosageLabel}>{t('portfolio.water')}</Text>
                   <Text style={styles.dosageValue}>{entry.water_volume}</Text>
                 </View>
                 <View style={styles.dosageDivider} />
                 <View style={styles.dosageRow}>
-                  <Text style={styles.dosageLabel}>Dose</Text>
+                  <Text style={styles.dosageLabel}>{t('portfolio.dose')}</Text>
                   <Text style={styles.dosageValue}>{entry.dose_per_acre}</Text>
                 </View>
                 <View style={styles.dosageDivider} />
                 <View style={styles.dosageRow}>
-                  <Text style={styles.dosageLabel}>Method</Text>
-                  <Text style={styles.dosageValue}>{entry.application_method}</Text>
+                  <Text style={styles.dosageLabel}>{t('portfolio.method')}</Text>
+                  <Text style={styles.dosageValue}>{translateBioTerm(entry.application_method)}</Text>
                 </View>
               </View>
             </View>
@@ -332,25 +356,25 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Application Schedule */}
       {product.repeatability && product.repeatability.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Application Schedule</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.applicationSchedule')}</Text>
           {product.repeatability.map((entry, i) => (
             <View key={i} style={styles.scheduleCard}>
               <View style={styles.scheduleHeader}>
                 <View style={[styles.scheduleIndex, { backgroundColor: catColor + '18' }]}>
                   <Text style={[styles.scheduleIndexText, { color: catColor }]}>{i + 1}</Text>
                 </View>
-                <Text style={styles.scheduleTiming}>{entry.application_timing}</Text>
+                <Text style={styles.scheduleTiming}>{translateBioTerm(entry.application_timing)}</Text>
               </View>
               <View style={styles.scheduleBody}>
                 <View style={styles.scheduleRow}>
                   <Icon name="repeat" size={15} color={theme.colors.textLight} />
-                  <Text style={styles.scheduleLabel}>Frequency:</Text>
-                  <Text style={styles.scheduleValue}>{entry.frequency}</Text>
+                  <Text style={styles.scheduleLabel}>{t('portfolio.frequency')}</Text>
+                  <Text style={styles.scheduleValue}>{translateBioTerm(entry.frequency)}</Text>
                 </View>
                 <View style={styles.scheduleRow}>
                   <Icon name="information-outline" size={15} color={theme.colors.textLight} />
-                  <Text style={styles.scheduleLabel}>Note:</Text>
-                  <Text style={styles.scheduleValue}>{entry.recommendation}</Text>
+                  <Text style={styles.scheduleLabel}>{t('portfolio.note')}</Text>
+                  <Text style={styles.scheduleValue}>{translateBioTerm(entry.recommendation)}</Text>
                 </View>
               </View>
             </View>
@@ -367,13 +391,13 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Key Benefits */}
       {(product.highlights || product.keyBenefits) ? (
         <>
-          <Text style={styles.sectionTitle}>Key Benefits</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.keyBenefits')}</Text>
           {(product.highlights || product.keyBenefits || []).map((item, i) => (
             <View key={i} style={styles.benefitRow}>
               <View style={styles.benefitDot}>
                 <Icon name="check-circle" size={20} color={theme.colors.primary} />
               </View>
-              <Text style={styles.benefitText}>{item}</Text>
+              <Text style={styles.benefitText}>{tp(item)}</Text>
             </View>
           ))}
         </>
@@ -381,18 +405,18 @@ const ProductDetailScreen = ({ route, navigation }) => {
 
       {/* Mode of Action — Visual Numbered Steps */}
       {(product.mechanismOfAction || product.modeOfAction) ? (() => {
-        const moaText = product.mechanismOfAction || product.modeOfAction;
+        const moaText = tp(product.mechanismOfAction || product.modeOfAction);
         const steps = moaText
           .split(/(?<=\.)\s+/)
           .map(s => s.trim())
           .filter(s => s.length > 10);
         return (
           <>
-            <Text style={styles.sectionTitle}>Mode of Action</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.modeOfAction')}</Text>
             <View style={styles.moaStepsCard}>
               <View style={styles.moaStepsHeader}>
                 <Icon name="cog-transfer-outline" size={20} color={theme.colors.primary} />
-                <Text style={styles.moaStepsTitle}>How It Works</Text>
+                <Text style={styles.moaStepsTitle}>{t('portfolio.howItWorks')}</Text>
               </View>
               {steps.map((step, i) => (
                 <View key={i} style={styles.moaStepRow}>
@@ -420,7 +444,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Problem & Solution */}
       {product.problemSolutions && product.problemSolutions.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Problem & Solution</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.problemSolution')}</Text>
           {product.problemSolutions.map((ps, i) => (
             <View key={i} style={styles.psContainer}>
               <View style={styles.psCard}>
@@ -428,8 +452,8 @@ const ProductDetailScreen = ({ route, navigation }) => {
                   <Icon name="alert-circle-outline" size={18} color="#D32F2F" />
                 </View>
                 <View style={styles.psContent}>
-                  <Text style={styles.psLabel}>Problem</Text>
-                  <Text style={styles.psText}>{ps.problem}</Text>
+                  <Text style={styles.psLabel}>{t('portfolio.problem')}</Text>
+                  <Text style={styles.psText}>{tp(ps.problem)}</Text>
                 </View>
               </View>
               <View style={styles.psArrow}>
@@ -440,8 +464,8 @@ const ProductDetailScreen = ({ route, navigation }) => {
                   <Icon name="check-circle-outline" size={18} color="#2E7D32" />
                 </View>
                 <View style={styles.psContent}>
-                  <Text style={[styles.psLabel, { color: theme.colors.primary }]}>Solution</Text>
-                  <Text style={styles.psText}>{ps.solution}</Text>
+                  <Text style={[styles.psLabel, { color: theme.colors.primary }]}>{t('portfolio.solution')}</Text>
+                  <Text style={styles.psText}>{tp(ps.solution)}</Text>
                 </View>
               </View>
             </View>
@@ -453,14 +477,14 @@ const ProductDetailScreen = ({ route, navigation }) => {
       {/* Shelf Life & Storage */}
       {(product.shelfLife || product.storageSafety) ? (
         <>
-          <Text style={styles.sectionTitle}>Shelf Life & Storage</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.shelfLifeStorage')}</Text>
           <View style={styles.storageCard}>
             {product.shelfLife ? (
               <View style={styles.storageRow}>
                 <Icon name="clock-outline" size={18} color={theme.colors.secondary} />
                 <View style={styles.storageContent}>
-                  <Text style={styles.storageLabel}>Shelf Life</Text>
-                  <Text style={styles.storageValue}>{product.shelfLife}</Text>
+                  <Text style={styles.storageLabel}>{t('portfolio.shelfLife')}</Text>
+                  <Text style={styles.storageValue}>{tp(product.shelfLife)}</Text>
                 </View>
               </View>
             ) : null}
@@ -471,8 +495,8 @@ const ProductDetailScreen = ({ route, navigation }) => {
               <View style={styles.storageRow}>
                 <Icon name="warehouse" size={18} color={theme.colors.secondary} />
                 <View style={styles.storageContent}>
-                  <Text style={styles.storageLabel}>Storage</Text>
-                  <Text style={styles.storageValue}>{product.storageSafety}</Text>
+                  <Text style={styles.storageLabel}>{t('portfolio.storage')}</Text>
+                  <Text style={styles.storageValue}>{tp(product.storageSafety)}</Text>
                 </View>
               </View>
             ) : null}
@@ -508,7 +532,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
 
     return (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Technical Documents</Text>
+        <Text style={styles.sectionTitle}>{t('portfolio.technicalDocuments')}</Text>
         {realDocs.map((doc, i) => {
           const meta = DOC_ICON_MAP[doc.docType];
           return (
@@ -522,11 +546,11 @@ const ProductDetailScreen = ({ route, navigation }) => {
                   style={styles.docTitle}
                   suffix={` - ${doc.docType === 'SDS/MSDS' ? 'SDS / MSDS' : doc.docType}`}
                 />
-                <Text style={styles.docMeta}>PDF document</Text>
+                <Text style={styles.docMeta}>{t('portfolio.pdfDocument')}</Text>
               </View>
               <View style={styles.docBadge}>
                 <Icon name="check-circle" size={14} color={theme.colors.success} />
-                <Text style={styles.docBadgeText}>Offline</Text>
+                <Text style={styles.docBadgeText}>{t('common.offline')}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -544,11 +568,11 @@ const ProductDetailScreen = ({ route, navigation }) => {
                   style={styles.docTitle}
                   suffix={` - ${type}`}
                 />
-                <Text style={styles.docMeta}>PDF document</Text>
+                <Text style={styles.docMeta}>{t('portfolio.pdfDocument')}</Text>
               </View>
               <View style={styles.docBadge}>
                 <Icon name="clock-outline" size={14} color={theme.colors.textLight} />
-                <Text style={[styles.docBadgeText, { color: theme.colors.textLight }]}>Pending</Text>
+                <Text style={[styles.docBadgeText, { color: theme.colors.textLight }]}>{t('common.pending')}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -561,7 +585,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title={`${product.name}\u2122`} subtitle={product.category} onBack={() => navigation.goBack()} />
+      <Header title={`${product.name}\u2122`} subtitle={tCat(product.category)} onBack={() => navigation.goBack()} />
 
       {/* Tabs */}
       <View style={styles.tabBar}>
@@ -633,7 +657,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
                     setPreviewProduct(null);
                     navigation.push('ProductDetail', { product: previewProduct });
                   }}>
-                  <Text style={styles.previewBtnText}>View Details</Text>
+                  <Text style={styles.previewBtnText}>{t('actions.viewDetails')}</Text>
                   <Icon name="chevron-right" size={18} color="#FFF" />
                 </TouchableOpacity>
               </>

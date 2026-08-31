@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, useWindowDimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import { useTechText } from '../i18n/useTechText';
 import Header from '../components/common/Header';
 import ImageViewer from '../components/common/ImageViewer';
 import theme from '../constants/theme';
@@ -14,6 +16,8 @@ const PROCESS_FLOWS = {
 };
 
 const TechnologyDetailScreen = ({ route, navigation }) => {
+  const { t, i18n } = useTranslation();
+  const tt = useTechText();
   const { width: winW, height: winH } = useWindowDimensions();
   const isTablet = winW >= 768;
 
@@ -58,30 +62,42 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
       {/* Title + tagline below the image */}
       <View style={styles.heroTextBlock}>
         <Text style={[styles.heroTitle, { color: tech.color }]}>{tech.name}</Text>
-        <Text style={styles.heroTagline}>{tech.tagline}</Text>
+        <Text style={styles.heroTagline}>{tt(tech.tagline)}</Text>
       </View>
     </View>
   );
 
   // ─── Core Positioning (merged overview + positioning) ─────
   const renderCorePositioning = () => {
-    // Extract first part of overview up to "relevance." and second part of corePositioning from "The platform"/"The value"/"By separating"
-    let firstPart = tech.overview || '';
-    const relevanceIdx = firstPart.indexOf('relevance.');
-    if (relevanceIdx > -1) firstPart = firstPart.substring(0, relevanceIdx + 'relevance.'.length);
+    const isEnglish = (i18n.language || 'en').split('-')[0] === 'en';
+    let mergedText;
 
-    let secondPart = tech.corePositioning || '';
-    const platformIdx = secondPart.indexOf('The platform');
-    const valueIdx = secondPart.indexOf('The value');
-    const byIdx = secondPart.indexOf('By separating');
-    const cutIdx = [platformIdx, valueIdx, byIdx].filter(i => i > -1).sort((a, b) => a - b)[0];
-    if (cutIdx > -1) secondPart = secondPart.substring(cutIdx);
+    if (isEnglish) {
+      // English keeps the original trimming: overview up to "relevance." plus
+      // corePositioning from "The platform"/"The value"/"By separating".
+      let firstPart = tech.overview || '';
+      const relevanceIdx = firstPart.indexOf('relevance.');
+      if (relevanceIdx > -1) firstPart = firstPart.substring(0, relevanceIdx + 'relevance.'.length);
 
-    const mergedText = firstPart + ' ' + secondPart;
+      let secondPart = tech.corePositioning || '';
+      const platformIdx = secondPart.indexOf('The platform');
+      const valueIdx = secondPart.indexOf('The value');
+      const byIdx = secondPart.indexOf('By separating');
+      const cutIdx = [platformIdx, valueIdx, byIdx].filter(i => i > -1).sort((a, b) => a - b)[0];
+      if (cutIdx > -1) secondPart = secondPart.substring(cutIdx);
+
+      mergedText = firstPart + ' ' + secondPart;
+    } else {
+      // Other languages: those English markers don't exist, so slicing would
+      // silently fall through and emit the raw English. Use the full
+      // translated blocks instead.
+      mergedText = [tt(tech.overview), tt(tech.corePositioning)]
+        .filter(Boolean).join(' ');
+    }
 
     return (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Core Positioning</Text>
+        <Text style={styles.sectionTitle}>{tt('Core Positioning')}</Text>
         <View style={styles.positioningCard}>
           <View style={[styles.positioningAccent, { backgroundColor: tech.color }]} />
           <View style={styles.positioningBody}>
@@ -96,14 +112,14 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
   // ─── Platform Description ────────────────────────────────
   const renderOverview = () => (
     <View style={[styles.section, { paddingTop: 8 }]}>
-      <Text style={styles.bodyText}>{tech.description}</Text>
+      <Text style={styles.bodyText}>{tt(tech.description)}</Text>
     </View>
   );
 
   // ─── Six-Pillar Architecture ──────────────────────────────
   const renderPillars = () => (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>Six-Pillar Architecture</Text>
+      <Text style={styles.sectionTitle}>{tt('Six-Pillar Architecture')}</Text>
       {pillarImage ? (
         <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(pillarImage)}>
           <View style={[styles.sectionImageWrap, { height: pillarH }]}>
@@ -123,8 +139,8 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
             </View>
             <View style={styles.pillarContent}>
               <Text style={[styles.pillarNumber, { color: tech.color }]}>{String(i + 1).padStart(2, '0')}</Text>
-              <Text style={styles.pillarTitle}>{f.title}</Text>
-              <Text style={styles.pillarDesc}>{f.description}</Text>
+              <Text style={styles.pillarTitle}>{tt(f.title)}</Text>
+              <Text style={styles.pillarDesc}>{tt(f.description)}</Text>
             </View>
           </View>
         ))}
@@ -137,7 +153,7 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     if (processFlow.length === 0) return null;
     return (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>How {tech.name} Works</Text>
+        <Text style={styles.sectionTitle}>{t('techDetail.howWorks', { name: tech.name })}</Text>
         {processImage ? (
           <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(processImage)}>
             <View style={[styles.sectionImageWrap, { height: processH }]}>
@@ -156,7 +172,7 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
                 <View style={[styles.flowStep, { backgroundColor: tech.color }]}>
                   <Text style={styles.flowStepNum}>{i + 1}</Text>
                 </View>
-                <Text style={[styles.flowStepLabel, { color: tech.color }]}>{step}</Text>
+                <Text style={[styles.flowStepLabel, { color: tech.color }]}>{tt(step)}</Text>
                 {i < processFlow.length - 1 ? (
                   <View style={styles.flowArrow}>
                     <Icon name="chevron-right" size={16} color={tech.color + '60'} />
@@ -166,7 +182,7 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
             ))}
           </View>
           <Text style={styles.flowCaption}>
-            Each step corresponds to a pillar in the {tech.name} architecture above.
+            {t('techDetail.flowCaption', { name: tech.name })}
           </Text>
         </View>
       </View>
@@ -178,13 +194,13 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     if (!tech.differentiators || tech.differentiators.length === 0) return null;
     return (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>What Makes {tech.name} Different</Text>
+        <Text style={styles.sectionTitle}>{t('techDetail.whatMakes', { name: tech.name })}</Text>
         {tech.differentiators.map((d, i) => (
           <View key={i} style={styles.diffCard}>
             <View style={[styles.diffAccent, { backgroundColor: tech.color }]} />
             <View style={styles.diffContent}>
-              <Text style={styles.diffTitle}>{d.title}</Text>
-              <Text style={styles.diffBody}>{d.body}</Text>
+              <Text style={styles.diffTitle}>{tt(d.title)}</Text>
+              <Text style={styles.diffBody}>{tt(d.body)}</Text>
             </View>
           </View>
         ))}
@@ -197,7 +213,7 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     if (!tech.scope) return null;
     return (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>{tech.scope.title}</Text>
+        <Text style={styles.sectionTitle}>{tt(tech.scope.title)}</Text>
         <View style={styles.scopeCard}>
           {/* Owns */}
           <View style={styles.scopeBlock}>
@@ -205,7 +221,7 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
               <View style={[styles.scopeIconWrap, { backgroundColor: '#E8F5E9' }]}>
                 <Icon name="check-circle" size={16} color={theme.colors.primary} />
               </View>
-              <Text style={styles.scopeHeaderText}>Owns</Text>
+              <Text style={styles.scopeHeaderText}>{tt('Owns')}</Text>
             </View>
             {tech.scope.owns.map((item, i) => (
               <View key={i} style={styles.scopeItemRow}>
@@ -221,7 +237,7 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
               <View style={[styles.scopeIconWrap, { backgroundColor: '#F5F5F5' }]}>
                 <Icon name="close-circle-outline" size={16} color={theme.colors.textLight} />
               </View>
-              <Text style={[styles.scopeHeaderText, { color: theme.colors.textLight }]}>Does Not Own</Text>
+              <Text style={[styles.scopeHeaderText, { color: theme.colors.textLight }]}>{tt('Does Not Own')}</Text>
             </View>
             {tech.scope.does_not_own.map((item, i) => (
               <View key={i} style={styles.scopeItemRow}>
@@ -240,12 +256,12 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
     if (!tech.futurePotential) return null;
     return (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Future Potential</Text>
+        <Text style={styles.sectionTitle}>{tt('Future Potential')}</Text>
         <View style={styles.futureCard}>
           <View style={[styles.futureAccent, { backgroundColor: tech.color }]} />
           <View style={styles.futureBody}>
             <Icon name="rocket-launch-outline" size={20} color={tech.color} />
-            <Text style={styles.futureText}>{tech.futurePotential}</Text>
+            <Text style={styles.futureText}>{tt(tech.futurePotential)}</Text>
           </View>
         </View>
       </View>
@@ -272,7 +288,7 @@ const TechnologyDetailScreen = ({ route, navigation }) => {
       activeOpacity={0.7}
       onPress={() => navigation.goBack()}>
       <Icon name="arrow-left" size={18} color={theme.colors.primary} />
-      <Text style={styles.backToStackText}>Back to Technology Stack</Text>
+      <Text style={styles.backToStackText}>{tt('Back to Technology Stack')}</Text>
     </TouchableOpacity>
   );
 

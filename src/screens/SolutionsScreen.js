@@ -1,14 +1,17 @@
-import React, { useState, useMemo, useRef, useCallback } from 'react';
+import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput, BackHandler } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { Image as ExpoImage } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import { translateBioTerm } from '../i18n/bioTerms';
+import { useTechText } from '../i18n/useTechText';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import {
-  getCrops, getGrowthStages, getCategories, getAbioticStresses,
+  getCropSections, getGrowthStages, getCategories, getAbioticStresses,
   getBrowseSections, getProblemSections,
   matchRecommendations, searchAll,
 } from '../utils/recommendationEngine';
@@ -27,28 +30,57 @@ const PROBLEM_ICONS = {
   abioticStresses: 'weather-lightning',
 };
 
-// One-line subtitles shown on the browse cards
-const BROWSE_SUBTITLES = {
-  crop: 'Find solutions for a specific crop',
-  problem: 'Pests, diseases & deficiencies',
-  growthStage: 'Stage-specific recommendations',
-  stress: 'Drought, heat, salinity & more',
-  category: 'Explore by product category',
+// One-line subtitles shown on the browse cards — resolved via t()
+const BROWSE_SUBTITLE_KEYS = {
+  crop: 'solutions.browseCards.crop',
+  problem: 'solutions.browseCards.problem',
+  growthStage: 'solutions.browseCards.stage',
+  stress: 'solutions.browseCards.stress',
+  category: 'solutions.browseCards.product',
 };
 
-const SolutionsScreen = ({ navigation }) => {
+const SolutionsScreen = ({ navigation, route }) => {
+  const { t, i18n } = useTranslation();
+  const tt = useTechText();
   const [view, setView] = useState(VIEW.LANDING);
   const [browseSection, setBrowseSection] = useState(null);
+  const [cropGroup, setCropGroup] = useState(null);
   const [filters, setFilters] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLabel, setSelectedLabel] = useState('');
   const browseScrollRef = useRef(null);
-  const browseScrollPos = useRef(0);
+  // One saved offset per level, so drilling into a crop group no longer
+  // overwrites the position of the list you came from.
+  const scrollPositions = useRef({});
+  // Offset to apply once the next list has finished laying out.
+  const pendingRestore = useRef(null);
+
+  // Key identifying the list currently on screen.
+  const levelKey = view === VIEW.BROWSE
+    ? `browse:${browseSection?.id || ''}:${cropGroup?.id || ''}`
+    : view;
+
+  const rememberScroll = (e) => {
+    scrollPositions.current[levelKey] = e.nativeEvent.contentOffset.y;
+  };
+
+  // Restoring on a fixed timer raced the layout on long lists and landed at
+  // the top; wait for the content to be measured instead.
+  const restoreOnLayout = () => {
+    if (pendingRestore.current == null) return;
+    const y = pendingRestore.current;
+    pendingRestore.current = null;
+    if (y > 0) browseScrollRef.current?.scrollTo({ y, animated: false });
+  };
+
+  const queueRestore = (key) => {
+    pendingRestore.current = scrollPositions.current[key] || 0;
+  };
 
   // ─── Data ────────────────────────────────────────────────────
   const browseSections = useMemo(() => getBrowseSections(), []);
   const problemSections = useMemo(() => getProblemSections(), []);
-  const crops = useMemo(() => getCrops(), []);
+  const cropSections = useMemo(() => getCropSections(), []);
   const growthStages = useMemo(() => getGrowthStages(), []);
   const abioticStresses = useMemo(() => getAbioticStresses(), []);
   const categories = useMemo(() => getCategories(), []);
@@ -56,8 +88,9 @@ const SolutionsScreen = ({ navigation }) => {
   // ─── Search ──────────────────────────────────────────────────
   const searchResults = useMemo(() => {
     if (!searchQuery || searchQuery.length < 2) return [];
-    return searchAll(searchQuery);
-  }, [searchQuery]);
+    return searchAll(searchQuery, i18n.language);
+    // language is a dependency: switching it changes what the query matches
+  }, [searchQuery, i18n.language]);
 
   // ─── Matched Recommendations ─────────────────────────────────
   const results = useMemo(() => {
@@ -65,29 +98,54 @@ const SolutionsScreen = ({ navigation }) => {
     return matchRecommendations(filters);
   }, [view, filters]);
 
+  // ─── Deep link ───────────────────────────────────────────────
+  // Search hands us { filterKey, filterId, label } to open a result
+  // directly instead of dropping the user on the landing screen.
+  const deepLink = route?.params?.filterKey ? route.params : null;
+  useEffect(() => {
+    if (!deepLink) return;
+    setFilters({ [deepLink.filterKey]: [deepLink.filterId] });
+    setSelectedLabel(deepLink.label || '');
+    setBrowseSection(browseSections.find(s => s.id === deepLink.section) || null);
+    setCropGroup(null);
+    setView(VIEW.RESULTS);
+  }, [route?.params]);
+
   // ─── Navigation helpers ──────────────────────────────────────
   const goBack = () => {
     if (view === VIEW.RESULTS) {
+      // Opened straight from search — there is no browse grid behind us.
+      if (!browseSection) {
+        setFilters({});
+        setView(VIEW.LANDING);
+        return;
+      }
+      // Back to the list these results came from, at the offset it was left at.
+      queueRestore(`browse:${browseSection?.id || ''}:${cropGroup?.id || ''}`);
       setView(VIEW.BROWSE);
       setFilters({});
-      // Restore scroll position after re-render
-      setTimeout(() => {
-        browseScrollRef.current?.scrollTo({ y: browseScrollPos.current, animated: false });
-      }, 50);
+    } else if (view === VIEW.BROWSE && cropGroup) {
+      // Group sub-list → the section list that contains the group.
+      queueRestore(`browse:${browseSection?.id || ''}:`);
+      setCropGroup(null);
     } else if (view === VIEW.BROWSE) {
+      queueRestore(VIEW.LANDING);
       setView(VIEW.LANDING);
       setBrowseSection(null);
+      setCropGroup(null);
       setSearchQuery('');
     } else {
       navigation.goBack();
     }
   };
 
-  // Hook Android hardware back button into our in-screen goBack
+  const atTopLevel = view === VIEW.LANDING;
+
+  // Android hardware back button.
   useFocusEffect(
     useCallback(() => {
       const onHardwareBack = () => {
-        if (view !== VIEW.LANDING) {
+        if (!atTopLevel) {
           goBack();
           return true; // consume the event so RN doesn't pop the screen
         }
@@ -95,7 +153,23 @@ const SolutionsScreen = ({ navigation }) => {
       };
       const sub = BackHandler.addEventListener('hardwareBackPress', onHardwareBack);
       return () => sub.remove();
-    }, [view])
+    }, [view, cropGroup, browseSection])
+  );
+
+  // The swipe/predictive back gesture does not always raise hardwareBackPress,
+  // so React Navigation would pop straight out to Home from an inner list.
+  // Intercept the removal and step back one level instead.
+  useFocusEffect(
+    useCallback(() => {
+      const onBeforeRemove = (e) => {
+        if (atTopLevel) return;      // let it leave the screen normally
+        e.preventDefault();
+        goBack();
+      };
+      // v7: addListener returns its own unsubscribe (removeListener is gone).
+      const unsubscribe = navigation.addListener('beforeRemove', onBeforeRemove);
+      return unsubscribe;
+    }, [navigation, view, cropGroup, browseSection])
   );
 
   const selectItem = (filterKey, id, label) => {
@@ -122,16 +196,22 @@ const SolutionsScreen = ({ navigation }) => {
 
   // ─── Header title ────────────────────────────────────────────
   const headerTitle = view === VIEW.LANDING
-    ? 'BioIntel'
+    ? t('solutions.landing')
     : view === VIEW.BROWSE
-      ? browseSection?.title || 'Browse'
-      : selectedLabel || 'Recommendations';
+      ? (cropGroup ? translateBioTerm(cropGroup.title) : browseSection?.title || t('solutions.browse'))
+      : selectedLabel || t('solutions.recommendations');
 
   // ═══════════════════════════════════════════════════════════════
   // LANDING VIEW
   // ═══════════════════════════════════════════════════════════════
   const renderLanding = () => (
-    <ScrollView contentContainerStyle={styles.landingContent} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      ref={browseScrollRef}
+      contentContainerStyle={styles.landingContent}
+      showsVerticalScrollIndicator={false}
+      onScroll={rememberScroll}
+      onContentSizeChange={restoreOnLayout}
+      scrollEventThrottle={16}>
       {/* Hero */}
       <LinearGradient
         colors={['#2E7D32', '#1B5E20']}
@@ -139,8 +219,8 @@ const SolutionsScreen = ({ navigation }) => {
         end={{ x: 1, y: 1 }}
         style={styles.hero}>
         <View style={styles.heroLeft}>
-          <Text style={styles.heroTitle}>Find your solution</Text>
-          <Text style={styles.heroSub}>Crop, problem, stage or stress — start here.</Text>
+          <Text style={styles.heroTitle}>{t('solutions.heroTitle')}</Text>
+          <Text style={styles.heroSub}>{t('solutions.heroSub')}</Text>
         </View>
         <View style={styles.heroIconWrap}>
           <Icon name="leaf-circle" size={42} color="#FFF" />
@@ -152,7 +232,7 @@ const SolutionsScreen = ({ navigation }) => {
         <Icon name="magnify" size={20} color={theme.colors.textLight} />
         <TextInput
           style={styles.searchInput}
-          placeholder="Search crops, pests, diseases..."
+          placeholder={t('solutions.searchPlaceholder')}
           placeholderTextColor={theme.colors.textLight}
           value={searchQuery}
           onChangeText={setSearchQuery}
@@ -188,9 +268,9 @@ const SolutionsScreen = ({ navigation }) => {
                 {r.type === 'product' ? (
                   <ProductName name={r.item.brandName || r.item.name} style={styles.searchResultName} />
                 ) : (
-                  <Text style={styles.searchResultName}>{r.item.name || r.item.brandName}</Text>
+                  <Text style={styles.searchResultName}>{translateBioTerm(r.item.name || r.item.brandName)}</Text>
                 )}
-                <Text style={styles.searchResultType}>{formatType(r.type)}</Text>
+                <Text style={styles.searchResultType}>{t(`solutions.types.${formatTypeKey(r.type)}`, formatType(r.type))}</Text>
               </View>
               <Icon name="chevron-right" size={16} color={theme.colors.textLight} />
             </TouchableOpacity>
@@ -201,23 +281,23 @@ const SolutionsScreen = ({ navigation }) => {
       {searchQuery.length >= 2 && searchResults.length === 0 && (
         <View style={styles.noResults}>
           <Icon name="magnify-close" size={32} color={theme.colors.textLight} />
-          <Text style={styles.noResultsText}>No matches found</Text>
+          <Text style={styles.noResultsText}>{t('solutions.noMatches')}</Text>
         </View>
       )}
 
       {/* Browse Sections */}
       {searchQuery.length < 2 && (
         <>
-          <Text style={styles.sectionTitle}>Browse by</Text>
+          <Text style={styles.sectionTitle}>{t('solutions.browseBy')}</Text>
           <View style={styles.browseGrid}>
             {browseSections.map((section) => {
-              const sub = BROWSE_SUBTITLES[section.id] || '';
+              const sub = BROWSE_SUBTITLE_KEYS[section.id] ? t(BROWSE_SUBTITLE_KEYS[section.id]) : '';
               return (
                 <TouchableOpacity
                   key={section.id}
                   style={styles.browseCard}
                   activeOpacity={0.85}
-                  onPress={() => { setBrowseSection(section); setView(VIEW.BROWSE); browseScrollPos.current = 0; }}>
+                  onPress={() => { setBrowseSection(section); setCropGroup(null); setView(VIEW.BROWSE); }}>
                   <LinearGradient
                     colors={[section.color + '14', section.color + '02']}
                     start={{ x: 0, y: 0 }}
@@ -228,7 +308,7 @@ const SolutionsScreen = ({ navigation }) => {
                   <View style={[styles.browseIconCircle, { backgroundColor: section.color + '18' }]}>
                     <Icon name={section.icon} size={26} color={section.color} />
                   </View>
-                  <Text style={styles.browseTitle}>{section.title}</Text>
+                  <Text style={styles.browseTitle}>{tt(section.title)}</Text>
                   <Text style={styles.browseSubtitle} numberOfLines={2}>{sub}</Text>
                   <View style={styles.browseFooter}>
                     <View style={[styles.browseCountChip, { backgroundColor: section.color + '15' }]}>
@@ -251,7 +331,7 @@ const SolutionsScreen = ({ navigation }) => {
   const renderBrowse = () => {
     if (!browseSection) return null;
     switch (browseSection.id) {
-      case 'crop': return renderItemGrid(crops, 'cropIds', 'sprout');
+      case 'crop': return renderCropBrowse();
       case 'problem': return renderProblemBrowse();
       case 'growthStage': return renderItemGrid(growthStages, 'growthStageIds', 'flower');
       case 'stress': return renderItemGrid(abioticStresses, 'abioticStressIds', 'weather-sunny-alert', styles.itemImageStress);
@@ -265,14 +345,15 @@ const SolutionsScreen = ({ navigation }) => {
       ref={browseScrollRef}
       contentContainerStyle={styles.itemGrid}
       showsVerticalScrollIndicator={false}
-      onScroll={(e) => { browseScrollPos.current = e.nativeEvent.contentOffset.y; }}
+      onScroll={rememberScroll}
+      onContentSizeChange={restoreOnLayout}
       scrollEventThrottle={16}>
       {items.map((item) => (
         <TouchableOpacity
           key={item.id}
           style={styles.itemCard}
           activeOpacity={0.7}
-          onPress={() => selectItem(filterKey, item.id, item.name)}>
+          onPress={() => selectItem(filterKey, item.id, translateBioTerm(item.name))}>
           <View style={[styles.itemIconWrap, { backgroundColor: item.image ? 'transparent' : browseSection.color + '12' }]}>
             {item.image ? (
               <ExpoImage
@@ -287,7 +368,7 @@ const SolutionsScreen = ({ navigation }) => {
               <Icon name={item.icon || fallbackIcon} size={28} color={browseSection.color} />
             )}
           </View>
-          <Text style={styles.itemName}>{item.name}</Text>
+          <Text style={styles.itemName}>{translateBioTerm(item.name)}</Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -300,12 +381,110 @@ const SolutionsScreen = ({ navigation }) => {
     weeds: '#2E7D32',
   };
 
+  // One reusable card — used for crops, and for groups that drill in.
+  const renderCropCard = (key, item, color, fallbackIcon, onPress, groupCount) => (
+    <TouchableOpacity key={key} style={styles.itemCard} activeOpacity={0.7} onPress={onPress}>
+      <View style={[styles.itemIconWrap, { backgroundColor: item.image ? 'transparent' : color + '12' }]}>
+        {item.image ? (
+          <ExpoImage
+            source={item.image}
+            style={styles.itemImage}
+            contentFit="contain"
+            cachePolicy="memory-disk"
+            transition={0}
+            recyclingKey={key}
+          />
+        ) : (
+          <Icon name={item.icon || fallbackIcon} size={28} color={color} />
+        )}
+      </View>
+      <Text style={styles.itemName}>{translateBioTerm(item.title || item.name)}</Text>
+      {groupCount > 0 && (
+        <View style={styles.groupHint}>
+          <Text style={[styles.groupHintText, { color }]}>{groupCount}</Text>
+          <Icon name="chevron-right" size={14} color={color} />
+        </View>
+      )}
+    </TouchableOpacity>
+  );
+
+  // Crop browse. Top level shows the master-list categories with one card per
+  // group; tapping a multi-crop group (Citrus, Millets, …) opens just that
+  // group, while a single-crop group goes straight to its recommendations.
+  const renderCropBrowse = () => {
+    const color = browseSection?.color || theme.colors.primary;
+
+    if (cropGroup) {
+      return (
+        <ScrollView
+          ref={browseScrollRef}
+          contentContainerStyle={styles.itemGrid}
+          showsVerticalScrollIndicator={false}
+          onScroll={rememberScroll}
+          onContentSizeChange={restoreOnLayout}
+          scrollEventThrottle={16}>
+          <View style={styles.gridSectionHeader}>
+            {cropGroup.image ? (
+              <ExpoImage
+                source={cropGroup.image}
+                style={styles.gridSectionImage}
+                contentFit="contain"
+                cachePolicy="memory-disk"
+                transition={0}
+              />
+            ) : (
+              <Icon name={cropGroup.icon} size={18} color={color} />
+            )}
+            <Text style={[styles.gridSectionTitle, { color }]}>{translateBioTerm(cropGroup.title)}</Text>
+            <View style={[styles.gridSectionBadge, { backgroundColor: color + '14' }]}>
+              <Text style={[styles.gridSectionCount, { color }]}>{cropGroup.crops.length}</Text>
+            </View>
+          </View>
+          {cropGroup.crops.map((crop) => renderCropCard(
+            crop.id, crop, color, cropGroup.icon,
+            () => selectItem('cropIds', crop.id, translateBioTerm(crop.name)),
+          ))}
+        </ScrollView>
+      );
+    }
+
+    return (
+      <ScrollView
+        ref={browseScrollRef}
+        contentContainerStyle={styles.itemGrid}
+        showsVerticalScrollIndicator={false}
+        onScroll={rememberScroll}
+      onContentSizeChange={restoreOnLayout}
+        scrollEventThrottle={16}>
+        {cropSections.map((section) => (
+          <React.Fragment key={section.id}>
+            <View style={styles.gridSectionHeader}>
+              <Icon name={section.icon} size={18} color={color} />
+              <Text style={[styles.gridSectionTitle, { color }]}>{translateBioTerm(section.title)}</Text>
+              <View style={[styles.gridSectionBadge, { backgroundColor: color + '14' }]}>
+                <Text style={[styles.gridSectionCount, { color }]}>{section.entries.length}</Text>
+              </View>
+            </View>
+            {section.entries.map((entry) => renderCropCard(
+              entry.id, entry, color, section.icon,
+              entry.kind === 'group'
+                ? () => setCropGroup(entry)
+                : () => selectItem('cropIds', entry.id, translateBioTerm(entry.name)),
+              entry.kind === 'group' ? entry.crops.length : 0,
+            ))}
+          </React.Fragment>
+        ))}
+      </ScrollView>
+    );
+  };
+
   const renderProblemBrowse = () => (
     <ScrollView
       ref={browseScrollRef}
       contentContainerStyle={styles.itemGrid}
       showsVerticalScrollIndicator={false}
-      onScroll={(e) => { browseScrollPos.current = e.nativeEvent.contentOffset.y; }}
+      onScroll={rememberScroll}
+      onContentSizeChange={restoreOnLayout}
       scrollEventThrottle={16}>
       {problemSections.map((section) => {
         const sectionColor = PROBLEM_COLORS[section.id] || theme.colors.error;
@@ -316,11 +495,11 @@ const SolutionsScreen = ({ navigation }) => {
                 : 'abioticStressIds';
         return (
           <React.Fragment key={section.id}>
-            <View style={styles.problemSectionHeader}>
+            <View style={styles.gridSectionHeader}>
               <Icon name={PROBLEM_ICONS[section.id] || 'alert'} size={18} color={sectionColor} />
-              <Text style={[styles.problemSectionTitle, { color: sectionColor }]}>{section.title}</Text>
-              <View style={[styles.problemSectionBadge, { backgroundColor: sectionColor + '14' }]}>
-                <Text style={[styles.problemSectionCount, { color: sectionColor }]}>{section.data.length}</Text>
+              <Text style={[styles.gridSectionTitle, { color: sectionColor }]}>{tt(section.title)}</Text>
+              <View style={[styles.gridSectionBadge, { backgroundColor: sectionColor + '14' }]}>
+                <Text style={[styles.gridSectionCount, { color: sectionColor }]}>{section.data.length}</Text>
               </View>
             </View>
             {section.data.map((item) => (
@@ -328,7 +507,7 @@ const SolutionsScreen = ({ navigation }) => {
                 key={item.id}
                 style={styles.itemCard}
                 activeOpacity={0.7}
-                onPress={() => selectItem(filterKey, item.id, item.name)}>
+                onPress={() => selectItem(filterKey, item.id, translateBioTerm(item.name))}>
                 <View style={[styles.itemIconWrap, { backgroundColor: item.image ? 'transparent' : sectionColor + '12' }]}>
                   {item.image ? (
                     <ExpoImage
@@ -343,7 +522,7 @@ const SolutionsScreen = ({ navigation }) => {
                     <Icon name={item.icon || PROBLEM_ICONS[section.id] || 'alert'} size={28} color={sectionColor} />
                   )}
                 </View>
-                <Text style={styles.itemName}>{item.name}</Text>
+                <Text style={styles.itemName}>{translateBioTerm(item.name)}</Text>
               </TouchableOpacity>
             ))}
           </React.Fragment>
@@ -357,7 +536,8 @@ const SolutionsScreen = ({ navigation }) => {
       ref={browseScrollRef}
       contentContainerStyle={styles.itemGrid}
       showsVerticalScrollIndicator={false}
-      onScroll={(e) => { browseScrollPos.current = e.nativeEvent.contentOffset.y; }}
+      onScroll={rememberScroll}
+      onContentSizeChange={restoreOnLayout}
       scrollEventThrottle={16}>
       {categories.map((cat) => (
         <TouchableOpacity
@@ -403,15 +583,15 @@ const SolutionsScreen = ({ navigation }) => {
         {!hasResults && (
           <View style={styles.noResults}>
             <Icon name="flask-empty-outline" size={48} color={theme.colors.textLight} />
-            <Text style={styles.noResultsTitle}>No recommendations found</Text>
-            <Text style={styles.noResultsText}>Try browsing a different category</Text>
+            <Text style={styles.noResultsTitle}>{t('solutions.emptyTitle')}</Text>
+            <Text style={styles.noResultsText}>{t('solutions.emptySub')}</Text>
           </View>
         )}
 
         {/* Primary Recommendations (Packages) */}
         {primary.length > 0 && (
           <View style={styles.resultSection}>
-            <Text style={styles.resultSectionTitle}>Recommended Solutions</Text>
+            <Text style={styles.resultSectionTitle}>{t('solutions.recommendedSolutions')}</Text>
             {primary.map((r, i) => renderResultCard(r, i, true))}
           </View>
         )}
@@ -419,7 +599,7 @@ const SolutionsScreen = ({ navigation }) => {
         {/* Secondary Recommendations */}
         {secondary.length > 0 && (
           <View style={styles.resultSection}>
-            <Text style={styles.resultSectionTitle}>Additional Recommendations</Text>
+            <Text style={styles.resultSectionTitle}>{t('solutions.additionalRecommendations')}</Text>
             {secondary.map((r, i) => renderResultCard(r, i, false))}
           </View>
         )}
@@ -448,13 +628,13 @@ const SolutionsScreen = ({ navigation }) => {
               color={cardColor}
             />
             <Text style={[styles.typeBadgeText, { color: cardColor }]}>
-              {isPackage ? 'Package' : 'Product'}
+              {isPackage ? t('solutions.package') : t('solutions.productBadge')}
             </Text>
           </View>
           {rec.priority === 1 && (
             <View style={styles.priorityBadge}>
               <Icon name="star" size={12} color="#F57C00" />
-              <Text style={styles.priorityText}>Top Pick</Text>
+              <Text style={styles.priorityText}>{t('solutions.topPick')}</Text>
             </View>
           )}
         </View>
@@ -477,7 +657,7 @@ const SolutionsScreen = ({ navigation }) => {
         {/* Package Product Roles */}
         {isPackage && resolved.productRoles && (
           <View style={styles.rolesSection}>
-            <Text style={styles.rolesSectionTitle}>Products in Package</Text>
+            <Text style={styles.rolesSectionTitle}>{t('solutions.productsInPackage')}</Text>
             {resolved.productRoles.map((role, ri) => (
               <View key={ri} style={styles.roleRow}>
                 <View style={styles.roleInfo}>
@@ -497,7 +677,7 @@ const SolutionsScreen = ({ navigation }) => {
                   )}
                   <Text style={styles.roleDesc}>{role.role}</Text>
                   {role.dosage && (
-                    <Text style={styles.roleDosage}>Dosage: {role.dosage}</Text>
+                    <Text style={styles.roleDosage}>{t('solutions.dosageLabel')}{role.dosage}</Text>
                   )}
                 </View>
               </View>
@@ -506,11 +686,11 @@ const SolutionsScreen = ({ navigation }) => {
         )}
 
         {/* Detail Rows */}
-        {rec.dosage && <DetailRow icon="eyedropper" label="Dosage" value={rec.dosage} />}
-        {rec.applicationStage && <DetailRow icon="calendar-clock" label="Stage" value={Array.isArray(rec.applicationStage) ? rec.applicationStage.join(', ') : rec.applicationStage} />}
-        {rec.season && <DetailRow icon="weather-sunny" label="Season" value={Array.isArray(rec.season) ? rec.season.join(', ') : rec.season} />}
-        {rec.region && <DetailRow icon="map-marker" label="Region" value={Array.isArray(rec.region) ? rec.region.join(', ') : rec.region} />}
-        {rec.compliance && <DetailRow icon="shield-check" label="Compliance" value={rec.compliance} />}
+        {rec.dosage && <DetailRow icon="eyedropper" label={t('solutions.detailRows.dosage')} value={rec.dosage} />}
+        {rec.applicationStage && <DetailRow icon="calendar-clock" label={t('solutions.detailRows.stage')} value={Array.isArray(rec.applicationStage) ? rec.applicationStage.join(', ') : rec.applicationStage} />}
+        {rec.season && <DetailRow icon="weather-sunny" label={t('solutions.detailRows.season')} value={Array.isArray(rec.season) ? rec.season.join(', ') : rec.season} />}
+        {rec.region && <DetailRow icon="map-marker" label={t('solutions.detailRows.region')} value={Array.isArray(rec.region) ? rec.region.join(', ') : rec.region} />}
+        {rec.compliance && <DetailRow icon="shield-check" label={t('solutions.detailRows.compliance')} value={rec.compliance} />}
 
       </View>
     );
@@ -523,7 +703,7 @@ const SolutionsScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Header
         title={headerTitle}
-        subtitle="Discover recommendations"
+        subtitle={t('solutions.subtitle')}
         onBack={goBack}
       />
       {view === VIEW.LANDING && renderLanding()}
@@ -559,6 +739,17 @@ const formatType = (type) => {
     nutrientDeficiency: 'Nutrient Deficiency', growthStage: 'Growth Stage',
     weed: 'Weed', abioticStress: 'Abiotic Stress',
     product: 'Product', package: 'Package',
+  };
+  return map[type] || type;
+};
+
+// Maps rec/search types to solutions.types.* keys in translations
+const formatTypeKey = (type) => {
+  const map = {
+    crop: 'crop', pest: 'pest', disease: 'disease',
+    nutrientDeficiency: 'nutrient', growthStage: 'stage',
+    weed: 'weed', abioticStress: 'abiotic',
+    product: 'product', package: 'package',
   };
   return map[type] || type;
 };
@@ -715,9 +906,13 @@ const styles = StyleSheet.create({
   itemImageStress: { width: 55, height: 55, transform: [{ scale: 1.9 }] },
   itemImageMedium: { width: 47, height: 47 },
   itemName: { fontSize: 14, fontWeight: '600', color: theme.colors.text, textAlign: 'center' },
+  // Count + chevron on a card that opens a sub-list rather than results
+  groupHint: { flexDirection: 'row', alignItems: 'center', gap: 2, marginTop: 4 },
+  groupHintText: { fontSize: 11, fontWeight: '700' },
+  gridSectionImage: { width: 22, height: 22 },
 
   // ─── Problem Section Headers ────────────────────────────────
-  problemSectionHeader: {
+  gridSectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
@@ -728,9 +923,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: theme.colors.divider,
   },
-  problemSectionTitle: { flex: 1, fontSize: 14, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.8 },
-  problemSectionBadge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10 },
-  problemSectionCount: { fontSize: 12, fontWeight: '700' },
+  gridSectionTitle: { flex: 1, fontSize: 14, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.8 },
+  gridSectionBadge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10 },
+  gridSectionCount: { fontSize: 12, fontWeight: '700' },
 
   // ─── Results ──────────────────────────────────────────────
   resultsContent: { padding: 16, paddingBottom: 32 },

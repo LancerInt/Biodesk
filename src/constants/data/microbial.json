@@ -147,13 +147,13 @@
   },
   {
     "product_identity": {
-      "brand_name": "Biota",
+      "brand_name": "Zymor",
       "active_ingredient": "Trichoderma asperellum",
       "concentration": "1 × 10⁹ CFU/g",
       "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Biota is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma asperellum. It works by colonizing the plant root zone and suppressing soil-borne fungal pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Biota helps control diseases caused by pathogens like Fusarium, Rhizoctonia, Pythium, and Sclerotium. In addition to disease suppression, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in sustainable agriculture and Integrated Disease Management (IDM) programs due to its environmental safety and compatibility with organic farming practices.",
+    "product_overview": "Zymor is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma asperellum. It works by colonizing the plant root zone and suppressing soil-borne fungal pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Zymor helps control diseases caused by pathogens like Fusarium, Rhizoctonia, Pythium, and Sclerotium. In addition to disease suppression, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in sustainable agriculture and Integrated Disease Management (IDM) programs due to its environmental safety and compatibility with organic farming practices.",
     "key_product_highlights": [
       "Acts as a biological fungicide against soil pathogens",
       "Produces antifungal compounds to suppress harmful fungi",
@@ -218,13 +218,13 @@
   },
   {
     "product_identity": {
-      "brand_name": "Biota-H",
+      "brand_name": "Zymor-H",
       "active_ingredient": "Trichoderma harzianum",
       "concentration": "1 × 10⁹ CFU/g",
       "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Biota-H is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma harzianum. It colonizes the plant rhizosphere and suppresses soil-borne plant pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Biota-H helps manage diseases caused by pathogens like Fusarium, Pythium, Rhizoctonia, and Sclerotium. In addition to disease control, it enhances root growth, improves nutrient availability, and promotes overall plant health and vigor. It is widely used in sustainable agriculture, Integrated Disease Management (IDM), and organic farming systems.",
+    "product_overview": "Zymor-H is a biological fungicide and plant growth–promoting bioagent based on the beneficial fungus Trichoderma harzianum. It colonizes the plant rhizosphere and suppresses soil-borne plant pathogens through mechanisms such as competition, mycoparasitism, and the production of antifungal metabolites. Zymor-H helps manage diseases caused by pathogens like Fusarium, Pythium, Rhizoctonia, and Sclerotium. In addition to disease control, it enhances root growth, improves nutrient availability, and promotes overall plant health and vigor. It is widely used in sustainable agriculture, Integrated Disease Management (IDM), and organic farming systems.",
     "key_product_highlights": [
       "Acts as a biological fungicide against soil pathogens",
       "Promotes root growth and plant vigor",
@@ -366,7 +366,7 @@
       "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "EnCilo is a biological nematicide formulated with the beneficial fungus Verticillium chlamydosporium. It acts by parasitizing and degrading the eggs and reproductive structures of plant-parasitic nematodes. This activity helps disrupt the nematode life cycle and reduce soil infestation levels. EnCilo supports healthier root development and improved plant vigor. It is widely used in sustainable agriculture and Integrated Nematode Management (INM) programs.",
+    "product_overview": "EnCilo is a biological nematicide formulated with the beneficial fungus Purpureocillium lilacinum. It acts by parasitizing and degrading the eggs and reproductive structures of plant-parasitic nematodes. This activity helps disrupt the nematode life cycle and reduce soil infestation levels. EnCilo supports healthier root development and improved plant vigor. It is widely used in sustainable agriculture and Integrated Nematode Management (INM) programs.",
     "key_product_highlights": [
       "Acts as a biological nematicide",
       "Parasitizes and destroys nematode eggs and juveniles",
@@ -378,7 +378,7 @@
       "Improves soil microbial balance"
     ],
     "mechanism_of_action": {
-      "description": "Verticillium chlamydosporium colonizes the rhizosphere and parasitizes nematode eggs, females, and related survival structures through enzymatic degradation using proteases and chitinases. This microbial colonization reduces egg viability and juvenile emergence, lowering nematode pressure in the root zone over time."
+      "description": "Purpureocillium lilacinum colonizes the rhizosphere and parasitizes nematode eggs, females, and related survival structures through enzymatic degradation using proteases and chitinases. This microbial colonization reduces egg viability and juvenile emergence, lowering nematode pressure in the root zone over time."
     },
     "dilution_dosage_per_acre": [
       {
@@ -430,13 +430,13 @@
   },
   {
     "product_identity": {
-      "brand_name": "Subtilix",
+      "brand_name": "Rhiota",
       "active_ingredient": "Bacillus subtilis",
       "concentration": "1 × 10⁹ CFU/g",
       "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Subtilix is a biological fungicide and plant growth–promoting agent based on the beneficial bacterium Bacillus subtilis. It suppresses a wide range of soil-borne and foliar fungal pathogens through the production of natural antibiotics, lipopeptides, and competitive colonization. Subtilix helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. In addition to disease control, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in Integrated Disease Management (IDM) and sustainable agriculture systems.",
+    "product_overview": "Rhiota is a biological fungicide and plant growth–promoting agent based on the beneficial bacterium Bacillus subtilis. It suppresses a wide range of soil-borne and foliar fungal pathogens through the production of natural antibiotics, lipopeptides, and competitive colonization. Rhiota helps manage diseases such as Fusarium, Rhizoctonia, Alternaria, and powdery mildew. In addition to disease control, it enhances root development, improves nutrient uptake, and promotes overall plant vigor. It is widely used in Integrated Disease Management (IDM) and sustainable agriculture systems.",
     "key_product_highlights": [
       "Acts as a biological control agent (biofungicide)",
       "Produces antibiotics and enzymes to suppress pathogens",
@@ -484,7 +484,7 @@
       "Alternaria spp.",
       "Sclerotium rolfsii"
     ],
-    "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
+    "strain_or_active_strength": "Viable cell count: 1 × 10¹⁰ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -575,7 +575,7 @@
     "product_identity": {
       "brand_name": "Elixora",
       "active_ingredient": "Bacillus amyloliquefaciens",
-      "concentration": "1 × 10⁹ CFU/g",
+      "concentration": "1 × 10¹⁰ CFU/g",
       "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
@@ -626,7 +626,7 @@
       "Leaf spot (early stage)",
       "Blight (early stage)"
     ],
-    "strain_or_active_strength": "Viable cell count: 1 × 10⁹ CFU/g.",
+    "strain_or_active_strength": "Viable cell count: 1 × 10¹⁰ CFU/g.",
     "shelf_life_statement": "Typical shelf life: 12 months in the unopened pack under cool, dry storage below 25°C and away from sunlight.",
     "compatibility_statement": "Avoid mixing with fungicides, bactericides, strong oxidizers, alkaline materials, or concentrated salts.",
     "problem_solution": [
@@ -645,14 +645,14 @@
   {
     "product_identity": {
       "brand_name": "Ecoviz",
-      "active_ingredient": "Isaria fumosorosea",
+      "active_ingredient": "Cordyceps fumosorosea",
       "concentration": "1 × 10¹⁰ CFU/g",
       "formulation_type": "WSP",
       "category": "Microbial Pesticide"
     },
-    "product_overview": "Ecoviz™ harnesses Isaria fumosorosea to biologically control a broad range of damaging insect pests for sustainable crop protection.\n\nEcoviz™ is a biological insect-control solution containing Isaria fumosorosea, a naturally occurring entomopathogenic fungus. It infects susceptible insect pests by attaching to their outer surface, penetrating the cuticle and multiplying within the host. Ecoviz™ helps manage whiteflies, aphids, thrips, mealybugs and other soft-bodied pests, supporting healthy crops and sustainable pest-management practices.",
+    "product_overview": "Ecoviz™ harnesses Cordyceps fumosorosea to biologically control a broad range of damaging insect pests for sustainable crop protection.\n\nEcoviz™ is a biological insect-control solution containing Cordyceps fumosorosea, a naturally occurring entomopathogenic fungus. It infects susceptible insect pests by attaching to their outer surface, penetrating the cuticle and multiplying within the host. Ecoviz™ helps manage whiteflies, aphids, thrips, mealybugs and other soft-bodied pests, supporting healthy crops and sustainable pest-management practices.",
     "key_product_highlights": [
-      "Entomopathogenic fungus (Isaria fumosorosea) at 1 × 10¹⁰ CFU/g",
+      "Entomopathogenic fungus (Cordyceps fumosorosea) at 1 × 10¹⁰ CFU/g",
       "Effective against whitefly, aphids, thrips, mites, and other soft-bodied pests",
       "Colonises the insect via cuticle penetration and internal mycosis",
       "Compatible with most biological IPM programs",
@@ -660,7 +660,7 @@
       "Approved for organic and residue-free cultivation"
     ],
     "mechanism_of_action": {
-      "description": "Isaria fumosorosea conidia adhere to the insect cuticle, germinate under favourable humidity, penetrate through the exoskeleton via mechanical pressure and enzyme activity, and multiply inside the haemocoel until the host dies of mycosis. Sporulation on the cadaver produces secondary inoculum for continued suppression."
+      "description": "Cordyceps fumosorosea conidia adhere to the insect cuticle, germinate under favourable humidity, penetrate through the exoskeleton via mechanical pressure and enzyme activity, and multiply inside the haemocoel until the host dies of mycosis. Sporulation on the cadaver produces secondary inoculum for continued suppression."
     },
     "dilution_dosage_per_acre": [],
     "application_repeatability": [],
@@ -671,7 +671,7 @@
       "Mealybug",
       "Mite"
     ],
-    "strain_or_active_strength": "Isaria fumosorosea, minimum 1 × 10¹⁰ CFU/g",
+    "strain_or_active_strength": "Cordyceps fumosorosea, minimum 1 × 10¹⁰ CFU/g",
     "shelf_life_statement": "Best used within 12 months of manufacture. Store in a cool, dry place away from direct sunlight.",
     "compatibility_statement": "Compatible with most biopesticides and biostimulants. Avoid tank-mixing with chemical fungicides.",
     "problem_solution": [],

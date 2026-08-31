@@ -2,6 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import { translateBioTerm } from '../i18n/bioTerms';
+import { useProductText } from '../i18n/useProductText';
 import Header from '../components/common/Header';
 import ProductName from '../components/common/ProductName';
 import SwipeableTabs from '../components/common/SwipeableTabs';
@@ -14,9 +17,12 @@ import { getProductDocuments } from '../constants/documentData';
 const { width: screenWidth } = Dimensions.get('window');
 const isTablet = screenWidth >= 768;
 
-const TABS = ['Overview', 'Agronomy', 'Highlights', 'Documents'];
+const TAB_KEYS = ['overview', 'agronomy', 'highlights', 'documents'];
 
 const PortfolioDetailScreen = ({ route, navigation }) => {
+  const { t } = useTranslation();
+  const tp = useProductText();
+  const TABS = TAB_KEYS.map(k => t(`portfolio.${k}`));
   const { family } = route.params;
   const variants = useMemo(() => getPortfolioVariants(family.id), [family.id]);
   const [activeTab, setActiveTab] = useState(0);
@@ -66,11 +72,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
 
       {/* Family Overview */}
       {family.overview ? (
-        <Text style={styles.description}>{family.overview}</Text>
+        <Text style={styles.description}>{tp(family.overview)}</Text>
       ) : null}
 
       {/* Variant Selector */}
-      <Text style={styles.sectionTitle}>Choose the Right Variant</Text>
+      <Text style={styles.sectionTitle}>{t('portfolio.chooseVariant')}</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -110,7 +116,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
       </ScrollView>
 
       {/* Mode of Action Diagram */}
-      <Text style={styles.sectionTitle}>Mode of Action</Text>
+      <Text style={styles.sectionTitle}>{t('portfolio.modeOfAction')}</Text>
       {moaImage ? (
         <View style={styles.moaDiagramCard}>
           <Image source={moaImage} style={styles.moaDiagramImage} contentFit="contain" transition={200} />
@@ -118,7 +124,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
       ) : (
         <View style={styles.moaDiagramPlaceholder}>
           <Icon name="cog-outline" size={32} color={theme.colors.textLight} />
-          <Text style={styles.moaDiagramPlaceholderText}>Mode of Action diagram coming soon</Text>
+          <Text style={styles.moaDiagramPlaceholderText}>{t('portfolio.modeOfActionSoon')}</Text>
         </View>
       )}
 
@@ -127,7 +133,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         <View style={styles.specCard}>
           <View style={styles.specCardHeader}>
             <Icon name="flask-outline" size={18} color={theme.colors.primary} />
-            <Text style={styles.specCardTitle}>Technical Profile</Text>
+            <Text style={styles.specCardTitle}>{t('portfolio.technicalProfile')}</Text>
           </View>
           <View style={styles.specCardBody}>
             <InfoRow icon="flask" label="Active Ingredient" value={selectedVariant.activeIngredient} />
@@ -164,7 +170,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
       {/* Pack Sizes — Pill Style */}
       {selectedVariant?.packSizes && selectedVariant.packSizes.length > 0 ? (
         <>
-          <Text style={styles.sectionTitle}>Pack Sizes</Text>
+          <Text style={styles.sectionTitle}>{t('portfolio.packSizes')}</Text>
           <View style={styles.packSizes}>
             {selectedVariant.packSizes.map((size, i) => (
               <View key={i} style={styles.packPill}>
@@ -172,7 +178,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
               </View>
             ))}
             <View style={styles.packPill}>
-              <Text style={styles.packPillText}>Bulk Packing</Text>
+              <Text style={styles.packPillText}>{t('portfolio.bulkPacking')}</Text>
             </View>
           </View>
         </>
@@ -183,9 +189,9 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         <View style={styles.insightCard}>
           <View style={styles.insightHeader}>
             <Icon name="bullseye-arrow" size={20} color={theme.colors.secondary} />
-            <Text style={styles.insightTitle}>Technical Positioning</Text>
+            <Text style={styles.insightTitle}>{t('portfolio.technicalPositioning')}</Text>
           </View>
-          <Text style={styles.insightText}>{selectedVariant.technicalSummary}</Text>
+          <Text style={styles.insightText}>{tp(selectedVariant.technicalSummary)}</Text>
         </View>
       ) : null}
     </View>
@@ -202,7 +208,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         <View style={styles.variantIndicator}>
           <Icon name="information-outline" size={16} color={family.color} />
           <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
-            <Text style={[styles.variantIndicatorText, { color: family.color }]}>Showing data for </Text>
+            <Text style={[styles.variantIndicatorText, { color: family.color }]}>{t('portfolio.showingDataFor')}</Text>
             <ProductName name={v.name} style={[styles.variantIndicatorText, { color: family.color }]} />
           </View>
         </View>
@@ -210,12 +216,12 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Target Crops */}
         {v.targetCrops && v.targetCrops.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Target Crops</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.targetCrops')}</Text>
             <View style={styles.chipRow}>
               {v.targetCrops.map((crop, i) => (
                 <View key={i} style={[styles.chip, { backgroundColor: '#E8F5E9' }]}>
                   <Icon name="sprout" size={14} color="#2E7D32" />
-                  <Text style={[styles.chipText, { color: '#2E7D32' }]}>{crop}</Text>
+                  <Text style={[styles.chipText, { color: '#2E7D32' }]}>{translateBioTerm(crop)}</Text>
                 </View>
               ))}
             </View>
@@ -225,24 +231,24 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Targets (pests/diseases) */}
         {v.targets && v.targets.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Target Pests / Diseases</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.targetPestsDiseases')}</Text>
             <View style={styles.chipRow}>
               {v.targets.map((target, i) => (
                 <View key={i} style={[styles.chip, { backgroundColor: '#FFF3E0' }]}>
                   <Icon name="bug" size={14} color="#E65100" />
-                  <Text style={[styles.chipText, { color: '#E65100' }]}>{target}</Text>
+                  <Text style={[styles.chipText, { color: '#E65100' }]}>{translateBioTerm(target)}</Text>
                 </View>
               ))}
             </View>
           </>
         ) : v.targetPests && v.targetPests.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Target Pests / Diseases</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.targetPestsDiseases')}</Text>
             <View style={styles.chipRow}>
               {v.targetPests.map((pest, i) => (
                 <View key={i} style={[styles.chip, { backgroundColor: '#FFF3E0' }]}>
                   <Icon name="bug" size={14} color="#E65100" />
-                  <Text style={[styles.chipText, { color: '#E65100' }]}>{pest}</Text>
+                  <Text style={[styles.chipText, { color: '#E65100' }]}>{translateBioTerm(pest)}</Text>
                 </View>
               ))}
             </View>
@@ -252,27 +258,27 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Dosage & Application Table */}
         {v.dosageTable && v.dosageTable.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Dosage & Application</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.dosageApplication')}</Text>
             {v.dosageTable.map((entry, i) => (
               <View key={i} style={styles.dosageCard}>
                 <View style={styles.dosageHeader}>
                   <Icon name="leaf-circle-outline" size={18} color={theme.colors.primary} />
-                  <Text style={styles.dosageStage}>{entry.crop_stage}</Text>
+                  <Text style={styles.dosageStage}>{translateBioTerm(entry.crop_stage)}</Text>
                 </View>
                 <View style={styles.dosageBody}>
                   <View style={styles.dosageRow}>
-                    <Text style={styles.dosageLabel}>Water</Text>
+                    <Text style={styles.dosageLabel}>{t('portfolio.water')}</Text>
                     <Text style={styles.dosageValue}>{entry.water_volume}</Text>
                   </View>
                   <View style={styles.dosageDivider} />
                   <View style={styles.dosageRow}>
-                    <Text style={styles.dosageLabel}>Dose</Text>
+                    <Text style={styles.dosageLabel}>{t('portfolio.dose')}</Text>
                     <Text style={styles.dosageValue}>{entry.dose_per_acre}</Text>
                   </View>
                   <View style={styles.dosageDivider} />
                   <View style={styles.dosageRow}>
-                    <Text style={styles.dosageLabel}>Method</Text>
-                    <Text style={styles.dosageValue}>{entry.application_method}</Text>
+                    <Text style={styles.dosageLabel}>{t('portfolio.method')}</Text>
+                    <Text style={styles.dosageValue}>{translateBioTerm(entry.application_method)}</Text>
                   </View>
                 </View>
               </View>
@@ -283,25 +289,25 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Application Schedule */}
         {v.repeatability && v.repeatability.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Application Schedule</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.applicationSchedule')}</Text>
             {v.repeatability.map((entry, i) => (
               <View key={i} style={styles.scheduleCard}>
                 <View style={styles.scheduleHeader}>
                   <View style={[styles.scheduleIndex, { backgroundColor: catColor + '18' }]}>
                     <Text style={[styles.scheduleIndexText, { color: catColor }]}>{i + 1}</Text>
                   </View>
-                  <Text style={styles.scheduleTiming}>{entry.application_timing}</Text>
+                  <Text style={styles.scheduleTiming}>{translateBioTerm(entry.application_timing)}</Text>
                 </View>
                 <View style={styles.scheduleBody}>
                   <View style={styles.scheduleRow}>
                     <Icon name="repeat" size={15} color={theme.colors.textLight} />
-                    <Text style={styles.scheduleLabel}>Frequency:</Text>
-                    <Text style={styles.scheduleValue}>{entry.frequency}</Text>
+                    <Text style={styles.scheduleLabel}>{t('portfolio.frequency')}</Text>
+                    <Text style={styles.scheduleValue}>{translateBioTerm(entry.frequency)}</Text>
                   </View>
                   <View style={styles.scheduleRow}>
                     <Icon name="information-outline" size={15} color={theme.colors.textLight} />
-                    <Text style={styles.scheduleLabel}>Note:</Text>
-                    <Text style={styles.scheduleValue}>{entry.recommendation}</Text>
+                    <Text style={styles.scheduleLabel}>{t('portfolio.note')}</Text>
+                    <Text style={styles.scheduleValue}>{translateBioTerm(entry.recommendation)}</Text>
                   </View>
                 </View>
               </View>
@@ -331,7 +337,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         <View style={styles.variantIndicator}>
           <Icon name="information-outline" size={16} color={family.color} />
           <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
-            <Text style={[styles.variantIndicatorText, { color: family.color }]}>Showing data for </Text>
+            <Text style={[styles.variantIndicatorText, { color: family.color }]}>{t('portfolio.showingDataFor')}</Text>
             <ProductName name={v.name} style={[styles.variantIndicatorText, { color: family.color }]} />
           </View>
         </View>
@@ -339,13 +345,13 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Key Benefits */}
         {(v.highlights || v.keyBenefits) ? (
           <>
-            <Text style={styles.sectionTitle}>Key Benefits</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.keyBenefits')}</Text>
             {(v.highlights || v.keyBenefits || []).map((item, i) => (
               <View key={i} style={styles.benefitRow}>
                 <View style={styles.benefitDot}>
                   <Icon name="check-circle" size={20} color={theme.colors.primary} />
                 </View>
-                <Text style={styles.benefitText}>{item}</Text>
+                <Text style={styles.benefitText}>{tp(item)}</Text>
               </View>
             ))}
           </>
@@ -354,11 +360,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Mechanism of Action */}
         {(v.mechanismOfAction || v.modeOfAction || family.mechanismOfAction) ? (
           <>
-            <Text style={styles.sectionTitle}>Mechanism of Action</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.mechanismOfAction')}</Text>
             <View style={styles.moaCard}>
               <Icon name="cog" size={20} color={theme.colors.secondary} />
               <Text style={styles.moaText}>
-                {v.mechanismOfAction || v.modeOfAction || family.mechanismOfAction}
+                {tp(v.mechanismOfAction || v.modeOfAction || family.mechanismOfAction)}
               </Text>
             </View>
           </>
@@ -367,7 +373,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Problem & Solution */}
         {v.problemSolutions && v.problemSolutions.length > 0 ? (
           <>
-            <Text style={styles.sectionTitle}>Problem & Solution</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.problemSolution')}</Text>
             {v.problemSolutions.map((ps, i) => (
               <View key={i} style={styles.psContainer}>
                 <View style={styles.psCard}>
@@ -375,8 +381,8 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                     <Icon name="alert-circle-outline" size={18} color="#D32F2F" />
                   </View>
                   <View style={styles.psContent}>
-                    <Text style={styles.psLabel}>Problem</Text>
-                    <Text style={styles.psText}>{ps.problem}</Text>
+                    <Text style={styles.psLabel}>{t('portfolio.problem')}</Text>
+                    <Text style={styles.psText}>{tp(ps.problem)}</Text>
                   </View>
                 </View>
                 <View style={styles.psArrow}>
@@ -387,8 +393,8 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                     <Icon name="check-circle-outline" size={18} color="#2E7D32" />
                   </View>
                   <View style={styles.psContent}>
-                    <Text style={[styles.psLabel, { color: theme.colors.primary }]}>Solution</Text>
-                    <Text style={styles.psText}>{ps.solution}</Text>
+                    <Text style={[styles.psLabel, { color: theme.colors.primary }]}>{t('portfolio.solution')}</Text>
+                    <Text style={styles.psText}>{tp(ps.solution)}</Text>
                   </View>
                 </View>
               </View>
@@ -400,14 +406,14 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
         {/* Shelf Life & Storage */}
         {(v.shelfLife || v.storageSafety) ? (
           <>
-            <Text style={styles.sectionTitle}>Shelf Life & Storage</Text>
+            <Text style={styles.sectionTitle}>{t('portfolio.shelfLifeStorage')}</Text>
             <View style={styles.storageCard}>
               {v.shelfLife ? (
                 <View style={styles.storageRow}>
                   <Icon name="clock-outline" size={18} color={theme.colors.secondary} />
                   <View style={styles.storageContent}>
-                    <Text style={styles.storageLabel}>Shelf Life</Text>
-                    <Text style={styles.storageValue}>{v.shelfLife}</Text>
+                    <Text style={styles.storageLabel}>{t('portfolio.shelfLife')}</Text>
+                    <Text style={styles.storageValue}>{tp(v.shelfLife)}</Text>
                   </View>
                 </View>
               ) : null}
@@ -418,8 +424,8 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                 <View style={styles.storageRow}>
                   <Icon name="warehouse" size={18} color={theme.colors.secondary} />
                   <View style={styles.storageContent}>
-                    <Text style={styles.storageLabel}>Storage</Text>
-                    <Text style={styles.storageValue}>{v.storageSafety}</Text>
+                    <Text style={styles.storageLabel}>{t('portfolio.storage')}</Text>
+                    <Text style={styles.storageValue}>{tp(v.storageSafety)}</Text>
                   </View>
                 </View>
               ) : null}
@@ -454,7 +460,7 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
 
     return (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Technical Documents</Text>
+        <Text style={styles.sectionTitle}>{t('portfolio.technicalDocuments')}</Text>
         {realDocs.map((doc) => {
           const meta = DOC_ICON_MAP[doc.docType];
           return (
@@ -468,11 +474,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                   style={styles.docTitle}
                   suffix={` - ${doc.docType === 'SDS/MSDS' ? 'SDS / MSDS' : doc.docType}`}
                 />
-                <Text style={styles.docMeta}>PDF document</Text>
+                <Text style={styles.docMeta}>{t('portfolio.pdfDocument')}</Text>
               </View>
               <View style={styles.docBadge}>
                 <Icon name="check-circle" size={14} color={theme.colors.success} />
-                <Text style={styles.docBadgeText}>Offline</Text>
+                <Text style={styles.docBadgeText}>{t('common.offline')}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -490,11 +496,11 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
                   style={styles.docTitle}
                   suffix={` - ${type}`}
                 />
-                <Text style={styles.docMeta}>PDF document</Text>
+                <Text style={styles.docMeta}>{t('portfolio.pdfDocument')}</Text>
               </View>
               <View style={styles.docBadge}>
                 <Icon name="clock-outline" size={14} color={theme.colors.textLight} />
-                <Text style={[styles.docBadgeText, { color: theme.colors.textLight }]}>Pending</Text>
+                <Text style={[styles.docBadgeText, { color: theme.colors.textLight }]}>{t('common.pending')}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -507,8 +513,8 @@ const PortfolioDetailScreen = ({ route, navigation }) => {
   const renderEmptyTab = () => (
     <View style={styles.emptyTab}>
       <Icon name="information-outline" size={36} color={theme.colors.textLight} />
-      <Text style={styles.emptyTabTitle}>Content coming soon</Text>
-      <Text style={styles.emptyTabText}>No information available for this section yet.</Text>
+      <Text style={styles.emptyTabTitle}>{t('portfolio.contentComingSoon')}</Text>
+      <Text style={styles.emptyTabText}>{t('portfolio.noSectionInfo')}</Text>
     </View>
   );
 

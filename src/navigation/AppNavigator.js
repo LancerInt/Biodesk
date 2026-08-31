@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useState, useCallback } from 'react';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from '../screens/HomeScreen';
@@ -30,10 +30,21 @@ import CertificateViewerScreen from '../screens/CertificateViewerScreen';
 import EcocertSelectScreen from '../screens/EcocertSelectScreen';
 import PresentationViewerScreen from '../screens/PresentationViewerScreen';
 import LiveScannerScreen from '../screens/LiveScannerScreen';
+import TranslateToggle from '../components/common/TranslateToggle';
 const Stack = createNativeStackNavigator();
 
-const AppNavigator = () => (
-  <NavigationContainer>
+// The translate pill is mounted once here rather than on each screen, so it
+// rides above every page. It sits outside Stack.Navigator, so navigation hooks
+// are unavailable to it — the container reports the current route instead.
+const AppNavigator = () => {
+  const navRef = useNavigationContainerRef();
+  const [routeName, setRouteName] = useState(null);
+  const syncRoute = useCallback(() => {
+    setRouteName(navRef.isReady() ? navRef.getCurrentRoute()?.name ?? null : null);
+  }, [navRef]);
+
+  return (
+  <NavigationContainer ref={navRef} onReady={syncRoute} onStateChange={syncRoute}>
     <Stack.Navigator
       initialRouteName="Landing"
       screenOptions={{
@@ -70,7 +81,9 @@ const AppNavigator = () => (
       <Stack.Screen name="PresentationViewer" component={PresentationViewerScreen} options={{ animation: 'fade' }} />
       <Stack.Screen name="LiveScanner" component={LiveScannerScreen} options={{ animation: 'slide_from_bottom' }} />
     </Stack.Navigator>
+    <TranslateToggle routeName={routeName} />
   </NavigationContainer>
-);
+  );
+};
 
 export default AppNavigator;

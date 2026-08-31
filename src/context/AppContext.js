@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import DatabaseService from '../database/DatabaseService';
 import { PRODUCTS } from '../constants/productData';
+import { setAppLanguage, LANGUAGES } from '../i18n';
 
 /**
  * Lazy-load expo-av to prevent crash when ExponentAV native module
@@ -18,6 +19,7 @@ const AppContext = createContext();
 const initialState = {
   dbReady: false,
   adminAuthenticated: false,
+  language: 'en',
 };
 
 const reducer = (state, action) => {
@@ -26,6 +28,8 @@ const reducer = (state, action) => {
       return { ...state, dbReady: true };
     case 'ADMIN_AUTH':
       return { ...state, adminAuthenticated: action.payload };
+    case 'SET_LANGUAGE':
+      return { ...state, language: action.payload };
     default:
       return state;
   }
@@ -52,6 +56,13 @@ export const AppProvider = ({ children }) => {
       try {
         await DatabaseService.getDatabase();
         await DatabaseService.populateSearchIndex(PRODUCTS);
+        // Load persisted language and apply it (falls through to device
+        // locale if nothing saved yet — set by i18n init at import time)
+        const savedLang = await DatabaseService.getSetting('app_language');
+        if (savedLang && LANGUAGES.some(l => l.code === savedLang)) {
+          await setAppLanguage(savedLang);
+          dispatch({ type: 'SET_LANGUAGE', payload: savedLang });
+        }
         dispatch({ type: 'DB_READY' });
       } catch (e) {
         console.warn('DB init error:', e);
@@ -59,6 +70,13 @@ export const AppProvider = ({ children }) => {
     };
     init();
   }, []);
+
+  const changeLanguage = async (code) => {
+    const needsReload = await setAppLanguage(code);
+    await DatabaseService.setSetting('app_language', code);
+    dispatch({ type: 'SET_LANGUAGE', payload: code });
+    return needsReload;
+  };
 
   const verifyPin = async (pin) => {
     const storedPin = await DatabaseService.getSetting('admin_pin');
@@ -70,7 +88,7 @@ export const AppProvider = ({ children }) => {
   const lockAdmin = () => dispatch({ type: 'ADMIN_AUTH', payload: false });
 
   return (
-    <AppContext.Provider value={{ state, dispatch, verifyPin, lockAdmin }}>
+    <AppContext.Provider value={{ state, dispatch, verifyPin, lockAdmin, changeLanguage }}>
       {children}
     </AppContext.Provider>
   );

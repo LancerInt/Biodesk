@@ -8,7 +8,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons as Icon, MaterialIcons as MIcon } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 import DatabaseService from '../database/DatabaseService';
+import LanguagePicker from '../components/common/LanguagePicker';
+import { getLanguage } from '../i18n';
 
 // Enable LayoutAnimation on Android
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
@@ -38,20 +41,20 @@ const C = {
 // DASHBOARD MODULE DEFINITIONS
 // ═══════════════════════════════════════════════════════════════
 const MODULES = [
-  { key: 'kriya',      title: 'Kriya',      sub: 'Company Overview & Profile',  icon: 'corporate-fare',  color: '#0F7B6C', bg: '#E0F2F1', bgTo: '#B2DFDB', screen: 'Profile' },
-  { key: 'portfolio',  title: 'Portfolio',   sub: 'Complete Product Catalog',    icon: 'inventory-2',     color: '#00838F', bg: '#E0F7FA', bgTo: '#B2EBF2', screen: 'Products' },
-  { key: 'technology', title: 'Technology',  sub: 'Biotech Innovation Platform', icon: 'biotech',         color: '#6A1B9A', bg: '#F3E5F5', bgTo: '#E1BEE7', screen: 'Technology' },
-  { key: 'gallery',    title: 'Gallery',     sub: 'Product Images & Videos',     icon: 'photo-library',   color: '#E91E63', bg: '#FCE4EC', bgTo: '#F8BBD0', screen: 'Videos' },
-  { key: 'biointel',   title: 'BioIntel',    sub: 'Biological Intelligence',     icon: 'psychology',      color: '#FF6F00', bg: '#FFF3E0', bgTo: '#FFE0B2', screen: 'Solutions' },
+  { key: 'kriya',      icon: 'corporate-fare',  color: '#0F7B6C', bg: '#E0F2F1', bgTo: '#B2DFDB', screen: 'Profile' },
+  { key: 'portfolio',  icon: 'inventory-2',     color: '#00838F', bg: '#E0F7FA', bgTo: '#B2EBF2', screen: 'Products' },
+  { key: 'technology', icon: 'biotech',         color: '#6A1B9A', bg: '#F3E5F5', bgTo: '#E1BEE7', screen: 'Technology' },
+  { key: 'gallery',    icon: 'photo-library',   color: '#E91E63', bg: '#FCE4EC', bgTo: '#F8BBD0', screen: 'Videos' },
+  { key: 'biointel',   icon: 'psychology',      color: '#FF6F00', bg: '#FFF3E0', bgTo: '#FFE0B2', screen: 'Solutions' },
 ];
 
 // ═══════════════════════════════════════════════════════════════
 // QUICK ACCESS SECTION DEFINITIONS
 // ═══════════════════════════════════════════════════════════════
 const SECTIONS = [
-  { key: 'meetings',  title: 'Meeting',  icon: 'event',        color: '#EF6C00', bg: '#FFF3E0', bgTo: '#FFE0B2', cLabel: 'scheduled',        screen: 'Meetings',  form: 'MeetingForm', formP: { mode: 'create' }, aLabel: 'New Meeting', aIcon: 'plus' },
-  { key: 'leads',     title: 'Lead',     icon: 'group',        color: '#2E7D32', bg: '#E8F5E9', bgTo: '#C8E6C9', cLabel: 'captured',         screen: 'Leads',     form: 'LeadForm',    formP: { mode: 'create' }, aLabel: 'New Lead',    aIcon: 'account-plus' },
-  { key: 'documents', title: 'Document', icon: 'description',  color: '#1565C0', bg: '#E3F2FD', bgTo: '#BBDEFB', cLabel: 'PDFs & Brochures', screen: 'Documents', form: null,          formP: null,               aLabel: 'Browse All',  aIcon: 'arrow-right' },
+  { key: 'meetings',  tKey: 'meeting',  icon: 'event',        color: '#EF6C00', bg: '#FFF3E0', bgTo: '#FFE0B2', screen: 'Meetings',  form: 'MeetingForm', formP: { mode: 'create' }, aIcon: 'plus' },
+  { key: 'leads',     tKey: 'leads',    icon: 'group',        color: '#2E7D32', bg: '#E8F5E9', bgTo: '#C8E6C9', screen: 'Leads',     form: 'LeadForm',    formP: { mode: 'create' }, aIcon: 'account-plus' },
+  { key: 'documents', tKey: 'document', icon: 'description',  color: '#1565C0', bg: '#E3F2FD', bgTo: '#BBDEFB', screen: 'Documents', form: null,          formP: null,               aIcon: 'arrow-right' },
 ];
 
 const CARD_R = 20;
@@ -68,6 +71,9 @@ const HomeScreen = ({ navigation }) => {
 
   const [stats, setStats] = useState({ leads: 0, meetings: 0 });
   const [expanded, setExpanded] = useState({});
+  const [langPickerOpen, setLangPickerOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  const currentLang = getLanguage(i18n.language);
 
   // ─── Staggered entrance animation ──────────────────────────
   const anims = useRef(Array.from({ length: 6 }, () => new Animated.Value(0))).current;
@@ -165,6 +171,10 @@ const HomeScreen = ({ navigation }) => {
 
           {/* Right: Action icons + Capture Lead */}
           <View style={st.hRight}>
+            <TouchableOpacity style={st.hLangBtn} onPress={() => setLangPickerOpen(true)} activeOpacity={0.7}>
+              <Icon name="translate" size={16} color={C.primary} />
+              <Text style={st.hLangCode}>{currentLang.code.toUpperCase()}</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={st.hBtn} onPress={go('Search')} activeOpacity={0.7}>
               <Icon name="magnify" size={22} color={C.textSec} />
             </TouchableOpacity>
@@ -180,7 +190,7 @@ const HomeScreen = ({ navigation }) => {
               activeOpacity={0.8}
             >
               <Icon name="account-plus-outline" size={18} color="#FFF" />
-              <Text style={st.hCaptureTxt}>Leads</Text>
+              <Text style={st.hCaptureTxt}>{t('home.leadsBtn')}</Text>
             </TouchableOpacity>
           </View>
         </Animated.View>
@@ -204,17 +214,17 @@ const HomeScreen = ({ navigation }) => {
 
           <View style={st.heroContent}>
             <Text style={[st.heroTitle, { fontSize: isTablet ? (isLandscape ? 26 : 30) : 22 }]}>
-              Biological Intelligence Platform
+              {t('home.heroTitle')}
             </Text>
             <Text style={[st.heroSub, { fontSize: isTablet ? (isLandscape ? 14 : 15) : 12 }]}>
-              for Modern Agriculture
+              {t('home.heroSub')}
             </Text>
           </View>
         </Animated.View>
 
         {/* ═══ DASHBOARD SECTION LABEL ══════════════════════════ */}
         <Animated.View style={[st.secLabel, fade(2)]}>
-          <Text style={st.secLabelTxt}>Dashboard</Text>
+          <Text style={st.secLabelTxt}>{t('home.dashboard')}</Text>
           <View style={[st.secLabelBar, { backgroundColor: C.accent }]} />
         </Animated.View>
 
@@ -254,8 +264,8 @@ const HomeScreen = ({ navigation }) => {
                 </LinearGradient>
                 {/* Labels */}
                 <View style={st.mInfo}>
-                  <Text style={[st.mTitle, { fontSize: isTablet ? 18 : 15 }]}>{m.title}</Text>
-                  <Text style={[st.mSub, { fontSize: isTablet ? 12 : 11 }]}>{m.sub}</Text>
+                  <Text style={[st.mTitle, { fontSize: isTablet ? 18 : 15 }]}>{t(`home.modules.${m.key}.title`)}</Text>
+                  <Text style={[st.mSub, { fontSize: isTablet ? 12 : 11 }]}>{t(`home.modules.${m.key}.sub`)}</Text>
                 </View>
                 {/* Arrow */}
                 <View style={st.mArrow}>
@@ -268,7 +278,7 @@ const HomeScreen = ({ navigation }) => {
 
         {/* ═══ QUICK ACCESS SECTION LABEL ═══════════════════════ */}
         <Animated.View style={[st.secLabel, { marginTop: GAP * 1.5 }, fade(3)]}>
-          <Text style={st.secLabelTxt}>Quick Access</Text>
+          <Text style={st.secLabelTxt}>{t('home.quickAccess')}</Text>
           <View style={[st.secLabelBar, { backgroundColor: C.accent }]} />
         </Animated.View>
 
@@ -306,8 +316,8 @@ const HomeScreen = ({ navigation }) => {
                     <MIcon name={sec.icon} size={22} color={sec.color} />
                   </LinearGradient>
                   <View style={{ flex: 1 }}>
-                    <Text style={st.xTitle}>{sec.title}</Text>
-                    <Text style={st.xCount}>{count != null ? `${count} ${sec.cLabel}` : sec.cLabel}</Text>
+                    <Text style={st.xTitle}>{t(`home.sections.${sec.tKey}.title`)}</Text>
+                    <Text style={st.xCount}>{count != null ? `${count} ${t(`home.sections.${sec.tKey}.count`)}` : t(`home.sections.${sec.tKey}.count`)}</Text>
                   </View>
                   {count != null && (
                     <View style={[st.xBadge, { backgroundColor: sec.color + '15' }]}>
@@ -332,7 +342,7 @@ const HomeScreen = ({ navigation }) => {
                         activeOpacity={0.8}
                       >
                         <Icon name="format-list-bulleted" size={18} color="#FFF" />
-                        <Text style={st.xBtnFillTxt}>View All</Text>
+                        <Text style={st.xBtnFillTxt}>{t('actions.viewAll')}</Text>
                       </TouchableOpacity>
                       {sec.form && (
                         <TouchableOpacity
@@ -342,7 +352,7 @@ const HomeScreen = ({ navigation }) => {
                         >
                           <Icon name={sec.aIcon} size={18} color={sec.color} />
                           <Text style={[st.xBtnOutTxt, { color: sec.color }]}>
-                            {sec.aLabel}
+                            {t(`home.sections.${sec.tKey}.action`)}
                           </Text>
                         </TouchableOpacity>
                       )}
@@ -355,6 +365,7 @@ const HomeScreen = ({ navigation }) => {
         </Animated.View>
       </ScrollView>
 
+      <LanguagePicker visible={langPickerOpen} onClose={() => setLangPickerOpen(false)} />
     </View>
   );
 };
@@ -380,6 +391,14 @@ const st = StyleSheet.create({
   powB: { fontSize: 13, color: C.orange, fontFamily: 'Inter_600SemiBold' },
   powD: { fontSize: 12, color: C.textMut, fontFamily: 'Inter_400Regular' },
   hRight: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  hLangBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 4,
+    height: TOUCH, paddingHorizontal: 10,
+    borderRadius: TOUCH / 2,
+    backgroundColor: 'rgba(255,255,255,0.85)',
+    borderWidth: 1, borderColor: 'rgba(15,123,108,0.2)',
+  },
+  hLangCode: { fontSize: 12, fontFamily: 'Inter_600SemiBold', color: C.primary, letterSpacing: 0.5 },
   hBtn: {
     width: TOUCH,
     height: TOUCH,

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, Alert, FlatList, Dimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import SwipeableTabs from '../components/common/SwipeableTabs';
 import ImageViewer from '../components/common/ImageViewer';
@@ -103,6 +104,7 @@ const ImageCarousel = React.memo(({ images, onPress, resizeMode = 'cover', aspec
 });
 
 const ProfileScreen = ({ navigation, route }) => {
+  const { t } = useTranslation();
   const initialTab = route?.params?.sectionIndex ?? 0;
   const [activeSection, setActiveSection] = useState(initialTab);
   const [expandedRegion, setExpandedRegion] = useState(null);
@@ -122,34 +124,34 @@ const ProfileScreen = ({ navigation, route }) => {
   const renderAbout = () => (
     <View>
       <SectionImage source={section.image} onPress={setZoomImage} />
-      <Text style={styles.headline}>{section.content.headline}</Text>
-      <Text style={styles.bodyText}>{section.content.description}</Text>
+      <Text style={styles.headline}>{t('kriyaProfile.about.headline')}</Text>
+      <Text style={styles.bodyText}>{t('kriyaProfile.about.description')}</Text>
 
-      <Text style={styles.subTitle}>Kriya Highlights</Text>
+      <Text style={styles.subTitle}>{t('profile.highlights')}</Text>
       {section.content.highlights.map((h, i) => (
         <View key={i} style={styles.highlightRow}>
           <Icon name="check-decagram" size={18} color={theme.colors.primary} />
-          <Text style={styles.highlightText}>{h}</Text>
+          <Text style={styles.highlightText}>{t(`kriyaProfile.about.highlights.${i}`)}</Text>
         </View>
       ))}
 
-      <Text style={styles.subTitle}>Our Mission</Text>
+      <Text style={styles.subTitle}>{t('profile.mission')}</Text>
       <View style={styles.quoteCard}>
         <Icon name="format-quote-open" size={24} color={theme.colors.secondary} />
-        <Text style={styles.quoteText}>{section.content.mission}</Text>
+        <Text style={styles.quoteText}>{t('kriyaProfile.about.mission')}</Text>
       </View>
 
-      <Text style={styles.subTitle}>Our Vision</Text>
+      <Text style={styles.subTitle}>{t('profile.vision')}</Text>
       <View style={styles.quoteCard}>
         <Icon name="eye" size={24} color={theme.colors.primary} />
-        <Text style={styles.quoteText}>{section.content.vision}</Text>
+        <Text style={styles.quoteText}>{t('kriyaProfile.about.vision')}</Text>
       </View>
 
-      <Text style={styles.subTitle}>Core Values</Text>
+      <Text style={styles.subTitle}>{t('profile.coreValues')}</Text>
       {section.content.values.map((v, i) => (
         <View key={i} style={styles.valueCard}>
-          <Text style={styles.valueTitle}>{v.title}</Text>
-          <Text style={styles.valueDesc}>{v.description}</Text>
+          <Text style={styles.valueTitle}>{t(`kriyaProfile.about.values.${i}.title`)}</Text>
+          <Text style={styles.valueDesc}>{t(`kriyaProfile.about.values.${i}.description`)}</Text>
         </View>
       ))}
     </View>
@@ -158,7 +160,7 @@ const ProfileScreen = ({ navigation, route }) => {
   const renderExpertise = () => (
     <View>
       <SectionImage source={section.image} onPress={setZoomImage} />
-      <Text style={styles.bodyText}>{section.content.description}</Text>
+      <Text style={styles.bodyText}>{t('kriyaProfile.expertise.description')}</Text>
 
       {section.content.areas.map((area, i) => (
         <View key={i} style={styles.expertiseCard}>
@@ -166,19 +168,19 @@ const ProfileScreen = ({ navigation, route }) => {
             <View style={[styles.capIconWrap, { backgroundColor: theme.colors.primary + '10' }]}>
               <Icon name={area.icon} size={24} color={theme.colors.primary} />
             </View>
-            <Text style={styles.expertiseTitle}>{area.title}</Text>
+            <Text style={styles.expertiseTitle}>{t(`kriyaProfile.expertise.areas.${i}.title`)}</Text>
           </View>
           {area.items.map((item, j) => (
             <View key={j} style={styles.expertiseItem}>
               <Icon name="chevron-right" size={16} color={theme.colors.textLight} />
-              <Text style={styles.expertiseItemText}>{item}</Text>
+              <Text style={styles.expertiseItemText}>{t(`kriyaProfile.expertise.areas.${i}.items.${j}`)}</Text>
             </View>
           ))}
         </View>
       ))}
 
-      <Text style={styles.subTitle}>Technology Platform</Text>
-      <Text style={styles.bodyText}>{section.content.technologyIntro}</Text>
+      <Text style={styles.subTitle}>{t('profile.technologyPlatform')}</Text>
+      <Text style={styles.bodyText}>{t('kriyaProfile.expertise.technologyIntro')}</Text>
       {section.content.technologies.map((tech, i) => {
         const techId = tech.name.replace('\u2122', '').trim().toLowerCase();
         const techData = getTechnologyById(techId);
@@ -189,7 +191,7 @@ const ProfileScreen = ({ navigation, route }) => {
               <Text style={[styles.techPlatformName, { color: tech.color }]}>{tech.name.replace('\u2122', '')}</Text>
               <Text style={[styles.tmSymbol, { color: tech.color }]}>{'\u2122'}</Text>
             </View>
-            <Text style={styles.techPlatformTagline}>{tech.tagline}</Text>
+            <Text style={styles.techPlatformTagline}>{t(`kriyaProfile.expertise.technologies.${i}.tagline`)}</Text>
           </TouchableOpacity>
         );
       })}
@@ -199,16 +201,16 @@ const ProfileScreen = ({ navigation, route }) => {
   const renderManufacturing = () => (
     <View>
       {section.carouselImages ? <ImageCarousel images={section.carouselImages} onPress={setZoomImage} /> : <SectionImage source={section.image} onPress={setZoomImage} />}
-      <Text style={styles.bodyText}>{section.content.description}</Text>
-      <Text style={styles.subTitle}>Capabilities</Text>
+      <Text style={styles.bodyText}>{t('kriyaProfile.manufacturing.description')}</Text>
+      <Text style={styles.subTitle}>{t('profile.capabilities')}</Text>
       {section.content.capabilities.map((c, i) => (
         <View key={i} style={styles.capCard}>
           <View style={styles.capIconWrap}>
             <Icon name={c.icon} size={24} color={theme.colors.primary} />
           </View>
           <View style={{ flex: 1 }}>
-            <Text style={styles.capTitle}>{c.title}</Text>
-            <Text style={styles.capDesc}>{c.description}</Text>
+            <Text style={styles.capTitle}>{t(`kriyaProfile.manufacturing.capabilities.${i}.title`)}</Text>
+            <Text style={styles.capDesc}>{t(`kriyaProfile.manufacturing.capabilities.${i}.description`)}</Text>
           </View>
         </View>
       ))}
@@ -218,16 +220,16 @@ const ProfileScreen = ({ navigation, route }) => {
   const renderRnD = () => (
     <View>
       {section.carouselImages ? <ImageCarousel images={section.carouselImages} onPress={setZoomImage} /> : <SectionImage source={section.image} onPress={setZoomImage} />}
-      <Text style={styles.bodyText}>{section.content.description}</Text>
-      <Text style={styles.subTitle}>Research Areas</Text>
+      <Text style={styles.bodyText}>{t('kriyaProfile.rnd.description')}</Text>
+      <Text style={styles.subTitle}>{t('profile.researchAreas')}</Text>
       {section.content.areas.map((a, i) => (
         <View key={i} style={styles.capCard}>
           <View style={styles.capIconWrap}>
             <Icon name={a.icon} size={24} color={theme.colors.secondary} />
           </View>
           <View style={{ flex: 1 }}>
-            <Text style={styles.capTitle}>{a.title}</Text>
-            <Text style={styles.capDesc}>{a.description}</Text>
+            <Text style={styles.capTitle}>{t(`kriyaProfile.rnd.areas.${i}.title`)}</Text>
+            <Text style={styles.capDesc}>{t(`kriyaProfile.rnd.areas.${i}.description`)}</Text>
           </View>
         </View>
       ))}
@@ -237,16 +239,16 @@ const ProfileScreen = ({ navigation, route }) => {
   const renderQuality = () => (
     <View>
       {section.carouselImages ? <ImageCarousel images={section.carouselImages} onPress={setZoomImage} aspectRatio={3} /> : <SectionImage source={section.image} onPress={setZoomImage} />}
-      <Text style={styles.bodyText}>{section.content.description}</Text>
-      <Text style={styles.subTitle}>Quality Pillars</Text>
+      <Text style={styles.bodyText}>{t('kriyaProfile.quality.description')}</Text>
+      <Text style={styles.subTitle}>{t('profile.qualityPillars')}</Text>
       {section.content.pillars.map((p, i) => (
         <View key={i} style={styles.capCard}>
           <View style={[styles.capIconWrap, { backgroundColor: '#E8F5E9' }]}>
             <Icon name={p.icon} size={24} color={theme.colors.primary} />
           </View>
           <View style={{ flex: 1 }}>
-            <Text style={styles.capTitle}>{p.title}</Text>
-            <Text style={styles.capDesc}>{p.description}</Text>
+            <Text style={styles.capTitle}>{t(`kriyaProfile.quality.pillars.${i}.title`)}</Text>
+            <Text style={styles.capDesc}>{t(`kriyaProfile.quality.pillars.${i}.description`)}</Text>
           </View>
         </View>
       ))}
@@ -256,16 +258,16 @@ const ProfileScreen = ({ navigation, route }) => {
   const renderGlobal = () => (
     <View>
       <SectionImage source={section.image} onPress={setZoomImage} />
-      <Text style={styles.bodyText}>{section.content.description}</Text>
+      <Text style={styles.bodyText}>{t('kriyaProfile.global.description')}</Text>
       <View style={styles.statsRow}>
         {section.content.stats.map((s, i) => (
           <View key={i} style={styles.statCard}>
             <Text style={styles.statValue}>{s.value}</Text>
-            <Text style={styles.statLabel}>{s.label}</Text>
+            <Text style={styles.statLabel}>{t(`kriyaProfile.global.stats.${i}.label`)}</Text>
           </View>
         ))}
       </View>
-      <Text style={styles.subTitle}>Regional Presence</Text>
+      <Text style={styles.subTitle}>{t('profile.regionalPresence')}</Text>
       {section.content.regions.map((r, i) => {
         const REGION_CONFIG = {
           'USA':            { color: '#2E7D32', bg: '#E8F5E9', icon: 'flag' },
@@ -289,17 +291,17 @@ const ProfileScreen = ({ navigation, route }) => {
                 <View style={[styles.regionIconCircle, { backgroundColor: cfg.bg }]}>
                   <Icon name={cfg.icon} size={16} color={cfg.color} />
                 </View>
-                <Text style={styles.regionName}>{r.name}</Text>
+                <Text style={styles.regionName}>{t(`kriyaProfile.global.regions.${r.name}`, r.name)}</Text>
               </View>
               {r.partners && (
-                <Text style={[styles.partnerCountLabel, { color: cfg.color }]}>{r.partners.length} partners</Text>
+                <Text style={[styles.partnerCountLabel, { color: cfg.color }]}>{r.partners.length} {t('profile.partners')}</Text>
               )}
             </View>
             {isExpanded && r.partners && r.partners.length > 0 && (
               <View style={styles.partnersList}>
                 <View style={[styles.partnersHeader, { backgroundColor: cfg.bg }]}>
                   <Icon name="handshake" size={14} color={cfg.color} />
-                  <Text style={[styles.partnersTitle, { color: cfg.color }]}>Distribution Partners ({r.partners.length})</Text>
+                  <Text style={[styles.partnersTitle, { color: cfg.color }]}>{t('profile.distributionPartners', { count: r.partners.length })}</Text>
                 </View>
                 {r.partners.map((p, j) => (
                   <View key={j} style={styles.partnerRow}>
@@ -325,7 +327,7 @@ const ProfileScreen = ({ navigation, route }) => {
       return;
     }
     if (!cert.pdfAsset) {
-      Alert.alert('Not Available', 'Certificate file not available');
+      Alert.alert(t('profile.certUnavailableTitle'), t('profile.certUnavailableBody'));
       return;
     }
     navigation.navigate('CertificateViewer', {
@@ -340,7 +342,7 @@ const ProfileScreen = ({ navigation, route }) => {
     return (
       <View>
         <SectionImage source={section.image} onPress={setZoomImage} />
-        <Text style={styles.bodyText}>{section.content.description}</Text>
+        <Text style={styles.bodyText}>{t('kriyaProfile.certifications.description')}</Text>
         {certsWithLogos.map((c, i) => (
           <TouchableOpacity key={i} style={styles.certCard} activeOpacity={0.7} onPress={() => openCertificatePdf(c)}>
             <View style={styles.certIcon}>
@@ -348,10 +350,10 @@ const ProfileScreen = ({ navigation, route }) => {
             </View>
             <View style={{ flex: 1 }}>
               <View style={styles.certHeader}>
-                <Text style={styles.certName}>{c.name}</Text>
-                <View style={styles.certCatBadge}><Text style={styles.certCatText}>{c.category}</Text></View>
+                <Text style={styles.certName}>{t(`kriyaProfile.certifications.items.${c.name}.name`, c.name)}</Text>
+                <View style={styles.certCatBadge}><Text style={styles.certCatText}>{t(`kriyaProfile.certifications.items.${c.name}.category`, c.category)}</Text></View>
               </View>
-              <Text style={styles.certDesc}>{c.description}</Text>
+              <Text style={styles.certDesc}>{t(`kriyaProfile.certifications.items.${c.name}.description`, c.description)}</Text>
             </View>
           </TouchableOpacity>
         ))}
@@ -372,12 +374,12 @@ const ProfileScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Kriya Profile" onBack={() => navigation.goBack()} />
+      <Header title={t('profile.headerTitle')} onBack={() => navigation.goBack()} />
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabBar} contentContainerStyle={styles.tabContent}>
         {PROFILE_SECTIONS.map((s, i) => (
           <TouchableOpacity key={s.id} style={[styles.tab, activeSection === i && styles.tabActive]} onPress={() => setActiveSection(i)}>
             <Icon name={s.icon} size={18} color={activeSection === i ? theme.colors.primary : theme.colors.textLight} />
-            <Text style={[styles.tabText, activeSection === i && styles.tabTextActive]}>{s.title}</Text>
+            <Text style={[styles.tabText, activeSection === i && styles.tabTextActive]}>{t(`kriyaProfile.tabs.${s.id}`, s.title)}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>

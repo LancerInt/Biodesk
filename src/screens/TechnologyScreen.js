@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, useWindowDimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import { useTechText } from '../i18n/useTechText';
 import Header from '../components/common/Header';
 import ImageViewer from '../components/common/ImageViewer';
 import theme from '../constants/theme';
@@ -13,6 +15,8 @@ const topTechImage = getTopTechnologyImage();
 const PLATFORM_IDS = ['wynn', 'microvate', 'karyo'];
 
 const TechnologyScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const tt = useTechText();
   const { width: winW, height: winH } = useWindowDimensions();
   const isTablet = winW >= 768;
 
@@ -39,8 +43,8 @@ const TechnologyScreen = ({ navigation }) => {
           />
         </View>
       </TouchableOpacity>
-      <Text style={[styles.heroHeadline, { fontSize: isTablet ? 26 : 22 }]}>{integrated.tagline}</Text>
-      <Text style={styles.heroSubtitle}>{integrated.description}</Text>
+      <Text style={[styles.heroHeadline, { fontSize: isTablet ? 26 : 22 }]}>{tt(integrated.tagline)}</Text>
+      <Text style={styles.heroSubtitle}>{tt(integrated.description)}</Text>
     </View>
   );
 
@@ -51,9 +55,9 @@ const TechnologyScreen = ({ navigation }) => {
       <View style={styles.introBody}>
         <View style={styles.introIconRow}>
           <Icon name="information-outline" size={18} color={theme.colors.primary} />
-          <Text style={styles.introTitle}>{integrated.introSection.title}</Text>
+          <Text style={styles.introTitle}>{tt(integrated.introSection.title)}</Text>
         </View>
-        <Text style={styles.introText}>{integrated.introSection.body}</Text>
+        <Text style={styles.introText}>{tt(integrated.introSection.body)}</Text>
       </View>
     </View>
   );
@@ -61,7 +65,7 @@ const TechnologyScreen = ({ navigation }) => {
   // ─── Platform Cards (no images — color accent only) ──────
   const renderPlatformCards = () => (
     <View style={styles.platformSection}>
-      <Text style={[styles.sectionTitle, { fontSize: isTablet ? 14 : 13, marginBottom: isTablet ? 20 : 16 }]}>Explore the Stack</Text>
+      <Text style={[styles.sectionTitle, { fontSize: isTablet ? 14 : 13, marginBottom: isTablet ? 20 : 16 }]}>{t('technology.exploreStack')}</Text>
       {platforms.map((tech) => {
         const card = (integrated.platformCards || []).find(c =>
           c.name.replace('™', '').toLowerCase() === tech.id
@@ -84,7 +88,7 @@ const TechnologyScreen = ({ navigation }) => {
                     <Text style={styles.cardTm}>™</Text>
                   </View>
                   {card ? (
-                    <Text style={[styles.cardCategory, { color: tech.color }]}>{card.category}</Text>
+                    <Text style={[styles.cardCategory, { color: tech.color }]}>{tt(card.category)}</Text>
                   ) : null}
                 </View>
                 <Icon name="chevron-right" size={22} color={theme.colors.textLight} />
@@ -93,7 +97,7 @@ const TechnologyScreen = ({ navigation }) => {
                 <View style={[styles.cardRoleWrap, { borderColor: tech.color + '20', padding: isTablet ? 16 : 14 }]}>
                   <Icon name="target" size={14} color={tech.color} />
                   <Text style={[styles.cardRole, { color: tech.color, fontSize: isTablet ? 14 : 13, lineHeight: isTablet ? 22 : 20 }]}>
-                    {card.short_description}
+                    {tt(card.short_description)}
                   </Text>
                 </View>
               ) : null}
@@ -101,7 +105,7 @@ const TechnologyScreen = ({ navigation }) => {
                 {tech.features.slice(0, 3).map((f, i) => (
                   <View key={i} style={[styles.featureChip, { backgroundColor: tech.color + '0A', borderColor: tech.color + '20', paddingHorizontal: isTablet ? 16 : 12, paddingVertical: isTablet ? 7 : 5 }]}>
                     <Text style={[styles.featureChipText, { color: tech.color, fontSize: isTablet ? 13 : 11 }]} numberOfLines={1}>
-                      {f.title}
+                      {tt(f.title)}
                     </Text>
                   </View>
                 ))}
@@ -116,7 +120,7 @@ const TechnologyScreen = ({ navigation }) => {
   // ─── Relationship / Comparison Section ────────────────────
   const renderComparison = () => (
     <View style={styles.comparisonSection}>
-      <Text style={styles.sectionTitle}>Role of Each Platform</Text>
+      <Text style={styles.sectionTitle}>{t('technology.roleOfEach')}</Text>
 
       {/* Stack relationship diagram */}
       <TouchableOpacity activeOpacity={0.85} onPress={() => setZoomImage(stackDiagramImage)}>
@@ -135,7 +139,7 @@ const TechnologyScreen = ({ navigation }) => {
         activeOpacity={0.7}
         onPress={() => navigation.navigate('TechnologyComparison')}>
         <Icon name="table-column" size={20} color={theme.colors.primary} />
-        <Text style={styles.advancedCompareBtnText}>Advanced Platform Comparison</Text>
+        <Text style={styles.advancedCompareBtnText}>{t('technology.advancedComparison')}</Text>
         <Icon name="chevron-right" size={18} color={theme.colors.primary} />
       </TouchableOpacity>
 
@@ -143,24 +147,24 @@ const TechnologyScreen = ({ navigation }) => {
       <View style={styles.matrixCard}>
         <View style={styles.matrixTitleRow}>
           <Icon name="view-list-outline" size={18} color={theme.colors.text} />
-          <Text style={styles.matrixTitle}>Scope Comparison</Text>
+          <Text style={styles.matrixTitle}>{t('technology.scopeComparison')}</Text>
         </View>
         <View style={styles.matrixHeaderRow}>
           <View style={styles.matrixHeaderCell}>
-            <Text style={styles.matrixHeaderText}>Platform</Text>
+            <Text style={styles.matrixHeaderText}>{t('technology.platform')}</Text>
           </View>
           <View style={styles.matrixHeaderCell}>
-            <Text style={styles.matrixHeaderText}>Scope</Text>
+            <Text style={styles.matrixHeaderText}>{t('technology.scope')}</Text>
           </View>
         </View>
         {integrated.flow.map((item, i) => (
           <View key={i} style={[styles.matrixRow, i % 2 === 0 && styles.matrixRowAlt]}>
             <View style={styles.matrixCell}>
               <View style={[styles.matrixDot, { backgroundColor: item.color }]} />
-              <Text style={styles.matrixPlatformText}>{item.title}</Text>
+              <Text style={styles.matrixPlatformText}>{tt(item.title)}</Text>
             </View>
             <View style={styles.matrixCell}>
-              <Text style={styles.matrixScopeText}>{item.platform}</Text>
+              <Text style={styles.matrixScopeText}>{tt(item.platform)}</Text>
             </View>
           </View>
         ))}
@@ -190,8 +194,8 @@ const TechnologyScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Technology Stack"
-        subtitle="Science platforms behind performance"
+        title={t('technology.headerTitle')}
+        subtitle={t('technology.headerSubtitle')}
         onBack={() => navigation.goBack()}
       />
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>

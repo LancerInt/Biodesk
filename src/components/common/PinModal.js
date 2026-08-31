@@ -8,11 +8,13 @@ import {
   Animated,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import DatabaseService from '../../database/DatabaseService';
 
 const DEFAULT_PIN = '1234';
 
 const PinModal = ({visible, onClose, onSuccess}) => {
+  const { t } = useTranslation();
   const [pin, setPin] = useState('');
   const [error, setError] = useState(false);
   const shakeAnim = useRef(new Animated.Value(0)).current;
@@ -160,11 +162,11 @@ const PinModal = ({visible, onClose, onSuccess}) => {
             <Icon name="close" size={22} color="#757575" />
           </TouchableOpacity>
 
-          <Text style={styles.title}>Enter Admin PIN</Text>
+          <Text style={styles.title}>{t('pin.enterAdminPin')}</Text>
 
           <View style={styles.dotsContainer}>{renderDots()}</View>
 
-          {error && <Text style={styles.errorText}>Incorrect PIN</Text>}
+          {error && <Text style={styles.errorText}>{t('pin.incorrectPin')}</Text>}
 
           <View style={styles.keypad}>{renderKeypad()}</View>
         </Animated.View>

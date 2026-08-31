@@ -47,7 +47,8 @@
           "cameraPermissionText": "BioDesk needs camera access to scan visiting cards and documents.",
           "enableCodeScanner": false
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "extra": {
       "eas": {

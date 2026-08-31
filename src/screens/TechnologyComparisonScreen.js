@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTechText } from '../i18n/useTechText';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import { TECHNOLOGIES, getTechnologyById } from '../constants/technologyData';
@@ -18,6 +19,7 @@ const COMPARISON_CATEGORIES = [
 ];
 
 const TechnologyComparisonScreen = ({ navigation }) => {
+  const tt = useTechText();
   const [selectedPlatforms, setSelectedPlatforms] = useState(PLATFORM_IDS);
   const [expandedSections, setExpandedSections] = useState({ role: true, scope: true });
 
@@ -43,7 +45,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
   // ─── Platform Selector ───────────────────────────────────────
   const renderSelector = () => (
     <View style={styles.selectorSection}>
-      <Text style={styles.selectorTitle}>Select Platforms to Compare</Text>
+      <Text style={styles.selectorTitle}>{tt('Select Platforms to Compare')}</Text>
       <View style={styles.selectorRow}>
         {PLATFORM_IDS.map(id => {
           const tech = getTechnologyById(id);
@@ -72,7 +74,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
   const renderColumnHeaders = () => (
     <View style={styles.headerRow}>
       <View style={styles.labelCol}>
-        <Text style={styles.labelColText}>Category</Text>
+        <Text style={styles.labelColText}>{tt('Category')}</Text>
       </View>
       {platforms.map(tech => (
         <View key={tech.id} style={[styles.valueCol, { borderTopColor: tech.color }]}>
@@ -96,7 +98,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
           activeOpacity={0.7}>
           <View style={styles.sectionHeaderLeft}>
             <Icon name={category.icon} size={20} color={theme.colors.primary} />
-            <Text style={styles.sectionHeaderText}>{category.title}</Text>
+            <Text style={styles.sectionHeaderText}>{tt(category.title)}</Text>
           </View>
           <Icon
             name={isExpanded ? 'chevron-up' : 'chevron-down'}
@@ -126,8 +128,8 @@ const TechnologyComparisonScreen = ({ navigation }) => {
   const renderRoleComparison = () => (
     <View style={styles.sectionBody}>
       {/* Tagline row */}
-      <ComparisonRow label="Tagline" platforms={platforms} extractor={t => t.tagline} />
-      <ComparisonRow label="Core Focus" platforms={platforms} extractor={t => t.corePositioning} multiline />
+      <ComparisonRow label={tt('Tagline')} platforms={platforms} extractor={t => tt(t.tagline)} />
+      <ComparisonRow label={tt('Core Focus')} platforms={platforms} extractor={t => tt(t.corePositioning)} multiline />
     </View>
   );
 
@@ -135,7 +137,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
   const renderScopeComparison = () => (
     <View style={styles.sectionBody}>
       {/* Owns */}
-      <Text style={styles.subSectionTitle}>What Each Platform Owns</Text>
+      <Text style={styles.subSectionTitle}>{tt('What Each Platform Owns')}</Text>
       <View style={styles.comparisonGrid}>
         {platforms.map(tech => (
           <View key={tech.id} style={[styles.scopeColumn, { flex: 1 }]}>
@@ -145,7 +147,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
             {(tech.scope?.owns || []).map((item, i) => (
               <View key={i} style={styles.scopeItem}>
                 <Icon name="check-circle" size={14} color={theme.colors.success} />
-                <Text style={styles.scopeItemText}>{item}</Text>
+                <Text style={styles.scopeItemText}>{tt(item)}</Text>
               </View>
             ))}
           </View>
@@ -172,8 +174,8 @@ const TechnologyComparisonScreen = ({ navigation }) => {
                   <View key={tech.id} style={[styles.pillarCell, { borderLeftColor: tech.color }]}>
                     {feature ? (
                       <>
-                        <Text style={[styles.pillarTitle, { color: tech.color }]}>{feature.title}</Text>
-                        <Text style={styles.pillarDesc}>{feature.description}</Text>
+                        <Text style={[styles.pillarTitle, { color: tech.color }]}>{tt(feature.title)}</Text>
+                        <Text style={styles.pillarDesc}>{tt(feature.description)}</Text>
                       </>
                     ) : (
                       <Text style={styles.pillarEmpty}>—</Text>
@@ -201,8 +203,8 @@ const TechnologyComparisonScreen = ({ navigation }) => {
               <View key={i} style={styles.diffItem}>
                 <View style={[styles.diffDot, { backgroundColor: tech.color }]} />
                 <View style={styles.diffContent}>
-                  <Text style={styles.diffTitle}>{d.title}</Text>
-                  <Text style={styles.diffBody}>{d.body}</Text>
+                  <Text style={styles.diffTitle}>{tt(d.title)}</Text>
+                  <Text style={styles.diffBody}>{tt(d.body)}</Text>
                 </View>
               </View>
             ))}
@@ -224,7 +226,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
       <View style={styles.sectionBody}>
         {/* Table header */}
         <View style={styles.tableRow}>
-          <View style={styles.tableLabel}><Text style={styles.tableLabelText}>Active Type</Text></View>
+          <View style={styles.tableLabel}><Text style={styles.tableLabelText}>{tt('Active Type')}</Text></View>
           {platforms.map(tech => (
             <View key={tech.id} style={styles.tableCell}>
               <Text style={[styles.tableCellHeader, { color: tech.color }]}>{tech.name}</Text>
@@ -233,7 +235,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
         </View>
         {types.map((type, idx) => (
           <View key={type} style={[styles.tableRow, idx % 2 === 0 && styles.tableRowAlt]}>
-            <View style={styles.tableLabel}><Text style={styles.tableValueText}>{type}</Text></View>
+            <View style={styles.tableLabel}><Text style={styles.tableValueText}>{tt(type)}</Text></View>
             {platforms.map(tech => {
               const supported = matrix[tech.id]?.[idx];
               return (
@@ -264,10 +266,10 @@ const TechnologyComparisonScreen = ({ navigation }) => {
       <View style={styles.sectionBody}>
         {rows.map((row, idx) => (
           <View key={row.label} style={[styles.tableRow, idx % 2 === 0 && styles.tableRowAlt]}>
-            <View style={styles.tableLabel}><Text style={styles.tableValueText}>{row.label}</Text></View>
+            <View style={styles.tableLabel}><Text style={styles.tableValueText}>{tt(row.label)}</Text></View>
             {platforms.map(tech => (
               <View key={tech.id} style={styles.tableCell}>
-                <Text style={styles.tableCellValue}>{row.extract(tech)}</Text>
+                <Text style={styles.tableCellValue}>{tt(row.extract(tech))}</Text>
               </View>
             ))}
           </View>
@@ -285,7 +287,7 @@ const TechnologyComparisonScreen = ({ navigation }) => {
             <Icon name={tech.icon} size={18} color={tech.color} />
             <Text style={[styles.futureTitle, { color: tech.color }]}>{tech.name}</Text>
           </View>
-          <Text style={styles.futureBody}>{tech.futurePotential}</Text>
+          <Text style={styles.futureBody}>{tt(tech.futurePotential)}</Text>
         </View>
       ))}
     </View>
@@ -295,8 +297,8 @@ const TechnologyComparisonScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Platform Comparison"
-        subtitle="Advanced scope analysis"
+        title={tt('Platform Comparison')}
+        subtitle={tt('Advanced scope analysis')}
         onBack={() => navigation.goBack()}
       />
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>

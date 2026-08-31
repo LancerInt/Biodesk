@@ -2,12 +2,14 @@ import React, { useState, useCallback } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, RefreshControl } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import DatabaseService from '../database/DatabaseService';
 import { formatDate } from '../utils/helpers';
 
 const MeetingsScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [meetings, setMeetings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [meetingsWithAudio, setMeetingsWithAudio] = useState(new Set());
@@ -26,9 +28,9 @@ const MeetingsScreen = ({ navigation }) => {
   useFocusEffect(useCallback(() => { loadMeetings(); }, [loadMeetings]));
 
   const handleDelete = (id, title) => {
-    Alert.alert('Delete Meeting', `Remove "${title}" and all linked audio recordings?`, [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Delete', style: 'destructive', onPress: async () => { await DatabaseService.deleteMeeting(id); loadMeetings(); } },
+    Alert.alert(t('meetings.deleteTitle'), t('meetings.deleteBody', { title }), [
+      { text: t('actions.cancel'), style: 'cancel' },
+      { text: t('actions.delete'), style: 'destructive', onPress: async () => { await DatabaseService.deleteMeeting(id); loadMeetings(); } },
     ]);
   };
 
@@ -39,10 +41,10 @@ const MeetingsScreen = ({ navigation }) => {
       onPress={() => navigation.navigate('MeetingAudio')}>
       <View style={styles.audioBannerLeft}>
         <Icon name="microphone-outline" size={20} color={theme.colors.secondary} />
-        <Text style={styles.audioBannerText}>Meeting Audio Notes</Text>
+        <Text style={styles.audioBannerText}>{t('meetings.audioBanner')}</Text>
       </View>
       <View style={styles.audioBannerRight}>
-        <Text style={styles.audioBannerHint}>View all recordings</Text>
+        <Text style={styles.audioBannerHint}>{t('meetings.viewAllRecordings')}</Text>
         <Icon name="chevron-right" size={18} color={theme.colors.textLight} />
       </View>
     </TouchableOpacity>
@@ -84,7 +86,7 @@ const MeetingsScreen = ({ navigation }) => {
         {meetingsWithAudio.has(item.id) && (
           <View style={styles.audioIndicator}>
             <Icon name="microphone" size={12} color={theme.colors.secondary} />
-            <Text style={styles.audioIndicatorText}>Has audio</Text>
+            <Text style={styles.audioIndicatorText}>{t('meetings.hasAudio')}</Text>
           </View>
         )}
       </View>
@@ -96,7 +98,7 @@ const MeetingsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Meetings" subtitle={`${meetings.length} records`} onBack={() => navigation.goBack()} />
+      <Header title={t('screens.meetings')} subtitle={t('meetings.headerCount', { count: meetings.length })} onBack={() => navigation.goBack()} />
       <FlatList
         data={meetings}
         renderItem={renderMeeting}
@@ -108,8 +110,8 @@ const MeetingsScreen = ({ navigation }) => {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="calendar-blank-outline" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyTitle}>No Meetings Yet</Text>
-            <Text style={styles.emptyText}>Record your first meeting note</Text>
+            <Text style={styles.emptyTitle}>{t('meetings.emptyTitle')}</Text>
+            <Text style={styles.emptyText}>{t('meetings.emptySub')}</Text>
           </View>
         }
       />

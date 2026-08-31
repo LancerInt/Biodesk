@@ -66,16 +66,16 @@ export const TECHNICAL_PROFILES = {
   'Admira Adove': BOTANICAL('Clove Oil', 'Syzygium aromaticum', 'Emulsifiable Concentrate (EC)', 'Clear Brown liquid'),
 
   // ─── Microbial Pesticides ────────────────────────────────────
-  'Biota-H': MICROBIAL('Trichoderma harzianum', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
-  'Biota': MICROBIAL('Trichoderma asperellum', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
-  'Elixora': MICROBIAL('Bacillus amyloliquefaciens', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
+  'Zymor-H': MICROBIAL('Trichoderma harzianum', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
+  'Zymor': MICROBIAL('Trichoderma asperellum', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
+  'Elixora': MICROBIAL('Bacillus amyloliquefaciens', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
   'EnCilo': MICROBIAL('Purpureocillium lilacinum', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
   'Mycova': MICROBIAL('Beauveria bassiana', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
   'Rexora': MICROBIAL('Metarhizium brunneum', '≥1 × 10¹⁰ CFU/g', '≤ 8%', '5.5 - 7.5'),
   'Seira': MICROBIAL('Verticillium lecanii', '≥1 × 10¹⁰ CFU/g', '≤ 8%', '5.5 - 7.5'),
-  'Subtilix': MICROBIAL('Bacillus subtilis', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
+  'Rhiota': MICROBIAL('Bacillus subtilis', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
   'Neuvita': MICROBIAL('Pseudomonas fluorescens', '≥1 × 10⁹ CFU/g', '≤ 8 - 10%', '6.0 - 7.5'),
-  'Ecoviz': MICROBIAL('Isaria fumosorosea', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
+  'Ecoviz': MICROBIAL('Cordyceps fumosorosea', '≥1 × 10¹⁰ CFU/g', '≤ 8 - 10%', '5.5 - 7.5'),
 
   // ─── Biofertilizers (IGreen) ─────────────────────────────────
   'IGreen NPK': MICROBIAL('Bacillus polymyxa, Bacillus megaterium, Bacillus mucilaginosus', '≥1 × 10⁹ CFU/g', '≤ 8%', '5.5 - 7.5'),

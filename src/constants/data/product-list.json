@@ -133,14 +133,14 @@
     "category": "Microbial Pesticide"
   },
   {
-    "brand_name": "Biota",
+    "brand_name": "Zymor",
     "active_ingredient": "Trichoderma asperellum",
     "concentration": "1 × 10⁹ CFU/g",
     "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
-    "brand_name": "Biota-H",
+    "brand_name": "Zymor-H",
     "active_ingredient": "Trichoderma harzianum",
     "concentration": "1 × 10⁹ CFU/g",
     "formulation_type": "WSP",
@@ -155,13 +155,13 @@
   },
   {
     "brand_name": "EnCilo",
-    "active_ingredient": "Verticillium chlamydosporium",
+    "active_ingredient": "Purpureocillium lilacinum",
     "concentration": "1 × 10¹⁰ CFU/g",
     "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
   {
-    "brand_name": "Subtilix",
+    "brand_name": "Rhiota",
     "active_ingredient": "Bacillus subtilis",
     "concentration": "1 × 10⁹ CFU/g",
     "formulation_type": "WSP",
@@ -177,7 +177,7 @@
   {
     "brand_name": "Elixora",
     "active_ingredient": "Bacillus amyloliquefaciens",
-    "concentration": "1 × 10⁹ CFU/g",
+    "concentration": "1 × 10¹⁰ CFU/g",
     "formulation_type": "WSP",
     "category": "Microbial Pesticide"
   },
@@ -281,7 +281,7 @@
   },
   {
     "brand_name": "Ecoviz",
-    "active_ingredient": "Isaria fumosorosea",
+    "active_ingredient": "Cordyceps fumosorosea",
     "concentration": "1 × 10¹⁰ CFU/g",
     "formulation_type": "WSP",
     "category": "Microbial Pesticide"

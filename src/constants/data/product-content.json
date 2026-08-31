@@ -150,7 +150,7 @@
     "source": "inferred"
   },
   {
-    "product": "Biota",
+    "product": "Zymor",
     "category": "biocontrol",
     "active": "Trichoderma asperellum (1 × 10⁹ CFU/g)",
     "dosage": "5-10 g/L for drench; 10 g/kg seed for seed treatment",
@@ -160,7 +160,7 @@
     "source": "inferred"
   },
   {
-    "product": "Biota-H",
+    "product": "Zymor-H",
     "category": "biocontrol",
     "active": "Trichoderma harzianum (1 × 10⁹ CFU/g)",
     "dosage": "5-10 g/L for drench; 10 g/kg seed for seed treatment",
@@ -182,7 +182,7 @@
   {
     "product": "Encilo",
     "category": "biocontrol",
-    "active": "Verticillium chlamydosporium (1 × 10¹⁰ CFU/g)",
+    "active": "Purpureocillium lilacinum (1 × 10¹⁰ CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
     "method": "Soil application, root-zone drench, or drip for nematode suppression",
@@ -192,7 +192,7 @@
   {
     "product": "Elixora",
     "category": "biocontrol",
-    "active": "Bacillus amyloliquefaciens (1 × 10⁹ CFU/g)",
+    "active": "Bacillus amyloliquefaciens (1 × 10¹⁰ CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
     "method": "Soil application, root-zone drench, or drip for nematode suppression",
@@ -200,9 +200,9 @@
     "source": "inferred"
   },
   {
-    "product": "Subtilix",
+    "product": "Rhiota",
     "category": "biocontrol",
-    "active": "Bacillus subtilis (1 × 10⁹ CFU/g)",
+    "active": "Bacillus subtilis (1 × 10¹⁰ CFU/g)",
     "dosage": "5 g/L for drench",
     "application_rate": "1-2 kg/acre",
     "method": "Soil application, root-zone drench, or drip for nematode suppression",
@@ -445,7 +445,7 @@
   },
   {
     "product": "Ecoviz",
-    "active": "Isaria fumosorosea (1 × 10¹⁰ CFU/g)",
+    "active": "Cordyceps fumosorosea (1 × 10¹⁰ CFU/g)",
     "dosage": "2 g/L",
     "rate": "400-500 g/acre in 200-250 L water",
     "method": "Foliar spray",

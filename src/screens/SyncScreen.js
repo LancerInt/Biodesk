@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert, ActivityIn
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import PinModal from '../components/common/PinModal';
 import theme from '../constants/theme';
@@ -15,6 +16,7 @@ const MEDIA_PACKS = [
 ];
 
 const SyncScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [pinVisible, setPinVisible] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const [leadCount, setLeadCount] = useState(0);
@@ -246,7 +248,7 @@ const SyncScreen = ({ navigation }) => {
   if (!authenticated) {
     return (
       <View style={styles.container}>
-        <Header title="Sync & Backup" onBack={() => navigation.goBack()} />
+        <Header title={t('sync.title')} onBack={() => navigation.goBack()} />
         <PinModal
           visible={pinVisible}
           onClose={() => navigation.goBack()}
@@ -254,11 +256,11 @@ const SyncScreen = ({ navigation }) => {
         />
         <View style={styles.lockedState}>
           <Icon name="lock" size={64} color={theme.colors.textLight} />
-          <Text style={styles.lockedTitle}>Admin Access Required</Text>
-          <Text style={styles.lockedText}>Enter Admin PIN to access Sync & Backup</Text>
+          <Text style={styles.lockedTitle}>{t('sync.lockTitle')}</Text>
+          <Text style={styles.lockedText}>{t('sync.lockBody')}</Text>
           <TouchableOpacity style={styles.unlockBtn} onPress={() => setPinVisible(true)}>
             <Icon name="lock-open" size={18} color="#FFF" />
-            <Text style={styles.unlockBtnText}>Enter PIN</Text>
+            <Text style={styles.unlockBtnText}>{t('sync.enterPin')}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -268,8 +270,8 @@ const SyncScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Sync & Backup"
-        subtitle="Admin Panel"
+        title={t('sync.title')}
+        subtitle={t('sync.adminSubtitle')}
         onBack={() => navigation.goBack()}
         rightIcon="cog"
         onRightPress={() => navigation.navigate('Settings')}
@@ -281,30 +283,30 @@ const SyncScreen = ({ navigation }) => {
           <View style={styles.statCard}>
             <Icon name="account-group" size={24} color={theme.colors.primary} />
             <Text style={styles.statValue}>{leadCount}</Text>
-            <Text style={styles.statLabel}>Leads</Text>
+            <Text style={styles.statLabel}>{t('sync.stats.leads')}</Text>
           </View>
           <View style={styles.statCard}>
             <Icon name="calendar-clock" size={24} color={theme.colors.secondary} />
             <Text style={styles.statValue}>{meetingCount}</Text>
-            <Text style={styles.statLabel}>Meetings</Text>
+            <Text style={styles.statLabel}>{t('sync.stats.meetings')}</Text>
           </View>
           <View style={styles.statCard}>
             <Icon name="database" size={24} color={theme.colors.info} />
-            <Text style={styles.statValue}>Local</Text>
-            <Text style={styles.statLabel}>Storage</Text>
+            <Text style={styles.statValue}>{t('sync.stats.local')}</Text>
+            <Text style={styles.statLabel}>{t('sync.stats.storage')}</Text>
           </View>
         </View>
 
         {/* Export */}
-        <Text style={styles.sectionTitle}>Data Export</Text>
+        <Text style={styles.sectionTitle}>{t('sync.sections.dataExport')}</Text>
         <View style={styles.card}>
           <View style={styles.actionRow}>
             <View style={[styles.actionIcon, { backgroundColor: '#2196F3' + '15' }]}>
               <Icon name="microsoft-excel" size={24} color="#2196F3" />
             </View>
             <View style={styles.actionText}>
-              <Text style={styles.actionTitle}>Export Leads as CSV</Text>
-              <Text style={styles.actionDesc}>{leadCount} leads ready • Save or share</Text>
+              <Text style={styles.actionTitle}>{t('sync.actions.exportCsv')}</Text>
+              <Text style={styles.actionDesc}>{t('sync.actions.exportCsvDesc', { count: leadCount })}</Text>
             </View>
             <TouchableOpacity
               style={[styles.actionBtn, { backgroundColor: '#2196F3', opacity: exporting ? 0.6 : 1 }]}
@@ -313,22 +315,22 @@ const SyncScreen = ({ navigation }) => {
               {exporting ? (
                 <ActivityIndicator size="small" color="#FFF" />
               ) : (
-                <Text style={styles.actionBtnText}>Export</Text>
+                <Text style={styles.actionBtnText}>{t('sync.actions.export')}</Text>
               )}
             </TouchableOpacity>
           </View>
         </View>
 
         {/* Backup */}
-        <Text style={styles.sectionTitle}>Backup</Text>
+        <Text style={styles.sectionTitle}>{t('sync.sections.backup')}</Text>
         <View style={styles.card}>
           <View style={styles.actionRow}>
             <View style={[styles.actionIcon, { backgroundColor: theme.colors.primary + '15' }]}>
               <Icon name="folder-zip" size={24} color={theme.colors.primary} />
             </View>
             <View style={styles.actionText}>
-              <Text style={styles.actionTitle}>Create Full Backup</Text>
-              <Text style={styles.actionDesc}>Leads, meetings, audio & cards → ZIP</Text>
+              <Text style={styles.actionTitle}>{t('sync.actions.createBackup')}</Text>
+              <Text style={styles.actionDesc}>{t('sync.actions.createBackupDesc')}</Text>
             </View>
             <TouchableOpacity
               style={[styles.actionBtn, { backgroundColor: theme.colors.primary, opacity: backingUp ? 0.6 : 1 }]}
@@ -337,14 +339,14 @@ const SyncScreen = ({ navigation }) => {
               {backingUp ? (
                 <ActivityIndicator size="small" color="#FFF" />
               ) : (
-                <Text style={styles.actionBtnText}>Backup</Text>
+                <Text style={styles.actionBtnText}>{t('sync.actions.backup')}</Text>
               )}
             </TouchableOpacity>
           </View>
         </View>
 
         {/* Media Packs */}
-        <Text style={styles.sectionTitle}>Media Packs</Text>
+        <Text style={styles.sectionTitle}>{t('sync.sections.mediaPacks')}</Text>
         {MEDIA_PACKS.map(pack => (
           <View key={pack.id} style={styles.card}>
             <View style={styles.actionRow}>
@@ -359,7 +361,7 @@ const SyncScreen = ({ navigation }) => {
                 style={[styles.actionBtn, { backgroundColor: mediaPacks[pack.id] ? theme.colors.success : pack.color }]}
                 onPress={() => handleMediaPack(pack)}>
                 <Icon name={mediaPacks[pack.id] ? 'check' : 'download'} size={14} color="#FFF" />
-                <Text style={styles.actionBtnText}>{mediaPacks[pack.id] ? 'Done' : 'Get'}</Text>
+                <Text style={styles.actionBtnText}>{mediaPacks[pack.id] ? t('sync.actions.downloaded') : t('sync.actions.get')}</Text>
               </TouchableOpacity>
             </View>
           </View>
