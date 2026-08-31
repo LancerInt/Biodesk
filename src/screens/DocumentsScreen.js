@@ -79,8 +79,8 @@ const PRESENTATIONS = [
     productName: 'Kriya Biosys',
     docType: 'Presentation',
     hasAsset: true,
-    asset: require('../assets/documents/BotanicalBiopesticideRecommendation.pdf'),
-    title: 'Botanical Biopestide Recommendation',
+    asset: require('../assets/documents/BotanicalPestControl.pdf'),
+    title: 'Botanical Pest Control',
     subtitle: 'Botanical Pesticide Selection Guide',
   },
   {
@@ -88,8 +88,8 @@ const PRESENTATIONS = [
     productName: 'Kriya Biosys',
     docType: 'Presentation',
     hasAsset: true,
-    asset: require('../assets/documents/MicrobialBiopesticidePestRecommendation.pdf'),
-    title: 'Micobial Biopesticide Recommendation For Pest',
+    asset: require('../assets/documents/MicrobialPestControl.pdf'),
+    title: 'Microbial Pest Control',
     subtitle: 'Microbial Pesticide Selection Guide for Pests',
   },
   {
@@ -97,8 +97,8 @@ const PRESENTATIONS = [
     productName: 'Kriya Biosys',
     docType: 'Presentation',
     hasAsset: true,
-    asset: require('../assets/documents/MicrobialBiopesticideDiseaseRecommendation.pdf'),
-    title: 'Microbial Biopesticide Recommendation For Disease',
+    asset: require('../assets/documents/MicrobialDiseaseControl.pdf'),
+    title: 'Microbial Disease Control',
     subtitle: 'Microbial Pesticide Selection Guide for Diseases',
   },
 ];

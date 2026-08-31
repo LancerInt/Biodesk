@@ -212,20 +212,19 @@ const SolutionsScreen = ({ navigation, route }) => {
       onScroll={rememberScroll}
       onContentSizeChange={restoreOnLayout}
       scrollEventThrottle={16}>
-      {/* Hero */}
-      <LinearGradient
-        colors={['#2E7D32', '#1B5E20']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.hero}>
+      {/* Hero — a light card, not another green slab. The screen header is
+          already #2E7D32, so a green hero directly beneath it merged into one
+          block with no visible separation. */}
+      <View style={styles.hero}>
+        <View style={styles.heroAccent} />
         <View style={styles.heroLeft}>
           <Text style={styles.heroTitle}>{t('solutions.heroTitle')}</Text>
           <Text style={styles.heroSub}>{t('solutions.heroSub')}</Text>
         </View>
         <View style={styles.heroIconWrap}>
-          <Icon name="leaf-circle" size={42} color="#FFF" />
+          <Icon name="leaf-circle" size={30} color={theme.colors.primary} />
         </View>
-      </LinearGradient>
+      </View>
 
       {/* Search */}
       <View style={styles.searchWrap}>
@@ -804,19 +803,33 @@ const styles = StyleSheet.create({
   hero: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 18,
-    padding: 18,
+    backgroundColor: theme.colors.surface,
+    borderRadius: 16,
+    paddingVertical: 16,
+    paddingLeft: 18,
+    paddingRight: 14,
     marginBottom: 16,
+    overflow: 'hidden',
     ...theme.shadows.sm,
   },
+  // Green rule down the left edge keeps the brand colour without competing
+  // with the header behind it.
+  heroAccent: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: 5,
+    backgroundColor: theme.colors.primary,
+  },
   heroLeft: { flex: 1 },
-  heroTitle: { fontSize: 20, fontWeight: '700', color: '#FFF' },
-  heroSub: { fontSize: 13, color: 'rgba(255,255,255,0.85)', marginTop: 4 },
+  heroTitle: { fontSize: 19, fontWeight: '700', color: theme.colors.text },
+  heroSub: { fontSize: 13, color: theme.colors.textSecondary, marginTop: 4, lineHeight: 18 },
   heroIconWrap: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: 'rgba(255,255,255,0.15)',
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: theme.colors.primary + '12',
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 12,
