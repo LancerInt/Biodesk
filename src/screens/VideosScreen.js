@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, useWindowDimensions, ScrollView } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
+import { Image as ExpoImage } from 'expo-image';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
@@ -410,7 +411,14 @@ const VideosScreen = ({ navigation }) => {
           onPress={() => handlePhotoPress(item)}>
           <View style={[styles.thumbnail, { height: thumbH, backgroundColor: '#FFF3E0' }]}>
             {item.image ? (
-              <Image source={item.image} style={[styles.photoImage, { opacity: 0.6 }]} resizeMode="cover" />
+              <ExpoImage
+                source={item.image}
+                style={[styles.photoImage, { opacity: 0.6 }]}
+                contentFit="cover"
+                cachePolicy="memory-disk"
+                transition={0}
+                recyclingKey={item.id}
+              />
             ) : null}
             <View style={styles.folderOverlay}>
               <Icon name="folder" size={36} color="#E65100" />
@@ -433,7 +441,14 @@ const VideosScreen = ({ navigation }) => {
       onPress={() => handlePhotoPress(item)}>
       <View style={[styles.thumbnail, { height: thumbH, backgroundColor: (CAT_COLORS[item.category] || '#455') + '15' }]}>
         {item.image ? (
-          <Image source={item.image} style={styles.photoImage} resizeMode="cover" />
+          <ExpoImage
+            source={item.image}
+            style={styles.photoImage}
+            contentFit="cover"
+            cachePolicy="memory-disk"
+            transition={0}
+            recyclingKey={item.id}
+          />
         ) : (
           <Icon name={item.icon || 'image'} size={32} color={CAT_COLORS[item.category] || theme.colors.primary} />
         )}
@@ -525,6 +540,12 @@ const VideosScreen = ({ navigation }) => {
           contentContainerStyle={styles.grid}
           columnWrapperStyle={COLS > 1 ? styles.row : null}
           showsVerticalScrollIndicator={false}
+          // Large folders (Biotrop has 24 photos) mounted every tile at once.
+          removeClippedSubviews
+          initialNumToRender={9}
+          maxToRenderPerBatch={9}
+          updateCellsBatchingPeriod={50}
+          windowSize={5}
           ListEmptyComponent={
             <View style={styles.empty}>
               <Icon name="image-off-outline" size={64} color={theme.colors.textLight} />
