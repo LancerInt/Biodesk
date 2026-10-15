@@ -18,7 +18,8 @@
     "search": "Recherche",
     "certificates": "Certificats",
     "presentation": "Présentation",
-    "certificate": "Certificat"
+    "certificate": "Certificat",
+    "neutabs": "Neutabs"
   },
   "actions": {
     "save": "Enregistrer",
@@ -110,6 +111,10 @@
       "biointel": {
         "title": "BioIntel",
         "sub": "Intelligence biologique"
+      },
+      "neutabs": {
+        "title": "Neutabs",
+        "sub": "Formulations en comprimés"
       }
     },
     "sections": {
@@ -160,7 +165,11 @@
     "microbialPesticide": "Pesticide microbien",
     "biostimulant": "Biostimulant",
     "biofertilizer": "Biofertilisant",
-    "substrate": "Substrat"
+    "substrate": "Substrat",
+    "neutabs": "Neutabs",
+    "neutab": "Neutab",
+    "botanicals": "Botaniques",
+    "biopesticides": "Biopesticides"
   },
   "search": {
     "quickSearches": "Recherches rapides",
@@ -1624,5 +1633,10 @@
     "480": "Le tourteau de karanja libère lentement la karanjine et des nutriments organiques dans le sol, offrant le double bénéfice de dissuasion des ravageurs et de nutrition des cultures.",
     "481": "Substrat de tourteau de karanja pour amendement du sol.",
     "482": "Substrat de tourteau de karanja pour amendement du sol et nutrition organique."
+  },
+  "neutabs": {
+    "subtitle": "Formulations en comprimés",
+    "emptyTitle": "Pas encore de Neutabs",
+    "emptyText": "Les produits de cette gamme apparaîtront ici une fois ajoutés."
   }
 }

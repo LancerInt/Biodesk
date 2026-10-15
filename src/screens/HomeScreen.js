@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
   View, Text, TouchableOpacity, StyleSheet, ScrollView,
-  StatusBar, Platform, useWindowDimensions, Animated,
-  Image, ImageBackground, LayoutAnimation, UIManager,
+  StatusBar, useWindowDimensions, Animated,
+  Image, ImageBackground, LayoutAnimation,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons as Icon, MaterialIcons as MIcon } from '@expo/vector-icons';
@@ -12,11 +12,6 @@ import { useTranslation } from 'react-i18next';
 import DatabaseService from '../database/DatabaseService';
 import LanguagePicker from '../components/common/LanguagePicker';
 import { getLanguage } from '../i18n';
-
-// Enable LayoutAnimation on Android
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 
 const logo = require('../assets/images/Landing/transperantlogo.png');
 const BG_IMAGE = require('../assets/images/Home/background.png');
@@ -43,6 +38,7 @@ const C = {
 const MODULES = [
   { key: 'kriya',      icon: 'corporate-fare',  color: '#0F7B6C', bg: '#E0F2F1', bgTo: '#B2DFDB', screen: 'Profile' },
   { key: 'portfolio',  icon: 'inventory-2',     color: '#00838F', bg: '#E0F7FA', bgTo: '#B2EBF2', screen: 'Products' },
+  { key: 'neutabs',    icon: 'medication',      color: '#00897B', bg: '#E0F2F1', bgTo: '#B2DFDB', screen: 'Neutabs' },
   { key: 'technology', icon: 'biotech',         color: '#6A1B9A', bg: '#F3E5F5', bgTo: '#E1BEE7', screen: 'Technology' },
   { key: 'gallery',    icon: 'photo-library',   color: '#E91E63', bg: '#FCE4EC', bgTo: '#F8BBD0', screen: 'Videos' },
   { key: 'biointel',   icon: 'psychology',      color: '#FF6F00', bg: '#FFF3E0', bgTo: '#FFE0B2', screen: 'Solutions' },
@@ -157,40 +153,52 @@ const HomeScreen = ({ navigation }) => {
       >
         {/* ═══ HEADER BAR ═══════════════════════════════════════ */}
         <Animated.View style={[st.header, fade(0)]}>
-          {/* Left: Logo + brand */}
+          {/* Left: Logo + brand — shrinks first so the actions never clip */}
           <View style={st.hLeft}>
             <Image
               source={logo}
-              style={{ width: isTablet ? 100 : 48, height: isTablet ? 100 : 48 }}
+              style={{ width: isTablet ? 100 : 40, height: isTablet ? 100 : 40 }}
               resizeMode="contain"
             />
-            <Text style={st.hPipe}>|</Text>
-            <Text style={[st.hBrand, { fontSize: isTablet ? 26 : 20 }]}>BioDesk</Text>
+            {isTablet ? <Text style={st.hPipe}>|</Text> : null}
+            <Text
+              style={[st.hBrand, {
+                fontSize: isTablet ? 26 : 18,
+                letterSpacing: isTablet ? 1.5 : 0.4,
+              }]}
+              numberOfLines={1}>
+              BioDesk
+            </Text>
           </View>
 
 
           {/* Right: Action icons + Capture Lead */}
-          <View style={st.hRight}>
-            <TouchableOpacity style={st.hLangBtn} onPress={() => setLangPickerOpen(true)} activeOpacity={0.7}>
-              <Icon name="translate" size={16} color={C.primary} />
+          <View style={[st.hRight, { gap: isTablet ? 8 : 4 }]}>
+            <TouchableOpacity
+              style={[st.hLangBtn, !isTablet && st.hLangBtnSm]}
+              onPress={() => setLangPickerOpen(true)}
+              activeOpacity={0.7}>
+              <Icon name="translate" size={isTablet ? 16 : 14} color={C.primary} />
               <Text style={st.hLangCode}>{currentLang.code.toUpperCase()}</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={st.hBtn} onPress={go('Search')} activeOpacity={0.7}>
-              <Icon name="magnify" size={22} color={C.textSec} />
+            <TouchableOpacity style={[st.hBtn, !isTablet && st.hBtnSm]} onPress={go('Search')} activeOpacity={0.7}>
+              <Icon name="magnify" size={isTablet ? 22 : 19} color={C.textSec} />
             </TouchableOpacity>
-            <TouchableOpacity style={st.hBtn} onPress={go('LeadAudio')} activeOpacity={0.7}>
-              <Icon name="microphone-outline" size={22} color={C.textSec} />
+            <TouchableOpacity style={[st.hBtn, !isTablet && st.hBtnSm]} onPress={go('LeadAudio')} activeOpacity={0.7}>
+              <Icon name="microphone-outline" size={isTablet ? 22 : 19} color={C.textSec} />
             </TouchableOpacity>
-            <TouchableOpacity style={st.hBtn} onPress={go('Settings')} activeOpacity={0.7}>
-              <Icon name="cog-outline" size={22} color={C.textSec} />
+            <TouchableOpacity style={[st.hBtn, !isTablet && st.hBtnSm]} onPress={go('Settings')} activeOpacity={0.7}>
+              <Icon name="cog-outline" size={isTablet ? 22 : 19} color={C.textSec} />
             </TouchableOpacity>
+            {/* Phones drop the label: the full pill pushed this button off-screen */}
             <TouchableOpacity
-              style={st.hCapture}
+              style={isTablet ? st.hCapture : st.hCaptureSm}
               onPress={go('LeadForm', { mode: 'create' })}
               activeOpacity={0.8}
+              accessibilityLabel={t('home.leadsBtn')}
             >
-              <Icon name="account-plus-outline" size={18} color="#FFF" />
-              <Text style={st.hCaptureTxt}>{t('home.leadsBtn')}</Text>
+              <Icon name="account-plus-outline" size={isTablet ? 18 : 19} color="#FFF" />
+              {isTablet ? <Text style={st.hCaptureTxt}>{t('home.leadsBtn')}</Text> : null}
             </TouchableOpacity>
           </View>
         </Animated.View>
@@ -383,14 +391,16 @@ const st = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 16,
   },
-  hLeft: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  // flexShrink lets the brand ellipsize rather than push the actions
+  // off the right edge on narrow screens.
+  hLeft: { flexDirection: 'row', alignItems: 'center', gap: 8, flexShrink: 1, minWidth: 0 },
   hPipe: { fontSize: 28, fontWeight: '300', color: C.textMut, opacity: 0.4 },
-  hBrand: { fontFamily: 'NotoSerifKR_700Bold', color: C.primary, letterSpacing: 1.5 },
+  hBrand: { fontFamily: 'NotoSerifKR_700Bold', color: C.primary, letterSpacing: 1.5, flexShrink: 1 },
   hCenter: { flexDirection: 'row', alignItems: 'baseline' },
   powL: { fontSize: 12, color: C.textMut, fontFamily: 'Inter_500Medium' },
   powB: { fontSize: 13, color: C.orange, fontFamily: 'Inter_600SemiBold' },
   powD: { fontSize: 12, color: C.textMut, fontFamily: 'Inter_400Regular' },
-  hRight: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  hRight: { flexDirection: 'row', alignItems: 'center', gap: 8, flexShrink: 0 },
   hLangBtn: {
     flexDirection: 'row', alignItems: 'center', gap: 4,
     height: TOUCH, paddingHorizontal: 10,
@@ -420,6 +430,16 @@ const st = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 6,
     elevation: 4,
+  },
+  hBtnSm: { width: 36, height: 36, borderRadius: 18 },
+  hLangBtnSm: { height: 36, paddingHorizontal: 8, gap: 3 },
+  hCaptureSm: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: C.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   hCaptureTxt: { fontSize: 13, color: '#FFF', letterSpacing: 0.3, fontFamily: 'Inter_600SemiBold' },
 

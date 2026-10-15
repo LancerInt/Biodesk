@@ -15,7 +15,6 @@ const CERT_FILES = {
   'OMRI-2': require('../assets/certificates/OMRI-2.pdf'),
   'OMRI-3': require('../assets/certificates/OMRI-3.pdf'),
   'OMRI-4': require('../assets/certificates/OMRI-4.pdf'),
-  'OMRI-5': require('../assets/certificates/OMRI-5.pdf'),
   'SHEFIXIL-1': require('../assets/certificates/SHEFIXIL-1.pdf'),
   'USEPA-1': require('../assets/certificates/USEPA-1.pdf'),
   'USEPA-2': require('../assets/certificates/USEPA-2.pdf'),
@@ -40,7 +39,6 @@ const ALL_CERTIFICATES = [
   { id: 'omri-2', fileKey: 'OMRI-2', name: 'OMRI Listed', authority: 'OMRI', category: 'Organic', logo: CERT_LOGOS.omri, description: 'Organic Materials Review Institute listing for certified organic production' },
   { id: 'omri-3', fileKey: 'OMRI-3', name: 'OMRI Listed', authority: 'OMRI', category: 'Organic', logo: CERT_LOGOS.omri, description: 'Organic Materials Review Institute listing for certified organic production' },
   { id: 'omri-4', fileKey: 'OMRI-4', name: 'OMRI Listed', authority: 'OMRI', category: 'Organic', logo: CERT_LOGOS.omri, description: 'Organic Materials Review Institute listing for certified organic production' },
-  { id: 'omri-5', fileKey: 'OMRI-5', name: 'OMRI Listed', authority: 'OMRI', category: 'Organic', logo: CERT_LOGOS.omri, description: 'Organic Materials Review Institute listing for certified organic production' },
 
   { id: 'ecocert-jas', fileKey: 'ECOCERT-1', name: 'Ecocert JAS', authority: 'Ecocert', category: 'Organic', logo: CERT_LOGOS.ecocert, description: 'Japanese Agricultural Standard organic production attestation' },
   { id: 'ecocert-eu', fileKey: 'ECOCERT-2', name: 'Ecocert EU', authority: 'Ecocert', category: 'Organic', logo: CERT_LOGOS.ecocert, description: 'EU 2018/848 & 2021/1165 organic farming regulation compliance' },
@@ -82,7 +80,7 @@ const PRODUCT_CERT_MAP = {
   'Blooma': ['ecocert-nop', 'gmp-1'],
   'Envicta': ['ecocert-nop', 'gmp-1'],
   'Orgocare': ['ecocert-nop', 'ecocert-eu', 'ecocert-jas', 'gmp-1'],
-  'Maxineem': ['omri-5', 'ecocert-nop', 'ecocert-eu', 'ecocert-jas', 'gmp-1'],
+  'Maxineem': ['ecocert-nop', 'ecocert-eu', 'ecocert-jas', 'gmp-1'],
 };
 
 // Company-wide certificate IDs

@@ -18,7 +18,8 @@
     "search": "Ara",
     "certificates": "Sertifikalar",
     "presentation": "Sunum",
-    "certificate": "Sertifika"
+    "certificate": "Sertifika",
+    "neutabs": "Neutabs"
   },
   "actions": {
     "save": "Kaydet",
@@ -110,6 +111,10 @@
       "biointel": {
         "title": "BioIntel",
         "sub": "Biyolojik zeka"
+      },
+      "neutabs": {
+        "title": "Neutabs",
+        "sub": "Tablet formülasyonları"
       }
     },
     "sections": {
@@ -160,7 +165,11 @@
     "microbialPesticide": "Mikrobiyal Pestisit",
     "biostimulant": "Biyostimülant",
     "biofertilizer": "Biyogübre",
-    "substrate": "Substrat"
+    "substrate": "Substrat",
+    "neutabs": "Neutabs",
+    "neutab": "Neutab",
+    "botanicals": "Bitkisel ürünler",
+    "biopesticides": "Biyopestisitler"
   },
   "search": {
     "quickSearches": "Hızlı Aramalar",
@@ -1624,5 +1633,10 @@
     "480": "Karanja küspesi karanjini ve organik besinleri toprağa yavaşça salarak zararlı caydırma ve ürün besleme şeklinde çifte fayda sağlar.",
     "481": "Toprak düzenlemesi için karanja küspesi substratı.",
     "482": "Toprak düzenlemesi ve organik besleme için karanja küspesi substratı."
+  },
+  "neutabs": {
+    "subtitle": "Tablet formülasyonları",
+    "emptyTitle": "Henüz Neutabs yok",
+    "emptyText": "Bu seriye ait ürünler eklendiğinde burada görünecek."
   }
 }

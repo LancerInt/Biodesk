@@ -7,6 +7,13 @@
     "category": "Botanical Pesticide"
   },
   {
+    "brand_name": "Ecoza Rox",
+    "active_ingredient": "Azadirachtin",
+    "concentration": "4.5%",
+    "formulation_type": "EC",
+    "category": "Botanical Pesticide"
+  },
+  {
     "brand_name": "Ecoza Ace",
     "active_ingredient": "Azadirachtin",
     "concentration": "1.2%",

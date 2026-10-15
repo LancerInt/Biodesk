@@ -40,11 +40,12 @@ function App() {
   });
 
   // ─── Immersive Demo Mode ──────────────────────────────────
+  // SDK 57 removed setBehaviorAsync and setBackgroundColorAsync: Android 15
+  // enforces edge-to-edge, so the bar is already transparent and swipe-to-
+  // reveal is the system behaviour. Only visibility is still settable.
   useEffect(() => {
     if (Platform.OS === 'android') {
       NavigationBar.setVisibilityAsync('hidden');
-      NavigationBar.setBehaviorAsync('overlay-swipe');
-      NavigationBar.setBackgroundColorAsync('transparent');
     }
   }, []);
 

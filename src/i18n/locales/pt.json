@@ -18,7 +18,8 @@
     "search": "Pesquisar",
     "certificates": "Certificados",
     "presentation": "Apresentação",
-    "certificate": "Certificado"
+    "certificate": "Certificado",
+    "neutabs": "Neutabs"
   },
   "actions": {
     "save": "Salvar",
@@ -110,6 +111,10 @@
       "biointel": {
         "title": "BioIntel",
         "sub": "Inteligência biológica"
+      },
+      "neutabs": {
+        "title": "Neutabs",
+        "sub": "Formulações em comprimidos"
       }
     },
     "sections": {
@@ -160,7 +165,11 @@
     "microbialPesticide": "Pesticida microbiano",
     "biostimulant": "Bioestimulante",
     "biofertilizer": "Biofertilizante",
-    "substrate": "Substrato"
+    "substrate": "Substrato",
+    "neutabs": "Neutabs",
+    "neutab": "Neutab",
+    "botanicals": "Botânicos",
+    "biopesticides": "Biopesticidas"
   },
   "search": {
     "quickSearches": "Pesquisas rápidas",
@@ -1624,5 +1633,10 @@
     "480": "A torta de karanja libera lentamente karanjina e nutrientes orgânicos no solo, proporcionando o duplo benefício de dissuasão de pragas e nutrição da cultura.",
     "481": "Substrato de torta de karanja para correção do solo.",
     "482": "Substrato de torta de karanja para correção do solo e nutrição orgânica."
+  },
+  "neutabs": {
+    "subtitle": "Formulações em comprimidos",
+    "emptyTitle": "Ainda não há Neutabs",
+    "emptyText": "Os produtos desta linha aparecerão aqui assim que forem adicionados."
   }
 }

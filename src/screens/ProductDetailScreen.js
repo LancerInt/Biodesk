@@ -34,6 +34,7 @@ const CATEGORY_I18N = {
   'Bio Stimulants': 'categories.bioStimulants',
   'Microbial Fertilizer': 'categories.microbialFertilizer',
   'Substrates': 'categories.substrates',
+  'Neutabs': 'categories.neutabs',
 };
 
 const ProductDetailScreen = ({ route, navigation }) => {

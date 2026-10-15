@@ -435,6 +435,7 @@ const CATEGORIES = [
 // ═══════════════════════════════════════════════════════════════
 const PRODUCTS = [
   // Botanical Pesticides
+  { id: 'prod_ecoza_rox', brandName: 'Ecoza Rox', activeIngredient: 'Azadirachtin 4.5%', categoryId: 'cat_botanical_pesticide', icon: 'leaf-circle' },
   { id: 'prod_ecoza_max', brandName: 'Ecoza Max', activeIngredient: 'Azadirachtin 3%', categoryId: 'cat_botanical_pesticide', icon: 'leaf-circle' },
   { id: 'prod_ecoza_ace', brandName: 'Ecoza Ace', activeIngredient: 'Azadirachtin 1.5%', categoryId: 'cat_botanical_pesticide', icon: 'leaf' },
   { id: 'prod_ecoza_pro', brandName: 'Ecoza Pro', activeIngredient: 'Azadirachtin 0.15%', categoryId: 'cat_botanical_pesticide', icon: 'leaf-maple' },

@@ -22,9 +22,13 @@ import {
   EXCEL_CATEGORY_INFO,
   getProductsByExcelCategory,
   groupProductsByExcelCategory,
+  NEUTAB_CATEGORIES,
+  getNeutabProductsByCategory,
+  groupNeutabProducts,
+  getNeutabDisplay,
 } from '../constants/productData';
 import { getFormulationColor } from '../utils/helpers';
-import { getHeroImage } from '../constants/productImages';
+import { getHeroImage, getNeutabImage } from '../constants/productImages';
 
 const { width: screenWidth } = Dimensions.get('window');
 const isTablet = screenWidth >= 768;
@@ -42,17 +46,27 @@ const CATEGORY_KEY_MAP = {
   'Bio Stimulants': 'categories.bioStimulants',
   'Microbial Fertilizer': 'categories.microbialFertilizer',
   'Substrates': 'categories.substrates',
+  'Neutabs': 'categories.neutabs',
+  'Botanicals': 'categories.botanicals',
+  'Biofertilizers': 'categories.biofertilizers',
+  'Biopesticides': 'categories.biopesticides',
 };
 
 const ProductsScreen = ({ navigation, route }) => {
   const { t } = useTranslation();
   const translateCategory = (name) => CATEGORY_KEY_MAP[name] ? t(CATEGORY_KEY_MAP[name]) : name;
+  // Neutabs reuses this screen so the layout and cards stay identical;
+  // only the category set and the data source differ.
+  const isNeutabs = route?.params?.mode === 'neutabs';
+  const CATEGORIES = isNeutabs ? NEUTAB_CATEGORIES : EXCEL_CATEGORIES;
   const [activeCategory, setActiveCategory] = useState(route?.params?.initialCategory || 'All');
   const [searchQuery, setSearchQuery] = useState('');
 
   // ─── Filtered + grouped data ─────────────────────────────────
   const sections = useMemo(() => {
-    let products = getProductsByExcelCategory(activeCategory);
+    let products = isNeutabs
+      ? getNeutabProductsByCategory(activeCategory)
+      : getProductsByExcelCategory(activeCategory);
 
     // Apply search filter
     if (searchQuery.length >= 2) {
@@ -69,8 +83,10 @@ const ProductsScreen = ({ navigation, route }) => {
     }
 
     // Group by Excel category (preserves grouping even with search)
-    return groupProductsByExcelCategory(products);
-  }, [activeCategory, searchQuery]);
+    return isNeutabs
+      ? groupNeutabProducts(products)
+      : groupProductsByExcelCategory(products);
+  }, [activeCategory, searchQuery, isNeutabs]);
 
   const totalCount = sections.reduce((sum, s) => sum + s.data.length, 0);
 
@@ -118,12 +134,15 @@ const ProductsScreen = ({ navigation, route }) => {
   const renderProductCard = useCallback(({ item, section }) => {
     const catColor = section.color;
     const formColor = getFormulationColor(item.formulation);
-    const heroImg = getHeroImage(item.name);
+    // Neutabs shows its own pack shot, falling back to the standard
+    // hero image for products whose Neutabs art has not arrived yet.
+    const heroImg = isNeutabs ? getNeutabImage(item.name) : getHeroImage(item.name);
     return (
       <TouchableOpacity
         style={styles.card}
-        activeOpacity={0.6}
-        onPress={() => navigation.navigate('ProductDetail', { product: item })}>
+        activeOpacity={isNeutabs ? 1 : 0.6}
+        disabled={isNeutabs}
+        onPress={isNeutabs ? undefined : () => navigation.navigate('ProductDetail', { product: item })}>
         {/* Left accent bar */}
         <View style={[styles.cardAccent, { backgroundColor: catColor }]} />
 
@@ -142,7 +161,8 @@ const ProductsScreen = ({ navigation, route }) => {
           {/* Info */}
           <View style={styles.cardInfo}>
             <ProductName
-              name={item.name}
+              name={isNeutabs ? getNeutabDisplay(item.name).text : item.name}
+              tmAfter={isNeutabs ? getNeutabDisplay(item.name).tmAfter : undefined}
               style={styles.cardName}
               numberOfLines={1}
             />
@@ -151,17 +171,18 @@ const ProductsScreen = ({ navigation, route }) => {
             </Text>
           </View>
 
-          {/* Arrow */}
-          <Icon name="chevron-right" size={20} color="#BDBDBD" />
+          {/* Arrow — Neutabs is showcase only, nothing to drill into */}
+          {isNeutabs ? null : <Icon name="chevron-right" size={20} color="#BDBDBD" />}
         </View>
       </TouchableOpacity>
     );
-  }, [navigation]);
+    // isNeutabs changes the name lockup, so the card must re-render with it
+  }, [navigation, isNeutabs]);
 
   return (
     <View style={styles.container}>
       <Header
-        title={t('screens.portfolio')}
+        title={isNeutabs ? t('screens.neutabs', 'Neutabs') : t('screens.portfolio')}
         subtitle={t(totalCount === 1 ? 'products.headerCountSingle' : 'products.headerCount', { count: totalCount })}
         onBack={() => navigation.goBack()}
       />
@@ -178,7 +199,7 @@ const ProductsScreen = ({ navigation, route }) => {
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.chipBar}>
-          {EXCEL_CATEGORIES.map(cat => renderCategoryChip(cat))}
+          {CATEGORIES.map(cat => renderCategoryChip(cat))}
         </ScrollView>
       </View>
 

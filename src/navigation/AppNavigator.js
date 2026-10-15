@@ -58,6 +58,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Technology" component={TechnologyScreen} />
       <Stack.Screen name="TechnologyDetail" component={TechnologyDetailScreen} />
       <Stack.Screen name="Products" component={ProductsScreen} />
+      <Stack.Screen name="Neutabs" component={ProductsScreen} initialParams={{ mode: 'neutabs' }} />
       <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
       <Stack.Screen name="PortfolioDetail" component={PortfolioDetailScreen} />
       <Stack.Screen name="Solutions" component={SolutionsScreen} />

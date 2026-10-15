@@ -73,6 +73,83 @@
   },
   {
     "product_identity": {
+      "brand_name": "Ecoza Rox",
+      "active_ingredient": "Azadirachtin",
+      "concentration": "4.5%",
+      "formulation_type": "EC",
+      "category": "Botanical Pesticide"
+    },
+    "product_overview": "Ecoza Rox (Azadirachtin 4.5% EC) is a concentrated neem-based botanical insecticide formulated with Azadirachtin, a naturally occurring bioactive compound extracted from the seeds of Azadirachta indica. It acts as a feeding deterrent, insect growth regulator, and oviposition inhibitor, helping control a broad spectrum of sucking and chewing insect pests by disrupting feeding, growth, development, and reproduction.",
+    "key_product_highlights": [
+      "Protects Crops from the Damaging Immature and Adult Stage Insects.",
+      "Effective on a Wide Range of Target Pests and Crops.",
+      "Completely Restricts Growth by Disrupting the Hormonal Control of Molting.",
+      "Help Prevent or Delay Resistance in Pests.",
+      "Easy to Handle and Compatible with Other Pesticides.",
+      "Great Tool to Supplement the existing IPM programs."
+    ],
+    "mechanism_of_action": {
+      "description": "Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations."
+    },
+    "dilution_dosage_per_acre": [
+      {
+        "crop_stage": "All labelled use sites",
+        "dose_per_acre": "80-240 mL/acre",
+        "water_volume": "Dilute at 1-2 mL/L",
+        "application_method": "Foliar spray with thorough canopy coverage; also suited to chemigation and soil drench"
+      }
+    ],
+    "application_repeatability": [
+      {
+        "application_timing": "From first appearance of the pest",
+        "frequency": "Repeat every 7-10 days",
+        "recommendation": "Spray interval depends on pest incidence; maintain full coverage of tender foliage and the lower leaf surface."
+      }
+    ],
+    "targets": [
+      "Aphids",
+      "Beetles",
+      "Caterpillars",
+      "Fungus Gnats",
+      "Leafminers",
+      "Leaf/Planthoppers",
+      "Lepidopteran larvae",
+      "Mealybugs",
+      "Nematodes",
+      "Sawflies",
+      "Scales",
+      "Thrips",
+      "Whiteflies",
+      "Mites",
+      "Weevils",
+      "Grubs",
+      "Bugs",
+      "Psyllids",
+      "Locust",
+      "Armyworms",
+      "Moths",
+      "Crickets",
+      "Grasshoppers",
+      "Cutworms"
+    ],
+    "strain_or_active_strength": "Azadirachtin 4.5% W/W (EC).",
+    "shelf_life_statement": "24 months from the manufacturing date. Store in a cool, dry, well-ventilated place.",
+    "compatibility_statement": "Compatible with most neutral-pH spray inputs; avoid strongly alkaline mixes and confirm with a jar test.",
+    "problem_solution": [
+      {
+        "problem": "Sucking pests are causing curling, chlorosis, and honeydew deposition.",
+        "solution": "Apply early to deter feeding and suppress immature development before populations peak."
+      },
+      {
+        "problem": "Repeated infestations are occurring after short-residual contact sprays.",
+        "solution": "Use sequential applications to interrupt molting and reduce oviposition across overlapping generations."
+      }
+    ],
+    "storage_safety": "Store in a cool, dry, well-ventilated place. Safe for humans and beneficial organisms. Wear protective gloves and a mask, avoid contact with eyes and skin, and wash equipment and hands after use. Re-entry interval: 4 hours. Pre-harvest interval: 0 days — harvest can be carried out immediately after application.",
+    "technical_positioning_summary": "Highest-load azadirachtin EC in the Ecoza range, positioned for low-volume foliar, chemigation and soil-drench programmes across nurseries, greenhouse, turf, horticulture and field agriculture."
+  },
+  {
+    "product_identity": {
       "brand_name": "Ecoza Ace",
       "active_ingredient": "Azadirachtin",
       "concentration": "1.2%",

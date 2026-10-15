@@ -18,7 +18,8 @@
     "search": "البحث",
     "certificates": "الشهادات",
     "presentation": "عرض تقديمي",
-    "certificate": "شهادة"
+    "certificate": "شهادة",
+    "neutabs": "Neutabs"
   },
   "actions": {
     "save": "حفظ",
@@ -110,6 +111,10 @@
       "biointel": {
         "title": "BioIntel",
         "sub": "ذكاء بيولوجي"
+      },
+      "neutabs": {
+        "title": "Neutabs",
+        "sub": "مستحضرات الأقراص"
       }
     },
     "sections": {
@@ -160,7 +165,11 @@
     "microbialPesticide": "مبيد ميكروبي",
     "biostimulant": "منشط حيوي",
     "biofertilizer": "سماد حيوي",
-    "substrate": "ركيزة"
+    "substrate": "ركيزة",
+    "neutabs": "أقراص Neutabs",
+    "neutab": "قرص Neutab",
+    "botanicals": "المستحضرات النباتية",
+    "biopesticides": "المبيدات الحيوية"
   },
   "search": {
     "quickSearches": "بحث سريع",
@@ -1624,5 +1633,10 @@
     "480": "تحرر كسبة الكارانجا الكارانجين والمغذيات العضوية ببطء في التربة، موفرة فائدة مزدوجة من ردع الآفات وتغذية المحصول.",
     "481": "ركيزة كسبة الكارانجا لتحسين التربة.",
     "482": "ركيزة كسبة الكارانجا لتحسين التربة والتغذية العضوية."
+  },
+  "neutabs": {
+    "subtitle": "مستحضرات الأقراص",
+    "emptyTitle": "لا توجد منتجات Neutabs بعد",
+    "emptyText": "ستظهر منتجات هذه المجموعة هنا بمجرد إضافتها."
   }
 }

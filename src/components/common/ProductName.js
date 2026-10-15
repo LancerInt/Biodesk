@@ -13,11 +13,15 @@ const splitBrand = (name) => {
   return { head: name, tail: '' };
 };
 
-const ProductName = ({ name, style, numberOfLines, tmStyle, suffix = '' }) => {
+const ProductName = ({ name, style, numberOfLines, tmStyle, suffix = '', tmAfter }) => {
   const flat = StyleSheet.flatten(style) || {};
   const baseSize = flat.fontSize || 14;
   const tmFontSize = Math.max(8, Math.round(baseSize * 0.5));
-  const { head, tail } = splitBrand(name);
+  // tmAfter lets a caller place the mark explicitly (Neutabs uses a
+  // different lockup for some products, e.g. IGreen™ NPK vs IGreen NPK™).
+  const { head, tail } = tmAfter && name.startsWith(tmAfter)
+    ? { head: tmAfter, tail: name.slice(tmAfter.length) }
+    : splitBrand(name);
 
   const tmInherent = {
     fontSize: tmFontSize,

@@ -18,7 +18,8 @@
     "search": "Search",
     "certificates": "Certificates",
     "presentation": "Presentation",
-    "certificate": "Certificate"
+    "certificate": "Certificate",
+    "neutabs": "Neutabs"
   },
   "actions": {
     "save": "Save",
@@ -110,6 +111,10 @@
       "biointel": {
         "title": "BioIntel",
         "sub": "Biological Intelligence"
+      },
+      "neutabs": {
+        "title": "Neutabs",
+        "sub": "Tablet Formulations"
       }
     },
     "sections": {
@@ -160,7 +165,11 @@
     "microbialPesticide": "Microbial Pesticide",
     "biostimulant": "Biostimulant",
     "biofertilizer": "Biofertilizer",
-    "substrate": "Substrate"
+    "substrate": "Substrate",
+    "neutabs": "Neutabs",
+    "neutab": "Neutab",
+    "botanicals": "Botanicals",
+    "biopesticides": "Biopesticides"
   },
   "search": {
     "quickSearches": "Quick Searches",
@@ -1624,5 +1633,10 @@
     "480": "Karanja cake releases karanjin and organic nutrients slowly into the soil, providing dual benefit of pest deterrence and crop nutrition.",
     "481": "Karanja cake substrate for soil amendment.",
     "482": "Karanja cake substrate for soil amendment and organic nutrition."
+  },
+  "neutabs": {
+    "subtitle": "Tablet formulations",
+    "emptyTitle": "No Neutabs yet",
+    "emptyText": "Products in this range will appear here once added."
   }
 }

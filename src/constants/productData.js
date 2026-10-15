@@ -77,7 +77,7 @@ export const PORTFOLIO_FAMILIES = [
     color: '#2E7D32',
     overview: 'Neem-derived azadirachtin insecticides available across multiple concentrations and formulation types. The Ecoza range covers preventive, routine, and curative pest management for sucking and chewing pests in field, fruit, and vegetable crops.',
     mechanismOfAction: 'Azadirachtin functions primarily as a feeding deterrent and insect growth regulator. It disrupts ecdysone- and juvenile-hormone-mediated endocrine signaling, interferes with molting and metamorphosis, suppresses larval feeding, and reduces fecundity, oviposition, and egg viability in exposed pest populations.',
-    variantIds: ['bp-001', 'bp-002', 'bp-003', 'bp-004'],
+    variantIds: ['bp-018', 'bp-001', 'bp-002', 'bp-003', 'bp-004'],
   },
   {
     id: 'pf-spindura',
@@ -169,6 +169,7 @@ const HOME_GARDEN_IDS = [
 // ═══════════════════════════════════════════════════════════════
 const PACK_SIZES = {
   'Ecoza Max': ['500 ml', '1 L', '5 L'], 'Ecoza Ace': ['500 ml', '1 L', '5 L'],
+  'Ecoza Rox': ['500 ml', '1 L', '5 L'],
   'Ecoza Pro': ['500 ml', '1 L', '5 L'], 'Ecoza Rix': ['500 g', '1 kg', '25 kg'],
   'MargoShine': ['500 ml', '1 L', '5 L'], 'MargoRix': ['500 g', '1 kg', '25 kg'],
   'K-Guard': ['500 ml', '1 L', '5 L'], 'K-Rix': ['500 g', '1 kg', '25 kg'],
@@ -196,6 +197,7 @@ const PACK_SIZES = {
 
 const TARGET_CROPS = {
   'Ecoza Max': ['Rice', 'Cotton', 'Maize', 'Pulses', 'Tomato', 'Chilli', 'Brinjal', 'Okra', 'Cabbage', 'Mango', 'Citrus', 'Grapes', 'Pomegranate', 'Tea', 'Coffee', 'Sugarcane', 'Oilseeds', 'Floriculture crops'],
+  'Ecoza Rox': ['Rice', 'Cotton', 'Maize', 'Pulses', 'Tomato', 'Chilli', 'Brinjal', 'Okra', 'Cabbage', 'Mango', 'Citrus', 'Grapes', 'Pomegranate', 'Tea', 'Coffee', 'Sugarcane', 'Oilseeds', 'Floriculture crops'],
   'Ecoza Ace': ['Rice', 'Cotton', 'Maize', 'Pulses', 'Tomato', 'Chilli', 'Brinjal', 'Okra', 'Cabbage', 'Mango', 'Citrus', 'Grapes', 'Pomegranate', 'Tea', 'Coffee', 'Sugarcane', 'Oilseeds', 'Floriculture crops'],
   'Ecoza Pro': ['Rice', 'Cotton', 'Maize', 'Pulses', 'Tomato', 'Chilli', 'Brinjal', 'Okra', 'Cabbage', 'Mango', 'Banana', 'Grapes', 'Citrus', 'Pomegranate', 'Tea', 'Coffee', 'Sugarcane', 'Oilseeds', 'Floriculture crops', 'Greenhouse crops'],
   'Ecoza Rix': ['Rice', 'Cotton', 'Maize', 'Pulses', 'Tomato', 'Chilli', 'Brinjal', 'Okra', 'Cabbage', 'Mango', 'Banana', 'Grapes', 'Citrus', 'Pomegranate', 'Tea', 'Coffee', 'Sugarcane', 'Oilseeds', 'Floriculture crops', 'Greenhouse crops'],
@@ -288,6 +290,7 @@ const FAMILY_IMAGES = {
 
 const ID_MAP = {
   'Ecoza Max': 'bp-001', 'Ecoza Ace': 'bp-002', 'Ecoza Pro': 'bp-003', 'Ecoza Rix': 'bp-004',
+  'Ecoza Rox': 'bp-018',
   'MargoShine': 'bp-005', 'MargoRix': 'bp-006', 'K-Guard': 'bp-007', 'K-Rix': 'bp-008',
   'Spindura Plus': 'bp-009', 'Spindura Rix': 'bp-010', 'Spindura Pro': 'bp-011',
   'MargoSpin': 'bp-012', 'WeedX': 'bp-013',
@@ -322,6 +325,9 @@ export const EXCEL_CATEGORY_INFO = {
   'Bio Stimulants': { icon: 'sprout', color: '#415d34', subcategory: 'Biostimulant' },
   'Microbial Fertilizer': { icon: 'spa', color: '#4b653e', subcategory: 'Biofertilizer' },
   'Substrates': { icon: 'terrain', color: '#795548', subcategory: 'Substrate' },
+  // Neutabs is its own dashboard module, not a Portfolio category -
+  // kept here so NeutabsScreen can resolve its colour/icon.
+  'Neutabs': { icon: 'pill', color: '#00897B', subcategory: 'Neutab' },
 };
 
 const EXCEL_SUBCATEGORY_MAP = {
@@ -330,6 +336,7 @@ const EXCEL_SUBCATEGORY_MAP = {
   'Bio Stimulants': 'Biostimulant',
   'Microbial Fertilizer': 'Biofertilizer',
   'Substrates': 'Substrate',
+  'Neutabs': 'Neutab',
 };
 
 const REVERSE_SUBCATEGORY_MAP = {};
@@ -623,3 +630,91 @@ export const groupProductsByExcelCategory = (products) => {
       data: groups[cat],
     }));
 };
+
+// ═══════════════════════════════════════════════════════════════
+// NEUTABS — tablet-format range
+// ═══════════════════════════════════════════════════════════════
+// The same products as the portfolio, re-grouped into three Neutabs
+// categories. Reached from its own dashboard module, not the Portfolio
+// category chips.
+export const NEUTAB_CATEGORIES = ['All', 'Botanicals', 'Biofertilizers', 'Biopesticides'];
+
+export const NEUTAB_CATEGORY_INFO = {
+  'Botanicals':     { icon: 'leaf',     color: '#16416c' },
+  'Biofertilizers': { icon: 'spa',      color: '#4b653e' },
+  'Biopesticides':  { icon: 'mushroom', color: '#2196F3' },
+};
+
+// Product name -> Neutabs category. Names match PRODUCTS exactly.
+export const NEUTAB_MEMBERS = {
+  'Botanicals': [
+    'MargoRix', 'Spindura Rix', 'K-Rix', 'Ecoza Rix',
+    'Admira Adyme', 'Admira Admon', 'Admira Adrlic', 'Admira Adove',
+  ],
+  'Biofertilizers': [
+    'IGreen NPK', 'IGreen SHIELD', 'EnRhize',
+  ],
+  'Biopesticides': [
+    'Mycova', 'Rexora', 'Zymor', 'Zymor-H', 'EnCilo',
+    'Seira', 'Ecoviz', 'Rhiota', 'Elixora',
+  ],
+};
+
+const NEUTAB_CATEGORY_OF = {};
+Object.entries(NEUTAB_MEMBERS).forEach(([cat, names]) => {
+  names.forEach(n => { NEUTAB_CATEGORY_OF[n] = cat; });
+});
+
+export const getNeutabCategory = (productName) => NEUTAB_CATEGORY_OF[productName] || null;
+
+export const getNeutabProductsByCategory = (category) => {
+  if (category === 'All') {
+    return PRODUCTS.filter(p => NEUTAB_CATEGORY_OF[p.name]);
+  }
+  const names = NEUTAB_MEMBERS[category] || [];
+  return PRODUCTS.filter(p => names.includes(p.name));
+};
+
+export const groupNeutabProducts = (products) => {
+  const order = ['Botanicals', 'Biofertilizers', 'Biopesticides'];
+  const groups = {};
+  order.forEach(c => { groups[c] = []; });
+  products.forEach(p => {
+    const c = NEUTAB_CATEGORY_OF[p.name];
+    if (c && groups[c]) groups[c].push(p);
+  });
+  return order.map(c => ({
+    title: c,
+    data: groups[c],
+    icon: NEUTAB_CATEGORY_INFO[c].icon,
+    color: NEUTAB_CATEGORY_INFO[c].color,
+  }));
+};
+
+// Neutabs uses its own name lockups. `text` is the visible string and
+// `tmAfter` says where the trademark mark sits; omit it for a trailing mark.
+export const NEUTAB_DISPLAY = {
+  'MargoRix':      { text: 'Margo Rix' },
+  'Spindura Rix':  { text: 'Spindura Rix' },
+  'K-Rix':         { text: "K'Rix" },
+  'Ecoza Rix':     { text: 'Ecoza Rix',    tmAfter: 'Ecoza' },
+  'Admira Adyme':  { text: 'Admira Adyme',  tmAfter: 'Admira' },
+  'Admira Admon':  { text: 'Admira Admon',  tmAfter: 'Admira' },
+  'Admira Adrlic': { text: 'Admira Adrlic', tmAfter: 'Admira' },
+  'Admira Adove':  { text: 'Admira Adove',  tmAfter: 'Admira' },
+  'IGreen NPK':    { text: 'IGreen NPK',    tmAfter: 'IGreen' },
+  'IGreen SHIELD': { text: 'IGreen Shield', tmAfter: 'IGreen' },
+  'EnRhize':       { text: 'EnRhize' },
+  'Mycova':        { text: 'Mycova' },
+  'Rexora':        { text: 'Rexora' },
+  'Zymor':         { text: 'Zymor' },
+  'Zymor-H':       { text: 'Zymor H',       tmAfter: 'Zymor' },
+  'EnCilo':        { text: 'Encilo' },
+  'Seira':         { text: 'Seira' },
+  'Ecoviz':        { text: 'Ecoviz' },
+  'Rhiota':        { text: 'Rhiota' },
+  'Elixora':       { text: 'Elixora' },
+};
+
+export const getNeutabDisplay = (productName) =>
+  NEUTAB_DISPLAY[productName] || { text: productName };

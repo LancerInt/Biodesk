@@ -46,6 +46,7 @@ const MICROBIAL = (microorganism, cfu = '≥1 × 10⁹ CFU/g', moisture = '≤ 8
 export const TECHNICAL_PROFILES = {
   // ─── Botanical Pesticides ────────────────────────────────────
   'Ecoza Max': BOTANICAL('Azadirachtin', 'Azadirachta indica', 'Emulsifiable Concentrate (EC)', 'Light Brown Color Liquid'),
+  'Ecoza Rox': BOTANICAL('Azadirachtin 4.5% W/W EC', 'Azadirachta indica', 'Emulsifiable Concentrate (EC)', 'Light Brown Color Liquid'),
   'Ecoza Ace': BOTANICAL('Azadirachtin', 'Azadirachta indica', 'Emulsifiable Concentrate (EC)', 'Light Brown Color Liquid'),
   'Ecoza Pro': BOTANICAL('Azadirachtin', 'Azadirachta indica', 'Emulsifiable Concentrate (EC)', 'Light Brown Color Liquid'),
   'Ecoza Rix': BOTANICAL('Azadirachtin', 'Azadirachta indica', 'Wettable Powder (WSP)', 'Light Brown Color Liquid'),

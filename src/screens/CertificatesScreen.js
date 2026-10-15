@@ -8,8 +8,6 @@ import {
   Image,
   Dimensions,
   LayoutAnimation,
-  UIManager,
-  Platform,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
@@ -17,10 +15,6 @@ import SearchBar from '../components/common/SearchBar';
 import theme from '../constants/theme';
 import { PRODUCT_CERTIFICATES } from '../constants/certificateData';
 import { PRODUCTS } from '../constants/productData';
-
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 
 const { width: screenWidth } = Dimensions.get('window');
 const isTablet = screenWidth >= 768;

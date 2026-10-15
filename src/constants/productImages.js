@@ -7,6 +7,7 @@
 // ─── Hero Images (right side of product header card) ─────────
 const HERO_IMAGES = {
   'Ecoza Max': require('../assets/images/ProductHero/ecoza_max.png'),
+  'Ecoza Rox': require('../assets/images/ProductHero/ecoza_rox.png'),
   'Ecoza Ace': require('../assets/images/ProductHero/ecoza_ace.png'),
   'Ecoza Pro': require('../assets/images/ProductHero/ecoza_pro.png'),
   'Ecoza Rix': require('../assets/images/ProductHero/ecoza_rix.png'),
@@ -57,6 +58,7 @@ const HERO_IMAGES = {
 const MOA_IMAGES = {
   // Ecoza family (Azadirachtin) — shared family MOA
   'Ecoza Max': require('../assets/images/ProductMOA/ecoza-mode.png'),
+  'Ecoza Rox': require('../assets/images/ProductMOA/ecoza-mode.png'),
   'Ecoza Ace': require('../assets/images/ProductMOA/ecoza-mode.png'),
   'Ecoza Pro': require('../assets/images/ProductMOA/ecoza-mode.png'),
   'Ecoza Rix': require('../assets/images/ProductMOA/ecoza-mode.png'),
@@ -127,3 +129,33 @@ const FAMILY_ICON_IMAGES = {
 export const getHeroImage = (productName) => HERO_IMAGES[productName] || null;
 export const getMoaImage = (productName) => MOA_IMAGES[productName] || null;
 export const getFamilyIconImage = (familyId) => FAMILY_ICON_IMAGES[familyId] || null;
+
+// ─── Neutabs pack shots ──────────────────────────────────────
+// Tablet-format packaging. Falls back to the standard hero image for
+// All 20 products have one. Each image is normalised to the same canvas
+// so every tube renders at identical size (contentFit fits the canvas).
+const NEUTAB_IMAGES = {
+  'MargoRix': require('../assets/images/NeutabsHero/margorix.jpeg'),
+  'Spindura Rix': require('../assets/images/NeutabsHero/spindura_rix.jpeg'),
+  'K-Rix': require('../assets/images/NeutabsHero/k_rix.jpeg'),
+  'Ecoza Rix': require('../assets/images/NeutabsHero/ecoza_rix.jpeg'),
+  'Admira Adyme': require('../assets/images/NeutabsHero/admira_adyme.jpeg'),
+  'Admira Admon': require('../assets/images/NeutabsHero/admira_admon.jpeg'),
+  'Admira Adrlic': require('../assets/images/NeutabsHero/admira_adrlic.jpeg'),
+  'Admira Adove': require('../assets/images/NeutabsHero/admira_adove.jpeg'),
+  'IGreen NPK': require('../assets/images/NeutabsHero/igreen_npk.jpeg'),
+  'IGreen SHIELD': require('../assets/images/NeutabsHero/igreen_shield.jpeg'),
+  'EnRhize': require('../assets/images/NeutabsHero/enrhize.jpeg'),
+  'Mycova': require('../assets/images/NeutabsHero/mycova.jpeg'),
+  'Rexora': require('../assets/images/NeutabsHero/rexora.jpeg'),
+  'Zymor': require('../assets/images/NeutabsHero/zymor.jpeg'),
+  'Zymor-H': require('../assets/images/NeutabsHero/zymor_h.jpeg'),
+  'EnCilo': require('../assets/images/NeutabsHero/encilo.jpeg'),
+  'Seira': require('../assets/images/NeutabsHero/seira.jpeg'),
+  'Ecoviz': require('../assets/images/NeutabsHero/ecoviz.jpeg'),
+  'Rhiota': require('../assets/images/NeutabsHero/rhiota.jpeg'),
+  'Elixora': require('../assets/images/NeutabsHero/elixora.jpeg'),
+};
+
+export const getNeutabImage = (productName) =>
+  NEUTAB_IMAGES[productName] || getHeroImage(productName);

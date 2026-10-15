@@ -18,7 +18,8 @@
     "search": "搜索",
     "certificates": "认证",
     "presentation": "演示",
-    "certificate": "证书"
+    "certificate": "证书",
+    "neutabs": "Neutabs"
   },
   "actions": {
     "save": "保存",
@@ -110,6 +111,10 @@
       "biointel": {
         "title": "BioIntel",
         "sub": "生物智能"
+      },
+      "neutabs": {
+        "title": "Neutabs",
+        "sub": "片剂产品系列"
       }
     },
     "sections": {
@@ -160,7 +165,11 @@
     "microbialPesticide": "微生物农药",
     "biostimulant": "生物刺激素",
     "biofertilizer": "生物肥料",
-    "substrate": "基质"
+    "substrate": "基质",
+    "neutabs": "Neutabs 片剂",
+    "neutab": "Neutab 片剂",
+    "botanicals": "植物源产品",
+    "biopesticides": "生物农药"
   },
   "search": {
     "quickSearches": "快速搜索",
@@ -1624,5 +1633,10 @@
     "480": "水黄皮饼在土壤中缓慢释放水黄皮素和有机养分,兼具害虫驱避和作物营养的双重效益。",
     "481": "水黄皮饼基质,用于土壤改良。",
     "482": "水黄皮饼基质,用于土壤改良和有机营养。"
+  },
+  "neutabs": {
+    "subtitle": "片剂产品",
+    "emptyTitle": "暂无 Neutabs 产品",
+    "emptyText": "该系列产品添加后将显示在此处。"
   }
 }

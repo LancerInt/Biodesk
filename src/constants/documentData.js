@@ -7,6 +7,10 @@
 const DOC_FILES = {
   // Ecoza range
   'EcozaMax_Brochure': require('../assets/documents/EcozaMax_Brochure.pdf'),
+  'EcozaRox_Brochure': require('../assets/documents/EcozaRox_Brochure.pdf'),
+  'EcozaRox_COA': require('../assets/documents/EcozaRox_COA.pdf'),
+  'EcozaRox_MSDS': require('../assets/documents/EcozaRox_MSDS.pdf'),
+  'EcozaRox_TDS': require('../assets/documents/EcozaRox_TDS.pdf'),
   'EcozaMax_COA': require('../assets/documents/EcozaMax_COA.pdf'),
   'EcozaMax_MSDS': require('../assets/documents/EcozaMax_MSDS.pdf'),
   'EcozaAce_Brochure': require('../assets/documents/EcozaAce_Brochure.pdf'),
@@ -222,6 +226,7 @@ const DOC_FILES = {
 // Maps the exact product name from productData.js to the file key prefix
 const PRODUCT_FILE_KEY = {
   'Ecoza Max': 'EcozaMax',
+  'Ecoza Rox': 'EcozaRox',
   'Ecoza Ace': 'EcozaAce',
   'Ecoza Pro': 'EcozaPro',
   'Ecoza Rix': 'EcozaRix',
