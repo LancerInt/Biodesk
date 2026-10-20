@@ -414,16 +414,15 @@ const VideosScreen = ({ navigation }) => {
             {item.image ? (
               <ExpoImage
                 source={item.image}
-                style={[styles.photoImage, { opacity: 0.6 }]}
+                style={styles.photoImage}
                 contentFit="cover"
                 cachePolicy="memory-disk"
                 transition={0}
                 recyclingKey={item.id}
               />
-            ) : null}
-            <View style={styles.folderOverlay}>
+            ) : (
               <Icon name="folder" size={36} color="#E65100" />
-            </View>
+            )}
             <View style={styles.folderCountBadge}>
               <Text style={styles.folderCountText}>{item._folderCount}</Text>
             </View>
@@ -619,12 +618,6 @@ const styles = StyleSheet.create({
   videoTitle: { fontSize: 13, fontWeight: '600', color: theme.colors.text, lineHeight: 18 },
 
   // ─── Folder Style ────────────────────────────────────────────
-  folderOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.45)',
-  },
   folderCountBadge: {
     position: 'absolute',
     top: 6,
