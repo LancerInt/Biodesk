@@ -9,7 +9,7 @@ import { setAppLanguage, LANGUAGES } from '../i18n';
  */
 let AVAudio = null;
 try {
-  AVAudio = require('expo-av').Audio;
+  AVAudio = require('../utils/audioCompat').Audio;
 } catch {
   // expo-av not available — audio features will show fallback
 }

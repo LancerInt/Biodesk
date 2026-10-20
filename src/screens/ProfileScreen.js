@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, Alert, FlatList, Dimensions } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert, FlatList, Dimensions } from 'react-native';
+// expo-image: downsamples on decode and keeps a disk cache
+import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
@@ -17,7 +19,7 @@ const SectionImage = React.memo(({ source, onPress }) => {
       style={styles.sectionImageCard}
       activeOpacity={0.85}
       onPress={() => onPress && onPress(source)}>
-      <Image source={source} style={styles.sectionImage} resizeMode="cover" />
+      <Image source={source} style={styles.sectionImage} contentFit="cover" />
     </TouchableOpacity>
   );
 });
@@ -79,12 +81,16 @@ const ImageCarousel = React.memo(({ images, onPress, resizeMode = 'cover', aspec
         onScrollBeginDrag={onScrollBeginDrag}
         onScrollEndDrag={onScrollEndDrag}
         keyExtractor={(_, i) => String(i)}
+        removeClippedSubviews
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        windowSize={5}
         getItemLayout={(_, index) => ({ length: CAROUSEL_WIDTH, offset: CAROUSEL_WIDTH * index, index })}
         renderItem={({ item }) => (
           <TouchableOpacity
             activeOpacity={0.95}
             onPress={() => onPress && onPress(item)}>
-            <Image source={item} style={[styles.carouselImage, aspectRatio && { aspectRatio }]} resizeMode={resizeMode} />
+            <Image source={item} style={[styles.carouselImage, aspectRatio && { aspectRatio }]} contentFit={resizeMode} />
           </TouchableOpacity>
         )}
       />
@@ -346,7 +352,7 @@ const ProfileScreen = ({ navigation, route }) => {
         {certsWithLogos.map((c, i) => (
           <TouchableOpacity key={i} style={styles.certCard} activeOpacity={0.7} onPress={() => openCertificatePdf(c)}>
             <View style={styles.certIcon}>
-              <Image source={c.logo} style={styles.certLogoImage} resizeMode="contain" />
+              <Image source={c.logo} style={styles.certLogoImage} contentFit="contain" />
             </View>
             <View style={{ flex: 1 }}>
               <View style={styles.certHeader}>

@@ -1,14 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  Dimensions,
-  LayoutAnimation,
-} from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions, LayoutAnimation } from 'react-native';
+// expo-image: downsamples on decode and keeps a disk cache
+import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import Header from '../components/common/Header';
 import SearchBar from '../components/common/SearchBar';
@@ -121,7 +114,7 @@ const CertificatesScreen = ({ navigation }) => {
         onPress={() => openCertificate(cert)}>
         <View style={[styles.certLogoWrap, { backgroundColor: color + '12' }]}>
           {cert.logo ? (
-            <Image source={cert.logo} style={styles.certLogoImg} resizeMode="contain" />
+            <Image source={cert.logo} style={styles.certLogoImg} contentFit="contain" />
           ) : (
             <Icon name={CATEGORY_ICONS[cert.category] || 'certificate'} size={22} color={color} />
           )}

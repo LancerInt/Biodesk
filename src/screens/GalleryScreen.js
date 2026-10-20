@@ -1,8 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import {
-  View, Text, FlatList, TouchableOpacity, StyleSheet, Image,
-  Dimensions, Alert, Modal, RefreshControl,
-} from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Dimensions, Alert, Modal, RefreshControl } from 'react-native';
+// expo-image: downsamples on decode and keeps a disk cache
+import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system/legacy';
 import { useFocusEffect } from '@react-navigation/native';
@@ -108,6 +107,11 @@ const GalleryScreen = ({ navigation }) => {
         contentContainerStyle={styles.grid}
         columnWrapperStyle={styles.row}
         showsVerticalScrollIndicator={false}
+        removeClippedSubviews
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        updateCellsBatchingPeriod={50}
+        windowSize={5}
         refreshControl={
           <RefreshControl refreshing={loading} onRefresh={loadImages} colors={[theme.colors.primary]} />
         }
@@ -131,7 +135,7 @@ const GalleryScreen = ({ navigation }) => {
               <Image
                 source={{ uri: viewerImage.uri }}
                 style={styles.viewerImage}
-                resizeMode="contain"
+                contentFit="contain"
               />
               <View style={styles.viewerInfo}>
                 <Text style={styles.viewerLabel}>{viewerImage.label}</Text>

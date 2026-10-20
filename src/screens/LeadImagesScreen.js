@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import {
-  View, Text, FlatList, TouchableOpacity, StyleSheet,
-  Image, Dimensions, RefreshControl, Alert,
-} from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Dimensions, RefreshControl, Alert } from 'react-native';
+// expo-image: downsamples on decode and keeps a disk cache
+import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system/legacy';
@@ -210,6 +209,11 @@ const LeadImagesScreen = ({ navigation }) => {
         contentContainerStyle={styles.grid}
         columnWrapperStyle={styles.row}
         showsVerticalScrollIndicator={false}
+        removeClippedSubviews
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        updateCellsBatchingPeriod={50}
+        windowSize={5}
         refreshControl={
           <RefreshControl
             refreshing={loading}

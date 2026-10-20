@@ -30,7 +30,6 @@
     "plugins": [
       "expo-sqlite",
       "expo-audio",
-      "expo-av",
       "expo-sharing",
       "expo-image",
       "expo-asset",

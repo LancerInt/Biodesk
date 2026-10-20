@@ -19,10 +19,10 @@ import DatabaseService from '../database/DatabaseService';
 let AudioModule = null;
 let avAvailable = false;
 try {
-  AudioModule = require('expo-av').Audio;
+  AudioModule = require('../utils/audioCompat').Audio;
   avAvailable = !!AudioModule;
 } catch {
-  // expo-av native module not available
+  // audio module not available
 }
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -399,6 +399,11 @@ const MeetingAudioScreen = ({ navigation }) => {
         keyExtractor={item => item.id}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
+        removeClippedSubviews
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        updateCellsBatchingPeriod={50}
+        windowSize={5}
         refreshControl={
           <RefreshControl
             refreshing={loading}

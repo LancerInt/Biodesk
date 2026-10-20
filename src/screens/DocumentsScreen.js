@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import {
   View,
   Text,
@@ -162,7 +162,7 @@ const DocumentsScreen = ({ navigation }) => {
     return docs;
   }, [activeType, searchQuery]);
 
-  const openDocument = (item) => {
+  const openDocument = useCallback((item) => {
     if (!item.hasAsset) return;
 
     // Presentations open in the fullscreen slide viewer
@@ -179,7 +179,7 @@ const DocumentsScreen = ({ navigation }) => {
       authority: DOC_META[item.docType]?.label || item.docType,
       asset: item.asset,
     });
-  };
+  }, [navigation]);
 
   const renderChip = (type) => {
     const isActive = activeType === type;
@@ -200,7 +200,7 @@ const DocumentsScreen = ({ navigation }) => {
     );
   };
 
-  const renderDoc = ({ item }) => {
+  const renderDoc = useCallback(({ item }) => {
     const meta = DOC_META[item.docType];
 
     // Presentation card — special style with fullscreen button
@@ -270,7 +270,7 @@ const DocumentsScreen = ({ navigation }) => {
         <Icon name="chevron-right" size={20} color={item.hasAsset ? theme.colors.textLight : theme.colors.border} />
       </TouchableOpacity>
     );
-  };
+  }, [navigation, t, openDocument]);
 
   return (
     <View style={styles.container}>
@@ -299,6 +299,11 @@ const DocumentsScreen = ({ navigation }) => {
         keyExtractor={item => item.id}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
+        removeClippedSubviews
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        updateCellsBatchingPeriod={50}
+        windowSize={5}
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="file-search-outline" size={64} color={theme.colors.textLight} />

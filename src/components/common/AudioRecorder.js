@@ -27,7 +27,7 @@ try {
 
 let AVAudio = null;
 try {
-  AVAudio = require('expo-av').Audio;
+  AVAudio = require('../../utils/audioCompat').Audio;
 } catch {
   // expo-av not available
 }

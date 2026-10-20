@@ -430,6 +430,11 @@ const LeadsScreen = ({ navigation }) => {
         keyExtractor={item => item.id}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
+        removeClippedSubviews
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        updateCellsBatchingPeriod={50}
+        windowSize={5}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={ListFooter}
         refreshControl={
