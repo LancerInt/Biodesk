@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert, FlatList, Dimensions } from 'react-native';
+// resolveAssetSource is a React Native Image static; expo-image has no equivalent
+import { Image as RNImage } from 'react-native';
 // expo-image: downsamples on decode and keeps a disk cache
 import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
@@ -121,8 +123,8 @@ const ProfileScreen = ({ navigation, route }) => {
   useEffect(() => {
     PROFILE_SECTIONS.forEach((s) => {
       if (s.image) {
-        const resolved = Image.resolveAssetSource(s.image);
-        if (resolved?.uri) Image.prefetch(resolved.uri);
+        const resolved = RNImage.resolveAssetSource(s.image);
+        if (resolved?.uri) Image.prefetch(resolved.uri).catch(() => {});
       }
     });
   }, []);
