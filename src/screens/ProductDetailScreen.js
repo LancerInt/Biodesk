@@ -12,7 +12,7 @@ import ProductName from '../components/common/ProductName';
 import theme from '../constants/theme';
 import { getCategoryColor, getFormulationColor } from '../utils/helpers';
 import { getPortfolioForProduct, getRelatedProducts } from '../constants/productData';
-import { getHeroImage, getMoaImage } from '../constants/productImages';
+import { getHeroImage, getMoaImage, getPestDiagramImage } from '../constants/productImages';
 import { getProductDocuments } from '../constants/documentData';
 import { getInfoIconForLabel } from '../constants/productTechnicalProfiles';
 import SwipeableTabs from '../components/common/SwipeableTabs';
@@ -53,6 +53,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
   const catColor = getCategoryColor(product.category);
   const heroImage = getHeroImage(product.name);
   const moaImage = getMoaImage(product.name);
+  const pestDiagram = getPestDiagramImage(product.name);
   const relatedProducts = getRelatedProducts(product);
 
   // ─── Overview Tab ───────────────────────────────────────────
@@ -322,6 +323,13 @@ const ProductDetailScreen = ({ route, navigation }) => {
           </View>
         </>
       ) : null}
+
+      {/* Pest coverage diagram */}
+      {pestDiagram && (
+        <TouchableOpacity style={styles.moaDiagramCard} activeOpacity={0.8} onPress={() => setZoomImage(pestDiagram)}>
+          <Image source={pestDiagram} style={styles.moaDiagramImage} contentFit="contain" transition={200} />
+        </TouchableOpacity>
+      )}
 
       {/* Dosage & Application Table */}
       {product.dosageTable && product.dosageTable.length > 0 ? (

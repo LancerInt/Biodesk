@@ -126,8 +126,13 @@ const FAMILY_ICON_IMAGES = {
   'pf-igreen': require('../assets/images/Products/igreen.png'),
 };
 
+const PEST_DIAGRAM_IMAGES = {
+  'MargoSpin': require('../assets/images/ProductMOA/margospin-pests.png'),
+};
+
 export const getHeroImage = (productName) => HERO_IMAGES[productName] || null;
 export const getMoaImage = (productName) => MOA_IMAGES[productName] || null;
+export const getPestDiagramImage = (productName) => PEST_DIAGRAM_IMAGES[productName] || null;
 export const getFamilyIconImage = (familyId) => FAMILY_ICON_IMAGES[familyId] || null;
 
 // ─── Neutabs pack shots ──────────────────────────────────────
