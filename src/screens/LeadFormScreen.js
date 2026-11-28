@@ -4,6 +4,7 @@ import {
   Alert, Platform, KeyboardAvoidingView, Image,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import AudioRecorder from '../components/common/AudioRecorder';
 import VisitingCardScanner from '../components/common/VisitingCardScanner';
@@ -95,6 +96,7 @@ const MultiSelect = ({ label, options, selected, onToggle, readOnly }) => (
 );
 
 const LeadFormScreen = ({ route, navigation }) => {
+  const { t } = useTranslation();
   const { lead, mode } = route.params || {};
   const isCreate = mode === 'create' || !lead;
   const [isEditing, setIsEditing] = useState(isCreate || mode === 'edit');
@@ -184,7 +186,7 @@ const LeadFormScreen = ({ route, navigation }) => {
       const ImagePicker = require('expo-image-picker');
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
       if (status !== 'granted') {
-        Alert.alert('Permission Required', 'Camera permission is needed to capture images.');
+        Alert.alert(t('leadForm.permissionRequired'), t('leadForm.cameraPermissionNeeded'));
         return;
       }
       const result = await ImagePicker.launchCameraAsync({
@@ -217,16 +219,16 @@ const LeadFormScreen = ({ route, navigation }) => {
         setCapturedImages(prev => [{ id, filePath: destPath, label: 'Lead Photo', createdAt: new Date().toISOString() }, ...prev]);
       }
     } catch (e) {
-      Alert.alert('Error', 'Failed to capture image: ' + (e.message || 'Unknown error'));
+      Alert.alert(t('common.error'), t('leadForm.captureError', { error: e.message || 'Unknown error' }));
     }
   }, [leadId, isCreate]);
 
   const handleDeleteImage = useCallback(async (imageId, filePath) => {
     const isPending = typeof imageId === 'string' && imageId.startsWith('pending_');
-    Alert.alert('Delete Photo', 'Remove this photo?', [
-      { text: 'Cancel', style: 'cancel' },
+    Alert.alert(t('leadForm.deletePhoto'), t('leadForm.removePhotoConfirm'), [
+      { text: t('common.cancel'), style: 'cancel' },
       {
-        text: 'Delete', style: 'destructive', onPress: async () => {
+        text: t('common.delete'), style: 'destructive', onPress: async () => {
           try {
             const FileSystem = require('expo-file-system/legacy');
             await FileSystem.deleteAsync(filePath, { idempotent: true });
@@ -263,7 +265,7 @@ const LeadFormScreen = ({ route, navigation }) => {
           id, filePath: recording.filePath, duration: recording.duration,
           createdAt: new Date().toISOString(),
         }, ...prev]);
-      } catch { Alert.alert('Error', 'Failed to save recording.'); }
+      } catch { Alert.alert(t('common.error'), t('leadForm.saveFailed')); }
     }
   }, [leadId, isCreate]);
 
@@ -299,7 +301,7 @@ const LeadFormScreen = ({ route, navigation }) => {
       try {
         const id = await DatabaseService.insertVisitingCard({ ...cardData, leadId });
         setVisitingCards(prev => [{ id, ...cardData, createdAt: new Date().toISOString() }, ...prev]);
-      } catch { Alert.alert('Error', 'Failed to save visiting card.'); }
+      } catch { Alert.alert(t('common.error'), t('leadForm.saveCardFailed')); }
     }
   }, [leadId, isCreate]);
 
@@ -326,7 +328,7 @@ const LeadFormScreen = ({ route, navigation }) => {
   const handleAutoFill = useCallback((fields) => {
     const hasData = fields.name || fields.company || fields.phone || fields.email || fields.website;
     if (!hasData) {
-      Alert.alert('No Data', 'No extracted data available to auto-fill. Please enter details manually in the card preview.');
+      Alert.alert(t('leadForm.noData'), t('leadForm.noExtractedData'));
       return;
     }
 
@@ -342,9 +344,9 @@ const LeadFormScreen = ({ route, navigation }) => {
     });
 
     if (filledCount > 0) {
-      Alert.alert('Auto-Filled', 'Contact fields have been populated from the visiting card.');
+      Alert.alert(t('leadForm.autoFilled'), t('leadForm.autoFilledMsg'));
     } else {
-      Alert.alert('Already Filled', 'All contact fields already have values. Clear a field first to auto-fill it.');
+      Alert.alert(t('leadForm.alreadyFilled'), t('leadForm.alreadyFilledMsg'));
     }
   }, []);
 
@@ -370,7 +372,7 @@ const LeadFormScreen = ({ route, navigation }) => {
   // ─── Save ────────────────────────────────────────────────────
   const handleSave = useCallback(async () => {
     if (!form.name.trim()) {
-      Alert.alert('Required', 'Please enter the contact name.');
+      Alert.alert(t('common.required'), t('leadForm.requiredName'));
       return;
     }
     // Auto-save any active recording before submitting
@@ -382,7 +384,7 @@ const LeadFormScreen = ({ route, navigation }) => {
 
       if (!isCreate && lead) {
         await DatabaseService.updateLead(lead.id, form);
-        Alert.alert('Updated', 'Lead updated successfully.');
+        Alert.alert(t('common.updated'), t('leadForm.updated'));
         setIsEditing(false);
       } else {
         await DatabaseService.insertLead({ ...form, id: leadId, lead_number: leadNumber });
@@ -437,19 +439,19 @@ const LeadFormScreen = ({ route, navigation }) => {
         }
 
         savedRef.current = true;
-        Alert.alert('Saved', 'Lead captured successfully!');
+        Alert.alert(t('common.saved'), t('leadForm.saved'));
         navigation.goBack();
       }
     } catch (e) {
-      Alert.alert('Error', 'Failed to save lead: ' + e.message);
+      Alert.alert(t('common.error'), t('leadForm.saveError', { error: e.message }));
     }
   }, [form, isCreate, lead, leadId, leadNumber, navigation]);
 
   return (
     <View style={styles.container}>
       <Header
-        title={isCreate ? 'New Lead' : isEditing ? 'Edit Lead' : 'Lead Details'}
-        subtitle={lead ? lead.name : 'Capture contact info'}
+        title={isCreate ? t('leadForm.titles.new') : isEditing ? t('leadForm.titles.edit') : t('leadForm.titles.view')}
+        subtitle={lead ? lead.name : t('leadForm.subtitle')}
         onBack={() => navigation.goBack()}
       />
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -476,7 +478,7 @@ const LeadFormScreen = ({ route, navigation }) => {
 
           {/* Visiting Card Scanner — only in edit/create mode */}
           {!readOnly && (
-            <Section title="Visiting Card Scanner">
+            <Section title={t('leadForm.sections.visitingCardScanner')}>
               <View style={styles.scannerWrap}>
                 <VisitingCardScanner
                   leadId={leadId}
@@ -493,7 +495,7 @@ const LeadFormScreen = ({ route, navigation }) => {
 
           {/* Visiting cards — read-only gallery in view mode */}
           {readOnly && visitingCards.length > 0 && (
-            <Section title="Visiting Cards">
+            <Section title={t('leadForm.sections.visitingCards')}>
               <View style={styles.scannerWrap}>
                 <View style={styles.imageGrid}>
                   {visitingCards.map(card => (
@@ -507,7 +509,7 @@ const LeadFormScreen = ({ route, navigation }) => {
           )}
 
           {/* Camera Image Capture / Photo gallery */}
-          <Section title="Photos">
+          <Section title={t('leadForm.sections.photos')}>
             <View style={styles.scannerWrap}>
               {!readOnly && (
                 <>
@@ -547,7 +549,7 @@ const LeadFormScreen = ({ route, navigation }) => {
             </View>
           </Section>
 
-          <Section title="Contact Information">
+          <Section title={t('leadForm.sections.contactInformation')}>
             <Field label="Full Name *" icon="account" value={form.name} onChange={v => set('name', v)} placeholder="Contact name" readOnly={readOnly} />
             <Field label="Company" icon="office-building" value={form.company} onChange={v => set('company', v)} readOnly={readOnly} />
             <Field label="Country" icon="flag" value={form.country} onChange={v => set('country', v)} readOnly={readOnly} />
@@ -556,7 +558,7 @@ const LeadFormScreen = ({ route, navigation }) => {
             <Field label="Website" icon="web" value={form.website} onChange={v => set('website', v)} keyboardType="url" readOnly={readOnly} />
           </Section>
 
-          <Section title="Meeting Information">
+          <Section title={t('leadForm.sections.meetingInformation')}>
             <Field label="Event / Show" icon="calendar-star" value={form.event} onChange={v => set('event', v)} readOnly={readOnly} />
             <Field label="Booth / Stand" icon="map-marker" value={form.booth} onChange={v => set('booth', v)} readOnly={readOnly} />
             <Field label="City" icon="city" value={form.city} onChange={v => set('city', v)} readOnly={readOnly} />
@@ -564,7 +566,7 @@ const LeadFormScreen = ({ route, navigation }) => {
             <Field label="Date" icon="calendar" value={form.meetingDate} onChange={v => set('meetingDate', v)} readOnly={readOnly} />
           </Section>
 
-          <Section title="Business Information">
+          <Section title={t('leadForm.sections.businessInformation')}>
             <Picker
               label="Partner Type"
               options={PARTNER_TYPES}
@@ -582,7 +584,7 @@ const LeadFormScreen = ({ route, navigation }) => {
             />
           </Section>
 
-          <Section title="Tags & Interests">
+          <Section title={t('leadForm.sections.tagsInterests')}>
             <MultiSelect
               label="Interest Tags"
               options={INTEREST_TAGS}
@@ -600,7 +602,7 @@ const LeadFormScreen = ({ route, navigation }) => {
           </Section>
 
           {/* Enhanced Interested Products — full product database with search */}
-          <Section title="Interested Products">
+          <Section title={t('leadForm.sections.interestedProducts')}>
             <View style={styles.fieldWrap}>
               {readOnly ? (
                 <Text style={[styles.input, styles.readOnlyText]}>
@@ -663,7 +665,7 @@ const LeadFormScreen = ({ route, navigation }) => {
           </Section>
 
           {/* Notes with Audio Recorder */}
-          <Section title="Notes">
+          <Section title={t('leadForm.sections.notes')}>
             <Field label="Meeting Notes" icon="note-text" value={form.notes} onChange={v => set('notes', v)} placeholder="Add meeting notes..." multiline readOnly={readOnly} />
           </Section>
 

@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions, Layou
 // expo-image: downsamples on decode and keeps a disk cache
 import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import SearchBar from '../components/common/SearchBar';
 import theme from '../constants/theme';
@@ -38,6 +39,7 @@ const enrichedData = PRODUCT_CERTIFICATES.map(entry => {
 });
 
 const CertificatesScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [expandedProduct, setExpandedProduct] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('All');
@@ -126,7 +128,7 @@ const CertificatesScreen = ({ navigation }) => {
         </View>
         <View style={styles.viewBtn}>
           <Icon name="eye-outline" size={18} color={theme.colors.primary} />
-          <Text style={styles.viewBtnText}>View</Text>
+          <Text style={styles.viewBtnText}>{t('actions.view')}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -152,9 +154,9 @@ const CertificatesScreen = ({ navigation }) => {
           <View style={styles.productInfo}>
             <Text style={styles.productName}>{entry.productName}</Text>
             <Text style={styles.productMeta}>
-              {entry.isCompany ? 'Company Certifications' : entry.subcategory}
+              {entry.isCompany ? t('certificates.companyCertifications') : entry.subcategory}
               {'  ·  '}
-              {certCount} certificate{certCount !== 1 ? 's' : ''}
+              {certCount} {certCount !== 1 ? t('screens.certificates') : t('screens.certificate')}
             </Text>
           </View>
           <View style={styles.certCountBadge}>
@@ -179,8 +181,8 @@ const CertificatesScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Certificates"
-        subtitle={`${filtered.length} products · ${totalCerts} certificates`}
+        title={t('screens.certificates')}
+        subtitle={t('certificates.productsAndCerts', { products: filtered.length, certs: totalCerts })}
         onBack={() => navigation.goBack()}
       />
 
@@ -188,7 +190,7 @@ const CertificatesScreen = ({ navigation }) => {
         <SearchBar
           value={searchQuery}
           onChangeText={setSearchQuery}
-          placeholder="Search products or certificates..."
+          placeholder={t('certificates.searchPlaceholder')}
           onClear={() => setSearchQuery('')}
         />
         <ScrollView
@@ -207,7 +209,7 @@ const CertificatesScreen = ({ navigation }) => {
         ) : (
           <View style={styles.empty}>
             <Icon name="certificate" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyText}>No certificates found</Text>
+            <Text style={styles.emptyText}>{t('certificates.noCertificates')}</Text>
           </View>
         )}
       </ScrollView>

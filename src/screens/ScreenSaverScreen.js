@@ -4,11 +4,13 @@ import {
   Animated, StatusBar, Text, Platform, Dimensions, Image,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { SCREEN_SAVER_IMAGES, SCREEN_SAVER_CONFIG } from '../constants/landingAssets';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 const ScreenSaverScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const nextFadeAnim = useRef(new Animated.Value(0)).current;
@@ -116,7 +118,7 @@ const ScreenSaverScreen = ({ navigation }) => {
         {/* Subtle exit hint — auto-fades after 3s */}
         <Animated.View style={[styles.exitHint, { opacity: hintOpacity }]}>
           <Icon name="gesture-tap" size={14} color="rgba(255,255,255,0.7)" />
-          <Text style={styles.exitText}>Tap to exit</Text>
+          <Text style={styles.exitText}>{t('common.tapToExit', { defaultValue: 'Tap to exit' })}</Text>
         </Animated.View>
       </View>
     </TouchableWithoutFeedback>

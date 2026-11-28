@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback, useImperativeHandle, f
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import * as FileSystem from 'expo-file-system/legacy';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import theme from '../../constants/theme';
 
 /**
@@ -45,6 +46,7 @@ const RECORDER_OPTIONS = {
 };
 
 const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], onRecordingComplete, onRecordingDelete, tempMode }, ref) => {
+  const { t } = useTranslation();
   const [isRecording, setIsRecording] = useState(false);
   const [recordingDuration, setRecordingDuration] = useState(0);
   const [playingId, setPlayingId] = useState(null);
@@ -294,7 +296,7 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
           {!isRecording ? (
             <TouchableOpacity style={styles.recordBtn} onPress={startRecording} activeOpacity={0.7}>
               <Icon name="microphone" size={24} color="#FFF" />
-              <Text style={styles.recordBtnText}>Record</Text>
+              <Text style={styles.recordBtnText}>{t('audioRecorder.record')}</Text>
             </TouchableOpacity>
           ) : (
             <>
@@ -306,7 +308,7 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
               <View style={styles.timerWrap}>
                 <View style={styles.recordingDot} />
                 <Text style={styles.timerText}>{formatTime(recordingDuration)}</Text>
-                <Text style={styles.recLabel}>RECORDING</Text>
+                <Text style={styles.recLabel}>{t('audioRecorder.recording')}</Text>
               </View>
               <TouchableOpacity
                 style={[styles.controlBtn, { backgroundColor: '#FFEBEE' }]}
@@ -323,13 +325,13 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
           )}
         </View>
         {isRecording && (
-          <Text style={styles.saveHint}>Tap the save icon to stop & save your recording</Text>
+          <Text style={styles.saveHint}>{t('audioRecorder.tapToSave')}</Text>
         )}
       </View>
 
       {recordings.length > 0 && (
         <View style={styles.listSection}>
-          <Text style={styles.listTitle}>Recordings ({recordings.length})</Text>
+          <Text style={styles.listTitle}>{t('audioRecorder.recordingsCount', { count: recordings.length })}</Text>
           {recordings.map((item) => renderRecordingItem(item))}
         </View>
       )}
@@ -341,6 +343,7 @@ const AudioRecorderInner = forwardRef(({ parentType, parentId, recordings = [], 
 // Wrapper: renders real recorder OR fallback, with proper ref
 // ═══════════════════════════════════════════════════════════════
 const AudioRecorder = forwardRef((props, ref) => {
+  const { t } = useTranslation();
   const innerRef = useRef(null);
 
   // Forward saveIfRecording to inner component, or no-op if unavailable
@@ -357,10 +360,9 @@ const AudioRecorder = forwardRef((props, ref) => {
       <View style={styles.container}>
         <View style={styles.fallbackCard}>
           <Icon name="microphone-off" size={32} color={theme.colors.textLight} />
-          <Text style={styles.fallbackTitle}>Audio Recording Unavailable</Text>
+          <Text style={styles.fallbackTitle}>{t('audioRecorder.unavailable')}</Text>
           <Text style={styles.fallbackText}>
-            Audio recording requires a development build.{'\n'}
-            It is not available in Expo Go.
+            {t('audioRecorder.unavailableDesc')}
           </Text>
         </View>
       </View>

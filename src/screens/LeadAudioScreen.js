@@ -8,6 +8,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system/legacy';
 import { StorageAccessFramework } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import DatabaseService from '../database/DatabaseService';
@@ -43,6 +44,7 @@ const formatTime = (secs) => {
 };
 
 const LeadAudioScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [recordings, setRecordings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [playingId, setPlayingId] = useState(null);
@@ -175,20 +177,20 @@ const LeadAudioScreen = ({ navigation }) => {
       // Check expo-av availability
       if (!avAvailable) {
         Alert.alert(
-          'Audio Unavailable',
-          'Audio playback requires a development build.\n\nRun: npx expo prebuild && npx expo run:android'
+          t('common.audioUnavailable'),
+          t('common.audioUnavailableDesc')
         );
         return;
       }
 
       // Verify file exists
       if (!item.filePath) {
-        Alert.alert('Error', 'Audio file path is missing.');
+        Alert.alert(t('common.errorGeneric'), t('common.audioPathMissing'));
         return;
       }
       const fileInfo = await FileSystem.getInfoAsync(item.filePath);
       if (!fileInfo.exists) {
-        Alert.alert('File Not Found', 'The audio file no longer exists.');
+        Alert.alert(t('common.fileNotFound'), t('common.fileNotFoundDesc'));
         return;
       }
 
@@ -207,7 +209,7 @@ const LeadAudioScreen = ({ navigation }) => {
       setTotalDuration(item.duration || 0);
     } catch (err) {
       console.warn('Playback error:', err);
-      Alert.alert('Playback Error', err.message || 'Failed to play audio.');
+      Alert.alert(t('common.playbackError'), err.message);
     }
   }, [unloadSound, playingId, isPaused, resumePlayback, onPlaybackStatusUpdate]);
 
@@ -225,7 +227,7 @@ const LeadAudioScreen = ({ navigation }) => {
   // ─── Delete single audio recording ─────────────────
   const deleteAudio = useCallback((item) => {
     Alert.alert(
-      'Delete Recording',
+      t('common.deleteRecording'),
       `Remove this audio from "${item.leadName}"?\nThe lead itself will NOT be deleted.`,
       [
         { text: 'Cancel', style: 'cancel' },
@@ -241,7 +243,7 @@ const LeadAudioScreen = ({ navigation }) => {
               // Reload list
               loadRecordings();
             } catch (e) {
-              Alert.alert('Error', 'Failed to delete recording.');
+              Alert.alert(t('common.errorGeneric'), t('common.error'));
             }
           },
         },
@@ -270,17 +272,17 @@ const LeadAudioScreen = ({ navigation }) => {
         await FileSystem.writeAsStringAsync(newUri, content, {
           encoding: FileSystem.EncodingType.Base64,
         });
-        Alert.alert('Downloaded', `${fileName} saved to device.`);
+        Alert.alert(t('common.downloaded'), `${fileName}`);
       } catch (safErr) {
         const sharable = await Sharing.isAvailableAsync();
         if (sharable) {
           await Sharing.shareAsync(item.filePath, { mimeType: mime });
         } else {
-          Alert.alert('Error', 'Unable to save file.');
+          Alert.alert(t('common.errorGeneric'), t('common.unableToSave'));
         }
       }
     } catch (e) {
-      Alert.alert('Download Failed', e.message || 'Unknown error');
+      Alert.alert(t('common.downloadFailed'), e.message);
     }
   }, []);
 
@@ -398,8 +400,8 @@ const LeadAudioScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Lead Audio"
-        subtitle={recordings.length + ' recordings'}
+        title={t('leadAudio.title')}
+        subtitle={t('leadAudio.recordingsCount', { count: recordings.length })}
         onBack={() => navigation.goBack()}
       />
       <FlatList
@@ -423,9 +425,9 @@ const LeadAudioScreen = ({ navigation }) => {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="microphone-off" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyTitle}>No Audio Recordings</Text>
+            <Text style={styles.emptyTitle}>{t('leadAudio.noRecordings')}</Text>
             <Text style={styles.emptyText}>
-              Voice notes recorded during lead creation will appear here
+              {t('leadAudio.noRecordingsDesc')}
             </Text>
           </View>
         }

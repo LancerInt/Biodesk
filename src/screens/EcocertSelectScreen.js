@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 
@@ -16,11 +17,13 @@ const TYPES = [
   { name: 'NOP', description: 'USDA National Organic Program', icon: 'earth' },
 ];
 
-const EcocertSelectScreen = ({ navigation }) => (
+const EcocertSelectScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  return (
   <View style={styles.container}>
-    <Header title="Ecocert Certified" onBack={() => navigation.goBack()} />
+    <Header title={t('certificates.ecocertCertified')} onBack={() => navigation.goBack()} />
     <View style={styles.content}>
-      <Text style={styles.heading}>Select Certificate Type</Text>
+      <Text style={styles.heading}>{t('certificates.selectCertType')}</Text>
       {TYPES.map((t) => (
         <TouchableOpacity
           key={t.name}
@@ -44,7 +47,8 @@ const EcocertSelectScreen = ({ navigation }) => (
       ))}
     </View>
   </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.colors.background },

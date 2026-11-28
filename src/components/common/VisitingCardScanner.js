@@ -6,6 +6,7 @@ import {
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system/legacy';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import theme from '../../constants/theme';
 import { isOCRAvailable, recognizeTextFromImage } from '../../utils/ocrService';
 
@@ -278,6 +279,7 @@ const parseBusinessCard = (rawText) => {
 //  VISITING CARD SCANNER COMPONENT
 // ═══════════════════════════════════════════════════════════════
 const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, onAutoFill, tempMode, navigation }) => {
+  const { t } = useTranslation();
   const [processing, setProcessing] = useState(false);
   const [previewCard, setPreviewCard] = useState(null);
   const [editFields, setEditFields] = useState(null);
@@ -468,7 +470,7 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
             <View style={styles.rawTextCard}>
               <View style={styles.rawTextHeader}>
                 <Icon name="text-recognition" size={14} color={theme.colors.primary} />
-                <Text style={styles.rawTextLabel}>Detected Text</Text>
+                <Text style={styles.rawTextLabel}>{t('visitingCard.detectedText')}</Text>
               </View>
               <Text style={styles.rawTextContent} selectable>{editFields.rawText}</Text>
             </View>
@@ -486,11 +488,11 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
           {/* Action buttons */}
           <View style={styles.previewActions}>
             <TouchableOpacity style={styles.cancelBtn} onPress={cancelPreview}>
-              <Text style={styles.cancelBtnText}>Cancel</Text>
+              <Text style={styles.cancelBtnText}>{t('actions.cancel')}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.confirmBtn} onPress={() => confirmCard(true)}>
               <Icon name="check" size={18} color="#FFF" />
-              <Text style={styles.confirmBtnText}>Save & Auto-Fill</Text>
+              <Text style={styles.confirmBtnText}>{t('visitingCard.saveAutoFill')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -511,7 +513,7 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
           disabled={processing}
           activeOpacity={0.7}>
           <Icon name="camera" size={22} color={theme.colors.primary} />
-          <Text style={styles.captureBtnText}>Camera</Text>
+          <Text style={styles.captureBtnText}>{t('visitingCard.camera')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.captureBtn}
@@ -519,7 +521,7 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
           disabled={processing}
           activeOpacity={0.7}>
           <Icon name="image-multiple" size={22} color={theme.colors.primary} />
-          <Text style={styles.captureBtnText}>Gallery</Text>
+          <Text style={styles.captureBtnText}>{t('visitingCard.gallery')}</Text>
         </TouchableOpacity>
       </View>
 
@@ -552,8 +554,8 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
           disabled={processing}
           activeOpacity={0.7}>
           <Icon name="text-recognition" size={20} color="#FFF" />
-          <Text style={styles.liveScanBtnText}>Live Scan</Text>
-          <Text style={styles.liveScanBtnHint}>Real-time OCR</Text>
+          <Text style={styles.liveScanBtnText}>{t('visitingCard.liveScan')}</Text>
+          <Text style={styles.liveScanBtnHint}>{t('visitingCard.realtimeOcr')}</Text>
         </TouchableOpacity>
       )}
 
@@ -561,7 +563,7 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
       {processing && (
         <View style={styles.processingWrap}>
           <ActivityIndicator size="small" color={theme.colors.primary} />
-          <Text style={styles.processingText}>Processing card...</Text>
+          <Text style={styles.processingText}>{t('visitingCard.processingCard')}</Text>
         </View>
       )}
 
@@ -580,7 +582,7 @@ const VisitingCardScanner = ({ leadId, cards = [], onCardScanned, onCardDelete, 
       {/* Saved Cards List */}
       {cards.length > 0 && (
         <View style={styles.cardsSection}>
-          <Text style={styles.cardsTitle}>Scanned Cards ({cards.length})</Text>
+          <Text style={styles.cardsTitle}>{t('visitingCard.scannedCards', { count: cards.length })}</Text>
           {cards.map((card) => (
             <View key={card.id} style={styles.cardItem}>
               <Image source={{ uri: card.imagePath }} style={styles.cardThumb} resizeMode="cover" />

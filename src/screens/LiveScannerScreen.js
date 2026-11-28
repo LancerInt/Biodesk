@@ -4,6 +4,7 @@ import {
   ActivityIndicator, Alert, Platform,
 } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import theme from '../constants/theme';
 
 let VisionCamera = null;
@@ -34,7 +35,9 @@ try {
  *   scanRegion?: { left, top, width, height } — percentage-based scan region
  */
 const LiveScannerScreen = ({ route, navigation }) => {
-  const { onTextRecognized, title = 'Scan Text', scanRegion } = route.params || {};
+  const { t } = useTranslation();
+  const { onTextRecognized, title, scanRegion } = route.params || {};
+  const screenTitle = title || t('liveScanner.scanText', { defaultValue: 'Scan Text' });
 
   const [recognizedText, setRecognizedText] = useState('');
   const [isReady, setIsReady] = useState(false);
@@ -64,7 +67,7 @@ const LiveScannerScreen = ({ route, navigation }) => {
   const handleCapture = useCallback(() => {
     const text = recognizedText.trim();
     if (!text) {
-      Alert.alert('No Text Detected', 'Point the camera at text and try again.');
+      Alert.alert(t('liveScanner.noTextDetected'), t('liveScanner.noTextDetectedDesc'));
       return;
     }
     if (onTextRecognized) {
@@ -80,10 +83,10 @@ const LiveScannerScreen = ({ route, navigation }) => {
         <StatusBar barStyle="light-content" backgroundColor="#000" />
         <Icon name="camera-off" size={48} color="#999" />
         <Text style={styles.errorText}>
-          Vision Camera is not available.{'\n'}Build with dev-client to enable live scanning.
+          {t('liveScanner.visionNotAvailable')}
         </Text>
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
-          <Text style={styles.backBtnText}>Go Back</Text>
+          <Text style={styles.backBtnText}>{t('liveScanner.goBack')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -94,19 +97,19 @@ const LiveScannerScreen = ({ route, navigation }) => {
       <View style={styles.center}>
         <StatusBar barStyle="light-content" backgroundColor="#000" />
         <Icon name="camera-lock" size={48} color="#999" />
-        <Text style={styles.errorText}>Camera permission is required for live scanning.</Text>
+        <Text style={styles.errorText}>{t('liveScanner.cameraPermissionRequired')}</Text>
         <TouchableOpacity
           style={[styles.backBtn, { backgroundColor: theme.colors.primary }]}
           onPress={async () => {
             const granted = await permission.requestPermission();
             if (!granted) {
-              Alert.alert('Permission Denied', 'Camera access is required to scan text.');
+              Alert.alert(t('common.permissionDenied'), t('common.cameraAccessRequired'));
             }
           }}>
-          <Text style={[styles.backBtnText, { color: '#FFF' }]}>Grant Permission</Text>
+          <Text style={[styles.backBtnText, { color: '#FFF' }]}>{t('liveScanner.grantPermission')}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
-          <Text style={styles.backBtnText}>Go Back</Text>
+          <Text style={styles.backBtnText}>{t('liveScanner.goBack')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -117,7 +120,7 @@ const LiveScannerScreen = ({ route, navigation }) => {
       <View style={styles.center}>
         <StatusBar barStyle="light-content" backgroundColor="#000" />
         <ActivityIndicator size="large" color={theme.colors.primary} />
-        <Text style={styles.errorText}>Loading camera...</Text>
+        <Text style={styles.errorText}>{t('liveScanner.loadingCamera')}</Text>
       </View>
     );
   }
@@ -147,7 +150,7 @@ const LiveScannerScreen = ({ route, navigation }) => {
         <TouchableOpacity style={styles.closeBtn} onPress={() => navigation.goBack()}>
           <Icon name="close" size={24} color="#FFF" />
         </TouchableOpacity>
-        <Text style={styles.topTitle}>{title}</Text>
+        <Text style={styles.topTitle}>{screenTitle}</Text>
         <View style={{ width: 40 }} />
       </View>
 
@@ -159,22 +162,22 @@ const LiveScannerScreen = ({ route, navigation }) => {
           <View style={[styles.corner, styles.cornerBL]} />
           <View style={[styles.corner, styles.cornerBR]} />
         </View>
-        <Text style={styles.scanHint}>Position text within the frame</Text>
+        <Text style={styles.scanHint}>{t('liveScanner.positionText')}</Text>
       </View>
 
       {/* Bottom bar — recognized text preview + capture button */}
       <View style={styles.bottomBar}>
         {recognizedText ? (
           <View style={styles.textPreview}>
-            <Text style={styles.textPreviewLabel}>Detected Text:</Text>
+            <Text style={styles.textPreviewLabel}>{t('liveScanner.detectedText')}</Text>
             <Text style={styles.textPreviewContent} numberOfLines={4}>
               {recognizedText}
             </Text>
           </View>
         ) : (
           <View style={styles.textPreview}>
-            <Text style={styles.textPreviewLabel}>Scanning...</Text>
-            <Text style={styles.textPreviewContent}>Point camera at text to detect</Text>
+            <Text style={styles.textPreviewLabel}>{t('liveScanner.scanning')}</Text>
+            <Text style={styles.textPreviewContent}>{t('liveScanner.pointCamera')}</Text>
           </View>
         )}
 
@@ -184,7 +187,7 @@ const LiveScannerScreen = ({ route, navigation }) => {
           disabled={!recognizedText}
           activeOpacity={0.7}>
           <Icon name="check-circle" size={22} color="#FFF" />
-          <Text style={styles.captureBtnText}>Use This Text</Text>
+          <Text style={styles.captureBtnText}>{t('liveScanner.useThisText')}</Text>
         </TouchableOpacity>
       </View>
     </View>

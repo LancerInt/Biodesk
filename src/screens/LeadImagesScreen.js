@@ -7,6 +7,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system/legacy';
 import { StorageAccessFramework } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import DatabaseService from '../database/DatabaseService';
@@ -19,6 +20,7 @@ const GAP = isTablet ? 14 : 10;
 const CARD_W = (screenWidth - PAD * 2 - GAP * (COLS - 1)) / COLS;
 
 const LeadImagesScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -89,14 +91,14 @@ const LeadImagesScreen = ({ navigation }) => {
   }, [navigation]);
 
   const deleteImage = useCallback((item) => {
-    const typeLabel = item.type === 'visiting_card' ? 'visiting card' : 'photo';
+    const typeLabel = item.type === 'visiting_card' ? t('leadImages.visitingCard') : t('leadImages.photo');
     Alert.alert(
-      'Delete Image',
-      `Remove this ${typeLabel} from "${item.leadName}"?\nThe lead itself will NOT be deleted.`,
+      t('common.deleteImage'),
+      t('leadImages.removeImageMsg', { typeLabel, leadName: item.leadName }),
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: 'Delete', style: 'destructive', onPress: async () => {
+          text: t('common.delete'), style: 'destructive', onPress: async () => {
             try {
               await FileSystem.deleteAsync(item.uri, { idempotent: true }).catch(() => {});
               const rawId = item.id.replace(/^(img_|vc_)/, '');
@@ -107,7 +109,7 @@ const LeadImagesScreen = ({ navigation }) => {
               }
               loadImages();
             } catch (e) {
-              Alert.alert('Error', 'Failed to delete image.');
+              Alert.alert(t('common.errorGeneric'), t('common.error'));
             }
           },
         },
@@ -136,18 +138,18 @@ const LeadImagesScreen = ({ navigation }) => {
         await FileSystem.writeAsStringAsync(newUri, content, {
           encoding: FileSystem.EncodingType.Base64,
         });
-        Alert.alert('Downloaded', `${fileName} saved to device.`);
+        Alert.alert(t('common.downloaded'), `${fileName}`);
       } catch (safErr) {
         // Fallback: share the file
         const sharable = await Sharing.isAvailableAsync();
         if (sharable) {
           await Sharing.shareAsync(item.uri, { mimeType: mime });
         } else {
-          Alert.alert('Error', 'Unable to save file.');
+          Alert.alert(t('common.errorGeneric'), t('common.unableToSave'));
         }
       }
     } catch (e) {
-      Alert.alert('Download Failed', e.message || 'Unknown error');
+      Alert.alert(t('common.downloadFailed'), e.message);
     }
   }, []);
 
@@ -197,8 +199,8 @@ const LeadImagesScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Lead Images"
-        subtitle={images.length + ' images'}
+        title={t('leadImages.title')}
+        subtitle={t('leadImages.imagesCount', { count: images.length })}
         onBack={() => navigation.goBack()}
       />
       <FlatList
@@ -224,9 +226,9 @@ const LeadImagesScreen = ({ navigation }) => {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="image-off-outline" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyTitle}>No Lead Images</Text>
+            <Text style={styles.emptyTitle}>{t('leadImages.noImages')}</Text>
             <Text style={styles.emptyText}>
-              Photos and visiting cards captured during lead creation will appear here
+              {t('leadImages.noImagesDesc')}
             </Text>
           </View>
         }

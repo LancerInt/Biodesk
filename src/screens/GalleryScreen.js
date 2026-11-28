@@ -5,6 +5,7 @@ import { Image } from 'expo-image';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system/legacy';
 import { useFocusEffect } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/common/Header';
 import theme from '../constants/theme';
 import DatabaseService from '../database/DatabaseService';
@@ -14,6 +15,7 @@ const COLS = 3;
 const THUMB_SIZE = (width - 48) / COLS;
 
 const GalleryScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [viewerImage, setViewerImage] = useState(null);
@@ -95,8 +97,8 @@ const GalleryScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header
-        title="Gallery"
-        subtitle={`${images.length} images`}
+        title={t('galleryScreen.title')}
+        subtitle={t('galleryScreen.imagesCount', { count: images.length })}
         onBack={() => navigation.goBack()}
       />
       <FlatList
@@ -118,8 +120,8 @@ const GalleryScreen = ({ navigation }) => {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Icon name="image-outline" size={64} color={theme.colors.textLight} />
-            <Text style={styles.emptyTitle}>No Images Yet</Text>
-            <Text style={styles.emptyText}>Captured photos and visiting cards will appear here</Text>
+            <Text style={styles.emptyTitle}>{t('galleryScreen.noImages')}</Text>
+            <Text style={styles.emptyText}>{t('galleryScreen.noImagesDesc')}</Text>
           </View>
         }
       />

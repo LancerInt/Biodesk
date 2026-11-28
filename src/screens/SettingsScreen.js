@@ -20,41 +20,41 @@ const SettingsScreen = ({ navigation }) => {
   const handleChangePin = async () => {
     const stored = await DatabaseService.getSetting('admin_pin');
     if (oldPin !== (stored || '1234')) {
-      Alert.alert('Error', 'Current PIN is incorrect.');
+      Alert.alert(t('common.error'), t('settings.pinIncorrect'));
       return;
     }
     if (newPin.length !== 4 || !/^\d{4}$/.test(newPin)) {
-      Alert.alert('Error', 'New PIN must be exactly 4 digits.');
+      Alert.alert(t('common.error'), t('settings.pinMustBe4Digits'));
       return;
     }
     if (newPin !== confirmPin) {
-      Alert.alert('Error', 'New PINs do not match.');
+      Alert.alert(t('common.error'), t('settings.pinsDoNotMatch'));
       return;
     }
     await DatabaseService.setSetting('admin_pin', newPin);
-    Alert.alert('Success', 'Admin PIN changed successfully!');
+    Alert.alert(t('common.success'), t('settings.pinChangedSuccess'));
     setPinSection(false);
     setOldPin(''); setNewPin(''); setConfirmPin('');
   };
 
   const handleClearLeads = () => {
     Alert.alert(
-      'Clear All Leads',
-      'This will permanently delete all captured leads. This cannot be undone.',
+      t('settings.clearAllLeadsTitle'),
+      t('settings.clearAllLeadsMsg'),
       [
-        { text: 'Cancel', style: 'cancel' },
-        { text: 'Clear Leads', style: 'destructive', onPress: async () => { await DatabaseService.clearLeads(); Alert.alert('Done', 'All leads have been cleared.'); } },
+        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('settings.clearLeadsBtn'), style: 'destructive', onPress: async () => { await DatabaseService.clearLeads(); Alert.alert(t('common.done'), t('settings.leadsCleared')); } },
       ]
     );
   };
 
   const handleClearAll = () => {
     Alert.alert(
-      'Clear All Data',
-      'This will delete ALL leads, meetings, and stored data. This cannot be undone.',
+      t('settings.clearAllDataTitle'),
+      t('settings.clearAllDataMsg'),
       [
-        { text: 'Cancel', style: 'cancel' },
-        { text: 'Clear Everything', style: 'destructive', onPress: async () => { await DatabaseService.clearAll(); Alert.alert('Done', 'All data cleared.'); } },
+        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('settings.clearEverythingBtn'), style: 'destructive', onPress: async () => { await DatabaseService.clearAll(); Alert.alert(t('common.done'), t('settings.allDataCleared')); } },
       ]
     );
   };
@@ -91,33 +91,33 @@ const SettingsScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.sectionLabel}>Security</Text>
+        <Text style={styles.sectionLabel}>{t('settings.security')}</Text>
         <View style={styles.card}>
-          <SettingRow icon="lock-reset" iconColor="#1B5E20" title="Change Admin PIN" desc="Update the 4-digit admin PIN" onPress={() => setPinSection(!pinSection)} />
+          <SettingRow icon="lock-reset" iconColor="#1B5E20" title={t('settings.changeAdminPin')} desc={t('settings.changeAdminPinDesc')} onPress={() => setPinSection(!pinSection)} />
           {pinSection && (
             <View style={styles.pinForm}>
-              <PinField label="Current PIN" value={oldPin} onChange={setOldPin} />
-              <PinField label="New PIN" value={newPin} onChange={setNewPin} />
-              <PinField label="Confirm New PIN" value={confirmPin} onChange={setConfirmPin} />
+              <PinField label={t('settings.currentPin')} value={oldPin} onChange={setOldPin} />
+              <PinField label={t('settings.newPin')} value={newPin} onChange={setNewPin} />
+              <PinField label={t('settings.confirmNewPin')} value={confirmPin} onChange={setConfirmPin} />
               <TouchableOpacity style={styles.pinSaveBtn} onPress={handleChangePin}>
-                <Text style={styles.pinSaveBtnText}>Update PIN</Text>
+                <Text style={styles.pinSaveBtnText}>{t('settings.updatePin')}</Text>
               </TouchableOpacity>
             </View>
           )}
         </View>
 
-        <Text style={styles.sectionLabel}>Sync & Backup</Text>
+        <Text style={styles.sectionLabel}>{t('settings.syncBackup')}</Text>
         <View style={styles.card}>
-          <SettingRow icon="cloud-sync" iconColor="#37474F" title="Sync & Backup" desc="Export leads, backup data" onPress={() => navigation.navigate('Sync')} />
+          <SettingRow icon="cloud-sync" iconColor="#37474F" title={t('settings.syncBackup')} desc={t('settings.syncBackupDesc')} onPress={() => navigation.navigate('Sync')} />
         </View>
 
-        <Text style={styles.sectionLabel}>Data Management</Text>
+        <Text style={styles.sectionLabel}>{t('settings.dataManagement')}</Text>
         <View style={styles.card}>
-          <SettingRow icon="trash-can" iconColor={theme.colors.error} title="Clear Lead Data" desc="Delete all captured leads" onPress={handleClearLeads} danger />
-          <SettingRow icon="delete-forever" iconColor={theme.colors.error} title="Clear All Data" desc="Delete all leads, meetings, and notes" onPress={handleClearAll} danger />
+          <SettingRow icon="trash-can" iconColor={theme.colors.error} title={t('settings.clearLeadData')} desc={t('settings.clearLeadDataDesc')} onPress={handleClearLeads} danger />
+          <SettingRow icon="delete-forever" iconColor={theme.colors.error} title={t('settings.clearAllData')} desc={t('settings.clearAllDataDesc')} onPress={handleClearAll} danger />
         </View>
 
-        <Text style={styles.sectionLabel}>About</Text>
+        <Text style={styles.sectionLabel}>{t('settings.about')}</Text>
         <View style={styles.card}>
           <View style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: theme.colors.primary + '15' }]}>
@@ -125,7 +125,7 @@ const SettingsScreen = ({ navigation }) => {
             </View>
             <View style={styles.rowText}>
               <Text style={styles.rowTitle}>BioDesk</Text>
-              <Text style={styles.rowDesc}>Version 1.0.0 | by Kriya Biosys</Text>
+              <Text style={styles.rowDesc}>{t('settings.version')} 1.0.0 | Kriya Biosys</Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -133,8 +133,8 @@ const SettingsScreen = ({ navigation }) => {
               <Icon name="leaf" size={22} color="#FF9800" />
             </View>
             <View style={styles.rowText}>
-              <Text style={styles.rowTitle}>Product Database</Text>
-              <Text style={styles.rowDesc}>40 products across 5 categories</Text>
+              <Text style={styles.rowTitle}>{t('settings.productDatabase')}</Text>
+              <Text style={styles.rowDesc}>{t('settings.productDatabaseDesc')}</Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -142,8 +142,8 @@ const SettingsScreen = ({ navigation }) => {
               <Icon name="wifi-off" size={22} color="#2196F3" />
             </View>
             <View style={styles.rowText}>
-              <Text style={styles.rowTitle}>Offline Mode</Text>
-              <Text style={styles.rowDesc}>All features work without internet</Text>
+              <Text style={styles.rowTitle}>{t('settings.offlineMode')}</Text>
+              <Text style={styles.rowDesc}>{t('settings.offlineModeDesc')}</Text>
             </View>
           </View>
         </View>
